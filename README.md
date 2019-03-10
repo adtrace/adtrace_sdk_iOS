@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Summary
 
 This is the iOS SDK of adtrace™. You can read more about adtrace™ at [adtrace.com].
@@ -1072,4 +1071,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 =======
 # ios_SDK
->>>>>>> refs/remotes/origin/master

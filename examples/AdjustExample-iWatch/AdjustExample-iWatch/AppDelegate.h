@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Adjust.h"
+#import "Adtrace.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, AdjustDelegate>
 

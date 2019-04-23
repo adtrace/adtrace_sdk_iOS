@@ -6,7 +6,7 @@
 //  Copyright © 2016 adjust GmbH. All rights reserved.
 //
 
-#import "Adjust.h"
+#import "Adtrace.h"
 #import "ViewControllerWatch.h"
 #import "AdjustTrackingHelper.h"
 

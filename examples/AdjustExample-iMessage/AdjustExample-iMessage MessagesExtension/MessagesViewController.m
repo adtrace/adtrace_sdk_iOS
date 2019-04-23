@@ -6,7 +6,7 @@
 //  Copyright © 2018 Adjust GmbH. All rights reserved.
 //
 
-#import "Adjust.h"
+#import "Adtrace.h"
 #import "MessagesViewController.h"
 
 @interface MessagesViewController ()
@@ -31,21 +31,21 @@
         [adjustConfig setLogLevel:ADJLogLevelVerbose];
 
         // Add session callback parameters.
-        [Adjust addSessionCallbackParameter:@"sp_foo" value:@"sp_bar"];
-        [Adjust addSessionCallbackParameter:@"sp_key" value:@"sp_value"];
+        [Adtrace addSessionCallbackParameter:@"sp_foo" value:@"sp_bar"];
+        [Adtrace addSessionCallbackParameter:@"sp_key" value:@"sp_value"];
 
         // Add session partner parameters.
-        [Adjust addSessionPartnerParameter:@"sp_foo" value:@"sp_bar"];
-        [Adjust addSessionPartnerParameter:@"sp_key" value:@"sp_value"];
+        [Adtrace addSessionPartnerParameter:@"sp_foo" value:@"sp_bar"];
+        [Adtrace addSessionPartnerParameter:@"sp_key" value:@"sp_value"];
 
         // Remove session callback parameter.
-        [Adjust removeSessionCallbackParameter:@"sp_key"];
+        [Adtrace removeSessionCallbackParameter:@"sp_key"];
 
         // Remove session partner parameter.
-        [Adjust removeSessionPartnerParameter:@"sp_foo"];
+        [Adtrace removeSessionPartnerParameter:@"sp_foo"];
 
         // Initialise the SDK.
-        [Adjust appDidLaunch:adjustConfig];
+        [Adtrace appDidLaunch:adjustConfig];
     });
 }
 
@@ -61,7 +61,7 @@
     
     // Use this method to configure the extension and restore previously stored state.
 
-    [Adjust trackSubsessionStart];
+    [Adtrace trackSubsessionStart];
 }
 
 -(void)willResignActiveWithConversation:(MSConversation *)conversation {
@@ -73,7 +73,7 @@
     // and store enough state information to restore your extension to its current state
     // in case it is terminated later.
 
-    [Adjust trackSubsessionEnd];
+    [Adtrace trackSubsessionEnd];
 }
 
 -(void)didReceiveMessage:(MSMessage *)message conversation:(MSConversation *)conversation {
@@ -107,7 +107,7 @@
 
 - (IBAction)clickTrackSimpleEvent:(id)sender {
     ADJEvent *event = [ADJEvent eventWithEventToken:@"g3mfiw"];
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 @end

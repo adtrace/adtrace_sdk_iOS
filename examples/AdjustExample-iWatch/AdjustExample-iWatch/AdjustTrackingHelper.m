@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Adjust.h"
+#import "Adtrace.h"
 #import "AdjustTrackingHelper.h"
 
 @implementation AdjustTrackingHelper
@@ -44,7 +44,7 @@
     // Set an attribution delegate.
     [adjustConfig setDelegate:delegate];
 
-    [Adjust appDidLaunch:adjustConfig];
+    [Adtrace appDidLaunch:adjustConfig];
 
     // Put the SDK in offline mode.
     // [Adjust setOfflineMode:YES];
@@ -56,7 +56,7 @@
 - (void)trackSimpleEvent {
     ADJEvent *event = [ADJEvent eventWithEventToken:@"{YourEventToken}"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (void)trackRevenueEvent {
@@ -65,7 +65,7 @@
     // Add revenue 15 cent of an euro.
     [event setRevenue:0.015 currency:@"EUR"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (void)trackCallbackEvent {
@@ -74,7 +74,7 @@
     // Add callback parameters to this parameter.
     [event addCallbackParameter:@"key" value:@"value"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (void)trackPartnerEvent {
@@ -83,7 +83,7 @@
     // Add partner parameteres to all events and sessions.
     [event addPartnerParameter:@"foo" value:@"bar"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 @end

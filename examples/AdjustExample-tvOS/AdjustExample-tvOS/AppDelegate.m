@@ -36,18 +36,18 @@
     [adjustConfig setSendInBackground:YES];
     
     // Add session callback parameters.
-    [Adjust addSessionCallbackParameter:@"sp_foo" value:@"sp_bar"];
-    [Adjust addSessionCallbackParameter:@"sp_key" value:@"sp_value"];
+    [Adtrace addSessionCallbackParameter:@"sp_foo" value:@"sp_bar"];
+    [Adtrace addSessionCallbackParameter:@"sp_key" value:@"sp_value"];
     
     // Add session partner parameters.
-    [Adjust addSessionPartnerParameter:@"sp_foo" value:@"sp_bar"];
-    [Adjust addSessionPartnerParameter:@"sp_key" value:@"sp_value"];
+    [Adtrace addSessionPartnerParameter:@"sp_foo" value:@"sp_bar"];
+    [Adtrace addSessionPartnerParameter:@"sp_key" value:@"sp_value"];
     
     // Remove session callback parameter.
-    [Adjust removeSessionCallbackParameter:@"sp_key"];
+    [Adtrace removeSessionCallbackParameter:@"sp_key"];
     
     // Remove session partner parameter.
-    [Adjust removeSessionPartnerParameter:@"sp_foo"];
+    [Adtrace removeSessionPartnerParameter:@"sp_foo"];
     
     // Remove all session callback parameters.
     // [Adjust resetSessionCallbackParameters];
@@ -62,7 +62,7 @@
     // [adjustConfig setDelayStart:7];
     
     // Initialise the SDK.
-    [Adjust appDidLaunch:adjustConfig];
+    [Adtrace appDidLaunch:adjustConfig];
     
     // Put the SDK in offline mode.
     // [Adjust setOfflineMode:YES];
@@ -77,15 +77,15 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-    [Adjust appWillOpenUrl:url];
+    [Adtrace appWillOpenUrl:url];
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *restorableObjects))restorationHandler {
     if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
         NSLog(@"continueUserActivity method called with URL: %@", [userActivity webpageURL]);
-        [Adjust convertUniversalLink:[userActivity webpageURL] scheme:@"adjustExample"];
-        [Adjust appWillOpenUrl:[userActivity webpageURL]];
+        [Adtrace convertUniversalLink:[userActivity webpageURL] scheme:@"adjustExample"];
+        [Adtrace appWillOpenUrl:[userActivity webpageURL]];
     }
     
     return YES;

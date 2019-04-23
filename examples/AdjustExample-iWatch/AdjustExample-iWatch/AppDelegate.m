@@ -32,7 +32,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [Adjust appWillOpenUrl:url];
+    [Adtrace appWillOpenUrl:url];
 
     return YES;
 }

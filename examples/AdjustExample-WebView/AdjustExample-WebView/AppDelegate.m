@@ -6,7 +6,7 @@
 //  Copyright © 2016 adjust GmbH. All rights reserved.
 //
 
-#import "Adjust.h"
+#import "Adtrace.h"
 #import "AppDelegate.h"
 #import "UIWebViewController.h"
 #import "WKWebViewController.h"
@@ -45,13 +45,13 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [Adjust appWillOpenUrl:url];
+    [Adtrace appWillOpenUrl:url];
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *restorableObjects))restorationHandler {
     if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        [Adjust appWillOpenUrl:[userActivity webpageURL]];
+        [Adtrace appWillOpenUrl:[userActivity webpageURL]];
     }
     return YES;
 }

@@ -1,0 +1,675 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		59CFF7F2226B586000822CC3 /* ADJDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7AF226B586000822CC3 /* ADJDeviceInfo.m */; };
+		59CFF7F3226B586000822CC3 /* ADJTimerOnce.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7B0226B586000822CC3 /* ADJTimerOnce.m */; };
+		59CFF7F4226B586000822CC3 /* ADJAttributionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7B1226B586000822CC3 /* ADJAttributionHandler.m */; };
+		59CFF7F5226B586000822CC3 /* ADJRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7B3226B586000822CC3 /* ADJRequestHandler.m */; };
+		59CFF7F6226B586000822CC3 /* ADJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7B6226B586000822CC3 /* ADJKeychain.m */; };
+		59CFF7F7226B586000822CC3 /* ADJSdkClickHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7B7226B586000822CC3 /* ADJSdkClickHandler.m */; };
+		59CFF7F8226B586000822CC3 /* ADJEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7B9226B586000822CC3 /* ADJEvent.m */; };
+		59CFF7F9226B586000822CC3 /* ADJSessionSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7BD226B586000822CC3 /* ADJSessionSuccess.m */; };
+		59CFF7FA226B586000822CC3 /* ADJEventFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7BF226B586000822CC3 /* ADJEventFailure.m */; };
+		59CFF7FB226B586000822CC3 /* ADJEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7C1226B586000822CC3 /* ADJEventSuccess.m */; };
+		59CFF7FC226B586000822CC3 /* ADJActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7C2226B586000822CC3 /* ADJActivityState.m */; };
+		59CFF7FD226B586000822CC3 /* ADJSessionFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7C3226B586000822CC3 /* ADJSessionFailure.m */; };
+		59CFF7FE226B586000822CC3 /* ADJTimerCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7C7226B586000822CC3 /* ADJTimerCycle.m */; };
+		59CFF7FF226B586000822CC3 /* ADJSessionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7C8226B586000822CC3 /* ADJSessionParameters.m */; };
+		59CFF800226B586000822CC3 /* ADJLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7C9226B586000822CC3 /* ADJLogger.m */; };
+		59CFF801226B586000822CC3 /* ADJBackoffStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7CA226B586000822CC3 /* ADJBackoffStrategy.m */; };
+		59CFF802226B586000822CC3 /* ADJConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7CF226B586000822CC3 /* ADJConfig.m */; };
+		59CFF803226B586000822CC3 /* ADJPackageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7D0226B586000822CC3 /* ADJPackageHandler.m */; };
+		59CFF804226B586000822CC3 /* ADJActivityKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7D3226B586000822CC3 /* ADJActivityKind.m */; };
+		59CFF805226B586000822CC3 /* NSString+ADJAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7D6226B586000822CC3 /* NSString+ADJAdditions.m */; };
+		59CFF806226B586000822CC3 /* NSData+ADJAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7D8226B586000822CC3 /* NSData+ADJAdditions.m */; };
+		59CFF807226B586000822CC3 /* UIDevice+ADJAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7DA226B586000822CC3 /* UIDevice+ADJAdditions.m */; };
+		59CFF808226B586000822CC3 /* ADJAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7DC226B586000822CC3 /* ADJAttribution.m */; };
+		59CFF809226B586000822CC3 /* ADJSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7DD226B586000822CC3 /* ADJSystemProfile.m */; };
+		59CFF80A226B586000822CC3 /* ADJActivityPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7DF226B586000822CC3 /* ADJActivityPackage.m */; };
+		59CFF80B226B586000822CC3 /* ADJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7E0226B586000822CC3 /* ADJUtil.m */; };
+		59CFF80C226B586000822CC3 /* ADJAdjustFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7E3226B586000822CC3 /* ADJAdjustFactory.m */; };
+		59CFF80D226B586000822CC3 /* ADJResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7E6226B586000822CC3 /* ADJResponseData.m */; };
+		59CFF80E226B586000822CC3 /* Adtrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7E8226B586000822CC3 /* Adtrace.m */; };
+		59CFF80F226B586000822CC3 /* ADJPackageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7E9226B586000822CC3 /* ADJPackageBuilder.m */; };
+		59CFF810226B586000822CC3 /* ADJUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7EA226B586000822CC3 /* ADJUserDefaults.m */; };
+		59CFF811226B586000822CC3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59CFF7EE226B586000822CC3 /* Info.plist */; };
+		59CFF812226B586000822CC3 /* ADJActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7F0226B586000822CC3 /* ADJActivityHandler.m */; };
+		59CFF813226B586000822CC3 /* ADJReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CFF7F1226B586000822CC3 /* ADJReachability.m */; };
+		6F08422C2007769F00568A31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F08422B2007769F00568A31 /* AppDelegate.m */; };
+		6F08422F2007769F00568A31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F08422E2007769F00568A31 /* ViewController.m */; };
+		6F0842322007769F00568A31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0842302007769F00568A31 /* Main.storyboard */; };
+		6F0842342007769F00568A31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F0842332007769F00568A31 /* Assets.xcassets */; };
+		6F084237200776A000568A31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F084235200776A000568A31 /* LaunchScreen.storyboard */; };
+		6F08423A200776A000568A31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F084239200776A000568A31 /* main.m */; };
+		6F3A5E9E2018CE3A000AACD0 /* ATLTestInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A5E912018CE3A000AACD0 /* ATLTestInfo.m */; };
+		6F3A5E9F2018CE3A000AACD0 /* ATLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A5E982018CE3A000AACD0 /* ATLUtil.m */; };
+		6F3A5EA02018CE3A000AACD0 /* ATLControlChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A5E9A2018CE3A000AACD0 /* ATLControlChannel.m */; };
+		6F3A5EA12018CE3A000AACD0 /* ATLUtilNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A5E9B2018CE3A000AACD0 /* ATLUtilNetworking.m */; };
+		6F3A5EA22018CE3A000AACD0 /* ATLTestLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A5E9C2018CE3A000AACD0 /* ATLTestLibrary.m */; };
+		6F3A5EA32018CE3A000AACD0 /* ATLBlockingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A5E9D2018CE3A000AACD0 /* ATLBlockingQueue.m */; };
+		6FFCFE5F2007978300467F01 /* ATAAdjustCommandExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE5D2007978300467F01 /* ATAAdjustCommandExecutor.m */; };
+		6FFCFE6D200797D100467F01 /* ATAAdjustDelegateAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE61200797D000467F01 /* ATAAdjustDelegateAttribution.m */; };
+		6FFCFE6E200797D100467F01 /* ATAAdjustDelegateEventFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE63200797D000467F01 /* ATAAdjustDelegateEventFailure.m */; };
+		6FFCFE6F200797D100467F01 /* ATAAdjustDelegateSessionFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE65200797D000467F01 /* ATAAdjustDelegateSessionFailure.m */; };
+		6FFCFE70200797D100467F01 /* ATAAdjustDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE66200797D000467F01 /* ATAAdjustDelegate.m */; };
+		6FFCFE71200797D100467F01 /* ATAAdjustDelegateEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE69200797D000467F01 /* ATAAdjustDelegateEventSuccess.m */; };
+		6FFCFE72200797D100467F01 /* ATAAdjustDelegateSessionSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFCFE6A200797D000467F01 /* ATAAdjustDelegateSessionSuccess.m */; };
+		9D1D8E9E219246E50088E3CF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1D8E9D219246E50088E3CF /* iAd.framework */; };
+		9D1D8EA0219246EA0088E3CF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1D8E9F219246EA0088E3CF /* AdSupport.framework */; };
+		9D1D8EA2219246EF0088E3CF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D1D8EA1219246EF0088E3CF /* CoreTelephony.framework */; };
+		9D75AFDB210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D75AFDA210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		59CFF7AE226B586000822CC3 /* ADJConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJConfig.h; sourceTree = "<group>"; };
+		59CFF7AF226B586000822CC3 /* ADJDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJDeviceInfo.m; sourceTree = "<group>"; };
+		59CFF7B0226B586000822CC3 /* ADJTimerOnce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJTimerOnce.m; sourceTree = "<group>"; };
+		59CFF7B1226B586000822CC3 /* ADJAttributionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJAttributionHandler.m; sourceTree = "<group>"; };
+		59CFF7B2226B586000822CC3 /* ADJActivityPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJActivityPackage.h; sourceTree = "<group>"; };
+		59CFF7B3226B586000822CC3 /* ADJRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJRequestHandler.m; sourceTree = "<group>"; };
+		59CFF7B4226B586000822CC3 /* ADJSystemProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSystemProfile.h; sourceTree = "<group>"; };
+		59CFF7B5226B586000822CC3 /* ADJAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJAttribution.h; sourceTree = "<group>"; };
+		59CFF7B6226B586000822CC3 /* ADJKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJKeychain.m; sourceTree = "<group>"; };
+		59CFF7B7226B586000822CC3 /* ADJSdkClickHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSdkClickHandler.m; sourceTree = "<group>"; };
+		59CFF7B8226B586000822CC3 /* ADJActivityKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJActivityKind.h; sourceTree = "<group>"; };
+		59CFF7B9226B586000822CC3 /* ADJEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJEvent.m; sourceTree = "<group>"; };
+		59CFF7BA226B586000822CC3 /* ADJPackageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJPackageHandler.h; sourceTree = "<group>"; };
+		59CFF7BB226B586000822CC3 /* ADJPackageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJPackageBuilder.h; sourceTree = "<group>"; };
+		59CFF7BC226B586000822CC3 /* ADJResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJResponseData.h; sourceTree = "<group>"; };
+		59CFF7BD226B586000822CC3 /* ADJSessionSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSessionSuccess.m; sourceTree = "<group>"; };
+		59CFF7BE226B586000822CC3 /* Adtrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adtrace.h; sourceTree = "<group>"; };
+		59CFF7BF226B586000822CC3 /* ADJEventFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJEventFailure.m; sourceTree = "<group>"; };
+		59CFF7C0226B586000822CC3 /* ADJAdjustFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJAdjustFactory.h; sourceTree = "<group>"; };
+		59CFF7C1226B586000822CC3 /* ADJEventSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJEventSuccess.m; sourceTree = "<group>"; };
+		59CFF7C2226B586000822CC3 /* ADJActivityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJActivityState.m; sourceTree = "<group>"; };
+		59CFF7C3226B586000822CC3 /* ADJSessionFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSessionFailure.m; sourceTree = "<group>"; };
+		59CFF7C4226B586000822CC3 /* ADJUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUtil.h; sourceTree = "<group>"; };
+		59CFF7C5226B586000822CC3 /* ADJReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJReachability.h; sourceTree = "<group>"; };
+		59CFF7C6226B586000822CC3 /* ADJActivityHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJActivityHandler.h; sourceTree = "<group>"; };
+		59CFF7C7226B586000822CC3 /* ADJTimerCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJTimerCycle.m; sourceTree = "<group>"; };
+		59CFF7C8226B586000822CC3 /* ADJSessionParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSessionParameters.m; sourceTree = "<group>"; };
+		59CFF7C9226B586000822CC3 /* ADJLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJLogger.m; sourceTree = "<group>"; };
+		59CFF7CA226B586000822CC3 /* ADJBackoffStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJBackoffStrategy.m; sourceTree = "<group>"; };
+		59CFF7CB226B586000822CC3 /* ADJUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJUserDefaults.h; sourceTree = "<group>"; };
+		59CFF7CC226B586000822CC3 /* ADJAttributionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJAttributionHandler.h; sourceTree = "<group>"; };
+		59CFF7CD226B586000822CC3 /* ADJTimerOnce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJTimerOnce.h; sourceTree = "<group>"; };
+		59CFF7CE226B586000822CC3 /* ADJDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJDeviceInfo.h; sourceTree = "<group>"; };
+		59CFF7CF226B586000822CC3 /* ADJConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJConfig.m; sourceTree = "<group>"; };
+		59CFF7D0226B586000822CC3 /* ADJPackageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJPackageHandler.m; sourceTree = "<group>"; };
+		59CFF7D1226B586000822CC3 /* ADJEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJEvent.h; sourceTree = "<group>"; };
+		59CFF7D2226B586000822CC3 /* ADJSdkClickHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSdkClickHandler.h; sourceTree = "<group>"; };
+		59CFF7D3226B586000822CC3 /* ADJActivityKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJActivityKind.m; sourceTree = "<group>"; };
+		59CFF7D4226B586000822CC3 /* ADJKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJKeychain.h; sourceTree = "<group>"; };
+		59CFF7D6226B586000822CC3 /* NSString+ADJAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ADJAdditions.m"; sourceTree = "<group>"; };
+		59CFF7D7226B586000822CC3 /* UIDevice+ADJAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ADJAdditions.h"; sourceTree = "<group>"; };
+		59CFF7D8226B586000822CC3 /* NSData+ADJAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ADJAdditions.m"; sourceTree = "<group>"; };
+		59CFF7D9226B586000822CC3 /* NSData+ADJAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ADJAdditions.h"; sourceTree = "<group>"; };
+		59CFF7DA226B586000822CC3 /* UIDevice+ADJAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ADJAdditions.m"; sourceTree = "<group>"; };
+		59CFF7DB226B586000822CC3 /* NSString+ADJAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ADJAdditions.h"; sourceTree = "<group>"; };
+		59CFF7DC226B586000822CC3 /* ADJAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJAttribution.m; sourceTree = "<group>"; };
+		59CFF7DD226B586000822CC3 /* ADJSystemProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJSystemProfile.m; sourceTree = "<group>"; };
+		59CFF7DE226B586000822CC3 /* ADJRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJRequestHandler.h; sourceTree = "<group>"; };
+		59CFF7DF226B586000822CC3 /* ADJActivityPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJActivityPackage.m; sourceTree = "<group>"; };
+		59CFF7E0226B586000822CC3 /* ADJUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUtil.m; sourceTree = "<group>"; };
+		59CFF7E1226B586000822CC3 /* ADJSessionFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSessionFailure.h; sourceTree = "<group>"; };
+		59CFF7E2226B586000822CC3 /* ADJActivityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJActivityState.h; sourceTree = "<group>"; };
+		59CFF7E3226B586000822CC3 /* ADJAdjustFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJAdjustFactory.m; sourceTree = "<group>"; };
+		59CFF7E4226B586000822CC3 /* ADJEventSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJEventSuccess.h; sourceTree = "<group>"; };
+		59CFF7E5226B586000822CC3 /* ADJEventFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJEventFailure.h; sourceTree = "<group>"; };
+		59CFF7E6226B586000822CC3 /* ADJResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJResponseData.m; sourceTree = "<group>"; };
+		59CFF7E7226B586000822CC3 /* ADJSessionSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSessionSuccess.h; sourceTree = "<group>"; };
+		59CFF7E8226B586000822CC3 /* Adtrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Adtrace.m; sourceTree = "<group>"; };
+		59CFF7E9226B586000822CC3 /* ADJPackageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJPackageBuilder.m; sourceTree = "<group>"; };
+		59CFF7EA226B586000822CC3 /* ADJUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJUserDefaults.m; sourceTree = "<group>"; };
+		59CFF7EB226B586000822CC3 /* ADJBackoffStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJBackoffStrategy.h; sourceTree = "<group>"; };
+		59CFF7EC226B586000822CC3 /* ADJLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJLogger.h; sourceTree = "<group>"; };
+		59CFF7ED226B586000822CC3 /* ADJSessionParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJSessionParameters.h; sourceTree = "<group>"; };
+		59CFF7EE226B586000822CC3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		59CFF7EF226B586000822CC3 /* ADJTimerCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADJTimerCycle.h; sourceTree = "<group>"; };
+		59CFF7F0226B586000822CC3 /* ADJActivityHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJActivityHandler.m; sourceTree = "<group>"; };
+		59CFF7F1226B586000822CC3 /* ADJReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADJReachability.m; sourceTree = "<group>"; };
+		6F0842272007769F00568A31 /* AdjustTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdjustTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F08422A2007769F00568A31 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6F08422B2007769F00568A31 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6F08422D2007769F00568A31 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6F08422E2007769F00568A31 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6F0842312007769F00568A31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6F0842332007769F00568A31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F084236200776A000568A31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6F084238200776A000568A31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F084239200776A000568A31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F3A5E912018CE3A000AACD0 /* ATLTestInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLTestInfo.m; sourceTree = "<group>"; };
+		6F3A5E922018CE3A000AACD0 /* ATLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLUtil.h; sourceTree = "<group>"; };
+		6F3A5E932018CE3A000AACD0 /* ATLControlChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLControlChannel.h; sourceTree = "<group>"; };
+		6F3A5E942018CE3A000AACD0 /* ATLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLConstants.h; sourceTree = "<group>"; };
+		6F3A5E952018CE3A000AACD0 /* ATLTestLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLTestLibrary.h; sourceTree = "<group>"; };
+		6F3A5E962018CE3A000AACD0 /* ATLUtilNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLUtilNetworking.h; sourceTree = "<group>"; };
+		6F3A5E972018CE3A000AACD0 /* ATLBlockingQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLBlockingQueue.h; sourceTree = "<group>"; };
+		6F3A5E982018CE3A000AACD0 /* ATLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLUtil.m; sourceTree = "<group>"; };
+		6F3A5E992018CE3A000AACD0 /* ATLTestInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLTestInfo.h; sourceTree = "<group>"; };
+		6F3A5E9A2018CE3A000AACD0 /* ATLControlChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLControlChannel.m; sourceTree = "<group>"; };
+		6F3A5E9B2018CE3A000AACD0 /* ATLUtilNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLUtilNetworking.m; sourceTree = "<group>"; };
+		6F3A5E9C2018CE3A000AACD0 /* ATLTestLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLTestLibrary.m; sourceTree = "<group>"; };
+		6F3A5E9D2018CE3A000AACD0 /* ATLBlockingQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLBlockingQueue.m; sourceTree = "<group>"; };
+		6FFCFE5D2007978300467F01 /* ATAAdjustCommandExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustCommandExecutor.m; sourceTree = "<group>"; };
+		6FFCFE5E2007978300467F01 /* ATAAdjustCommandExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustCommandExecutor.h; sourceTree = "<group>"; };
+		6FFCFE61200797D000467F01 /* ATAAdjustDelegateAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegateAttribution.m; sourceTree = "<group>"; };
+		6FFCFE62200797D000467F01 /* ATAAdjustDelegateSessionFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegateSessionFailure.h; sourceTree = "<group>"; };
+		6FFCFE63200797D000467F01 /* ATAAdjustDelegateEventFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegateEventFailure.m; sourceTree = "<group>"; };
+		6FFCFE64200797D000467F01 /* ATAAdjustDelegateEventFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegateEventFailure.h; sourceTree = "<group>"; };
+		6FFCFE65200797D000467F01 /* ATAAdjustDelegateSessionFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegateSessionFailure.m; sourceTree = "<group>"; };
+		6FFCFE66200797D000467F01 /* ATAAdjustDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegate.m; sourceTree = "<group>"; };
+		6FFCFE67200797D000467F01 /* ATAAdjustDelegateSessionSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegateSessionSuccess.h; sourceTree = "<group>"; };
+		6FFCFE68200797D000467F01 /* ATAAdjustDelegateAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegateAttribution.h; sourceTree = "<group>"; };
+		6FFCFE69200797D000467F01 /* ATAAdjustDelegateEventSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegateEventSuccess.m; sourceTree = "<group>"; };
+		6FFCFE6A200797D000467F01 /* ATAAdjustDelegateSessionSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegateSessionSuccess.m; sourceTree = "<group>"; };
+		6FFCFE6B200797D000467F01 /* ATAAdjustDelegateEventSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegateEventSuccess.h; sourceTree = "<group>"; };
+		6FFCFE6C200797D000467F01 /* ATAAdjustDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegate.h; sourceTree = "<group>"; };
+		9D1D8E9D219246E50088E3CF /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		9D1D8E9F219246EA0088E3CF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		9D1D8EA1219246EF0088E3CF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9D75AFD9210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATAAdjustDelegateDeferredDeeplink.h; sourceTree = "<group>"; };
+		9D75AFDA210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATAAdjustDelegateDeferredDeeplink.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F0842242007769F00568A31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D1D8E9E219246E50088E3CF /* iAd.framework in Frameworks */,
+				9D1D8EA0219246EA0088E3CF /* AdSupport.framework in Frameworks */,
+				9D1D8EA2219246EF0088E3CF /* CoreTelephony.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		59CFF7AD226B586000822CC3 /* Adtrace */ = {
+			isa = PBXGroup;
+			children = (
+				59CFF7AE226B586000822CC3 /* ADJConfig.h */,
+				59CFF7AF226B586000822CC3 /* ADJDeviceInfo.m */,
+				59CFF7B0226B586000822CC3 /* ADJTimerOnce.m */,
+				59CFF7B1226B586000822CC3 /* ADJAttributionHandler.m */,
+				59CFF7B2226B586000822CC3 /* ADJActivityPackage.h */,
+				59CFF7B3226B586000822CC3 /* ADJRequestHandler.m */,
+				59CFF7B4226B586000822CC3 /* ADJSystemProfile.h */,
+				59CFF7B5226B586000822CC3 /* ADJAttribution.h */,
+				59CFF7B6226B586000822CC3 /* ADJKeychain.m */,
+				59CFF7B7226B586000822CC3 /* ADJSdkClickHandler.m */,
+				59CFF7B8226B586000822CC3 /* ADJActivityKind.h */,
+				59CFF7B9226B586000822CC3 /* ADJEvent.m */,
+				59CFF7BA226B586000822CC3 /* ADJPackageHandler.h */,
+				59CFF7BB226B586000822CC3 /* ADJPackageBuilder.h */,
+				59CFF7BC226B586000822CC3 /* ADJResponseData.h */,
+				59CFF7BD226B586000822CC3 /* ADJSessionSuccess.m */,
+				59CFF7BE226B586000822CC3 /* Adtrace.h */,
+				59CFF7BF226B586000822CC3 /* ADJEventFailure.m */,
+				59CFF7C0226B586000822CC3 /* ADJAdjustFactory.h */,
+				59CFF7C1226B586000822CC3 /* ADJEventSuccess.m */,
+				59CFF7C2226B586000822CC3 /* ADJActivityState.m */,
+				59CFF7C3226B586000822CC3 /* ADJSessionFailure.m */,
+				59CFF7C4226B586000822CC3 /* ADJUtil.h */,
+				59CFF7C5226B586000822CC3 /* ADJReachability.h */,
+				59CFF7C6226B586000822CC3 /* ADJActivityHandler.h */,
+				59CFF7C7226B586000822CC3 /* ADJTimerCycle.m */,
+				59CFF7C8226B586000822CC3 /* ADJSessionParameters.m */,
+				59CFF7C9226B586000822CC3 /* ADJLogger.m */,
+				59CFF7CA226B586000822CC3 /* ADJBackoffStrategy.m */,
+				59CFF7CB226B586000822CC3 /* ADJUserDefaults.h */,
+				59CFF7CC226B586000822CC3 /* ADJAttributionHandler.h */,
+				59CFF7CD226B586000822CC3 /* ADJTimerOnce.h */,
+				59CFF7CE226B586000822CC3 /* ADJDeviceInfo.h */,
+				59CFF7CF226B586000822CC3 /* ADJConfig.m */,
+				59CFF7D0226B586000822CC3 /* ADJPackageHandler.m */,
+				59CFF7D1226B586000822CC3 /* ADJEvent.h */,
+				59CFF7D2226B586000822CC3 /* ADJSdkClickHandler.h */,
+				59CFF7D3226B586000822CC3 /* ADJActivityKind.m */,
+				59CFF7D4226B586000822CC3 /* ADJKeychain.h */,
+				59CFF7D5226B586000822CC3 /* ADJAdditions */,
+				59CFF7DC226B586000822CC3 /* ADJAttribution.m */,
+				59CFF7DD226B586000822CC3 /* ADJSystemProfile.m */,
+				59CFF7DE226B586000822CC3 /* ADJRequestHandler.h */,
+				59CFF7DF226B586000822CC3 /* ADJActivityPackage.m */,
+				59CFF7E0226B586000822CC3 /* ADJUtil.m */,
+				59CFF7E1226B586000822CC3 /* ADJSessionFailure.h */,
+				59CFF7E2226B586000822CC3 /* ADJActivityState.h */,
+				59CFF7E3226B586000822CC3 /* ADJAdjustFactory.m */,
+				59CFF7E4226B586000822CC3 /* ADJEventSuccess.h */,
+				59CFF7E5226B586000822CC3 /* ADJEventFailure.h */,
+				59CFF7E6226B586000822CC3 /* ADJResponseData.m */,
+				59CFF7E7226B586000822CC3 /* ADJSessionSuccess.h */,
+				59CFF7E8226B586000822CC3 /* Adtrace.m */,
+				59CFF7E9226B586000822CC3 /* ADJPackageBuilder.m */,
+				59CFF7EA226B586000822CC3 /* ADJUserDefaults.m */,
+				59CFF7EB226B586000822CC3 /* ADJBackoffStrategy.h */,
+				59CFF7EC226B586000822CC3 /* ADJLogger.h */,
+				59CFF7ED226B586000822CC3 /* ADJSessionParameters.h */,
+				59CFF7EE226B586000822CC3 /* Info.plist */,
+				59CFF7EF226B586000822CC3 /* ADJTimerCycle.h */,
+				59CFF7F0226B586000822CC3 /* ADJActivityHandler.m */,
+				59CFF7F1226B586000822CC3 /* ADJReachability.m */,
+			);
+			name = Adtrace;
+			path = ../../../Adtrace;
+			sourceTree = "<group>";
+		};
+		59CFF7D5226B586000822CC3 /* ADJAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				59CFF7D6226B586000822CC3 /* NSString+ADJAdditions.m */,
+				59CFF7D7226B586000822CC3 /* UIDevice+ADJAdditions.h */,
+				59CFF7D8226B586000822CC3 /* NSData+ADJAdditions.m */,
+				59CFF7D9226B586000822CC3 /* NSData+ADJAdditions.h */,
+				59CFF7DA226B586000822CC3 /* UIDevice+ADJAdditions.m */,
+				59CFF7DB226B586000822CC3 /* NSString+ADJAdditions.h */,
+			);
+			path = ADJAdditions;
+			sourceTree = "<group>";
+		};
+		6F08421E2007769F00568A31 = {
+			isa = PBXGroup;
+			children = (
+				6F0842292007769F00568A31 /* AdjustTestApp */,
+				6F0842282007769F00568A31 /* Products */,
+				9D1D8E9C219246E50088E3CF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6F0842282007769F00568A31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F0842272007769F00568A31 /* AdjustTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F0842292007769F00568A31 /* AdjustTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				59CFF7AD226B586000822CC3 /* Adtrace */,
+				6FFCFE602007978800467F01 /* Delegates */,
+				6FFCFE5E2007978300467F01 /* ATAAdjustCommandExecutor.h */,
+				6FFCFE5D2007978300467F01 /* ATAAdjustCommandExecutor.m */,
+				6F08422A2007769F00568A31 /* AppDelegate.h */,
+				6F08422B2007769F00568A31 /* AppDelegate.m */,
+				6F08422D2007769F00568A31 /* ViewController.h */,
+				6F08422E2007769F00568A31 /* ViewController.m */,
+				6F0842302007769F00568A31 /* Main.storyboard */,
+				6F0842332007769F00568A31 /* Assets.xcassets */,
+				6F084235200776A000568A31 /* LaunchScreen.storyboard */,
+				6F084238200776A000568A31 /* Info.plist */,
+				6F084239200776A000568A31 /* main.m */,
+				6F3A5E902018CE3A000AACD0 /* AdjustTestLibrary */,
+			);
+			path = AdjustTestApp;
+			sourceTree = "<group>";
+		};
+		6F3A5E902018CE3A000AACD0 /* AdjustTestLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				6F3A5E912018CE3A000AACD0 /* ATLTestInfo.m */,
+				6F3A5E922018CE3A000AACD0 /* ATLUtil.h */,
+				6F3A5E932018CE3A000AACD0 /* ATLControlChannel.h */,
+				6F3A5E942018CE3A000AACD0 /* ATLConstants.h */,
+				6F3A5E952018CE3A000AACD0 /* ATLTestLibrary.h */,
+				6F3A5E962018CE3A000AACD0 /* ATLUtilNetworking.h */,
+				6F3A5E972018CE3A000AACD0 /* ATLBlockingQueue.h */,
+				6F3A5E982018CE3A000AACD0 /* ATLUtil.m */,
+				6F3A5E992018CE3A000AACD0 /* ATLTestInfo.h */,
+				6F3A5E9A2018CE3A000AACD0 /* ATLControlChannel.m */,
+				6F3A5E9B2018CE3A000AACD0 /* ATLUtilNetworking.m */,
+				6F3A5E9C2018CE3A000AACD0 /* ATLTestLibrary.m */,
+				6F3A5E9D2018CE3A000AACD0 /* ATLBlockingQueue.m */,
+			);
+			name = AdjustTestLibrary;
+			path = ../../AdjustTestLibrary/AdjustTestLibrary;
+			sourceTree = "<group>";
+		};
+		6FFCFE602007978800467F01 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				6FFCFE6C200797D000467F01 /* ATAAdjustDelegate.h */,
+				6FFCFE66200797D000467F01 /* ATAAdjustDelegate.m */,
+				6FFCFE68200797D000467F01 /* ATAAdjustDelegateAttribution.h */,
+				6FFCFE61200797D000467F01 /* ATAAdjustDelegateAttribution.m */,
+				6FFCFE64200797D000467F01 /* ATAAdjustDelegateEventFailure.h */,
+				6FFCFE63200797D000467F01 /* ATAAdjustDelegateEventFailure.m */,
+				6FFCFE6B200797D000467F01 /* ATAAdjustDelegateEventSuccess.h */,
+				6FFCFE69200797D000467F01 /* ATAAdjustDelegateEventSuccess.m */,
+				6FFCFE62200797D000467F01 /* ATAAdjustDelegateSessionFailure.h */,
+				6FFCFE65200797D000467F01 /* ATAAdjustDelegateSessionFailure.m */,
+				6FFCFE67200797D000467F01 /* ATAAdjustDelegateSessionSuccess.h */,
+				6FFCFE6A200797D000467F01 /* ATAAdjustDelegateSessionSuccess.m */,
+				9D75AFD9210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.h */,
+				9D75AFDA210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.m */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		9D1D8E9C219246E50088E3CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D8EA1219246EF0088E3CF /* CoreTelephony.framework */,
+				9D1D8E9F219246EA0088E3CF /* AdSupport.framework */,
+				9D1D8E9D219246E50088E3CF /* iAd.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F0842262007769F00568A31 /* AdjustTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F08423D200776A000568A31 /* Build configuration list for PBXNativeTarget "AdjustTestApp" */;
+			buildPhases = (
+				6F0842232007769F00568A31 /* Sources */,
+				6F0842242007769F00568A31 /* Frameworks */,
+				6F0842252007769F00568A31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdjustTestApp;
+			productName = AdjustTestApp;
+			productReference = 6F0842272007769F00568A31 /* AdjustTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F08421F2007769F00568A31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = adjust;
+				TargetAttributes = {
+					6F0842262007769F00568A31 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6F0842222007769F00568A31 /* Build configuration list for PBXProject "AdjustTestApp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6F08421E2007769F00568A31;
+			productRefGroup = 6F0842282007769F00568A31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F0842262007769F00568A31 /* AdjustTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F0842252007769F00568A31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59CFF811226B586000822CC3 /* Info.plist in Resources */,
+				6F084237200776A000568A31 /* LaunchScreen.storyboard in Resources */,
+				6F0842342007769F00568A31 /* Assets.xcassets in Resources */,
+				6F0842322007769F00568A31 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F0842232007769F00568A31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59CFF7F4226B586000822CC3 /* ADJAttributionHandler.m in Sources */,
+				59CFF7F6226B586000822CC3 /* ADJKeychain.m in Sources */,
+				59CFF810226B586000822CC3 /* ADJUserDefaults.m in Sources */,
+				59CFF7FD226B586000822CC3 /* ADJSessionFailure.m in Sources */,
+				6FFCFE6E200797D100467F01 /* ATAAdjustDelegateEventFailure.m in Sources */,
+				59CFF805226B586000822CC3 /* NSString+ADJAdditions.m in Sources */,
+				6F3A5EA32018CE3A000AACD0 /* ATLBlockingQueue.m in Sources */,
+				6F3A5E9F2018CE3A000AACD0 /* ATLUtil.m in Sources */,
+				6FFCFE72200797D100467F01 /* ATAAdjustDelegateSessionSuccess.m in Sources */,
+				6FFCFE6D200797D100467F01 /* ATAAdjustDelegateAttribution.m in Sources */,
+				59CFF7F7226B586000822CC3 /* ADJSdkClickHandler.m in Sources */,
+				59CFF7FB226B586000822CC3 /* ADJEventSuccess.m in Sources */,
+				59CFF7F9226B586000822CC3 /* ADJSessionSuccess.m in Sources */,
+				59CFF7F3226B586000822CC3 /* ADJTimerOnce.m in Sources */,
+				6FFCFE70200797D100467F01 /* ATAAdjustDelegate.m in Sources */,
+				6FFCFE5F2007978300467F01 /* ATAAdjustCommandExecutor.m in Sources */,
+				6F08422F2007769F00568A31 /* ViewController.m in Sources */,
+				9D75AFDB210217FF0079A36C /* ATAAdjustDelegateDeferredDeeplink.m in Sources */,
+				59CFF80B226B586000822CC3 /* ADJUtil.m in Sources */,
+				59CFF803226B586000822CC3 /* ADJPackageHandler.m in Sources */,
+				6F08423A200776A000568A31 /* main.m in Sources */,
+				6F3A5E9E2018CE3A000AACD0 /* ATLTestInfo.m in Sources */,
+				6F3A5EA22018CE3A000AACD0 /* ATLTestLibrary.m in Sources */,
+				59CFF80E226B586000822CC3 /* Adtrace.m in Sources */,
+				6F3A5EA02018CE3A000AACD0 /* ATLControlChannel.m in Sources */,
+				6F3A5EA12018CE3A000AACD0 /* ATLUtilNetworking.m in Sources */,
+				59CFF808226B586000822CC3 /* ADJAttribution.m in Sources */,
+				59CFF804226B586000822CC3 /* ADJActivityKind.m in Sources */,
+				59CFF800226B586000822CC3 /* ADJLogger.m in Sources */,
+				59CFF7F5226B586000822CC3 /* ADJRequestHandler.m in Sources */,
+				59CFF802226B586000822CC3 /* ADJConfig.m in Sources */,
+				59CFF807226B586000822CC3 /* UIDevice+ADJAdditions.m in Sources */,
+				59CFF813226B586000822CC3 /* ADJReachability.m in Sources */,
+				59CFF801226B586000822CC3 /* ADJBackoffStrategy.m in Sources */,
+				59CFF80D226B586000822CC3 /* ADJResponseData.m in Sources */,
+				59CFF80C226B586000822CC3 /* ADJAdjustFactory.m in Sources */,
+				6F08422C2007769F00568A31 /* AppDelegate.m in Sources */,
+				59CFF80A226B586000822CC3 /* ADJActivityPackage.m in Sources */,
+				59CFF7FC226B586000822CC3 /* ADJActivityState.m in Sources */,
+				59CFF806226B586000822CC3 /* NSData+ADJAdditions.m in Sources */,
+				59CFF80F226B586000822CC3 /* ADJPackageBuilder.m in Sources */,
+				59CFF812226B586000822CC3 /* ADJActivityHandler.m in Sources */,
+				59CFF7FF226B586000822CC3 /* ADJSessionParameters.m in Sources */,
+				59CFF809226B586000822CC3 /* ADJSystemProfile.m in Sources */,
+				59CFF7FE226B586000822CC3 /* ADJTimerCycle.m in Sources */,
+				59CFF7F2226B586000822CC3 /* ADJDeviceInfo.m in Sources */,
+				6FFCFE71200797D100467F01 /* ATAAdjustDelegateEventSuccess.m in Sources */,
+				59CFF7F8226B586000822CC3 /* ADJEvent.m in Sources */,
+				6FFCFE6F200797D100467F01 /* ATAAdjustDelegateSessionFailure.m in Sources */,
+				59CFF7FA226B586000822CC3 /* ADJEventFailure.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6F0842302007769F00568A31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F0842312007769F00568A31 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6F084235200776A000568A31 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F084236200776A000568A31 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F08423B200776A000568A31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6F08423C200776A000568A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F08423E200776A000568A31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
+				INFOPLIST_FILE = AdjustTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.AdjustTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F08423F200776A000568A31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
+				INFOPLIST_FILE = AdjustTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.AdjustTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F0842222007769F00568A31 /* Build configuration list for PBXProject "AdjustTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F08423B200776A000568A31 /* Debug */,
+				6F08423C200776A000568A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F08423D200776A000568A31 /* Build configuration list for PBXNativeTarget "AdjustTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F08423E200776A000568A31 /* Debug */,
+				6F08423F200776A000568A31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F08421F2007769F00568A31 /* Project object */;
+}

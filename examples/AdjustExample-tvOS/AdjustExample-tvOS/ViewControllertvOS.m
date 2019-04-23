@@ -6,7 +6,7 @@
 //  Copyright © 2015 adjust. All rights reserved.
 //
 
-#import "Adjust.h"
+#import "Adtrace.h"
 #import "Constants.h"
 #import "ViewControllertvOS.h"
 
@@ -37,7 +37,7 @@
 - (IBAction)clickTrackSimpleEvent:(UIButton *)sender {
     ADJEvent *event = [ADJEvent eventWithEventToken:kEventToken1];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (IBAction)clickTrackRevenueEvent:(UIButton *)sender {
@@ -46,7 +46,7 @@
     // Add revenue 1 cent of an euro.
     [event setRevenue:0.01 currency:@"EUR"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (IBAction)clickTrackCallbackEvent:(UIButton *)sender {
@@ -57,7 +57,7 @@
     [event addCallbackParameter:@"key" value:@"value"];
     [event addCallbackParameter:@"a" value:@"c"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (IBAction)clickTrackPartnerEvent:(UIButton *)sender {
@@ -68,29 +68,29 @@
     [event addPartnerParameter:@"foo" value:@"bar"];
     [event addPartnerParameter:@"x" value:@"z"];
 
-    [Adjust trackEvent:event];
+    [Adtrace trackEvent:event];
 }
 
 - (IBAction)clickEnableOfflineMode:(id)sender {
-    [Adjust setOfflineMode:YES];
+    [Adtrace setOfflineMode:YES];
 }
 
 - (IBAction)clickDisableOfflineMode:(id)sender {
-    [Adjust setOfflineMode:NO];
+    [Adtrace setOfflineMode:NO];
 }
 
 - (IBAction)clickEnableSdk:(id)sender {
-    [Adjust setEnabled:YES];
+    [Adtrace setEnabled:YES];
 }
 
 - (IBAction)clickDisableSdk:(id)sender {
-    [Adjust setEnabled:NO];
+    [Adtrace setEnabled:NO];
 }
 
 - (IBAction)clickIsSdkEnabled:(id)sender {
     NSString *message;
 
-    if ([Adjust isEnabled]) {
+    if ([Adtrace isEnabled]) {
         message = @"SDK is ENABLED!";
     } else {
         message = @"SDK is DISABLED!";

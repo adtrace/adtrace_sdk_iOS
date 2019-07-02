@@ -19,7 +19,7 @@ static NSString   * const kAttributionTimerName   = @"Attribution timer";
 
 @interface ADJAttributionHandler()
 
-@property (nonatomic, strong) dispatch_queue_t internalQueue;
+@property (nonatomic, assign) dispatch_queue_t internalQueue;
 @property (nonatomic, weak) id<ADJActivityHandler> activityHandler;
 @property (nonatomic, weak) id<ADJLogger> logger;
 @property (nonatomic, strong) ADJTimerOnce *attributionTimer;

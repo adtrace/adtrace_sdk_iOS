@@ -21,8 +21,8 @@ static const char * const kInternalQueueName    = "io.adjust.PackageQueue";
 #pragma mark - private
 @interface ADJPackageHandler()
 
-@property (nonatomic, strong) dispatch_queue_t internalQueue;
-@property (nonatomic, strong) dispatch_semaphore_t sendingSemaphore;
+@property (nonatomic, assign) dispatch_queue_t internalQueue;
+@property (nonatomic, assign) dispatch_semaphore_t sendingSemaphore;
 @property (nonatomic, strong) id<ADJRequestHandler> requestHandler;
 @property (nonatomic, strong) NSMutableArray *packageQueue;
 @property (nonatomic, strong) ADJBackoffStrategy * backoffStrategy;

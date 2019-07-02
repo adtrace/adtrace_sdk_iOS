@@ -82,7 +82,7 @@ static const uint64_t kDelayRetryIad   =  2 * NSEC_PER_SEC; // 1 second
 #pragma mark -
 @interface ADJActivityHandler()
 
-@property (nonatomic, strong) dispatch_queue_t internalQueue;
+@property (nonatomic, assign) dispatch_queue_t internalQueue;
 @property (nonatomic, strong) id<ADJPackageHandler> packageHandler;
 @property (nonatomic, strong) id<ADJAttributionHandler> attributionHandler;
 @property (nonatomic, strong) id<ADJSdkClickHandler> sdkClickHandler;

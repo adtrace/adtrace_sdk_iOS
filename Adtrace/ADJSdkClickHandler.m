@@ -18,7 +18,7 @@ static const char * const kInternalQueueName = "com.adjust.SdkClickQueue";
 
 @property (nonatomic, copy) NSString *basePath;
 @property (nonatomic, strong) NSMutableArray *packageQueue;
-@property (nonatomic, strong) dispatch_queue_t internalQueue;
+@property (nonatomic, assign) dispatch_queue_t internalQueue;
 
 @property (nonatomic, assign) BOOL paused;
 @property (nonatomic, strong) ADJBackoffStrategy *backoffStrategy;

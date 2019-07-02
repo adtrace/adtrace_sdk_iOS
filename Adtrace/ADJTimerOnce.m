@@ -16,8 +16,8 @@ static const uint64_t kTimerLeeway   =  1 * NSEC_PER_SEC; // 1 second
 #pragma mark - private
 @interface ADJTimerOnce()
 
-@property (nonatomic, strong) dispatch_queue_t internalQueue;
-@property (nonatomic, strong) dispatch_source_t source;
+@property (nonatomic, assign) dispatch_queue_t internalQueue;
+@property (nonatomic, assign) dispatch_source_t source;
 @property (nonatomic, copy) dispatch_block_t block;
 @property (nonatomic, assign, readonly) dispatch_time_t start;
 @property (nonatomic, strong) NSDate * fireDate;

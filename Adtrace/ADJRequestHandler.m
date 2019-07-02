@@ -18,7 +18,7 @@ static const char * const kInternalQueueName = "io.adjust.RequestQueue";
 
 @interface ADJRequestHandler()
 
-@property (nonatomic, strong) dispatch_queue_t internalQueue;
+@property (nonatomic, assign) dispatch_queue_t internalQueue;
 
 @property (nonatomic, weak) id<ADJLogger> logger;
 

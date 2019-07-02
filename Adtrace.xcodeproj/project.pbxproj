@@ -1969,6 +1969,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		460FB20022CB397000BB54C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F0842182007766700568A31 /* AdtraceTestLibrary.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6F08420C2007766700568A31;
+			remoteInfo = AdtraceTestLibrary;
+		};
 		6F084244200776A100568A31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6F084240200776A000568A31 /* AdjustTestApp.xcodeproj */;
@@ -2621,6 +2628,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460FB1F022CB397000BB54C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				460FB20122CB397000BB54C7 /* libAdtraceTestLibrary.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		59CFEF75226B57F300822CC3 /* Adtrace */ = {
 			isa = PBXGroup;
 			children = (
@@ -4308,6 +4323,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -4351,6 +4367,10 @@
 					ProductGroup = 6F7AF640211878BC00F730B2 /* Products */;
 					ProjectRef = 6F7AF63F211878BC00F730B2 /* AdjustWebBridgeTestApp.xcodeproj */;
 				},
+				{
+					ProductGroup = 460FB1F022CB397000BB54C7 /* Products */;
+					ProjectRef = 6F0842182007766700568A31 /* AdtraceTestLibrary.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -4368,6 +4388,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		460FB20122CB397000BB54C7 /* libAdtraceTestLibrary.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAdtraceTestLibrary.a;
+			remoteRef = 460FB20022CB397000BB54C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		6F084245200776A100568A31 /* AdjustTestApp.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;

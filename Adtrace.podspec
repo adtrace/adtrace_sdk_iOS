@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name           = "Adtrace"
   s.version        = "1.0.0"
   s.summary        = "This is the iOS SDK of adtrace. You can read more about it at http://adtrace.io."
-  s.homepage       = "https://github.com/adtrace/ios_sdk"
+  s.homepage       = "https://github.com/adtrace/adtrace_sdk_iOS"
   s.license        = { :type => 'MIT', :file => 'MIT-LICENSE' }
   s.author         = { "Aref Hosseini" => "info@adtrace.io" }
   s.source         = { :git => "https://github.com/adtrace/adtrace_sdk_iOS.git", :tag => "v1.0.0" }

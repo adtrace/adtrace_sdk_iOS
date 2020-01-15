@@ -72,13 +72,13 @@ We will describe the steps to integrate the Adtrace SDK into your iOS project. W
 If you're using [CocoaPods][cocoapods], you can add the following line to your `Podfile` and continue from [this step](#sdk-integrate):
 
 ```ruby
-pod 'Adtrace', '~> 4.18.2'
+pod 'Adtrace', '~> 1.0.0'
 ```
 
 or:
 
 ```ruby
-pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :tag => 'v4.18.2'
+pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :tag => 'v1.0.0'
 ```
 
 ---

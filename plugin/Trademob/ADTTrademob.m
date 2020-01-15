@@ -1,17 +1,17 @@
 //
-//  ADJTrademob.m
-//  Adjust
+//  ADTTrademob.m
+//  Adtrace
 //
 //  Created by Davit Ohanyan on 9/14/15.
 //  Copyright © 2015 Trademob GmbH. All rights reserved.
 //
 
-#import "ADJTrademob.h"
-#import "ADJAdjustFactory.h"
+#import "ADTTrademob.h"
+#import "ADTAdtraceFactory.h"
 
 static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
 
-@implementation ADJTrademobItem
+@implementation ADTTrademobItem
 
 - (instancetype)initWithId:(NSString *)itemId price:(float)price quantity:(NSUInteger)quantity {
     self = [super init];
@@ -25,7 +25,7 @@ static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
     return self;
 }
 
-+ (NSDictionary *)dictionaryFromItem:(ADJTrademobItem *)item {
++ (NSDictionary *)dictionaryFromItem:(ADTTrademobItem *)item {
     return @{@"itemId": item.itemId,
              @"price": [NSNumber numberWithFloat:item.price],
              @"quantity":[NSNumber numberWithUnsignedInteger:item.quantity]};
@@ -33,34 +33,34 @@ static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
 
 @end
 
-@implementation ADJTrademob
+@implementation ADTTrademob
 
-+ (void)injectViewListingIntoEvent:(ADJEvent *)event
++ (void)injectViewListingIntoEvent:(ADTEvent *)event
                            itemIds:(NSArray *)itemIds
                           metadata:(NSDictionary *)metadata {
-    [event addPartnerParameter:@"tm_item" value:[ADJTrademob stringifyItemIds:itemIds]];
-    [event addPartnerParameter:@"tm_md" value:[ADJTrademob stringifyMetadata:metadata]];
+    [event addPartnerParameter:@"tm_item" value:[ADTTrademob stringifyItemIds:itemIds]];
+    [event addPartnerParameter:@"tm_md" value:[ADTTrademob stringifyMetadata:metadata]];
 }
 
-+ (void)injectViewItemIntoEvent:(ADJEvent *)event
++ (void)injectViewItemIntoEvent:(ADTEvent *)event
                          itemId:(NSString *)itemId
                        metadata:(NSDictionary *)metadata {
     [event addPartnerParameter:@"tm_item" value:itemId];
-    [event addPartnerParameter:@"tm_md" value:[ADJTrademob stringifyMetadata:metadata]];
+    [event addPartnerParameter:@"tm_md" value:[ADTTrademob stringifyMetadata:metadata]];
 }
 
-+ (void)injectAddToBasketIntoEvent:(ADJEvent *)event
++ (void)injectAddToBasketIntoEvent:(ADTEvent *)event
                              items:(NSArray *)items
                           metadata:(NSDictionary *)metadata {
-    [event addPartnerParameter:@"tm_item" value:[ADJTrademob stringifyItems:items]];
-    [event addPartnerParameter:@"tm_md" value:[ADJTrademob stringifyMetadata:metadata]];
+    [event addPartnerParameter:@"tm_item" value:[ADTTrademob stringifyItems:items]];
+    [event addPartnerParameter:@"tm_md" value:[ADTTrademob stringifyMetadata:metadata]];
 }
 
-+ (void)injectCheckoutIntoEvent:(ADJEvent *)event
++ (void)injectCheckoutIntoEvent:(ADTEvent *)event
                           items:(NSArray *)items
                        metadata:(NSDictionary *)metadata {
-    [event addPartnerParameter:@"tm_item" value:[ADJTrademob stringifyItems:items]];
-    [event addPartnerParameter:@"tm_md" value:[ADJTrademob stringifyMetadata:metadata]];
+    [event addPartnerParameter:@"tm_item" value:[ADTTrademob stringifyItems:items]];
+    [event addPartnerParameter:@"tm_md" value:[ADTTrademob stringifyMetadata:metadata]];
 }
 
 # pragma private helper functions
@@ -81,7 +81,7 @@ static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
         }
     }
 
-    NSString *tmItemIds = [ADJTrademob stringify:filteredArray];
+    NSString *tmItemIds = [ADTTrademob stringify:filteredArray];
 
     if (nil == tmItemIds) {
         tmItemIds = @"[]";
@@ -99,15 +99,15 @@ static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
             break;
         }
         
-        ADJTrademobItem *currentItem = items[index];
+        ADTTrademobItem *currentItem = items[index];
 
-        if ([currentItem isKindOfClass:[ADJTrademobItem class]]) {
-            NSDictionary *dict = [ADJTrademobItem dictionaryFromItem:currentItem];
+        if ([currentItem isKindOfClass:[ADTTrademobItem class]]) {
+            NSDictionary *dict = [ADTTrademobItem dictionaryFromItem:currentItem];
             [filteredItems addObject:dict];
         }
     }
     
-    NSString *tmItemIds = [ADJTrademob stringify:filteredItems];
+    NSString *tmItemIds = [ADTTrademob stringify:filteredItems];
     
     if (nil == tmItemIds) {
         tmItemIds = @"[]";
@@ -125,7 +125,7 @@ static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
         }
     }];
     
-    NSString *jsonMetaData = [ADJTrademob stringify:filteredData];
+    NSString *jsonMetaData = [ADTTrademob stringify:filteredData];
     
     if (nil == jsonMetaData) {
         jsonMetaData = @"{}";
@@ -143,7 +143,7 @@ static const NSUInteger MAX_LISTING_ITEMS_COUNT = 5;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object options:0 error:&error];
     
     if (!jsonData || error) {
-        [ADJAdjustFactory.logger error:@"%@", [error debugDescription]];
+        [ADTAdtraceFactory.logger error:@"%@", [error debugDescription]];
         return nil;
     } else {
         return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

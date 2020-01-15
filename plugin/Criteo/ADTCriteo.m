@@ -1,18 +1,18 @@
 //
-//  ADJCriteoEvents.m
+//  ADTCriteoEvents.m
 //
 //
 //  Created by Pedro Filipe on 06/02/15.
 //
 //
 
-#import "Adjust.h"
-#import "ADJCriteo.h"
-#import "ADJAdjustFactory.h"
+#import "Adtrace.h"
+#import "ADTCriteo.h"
+#import "ADTAdtraceFactory.h"
 
 static const NSUInteger MAX_VIEW_LISTING_PRODUCTS = 3;
 
-@implementation ADJCriteoProduct
+@implementation ADTCriteoProduct
 
 - (id)initWithId:(NSString *)productId price:(float)price quantity:(NSUInteger)quantity {
     self = [super init];
@@ -28,13 +28,13 @@ static const NSUInteger MAX_VIEW_LISTING_PRODUCTS = 3;
     return self;
 }
 
-+ (ADJCriteoProduct *)productWithId:(NSString *)productId price:(float)price quantity:(NSUInteger)quantity {
-    return [[ADJCriteoProduct alloc] initWithId:productId price:price quantity:quantity];
++ (ADTCriteoProduct *)productWithId:(NSString *)productId price:(float)price quantity:(NSUInteger)quantity {
+    return [[ADTCriteoProduct alloc] initWithId:productId price:price quantity:quantity];
 }
 
 @end
 
-@implementation ADJCriteo
+@implementation ADTCriteo
 
 static NSString * hashEmailInternal;
 static NSString * partnerIdInternal;
@@ -43,92 +43,92 @@ static NSString * userSegmentInternal;
 static NSString * checkInDateInternal;
 static NSString * checkOutDateInternal;
 
-+ (id<ADJLogger>)logger {
-    return ADJAdjustFactory.logger;
++ (id<ADTLogger>)logger {
+    return ADTAdtraceFactory.logger;
 }
 
-+ (void)injectViewSearchIntoEvent:(ADJEvent *)event checkInDate:(NSString *)din checkOutDate:(NSString *)dout {
++ (void)injectViewSearchIntoEvent:(ADTEvent *)event checkInDate:(NSString *)din checkOutDate:(NSString *)dout {
     [event addPartnerParameter:@"din" value:din];
     [event addPartnerParameter:@"dout" value:dout];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectViewListingIntoEvent:(ADJEvent *)event productIds:(NSArray *)productIds {
-    NSString *jsonProductsIds = [ADJCriteo createCriteoVLFromProducts:productIds];
++ (void)injectViewListingIntoEvent:(ADTEvent *)event productIds:(NSArray *)productIds {
+    NSString *jsonProductsIds = [ADTCriteo createCriteoVLFromProducts:productIds];
     [event addPartnerParameter:@"criteo_p" value:jsonProductsIds];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectViewProductIntoEvent:(ADJEvent *)event productId:(NSString *)productId {
++ (void)injectViewProductIntoEvent:(ADTEvent *)event productId:(NSString *)productId {
     [event addPartnerParameter:@"criteo_p" value:productId];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectCartIntoEvent:(ADJEvent *)event products:(NSArray *)products {
-    NSString *jsonProducts = [ADJCriteo createCriteoVBFromProducts:products];
++ (void)injectCartIntoEvent:(ADTEvent *)event products:(NSArray *)products {
+    NSString *jsonProducts = [ADTCriteo createCriteoVBFromProducts:products];
     [event addPartnerParameter:@"criteo_p" value:jsonProducts];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectTransactionConfirmedIntoEvent:(ADJEvent *)event
++ (void)injectTransactionConfirmedIntoEvent:(ADTEvent *)event
                                    products:(NSArray *)products
                               transactionId:(NSString *)transactionId
                                 newCustomer:(NSString *)newCustomer {
     [event addPartnerParameter:@"transaction_id" value:transactionId];
 
-    NSString *jsonProducts = [ADJCriteo createCriteoVBFromProducts:products];
+    NSString *jsonProducts = [ADTCriteo createCriteoVBFromProducts:products];
     [event addPartnerParameter:@"criteo_p" value:jsonProducts];
     [event addPartnerParameter:@"new_customer" value:newCustomer];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectUserLevelIntoEvent:(ADJEvent *)event uiLevel:(NSUInteger)uiLevel {
++ (void)injectUserLevelIntoEvent:(ADTEvent *)event uiLevel:(NSUInteger)uiLevel {
     NSString *uiLevelString = [NSString stringWithFormat:@"%lu",(unsigned long)uiLevel];
     [event addPartnerParameter:@"ui_level" value:uiLevelString];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectUserStatusIntoEvent:(ADJEvent *)event uiStatus:(NSString *)uiStatus {
++ (void)injectUserStatusIntoEvent:(ADTEvent *)event uiStatus:(NSString *)uiStatus {
     [event addPartnerParameter:@"ui_status" value:uiStatus];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectAchievementUnlockedIntoEvent:(ADJEvent *)event uiAchievement:(NSString *)uiAchievement {
++ (void)injectAchievementUnlockedIntoEvent:(ADTEvent *)event uiAchievement:(NSString *)uiAchievement {
     [event addPartnerParameter:@"ui_achievmnt" value:uiAchievement];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectCustomEventIntoEvent:(ADJEvent *)event uiData:(NSString *)uiData {
++ (void)injectCustomEventIntoEvent:(ADTEvent *)event uiData:(NSString *)uiData {
     [event addPartnerParameter:@"ui_data" value:uiData];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectCustomEvent2IntoEvent:(ADJEvent *)event uiData2:(NSString *)uiData2 uiData3:(NSUInteger)uiData3 {
++ (void)injectCustomEvent2IntoEvent:(ADTEvent *)event uiData2:(NSString *)uiData2 uiData3:(NSUInteger)uiData3 {
     [event addPartnerParameter:@"ui_data2" value:uiData2];
 
     NSString *uiData3String = [NSString stringWithFormat:@"%lu",(unsigned long)uiData3];
     [event addPartnerParameter:@"ui_data3" value:uiData3String];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
-+ (void)injectDeeplinkIntoEvent:(ADJEvent *)event url:(NSURL *)url {
++ (void)injectDeeplinkIntoEvent:(ADTEvent *)event url:(NSURL *)url {
     if (url == nil) {
         return;
     }
 
     [event addPartnerParameter:@"criteo_deeplink" value:[url absoluteString]];
 
-    [ADJCriteo injectOptionalParams:event];
+    [ADTCriteo injectOptionalParams:event];
 }
 
 + (void)injectHashedEmailIntoCriteoEvents:(NSString *)hashEmail {
@@ -152,15 +152,15 @@ static NSString * checkOutDateInternal;
     customerIdInternal = customerId;
 }
 
-+ (void)injectOptionalParams:(ADJEvent *)event {
-    [ADJCriteo injectHashEmail:event];
-    [ADJCriteo injectSearchDates:event];
-    [ADJCriteo injectPartnerId:event];
-    [ADJCriteo injectUserSegment:event];
-    [ADJCriteo injectCustomerId:event];
++ (void)injectOptionalParams:(ADTEvent *)event {
+    [ADTCriteo injectHashEmail:event];
+    [ADTCriteo injectSearchDates:event];
+    [ADTCriteo injectPartnerId:event];
+    [ADTCriteo injectUserSegment:event];
+    [ADTCriteo injectCustomerId:event];
 }
 
-+ (void)injectHashEmail:(ADJEvent *)event {
++ (void)injectHashEmail:(ADTEvent *)event {
     if (hashEmailInternal == nil) {
         return;
     }
@@ -168,7 +168,7 @@ static NSString * checkOutDateInternal;
     [event addPartnerParameter:@"criteo_email_hash" value:hashEmailInternal];
 }
 
-+ (void)injectSearchDates:(ADJEvent *)event {
++ (void)injectSearchDates:(ADTEvent *)event {
     if (checkInDateInternal == nil || checkOutDateInternal == nil) {
         return;
     }
@@ -177,7 +177,7 @@ static NSString * checkOutDateInternal;
     [event addPartnerParameter:@"dout" value:checkOutDateInternal];
 }
 
-+ (void)injectPartnerId:(ADJEvent *)event {
++ (void)injectPartnerId:(ADTEvent *)event {
     if (partnerIdInternal == nil) {
         return;
     }
@@ -185,7 +185,7 @@ static NSString * checkOutDateInternal;
     [event addPartnerParameter:@"criteo_partner_id" value:partnerIdInternal];
 }
 
-+ (void)injectUserSegment:(ADJEvent *)event {
++ (void)injectUserSegment:(ADTEvent *)event {
     if (userSegmentInternal == nil) {
         return;
     }
@@ -193,7 +193,7 @@ static NSString * checkOutDateInternal;
     [event addPartnerParameter:@"user_segment" value:userSegmentInternal];
 }
 
-+ (void)injectCustomerId:(ADJEvent *)event {
++ (void)injectCustomerId:(ADTEvent *)event {
     if (customerIdInternal == nil) {
         return;
     }
@@ -213,12 +213,12 @@ static NSString * checkOutDateInternal;
     for (NSUInteger i = 0; i < productsCount;) {
         id productAtIndex = [products objectAtIndex:i];
 
-        if (![productAtIndex isKindOfClass:[ADJCriteoProduct class]]) {
-            [self.logger error:@"Criteo Event should contain a list of ADJCriteoProduct"];
+        if (![productAtIndex isKindOfClass:[ADTCriteoProduct class]]) {
+            [self.logger error:@"Criteo Event should contain a list of ADTCriteoProduct"];
             return nil;
         }
 
-        ADJCriteoProduct *product = (ADJCriteoProduct *)productAtIndex;
+        ADTCriteoProduct *product = (ADTCriteoProduct *)productAtIndex;
         NSString *productString = [NSString stringWithFormat:@"{\"i\":\"%@\",\"pr\":%f,\"q\":%lu}",
                                    [product criteoProductID],
                                    [product criteoPrice],
@@ -260,11 +260,11 @@ static NSString * checkOutDateInternal;
         
         if ([productAtIndex isKindOfClass:[NSString class]]) {
             productId = productAtIndex;
-        } else if ([productAtIndex isKindOfClass:[ADJCriteoProduct class]]) {
-            ADJCriteoProduct *criteoProduct = (ADJCriteoProduct *)productAtIndex;
+        } else if ([productAtIndex isKindOfClass:[ADTCriteoProduct class]]) {
+            ADTCriteoProduct *criteoProduct = (ADTCriteoProduct *)productAtIndex;
             productId = [criteoProduct criteoProductID];
             
-            [self.logger warn:@"Criteo View Listing should contain a list of product ids, not of ADJCriteoProduct. Reading the product id of the ADJCriteoProduct."];
+            [self.logger warn:@"Criteo View Listing should contain a list of product ids, not of ADTCriteoProduct. Reading the product id of the ADTCriteoProduct."];
         } else {
             return nil;
         }

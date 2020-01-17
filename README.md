@@ -78,7 +78,7 @@ pod 'Adtrace', '~> 1.0.1'
 or:
 
 ```ruby
-pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :tag => 'v1.0.1'
+pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :tag => '1.0.1'
 ```
 
 ---

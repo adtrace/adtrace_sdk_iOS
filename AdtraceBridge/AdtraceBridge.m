@@ -181,12 +181,15 @@
         NSString *allowSuppressLogLevel = [data objectForKey:@"allowSuppressLogLevel"];
         NSString *sdkPrefix = [data objectForKey:@"sdkPrefix"];
         NSString *defaultTracker = [data objectForKey:@"defaultTracker"];
+        NSString *externalDeviceId = [data objectForKey:@"externalDeviceId"];
         NSString *logLevel = [data objectForKey:@"logLevel"];
         NSNumber *eventBufferingEnabled = [data objectForKey:@"eventBufferingEnabled"];
         NSNumber *sendInBackground = [data objectForKey:@"sendInBackground"];
         NSNumber *delayStart = [data objectForKey:@"delayStart"];
         NSString *userAgent = [data objectForKey:@"userAgent"];
         NSNumber *isDeviceKnown = [data objectForKey:@"isDeviceKnown"];
+        NSNumber *allowiAdInfoReading = [data objectForKey:@"allowiAdInfoReading"];
+        NSNumber *allowIdfaReading = [data objectForKey:@"allowIdfaReading"];
         NSNumber *secretId = [data objectForKey:@"secretId"];
         NSString *info1 = [data objectForKey:@"info1"];
         NSString *info2 = [data objectForKey:@"info2"];
@@ -201,6 +204,7 @@
         NSString *sessionSuccessCallback = [data objectForKey:@"sessionSuccessCallback"];
         NSString *sessionFailureCallback = [data objectForKey:@"sessionFailureCallback"];
         NSString *deferredDeeplinkCallback = [data objectForKey:@"deferredDeeplinkCallback"];
+        NSString *urlStrategy = [data objectForKey:@"urlStrategy"];
 
         ADTConfig *adtraceConfig;
         if ([self isFieldValid:allowSuppressLogLevel]) {
@@ -220,6 +224,9 @@
         if ([self isFieldValid:defaultTracker]) {
             [adtraceConfig setDefaultTracker:defaultTracker];
         }
+        if ([self isFieldValid:externalDeviceId]) {
+            [adtraceConfig setExternalDeviceId:externalDeviceId];
+        }
         if ([self isFieldValid:logLevel]) {
             [adtraceConfig setLogLevel:[ADTLogger logLevelFromString:[logLevel lowercaseString]]];
         }
@@ -237,6 +244,12 @@
         }
         if ([self isFieldValid:isDeviceKnown]) {
             [adtraceConfig setIsDeviceKnown:[isDeviceKnown boolValue]];
+        }
+        if ([self isFieldValid:allowiAdInfoReading]) {
+            [adtraceConfig setAllowiAdInfoReading:[allowiAdInfoReading boolValue]];
+        }
+        if ([self isFieldValid:allowIdfaReading]) {
+            [adtraceConfig setAllowIdfaReading:[allowIdfaReading boolValue]];
         }
         BOOL isAppSecretDefined = [self isFieldValid:secretId]
         && [self isFieldValid:info1]
@@ -292,6 +305,9 @@
             || self.sessionFailureCallbackName != nil
             || self.deferredDeeplinkCallbackName != nil) {
             [adtraceConfig setDelegate:self];
+        }
+        if ([self isFieldValid:urlStrategy]) {
+            [adtraceConfig setUrlStrategy:urlStrategy];
         }
 
         [Adtrace appDidLaunch:adtraceConfig];
@@ -456,12 +472,22 @@
     [self.bridgeRegister registerHandler:@"adtrace_gdprForgetMe" handler:^(id data, WVJBResponseCallback responseCallback) {
         [Adtrace gdprForgetMe];
     }];
+    
+    [self.bridgeRegister registerHandler:@"adtrace_trackAdRevenue" handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSString *source = [data objectForKey:@"source"];
+        NSString *payload = [data objectForKey:@"payload"];
+        NSData *dataPayload = [payload dataUsingEncoding:NSUTF8StringEncoding];
+        [Adtrace trackAdRevenue:source payload:dataPayload];
+    }];
+    
+    [self.bridgeRegister registerHandler:@"adtrace_disableThirdPartySharing" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [Adtrace disableThirdPartySharing];
+    }];
 
     [self.bridgeRegister registerHandler:@"adtrace_setTestOptions" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *baseUrl = [data objectForKey:@"baseUrl"];
         NSString *gdprUrl = [data objectForKey:@"gdprUrl"];
-        NSString *basePath = [data objectForKey:@"basePath"];
-        NSString *gdprPath = [data objectForKey:@"gdprPath"];
+        NSString *extraPath = [data objectForKey:@"extraPath"];
         NSNumber *timerIntervalInMilliseconds = [data objectForKey:@"timerIntervalInMilliseconds"];
         NSNumber *timerStartInMilliseconds = [data objectForKey:@"timerStartInMilliseconds"];
         NSNumber *sessionIntervalInMilliseconds = [data objectForKey:@"sessionIntervalInMilliseconds"];
@@ -479,11 +505,8 @@
         if ([self isFieldValid:gdprUrl]) {
             testOptions.gdprUrl = gdprUrl;
         }
-        if ([self isFieldValid:basePath]) {
-            testOptions.basePath = basePath;
-        }
-        if ([self isFieldValid:gdprPath]) {
-            testOptions.gdprPath = gdprPath;
+        if ([self isFieldValid:extraPath]) {
+            testOptions.extraPath = extraPath;
         }
         if ([self isFieldValid:timerIntervalInMilliseconds]) {
             testOptions.timerIntervalInMilliseconds = timerIntervalInMilliseconds;

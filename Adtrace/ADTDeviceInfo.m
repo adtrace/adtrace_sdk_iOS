@@ -1,6 +1,9 @@
 //
 //  ADTDeviceInfo.m
-//  adtrace
+//  Adtrace
+//
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import "ADTDeviceInfo.h"
@@ -11,7 +14,7 @@
 #import "NSData+ADTAdditions.h"
 #import "ADTReachability.h"
 
-#if !TARGET_OS_TV
+#if !TARGET_OS_TV && !TARGET_OS_MACCATALYST
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #endif
@@ -34,7 +37,6 @@
     self.trackingEnabled  = UIDevice.currentDevice.adtTrackingEnabled;
     self.idForAdvertisers = UIDevice.currentDevice.adtIdForAdvertisers;
     self.fbAnonymousId    = UIDevice.currentDevice.adtFbAnonymousId;
-    self.fbAttributionId  = UIDevice.currentDevice.adtFbAttributionId;
     self.vendorId         = UIDevice.currentDevice.adtVendorId;
     self.bundeIdentifier  = [infoDictionary objectForKey:(NSString *)kCFBundleIdentifierKey];
     self.bundleVersion    = [infoDictionary objectForKey:(NSString *)kCFBundleVersionKey];

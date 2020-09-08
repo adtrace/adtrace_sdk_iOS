@@ -1,6 +1,9 @@
 //
-//  ADTSuccessResponseData.h
-//  adtrace
+//  ADTSessionSuccess.h
+//  Adtrace
+//
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

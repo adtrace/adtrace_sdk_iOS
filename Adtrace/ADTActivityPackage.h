@@ -2,6 +2,9 @@
 //  ADTActivityPackage.h
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "ADTActivityKind.h"
 
@@ -12,8 +15,6 @@
 @property (nonatomic, copy) NSString *path;
 
 @property (nonatomic, copy) NSString *clientSdk;
-
-@property (nonatomic, assign) NSInteger retries;
 
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 
@@ -32,9 +33,5 @@
 - (NSString *)successMessage;
 
 - (NSString *)failureMessage;
-
-- (NSInteger)getRetries;
-
-- (NSInteger)increaseRetries;
 
 @end

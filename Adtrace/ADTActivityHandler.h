@@ -2,6 +2,9 @@
 //  ADTActivityHandler.h
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "Adtrace.h"
 #import "ADTResponseData.h"
@@ -41,16 +44,19 @@
 @property (nonatomic, copy) NSData *deviceTokenData;
 @property (nonatomic, copy) NSNumber *enabled;
 @property (nonatomic, assign) BOOL offline;
-@property (nonatomic, copy) NSString *basePath;
-@property (nonatomic, copy) NSString *gdprPath;
+@property (nonatomic, copy) NSString *extraPath;
 
 - (id)init;
 
 @end
 
+@class ADTTrackingStatusManager;
+
 @protocol ADTActivityHandler <NSObject>
 
 @property (nonatomic, copy) ADTAttribution *attribution;
+@property (nonatomic, strong) ADTTrackingStatusManager *trackingStatusManager;
+
 - (NSString *)adid;
 
 - (id)initWithConfig:(ADTConfig *)adtraceConfig
@@ -79,8 +85,7 @@
 
 - (BOOL)updateAttributionI:(id<ADTActivityHandler>)selfI attribution:(ADTAttribution *)attribution;
 - (void)setAttributionDetails:(NSDictionary *)attributionDetails
-                        error:(NSError *)error
-                  retriesLeft:(int)retriesLeft;
+                        error:(NSError *)error;
 
 - (void)setOfflineMode:(BOOL)offline;
 - (void)sendFirstPackages;
@@ -94,8 +99,9 @@
 - (void)resetSessionCallbackParameters;
 - (void)resetSessionPartnerParameters;
 - (void)trackAdRevenue:(NSString *)soruce payload:(NSData *)payload;
-- (NSString *)getBasePath;
-- (NSString *)getGdprPath;
+- (void)disableThirdPartySharing;
+- (void)trackSubscription:(ADTSubscription *)subscription;
+- (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser;
 
 - (ADTDeviceInfo *)deviceInfo;
 - (ADTActivityState *)activityState;
@@ -108,8 +114,8 @@
 
 @interface ADTActivityHandler : NSObject <ADTActivityHandler>
 
-+ (id<ADTActivityHandler>)handlerWithConfig:(ADTConfig *)adtraceConfig
-                             savedPreLaunch:(ADTSavedPreLaunch *)savedPreLaunch;
+- (id)initWithConfig:(ADTConfig *)adtraceConfig
+      savedPreLaunch:(ADTSavedPreLaunch *)savedPreLaunch;
 
 - (void)addSessionCallbackParameterI:(ADTActivityHandler *)selfI
                                  key:(NSString *)key
@@ -126,3 +132,19 @@
 - (void)resetSessionPartnerParametersI:(ADTActivityHandler *)selfI;
 
 @end
+
+@interface ADTTrackingStatusManager : NSObject
+
+- (instancetype)initWithActivityHandler:(ADTActivityHandler *)activityHandler;
+
+- (void)checkForNewAttStatus;
+- (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser;
+
+- (BOOL)canGetAttStatus;
+
+@property (nonatomic, readonly, assign) BOOL trackingEnabled;
+@property (nonatomic, readonly, assign) int attStatus;
+
+@end
+
+extern NSString * const ADTiAdPackageKey;

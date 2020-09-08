@@ -8,12 +8,8 @@
 
 #import "Constants.h"
 
-NSString * const kAppToken = @"y8c4b0vofy9h";
-//NSString * const kEventToken1 = @"g3mfiw";
-//NSString * const kEventToken2 = @"a4fd35";
-//NSString * const kEventToken3 = @"34vgg9";
-//NSString * const kEventToken4 = @"w788qs";
-NSString * const kEventToken1 = @"5e4xh3";
-NSString * const kEventToken2 = @"a4fd35";
-NSString * const kEventToken3 = @"34vgg9";
-NSString * const kEventToken4 = @"w788qs";
+NSString * const kAppToken = @"bkmffvktlrw7";
+NSString * const kEventToken1 = @"d0cihm";
+NSString * const kEventToken2 = @"d0cihm";
+NSString * const kEventToken3 = @"d0cihm";
+NSString * const kEventToken4 = @"d0cihm";

@@ -2,6 +2,9 @@
 //  ADTActivityState.h
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -11,6 +14,7 @@
 @property (nonatomic, assign) BOOL enabled;
 @property (nonatomic, assign) BOOL isGdprForgotten;
 @property (nonatomic, assign) BOOL askingAttribution;
+@property (nonatomic, assign) BOOL isThirdPartySharingDisabled;
 
 @property (nonatomic, copy) NSString *uuid;
 @property (nonatomic, copy) NSString *deviceToken;
@@ -18,6 +22,8 @@
 
 @property (nonatomic, copy) NSString *adid;
 @property (nonatomic, strong) NSDictionary *attributionDetails;
+
+@property (nonatomic, assign) int trackingManagerAuthorizationStatus;
 
 // Global counters
 @property (nonatomic, assign) int eventCount;

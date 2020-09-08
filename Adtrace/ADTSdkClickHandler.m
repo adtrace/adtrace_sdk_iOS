@@ -1,9 +1,9 @@
 //
 //  ADTSdkClickHandler.m
-//  Adtrace SDK
+//  Adtrace
 //
-//  Created by Pedro Filipe (@nonelse) on 21st April 2016.
-//  Copyright © 2016 Adtrace GmbH. All rights reserved.
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import "ADTUtil.h"
@@ -11,14 +11,15 @@
 #import "ADTAdtraceFactory.h"
 #import "ADTSdkClickHandler.h"
 #import "ADTBackoffStrategy.h"
+#import "ADTUserDefaults.h"
 
 static const char * const kInternalQueueName = "com.adtrace.SdkClickQueue";
 
 @interface ADTSdkClickHandler()
 
-@property (nonatomic, copy) NSString *basePath;
 @property (nonatomic, strong) NSMutableArray *packageQueue;
 @property (nonatomic, strong) dispatch_queue_t internalQueue;
+@property (nonatomic, strong) ADTRequestHandler *requestHandler;
 
 @property (nonatomic, assign) BOOL paused;
 @property (nonatomic, strong) ADTBackoffStrategy *backoffStrategy;
@@ -26,22 +27,19 @@ static const char * const kInternalQueueName = "com.adtrace.SdkClickQueue";
 @property (nonatomic, weak) id<ADTLogger> logger;
 @property (nonatomic, weak) id<ADTActivityHandler> activityHandler;
 
+@property (nonatomic, assign) NSInteger lastPackageRetriesCount;
+
 @end
 
 @implementation ADTSdkClickHandler
 
-#pragma mark - Public class methods
-
-+ (id<ADTSdkClickHandler>)handlerWithActivityHandler:(id<ADTActivityHandler>)activityHandler
-                                       startsSending:(BOOL)startsSending {
-    return [[ADTSdkClickHandler alloc] initWithActivityHandler:activityHandler
-                                                 startsSending:startsSending];
-}
-
 #pragma mark - Public instance methods
 
 - (id)initWithActivityHandler:(id<ADTActivityHandler>)activityHandler
-                startsSending:(BOOL)startsSending {
+                startsSending:(BOOL)startsSending
+                    userAgent:(NSString *)userAgent
+                  urlStrategy:(ADTUrlStrategy *)urlStrategy
+{
     self = [super init];
     if (self == nil) {
         return nil;
@@ -49,7 +47,13 @@ static const char * const kInternalQueueName = "com.adtrace.SdkClickQueue";
 
     self.internalQueue = dispatch_queue_create(kInternalQueueName, DISPATCH_QUEUE_SERIAL);
     self.logger = ADTAdtraceFactory.logger;
-    self.basePath = [activityHandler getBasePath];
+    self.lastPackageRetriesCount = 0;
+
+    self.requestHandler = [[ADTRequestHandler alloc]
+                           initWithResponseCallback:self
+                           urlStrategy:urlStrategy
+                           userAgent:userAgent
+                           requestTimeout:[ADTAdtraceFactory requestTimeout]];
 
     [ADTUtil launchInQueue:self.internalQueue
                 selfInject:self
@@ -141,51 +145,58 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
         return;
     }
 
-    NSURL *url;
-    NSString *baseUrl = [ADTAdtraceFactory baseUrl];
-    if (selfI.basePath != nil) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseUrl, selfI.basePath]];
-    } else {
-        url = [NSURL URLWithString:baseUrl];
-    }
-
     dispatch_block_t work = ^{
-        [ADTUtil sendPostRequest:url
-                       queueSize:queueSize - 1
-              prefixErrorMessage:sdkClickPackage.failureMessage
-              suffixErrorMessage:@"Will retry later"
-                 activityPackage:sdkClickPackage
-             responseDataHandler:^(ADTResponseData *responseData) {
-                 // Check if any package response contains information that user has opted out.
-                 // If yes, disable SDK and flush any potentially stored packages that happened afterwards.
-                 if (responseData.trackingState == ADTTrackingStateOptedOut) {
-                     [selfI.activityHandler setTrackingStateOptedOut];
-                     return;
-                 }
-                 if (responseData.jsonResponse == nil) {
-                     NSInteger retries = [sdkClickPackage increaseRetries];
-                     [selfI.logger error:@"Retrying sdk_click package for the %d time", retries];
-                     [selfI sendSdkClick:sdkClickPackage];
-                     return;
-                 }
+        NSDictionary *sendingParameters = @{
+            @"sent_at": [ADTUtil formatSeconds1970:[NSDate.date timeIntervalSince1970]]
+        };
 
-                 [selfI.activityHandler finishedTracking:responseData];
-             }];
+        [selfI.requestHandler sendPackageByPOST:sdkClickPackage
+                              sendingParameters:sendingParameters];
 
         [selfI sendNextSdkClick];
     };
 
-    NSInteger retries = [sdkClickPackage retries];
-    if (retries <= 0) {
+    if (selfI.lastPackageRetriesCount <= 0) {
         work();
         return;
     }
 
-    NSTimeInterval waitTime = [ADTUtil waitingTime:retries backoffStrategy:self.backoffStrategy];
+    NSTimeInterval waitTime = [ADTUtil waitingTime:selfI.lastPackageRetriesCount backoffStrategy:self.backoffStrategy];
     NSString *waitTimeFormatted = [ADTUtil secondsNumberFormat:waitTime];
 
-    [self.logger verbose:@"Waiting for %@ seconds before retrying sdk_click for the %d time", waitTimeFormatted, retries];
+    [self.logger verbose:@"Waiting for %@ seconds before retrying sdk_click for the %d time", waitTimeFormatted, selfI.lastPackageRetriesCount];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(waitTime * NSEC_PER_SEC)), self.internalQueue, work);
+}
+
+- (void)responseCallback:(ADTResponseData *)responseData {
+    if (responseData.jsonResponse) {
+        [self.logger debug:
+            @"Got click JSON response with message: %@", responseData.message];
+    } else {
+        [self.logger error:
+            @"Could not get click JSON response with message: %@", responseData.message];
+    }
+    // Check if any package response contains information that user has opted out.
+    // If yes, disable SDK and flush any potentially stored packages that happened afterwards.
+    if (responseData.trackingState == ADTTrackingStateOptedOut) {
+        self.lastPackageRetriesCount = 0;
+        [self.activityHandler setTrackingStateOptedOut];
+        return;
+    }
+    if (responseData.jsonResponse == nil) {
+        self.lastPackageRetriesCount++;
+        [self.logger error:@"Retrying sdk_click package for the %d time", self.lastPackageRetriesCount];
+        [self sendSdkClick:responseData.sdkClickPackage];
+        return;
+    }
+    self.lastPackageRetriesCount = 0;
+    
+    if ([responseData.sdkClickPackage.parameters.allValues containsObject:ADTiAdPackageKey]) {
+        // received iAd click package response, clear the errors from UserDefaults
+        [ADTUserDefaults cleariAdErrors];
+    }
+
+    [self.activityHandler finishedTracking:responseData];
 }
 
 @end

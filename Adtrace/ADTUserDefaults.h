@@ -2,6 +2,9 @@
 //  ADTUserDefaults.h
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -36,6 +39,16 @@
 
 + (void)removeDeeplink;
 
++ (void)setDisableThirdPartySharing;
+
++ (BOOL)getDisableThirdPartySharing;
+
++ (void)removeDisableThirdPartySharing;
+
 + (void)clearAdtraceStuff;
+
++ (void)saveiAdErrorKey:(NSString *)key;
++ (NSDictionary<NSString *, NSNumber *> *)getiAdErrors;
++ (void)cleariAdErrors;
 
 @end

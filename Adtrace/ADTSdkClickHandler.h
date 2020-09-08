@@ -1,26 +1,26 @@
 //
 //  ADTSdkClickHandler.h
-//  Adtrace SDK
+//  Adtrace
+//
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "ADTActivityPackage.h"
 #import "ADTActivityHandler.h"
+#import "ADTRequestHandler.h"
+#import "ADTUrlStrategy.h"
 
-@protocol ADTSdkClickHandler
+@interface ADTSdkClickHandler : NSObject <ADTResponseCallback>
 
 - (id)initWithActivityHandler:(id<ADTActivityHandler>)activityHandler
-                startsSending:(BOOL)startsSending;
+                startsSending:(BOOL)startsSending
+                    userAgent:(NSString *)userAgent
+                  urlStrategy:(ADTUrlStrategy *)urlStrategy;
 - (void)pauseSending;
 - (void)resumeSending;
 - (void)sendSdkClick:(ADTActivityPackage *)sdkClickPackage;
 - (void)teardown;
-
-@end
-
-@interface ADTSdkClickHandler : NSObject <ADTSdkClickHandler>
-
-+ (id<ADTSdkClickHandler>)handlerWithActivityHandler:(id<ADTActivityHandler>)activityHandler
-                                       startsSending:(BOOL)startsSending;
 
 @end

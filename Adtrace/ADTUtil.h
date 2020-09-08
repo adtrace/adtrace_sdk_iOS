@@ -2,6 +2,9 @@
 //  ADTUtil.h
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import <Foundation/Foundation.h>
 
@@ -12,7 +15,11 @@
 #import "ADTActivityPackage.h"
 #import "ADTBackoffStrategy.h"
 
+// https://stackoverflow.com/a/5337804/1498352
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 typedef void (^selfInjectedBlock)(id);
+typedef void (^synchronisedBlock)(void);
 typedef void (^isInactiveInjected)(BOOL);
 
 @interface ADTUtil : NSObject
@@ -21,7 +28,8 @@ typedef void (^isInactiveInjected)(BOOL);
 
 + (id)readObject:(NSString *)fileName
       objectName:(NSString *)objectName
-           class:(Class)classToRead;
+           class:(Class)classToRead
+      syncObject:(id)syncObject;
 
 + (void)excludeFromBackup:(NSString *)filename;
 
@@ -39,7 +47,8 @@ typedef void (^isInactiveInjected)(BOOL);
 
 + (void)writeObject:(id)object
            fileName:(NSString *)fileName
-         objectName:(NSString *)objectName;
+         objectName:(NSString *)objectName
+         syncObject:(id)syncObject;
 
 + (void)launchInMainThread:(NSObject *)receiver
                   selector:(SEL)selector
@@ -49,18 +58,8 @@ typedef void (^isInactiveInjected)(BOOL);
            selfInject:(id)selfInject
                 block:(selfInjectedBlock)block;
 
-+ (void)sendGetRequest:(NSURL *)baseUrl
-              basePath:(NSString *)basePath
-    prefixErrorMessage:(NSString *)prefixErrorMessage
-       activityPackage:(ADTActivityPackage *)activityPackage
-   responseDataHandler:(void (^)(ADTResponseData *responseData))responseDataHandler;
-
-+ (void)sendPostRequest:(NSURL *)baseUrl
-              queueSize:(NSUInteger)queueSize
-     prefixErrorMessage:(NSString *)prefixErrorMessage
-     suffixErrorMessage:(NSString *)suffixErrorMessage
-        activityPackage:(ADTActivityPackage *)activityPackage
-    responseDataHandler:(void (^)(ADTResponseData *responseData))responseDataHandler;
++ (void)launchSynchronisedWithObject:(id)synchronisationObject
+                               block:(synchronisedBlock)block;
 
 + (NSString *)idfa;
 
@@ -78,6 +77,9 @@ typedef void (^isInactiveInjected)(BOOL);
 
 + (NSString *)queryString:(NSDictionary *)parameters;
 
++ (NSString *)queryString:(NSDictionary *)parameters
+                queueSize:(NSUInteger)queueSize;
+
 + (NSString *)convertDeviceToken:(NSData *)deviceToken;
 
 + (BOOL)isNull:(id)value;
@@ -94,10 +96,6 @@ typedef void (^isInactiveInjected)(BOOL);
 
 + (NSDictionary *)convertDictionaryValues:(NSDictionary *)dictionary;
 
-+ (NSDictionary *)buildJsonDict:(NSData *)jsonData
-                   exceptionPtr:(NSException **)exceptionPtr
-                       errorPtr:(NSError **)error;
-
 + (NSDictionary *)mergeParameters:(NSDictionary *)target
                            source:(NSDictionary *)source
                     parameterName:(NSString *)parameterName;
@@ -113,12 +111,17 @@ typedef void (^isInactiveInjected)(BOOL);
 
 + (NSString *)sdkVersion;
 
-#if !TARGET_OS_TV
 + (NSString *)readMCC;
 
 + (NSString *)readMNC;
 
 + (NSString *)readCurrentRadioAccessTechnology;
-#endif
+
++ (NSString *)stringToBinaryString:(NSString *)str;
+
++ (NSString *)decimalToBinaryString:(NSUInteger)decInt;
+
++ (NSString *)enforceParameterLength:(NSString *)parameter
+                       withMaxlength:(int)maxLength;
 
 @end

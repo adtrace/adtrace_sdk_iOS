@@ -2,17 +2,21 @@
 //  Adtrace.h
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "ADTEvent.h"
 #import "ADTConfig.h"
 #import "ADTAttribution.h"
+#import "ADTSubscription.h"
 
 @interface AdtraceTestOptions : NSObject
 
 @property (nonatomic, copy, nullable) NSString *baseUrl;
 @property (nonatomic, copy, nullable) NSString *gdprUrl;
-@property (nonatomic, copy, nullable) NSString *basePath;
-@property (nonatomic, copy, nullable) NSString *gdprPath;
+@property (nonatomic, copy, nullable) NSString *subscriptionUrl;
+@property (nonatomic, copy, nullable) NSString *extraPath;
 @property (nonatomic, copy, nullable) NSNumber *timerIntervalInMilliseconds;
 @property (nonatomic, copy, nullable) NSNumber *timerStartInMilliseconds;
 @property (nonatomic, copy, nullable) NSNumber *sessionIntervalInMilliseconds;
@@ -21,6 +25,8 @@
 @property (nonatomic, assign) BOOL deleteState;
 @property (nonatomic, assign) BOOL noBackoffWait;
 @property (nonatomic, assign) BOOL iAdFrameworkEnabled;
+@property (nonatomic, assign) BOOL enableSigning;
+@property (nonatomic, assign) BOOL disableSigning;
 
 @end
 
@@ -53,6 +59,12 @@ extern NSString * __nonnull const ADTAdRevenueSourceAdtoapp;
 extern NSString * __nonnull const ADTAdRevenueSourceTapdaq;
 
 /**
+ * Constants for country apps url strategies.
+ */
+extern NSString * __nonnull const ADTUrlStrategyIndia;
+extern NSString * __nonnull const ADTUrlStrategyChina;
+
+/**
  * @brief The main interface to Adtrace.
  *
  * @note Use the methods of this class to tell Adtrace about the usage of your app.
@@ -69,7 +81,7 @@ extern NSString * __nonnull const ADTAdRevenueSourceTapdaq;
  *
  * @param adtraceConfig The configuration object that includes the environment
  *                     and the App Token of your app. This unique identifier can
- *                     be found it in your dashboard at http://adtrace.io and should always
+ *                     be found it in your panel at http://panel.adtrace.io and should always
  *                     be 12 characters long.
  */
 + (void)appDidLaunch:(nullable ADTConfig *)adtraceConfig;
@@ -80,7 +92,7 @@ extern NSString * __nonnull const ADTAdRevenueSourceTapdaq;
  * @note See ADTEvent.h for more event options.
  *
  * @param event The Event object for this kind of event. It needs a event token
- *              that is created in the dashboard at http://adtrace.io and should be six
+ *              that is created in the panel at http://panel.adtrace.io and should be six
  *              characters long.
  */
 + (void)trackEvent:(nullable ADTEvent *)event;
@@ -256,6 +268,20 @@ extern NSString * __nonnull const ADTAdRevenueSourceTapdaq;
 + (void)trackAdRevenue:(nonnull NSString *)source payload:(nonnull NSData *)payload;
 
 /**
+ * @brief Give right user to disable sharing data to any third-party.
+ */
++ (void)disableThirdPartySharing;
+
+/**
+ * @brief Track subscription.
+ *
+ * @param subscription Subscription object.
+ */
++ (void)trackSubscription:(nonnull ADTSubscription *)subscription;
+
++ (void)requestTrackingAuthorizationWithCompletionHandler:(void (^_Nullable)(NSUInteger status))completion;
+
+/**
  * Obtain singleton Adtrace object.
  */
 + (nullable id)getInstance;
@@ -300,6 +326,8 @@ extern NSString * __nonnull const ADTAdRevenueSourceTapdaq;
 
 - (void)trackAdRevenue:(nonnull NSString *)source payload:(nonnull NSData *)payload;
 
+- (void)trackSubscription:(nonnull ADTSubscription *)subscription;
+
 - (BOOL)isEnabled;
 
 - (nullable NSString *)adid;
@@ -311,5 +339,7 @@ extern NSString * __nonnull const ADTAdRevenueSourceTapdaq;
 - (nullable ADTAttribution *)attribution;
 
 - (nullable NSURL *)convertUniversalLink:(nonnull NSURL *)url scheme:(nonnull NSString *)scheme;
+
+- (void)requestTrackingAuthorizationWithCompletionHandler:(void (^_Nullable)(NSUInteger status))completion;
 
 @end

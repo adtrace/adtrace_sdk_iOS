@@ -2,6 +2,9 @@
 //  ADTActivityPackage.m
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "ADTActivityKind.h"
 #import "ADTActivityPackage.h"
@@ -12,7 +15,7 @@
 
 - (NSString *)extendedString {
     NSMutableString *builder = [NSMutableString string];
-    NSArray *excludedKeys = @[@"secret_id", @"app_secret", @"event_callback_id"];
+    NSArray *excludedKeys = @[@"secret_id", @"app_secret", @"signature", @"headers_id", @"native_version", @"event_callback_id"];
 
     [builder appendFormat:@"Path:      %@\n", self.path];
     [builder appendFormat:@"ClientSdk: %@\n", self.clientSdk];
@@ -37,16 +40,6 @@
     }
 
     return builder;
-}
-
-- (NSInteger)getRetries {
-    return self.retries;
-}
-
-- (NSInteger)increaseRetries {
-    self.retries = self.retries + 1;
-    
-    return self.retries;
 }
 
 - (NSString *)description {

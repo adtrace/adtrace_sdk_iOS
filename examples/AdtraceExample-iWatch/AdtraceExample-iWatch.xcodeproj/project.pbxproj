@@ -40,7 +40,6 @@
 		44B27A20233FA667001FC68E /* ADTTimerCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B279F9233FA667001FC68E /* ADTTimerCycle.m */; };
 		44B27A21233FA667001FC68E /* ADTActivityPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B279FA233FA667001FC68E /* ADTActivityPackage.m */; };
 		44B27A22233FA667001FC68E /* ADTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B279FC233FA667001FC68E /* ADTConfig.m */; };
-		44B27A23233FA667001FC68E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44B279FE233FA667001FC68E /* Info.plist */; };
 		9DF7AC191CB4FEDB00D3591F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF7AC181CB4FEDB00D3591F /* main.m */; };
 		9DF7AC1C1CB4FEDB00D3591F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF7AC1B1CB4FEDB00D3591F /* AppDelegate.m */; };
 		9DF7AC1F1CB4FEDB00D3591F /* ViewControllerWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF7AC1E1CB4FEDB00D3591F /* ViewControllerWatch.m */; };
@@ -173,7 +172,7 @@
 		44B279FF233FA667001FC68E /* ADTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTUserDefaults.h; sourceTree = "<group>"; };
 		44B27A00233FA667001FC68E /* ADTEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTEvent.h; sourceTree = "<group>"; };
 		44B27A01233FA667001FC68E /* ADTSdkClickHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSdkClickHandler.h; sourceTree = "<group>"; };
-		9DF7AC141CB4FEDB00D3591F /* AdjustExample-iWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdjustExample-iWatch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF7AC141CB4FEDB00D3591F /* AdtraceExample-iWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdtraceExample-iWatch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF7AC181CB4FEDB00D3591F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DF7AC1A1CB4FEDB00D3591F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9DF7AC1B1CB4FEDB00D3591F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -324,7 +323,7 @@
 		9DF7AC151CB4FEDB00D3591F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DF7AC141CB4FEDB00D3591F /* AdjustExample-iWatch.app */,
+				9DF7AC141CB4FEDB00D3591F /* AdtraceExample-iWatch.app */,
 				9DF7AC2B1CB4FEDB00D3591F /* AdjustExample-iWatch WatchKit App.app */,
 				9DF7AC3A1CB4FEDB00D3591F /* AdjustExample-iWatch WatchKit Extension.appex */,
 			);
@@ -417,7 +416,7 @@
 			);
 			name = "AdjustExample-iWatch";
 			productName = "AdjustExample-iWatch";
-			productReference = 9DF7AC141CB4FEDB00D3591F /* AdjustExample-iWatch.app */;
+			productReference = 9DF7AC141CB4FEDB00D3591F /* AdtraceExample-iWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9DF7AC2A1CB4FEDB00D3591F /* AdjustExample-iWatch WatchKit App */ = {
@@ -502,7 +501,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44B27A23233FA667001FC68E /* Info.plist in Resources */,
 				9DF7AC271CB4FEDB00D3591F /* LaunchScreen.storyboard in Resources */,
 				9DF7AC241CB4FEDB00D3591F /* Assets.xcassets in Resources */,
 				9DF7AC221CB4FEDB00D3591F /* Main.storyboard in Resources */,
@@ -811,7 +809,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adtrace.example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "AdtraceExample-iWatch";
 			};
 			name = Debug;
 		};
@@ -826,7 +824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adtrace.example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "AdtraceExample-iWatch";
 			};
 			name = Release;
 		};

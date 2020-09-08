@@ -2,43 +2,104 @@
 //  UIDevice+ADTAdditions.m
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "UIDevice+ADTAdditions.h"
 #import "NSString+ADTAdditions.h"
 
 #import <sys/sysctl.h>
 
-#if !ADTRACE_NO_IDFA
+#if !ADTUST_NO_IDFA
 #import <AdSupport/ASIdentifierManager.h>
 #endif
 
-#if !ADTRACE_NO_IAD && !TARGET_OS_TV
+#if !ADTUST_NO_IAD && !TARGET_OS_TV
 #import <iAd/iAd.h>
 #endif
 
+#import "ADTUtil.h"
+#import "ADTSystemProfile.h"
 #import "ADTAdtraceFactory.h"
 
 @implementation UIDevice(ADTAdditions)
 
-- (BOOL)adtTrackingEnabled {
-#if ADTRACE_NO_IDFA
-    return NO;
-#else
-    // return [[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];
+- (Class)adSupportManager {
     NSString *className = [NSString adtJoin:@"A", @"S", @"identifier", @"manager", nil];
     Class class = NSClassFromString(className);
-    if (class == nil) {
+    
+    return class;
+}
+
+- (Class)appTrackingManager {
+    NSString *className = [NSString adtJoin:@"A", @"T", @"tracking", @"manager", nil];
+    Class class = NSClassFromString(className);
+    
+    return class;
+}
+
+- (int)adtATTStatus {
+    Class appTrackingClass = [self appTrackingManager];
+    if (appTrackingClass != nil) {
+        NSString *keyAuthorization = [NSString adtJoin:@"tracking", @"authorization", @"status", nil];
+        SEL selAuthorization = NSSelectorFromString(keyAuthorization);
+        if ([appTrackingClass respondsToSelector:selAuthorization]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability"
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            return (int)[appTrackingClass performSelector:selAuthorization];
+#pragma clang diagnostic pop
+        }
+    }
+    
+    return -1;
+}
+
+- (void)requestTrackingAuthorizationWithCompletionHandler:(void (^)(NSUInteger status))completion
+{
+    Class appTrackingClass = [self appTrackingManager];
+    if (appTrackingClass == nil) {
+        return;
+    }
+    NSString *requestAuthorization = [NSString adtJoin:
+                                      @"request",
+                                      @"tracking",
+                                      @"authorization",
+                                      @"with",
+                                      @"completion",
+                                      @"handler:", nil];
+    SEL selRequestAuthorization = NSSelectorFromString(requestAuthorization);
+    if (![appTrackingClass respondsToSelector:selRequestAuthorization]) {
+        return;
+    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability"
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [appTrackingClass performSelector:selRequestAuthorization withObject:completion];
+#pragma clang diagnostic pop
+}
+
+- (BOOL)adtTrackingEnabled {
+#if ADTUST_NO_IDFA
+    return NO;
+#else
+    
+//     return [[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];
+    Class adSupportClass = [self adSupportManager];
+    if (adSupportClass == nil) {
+        return NO;
+    }
+
+    NSString *keyManager = [NSString adtJoin:@"shared", @"manager", nil];
+    SEL selManager = NSSelectorFromString(keyManager);
+    if (![adSupportClass respondsToSelector:selManager]) {
         return NO;
     }
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    NSString *keyManager = [NSString adtJoin:@"shared", @"manager", nil];
-    SEL selManager = NSSelectorFromString(keyManager);
-    if (![class respondsToSelector:selManager]) {
-        return NO;
-    }
-    id manager = [class performSelector:selManager];
-
+    id manager = [adSupportClass performSelector:selManager];
+    
     NSString *keyEnabled = [NSString adtJoin:@"is", @"advertising", @"tracking", @"enabled", nil];
     SEL selEnabled = NSSelectorFromString(keyEnabled);
     if (![manager respondsToSelector:selEnabled]) {
@@ -51,13 +112,12 @@
 }
 
 - (NSString *)adtIdForAdvertisers {
-#if ADTRACE_NO_IDFA
+#if ADTUST_NO_IDFA
     return @"";
 #else
     // return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    NSString *className = [NSString adtJoin:@"A", @"S", @"identifier", @"manager", nil];
-    Class class = NSClassFromString(className);
-    if (class == nil) {
+    Class adSupportClass = [self adSupportManager];
+    if (adSupportClass == nil) {
         return @"";
     }
 #pragma clang diagnostic push
@@ -65,10 +125,10 @@
 
     NSString *keyManager = [NSString adtJoin:@"shared", @"manager", nil];
     SEL selManager = NSSelectorFromString(keyManager);
-    if (![class respondsToSelector:selManager]) {
+    if (![adSupportClass respondsToSelector:selManager]) {
         return @"";
     }
-    id manager = [class performSelector:selManager];
+    id manager = [adSupportClass performSelector:selManager];
 
     NSString *keyIdentifier = [NSString adtJoin:@"advertising", @"identifier", nil];
     SEL selIdentifier = NSSelectorFromString(keyIdentifier);
@@ -89,40 +149,37 @@
 #endif
 }
 
-- (NSString *)adtFbAttributionId {
-#if ADTRACE_NO_UIPASTEBOARD || TARGET_OS_TV
-    return @"";
-#else
-    __block NSString *result;
-    void(^resultRetrievalBlock)(void) = ^{
-        result = [UIPasteboard pasteboardWithName:@"fb_app_attribution" create:NO].string;
-        if (result == nil) {
-            result = @"";
-        }
-    };
-    [NSThread isMainThread] ? resultRetrievalBlock() : dispatch_sync(dispatch_get_main_queue(), resultRetrievalBlock);
-    return result;
-#endif
-}
-
 - (NSString *)adtFbAnonymousId {
 #if TARGET_OS_TV
     return @"";
 #else
+    // pre FB SDK v6.0.0
     // return [FBSDKAppEventsUtility retrievePersistedAnonymousID];
-    Class class = NSClassFromString(@"FBSDKAppEventsUtility");
-    if (class == nil) {
-        return @"";
-    }
+    // post FB SDK v6.0.0
+    // return [FBSDKBasicUtility retrievePersistedAnonymousID];
+    Class class = nil;
     SEL selGetId = NSSelectorFromString(@"retrievePersistedAnonymousID");
-    if (![class respondsToSelector:selGetId]) {
-        return @"";
-    }
+    class = NSClassFromString(@"FBSDKBasicUtility");
+    if (class != nil) {
+        if ([class respondsToSelector:selGetId]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    NSString *fbAnonymousId = (NSString *)[class performSelector:selGetId];
+            NSString *fbAnonymousId = (NSString *)[class performSelector:selGetId];
+            return fbAnonymousId;
 #pragma clang diagnostic pop
-    return fbAnonymousId;
+        }
+    }
+    class = NSClassFromString(@"FBSDKAppEventsUtility");
+    if (class != nil) {
+        if ([class respondsToSelector:selGetId]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            NSString *fbAnonymousId = (NSString *)[class performSelector:selGetId];
+            return fbAnonymousId;
+#pragma clang diagnostic pop
+        }
+    }
+    return @"";
 #endif
 }
 
@@ -157,15 +214,120 @@
     return @"";
 }
 
-- (void)adtSetIad:(ADTActivityHandler *)activityHandler
-      triesV3Left:(int)triesV3Left {
+- (NSString *)adtDeviceId:(ADTDeviceInfo *)deviceInfo {
+    int languageMaxLength = 16;
+    NSString *language = deviceInfo.languageCode;
+    NSString *binaryLanguage = [ADTUtil stringToBinaryString:language];
+    NSString *binaryLanguageFormatted = [ADTUtil enforceParameterLength:binaryLanguage withMaxlength:languageMaxLength];
+    
+    int hardwareNameMaxLength = 48;
+    NSString *hardwareName = deviceInfo.machineModel;
+    NSString *binaryHardwareName = [ADTUtil stringToBinaryString:hardwareName];
+    NSString *binaryHardwareNameFormatted = [ADTUtil enforceParameterLength:binaryHardwareName withMaxlength:hardwareNameMaxLength];
+    
+    NSArray *versionParts = [deviceInfo.systemVersion componentsSeparatedByString:@"."];
+    int osVersionMajor = [[versionParts objectAtIndex:0] intValue];
+    int osVersionMinor = [[versionParts objectAtIndex:1] intValue];
+    int osVersionPatch = [versionParts count] == 3 ? [[versionParts objectAtIndex:2] intValue] : 0;
+
+    int osVersionMajorMaxLength = 8;
+    NSString *binaryOsVersionMajor = [ADTUtil decimalToBinaryString:osVersionMajor];
+    NSString *binaryOsVersionMajorFormatted = [ADTUtil enforceParameterLength:binaryOsVersionMajor withMaxlength:osVersionMajorMaxLength];
+    
+    int osVersionMinorMaxLength = 8;
+    NSString *binaryOsVersionMinor = [ADTUtil decimalToBinaryString:osVersionMinor];
+    NSString *binaryOsVersionMinorFormatted = [ADTUtil enforceParameterLength:binaryOsVersionMinor withMaxlength:osVersionMinorMaxLength];
+    
+    int osVersionPatchMaxLength = 8;
+    NSString *binaryOsVersionPatch = [ADTUtil decimalToBinaryString:osVersionPatch];
+    NSString *binaryOsVersionPatchFormatted = [ADTUtil enforceParameterLength:binaryOsVersionPatch withMaxlength:osVersionPatchMaxLength];
+
+    int mccMaxLength = 24;
+    NSString *mcc = [ADTUtil readMCC];
+    NSString *binaryMcc = [ADTUtil stringToBinaryString:mcc];
+    NSString *binaryMccFormatted = [ADTUtil enforceParameterLength:binaryMcc withMaxlength:mccMaxLength];
+
+    int mncMaxLength = 24;
+    NSString *mnc = [ADTUtil readMNC];
+    NSString *binaryMnc = [ADTUtil stringToBinaryString:mnc];
+    NSString *binaryMncFormatted = [ADTUtil enforceParameterLength:binaryMnc withMaxlength:mncMaxLength];
+    
+    int chargingStatusMaxLength = 8;
+    NSUInteger chargingStatus = [ADTSystemProfile chargingStatus];
+    NSString *binaryChargingStatus = [ADTUtil decimalToBinaryString:chargingStatus];
+    NSString *binaryChargingStatusFormatted = [ADTUtil enforceParameterLength:binaryChargingStatus withMaxlength:chargingStatusMaxLength];
+    
+    int batteryLevelMaxSize = 8;
+    NSUInteger batteryLevel = [ADTSystemProfile batteryLevel];
+    NSString *binaryBatteryLevel = [ADTUtil decimalToBinaryString:batteryLevel];
+    NSString *binaryBatteryLevelFormatted = [ADTUtil enforceParameterLength:binaryBatteryLevel withMaxlength:batteryLevelMaxSize];
+    
+    int totalSpaceMaxSize = 24;
+    NSUInteger totalSpace = [ADTSystemProfile totalDiskSpace];
+    NSString *binaryTotalSpace = [ADTUtil decimalToBinaryString:totalSpace];
+    NSString *binaryTotalSpaceFormatted = [ADTUtil enforceParameterLength:binaryTotalSpace withMaxlength:totalSpaceMaxSize];
+    
+    int freeSpaceMaxSize = 24;
+    NSUInteger freeSpace = [ADTSystemProfile freeDiskSpace];
+    NSString *binaryFreeSpace = [ADTUtil decimalToBinaryString:freeSpace];
+    NSString *binaryFreeSpaceFormatted = [ADTUtil enforceParameterLength:binaryFreeSpace withMaxlength:freeSpaceMaxSize];
+    
+    int systemUptimeMaxSize = 24;
+    NSUInteger systemUptime = [ADTSystemProfile systemUptime];
+    NSString *binarySystemUptime = [ADTUtil decimalToBinaryString:systemUptime];
+    NSString *binarySystemUptimeFormatted = [ADTUtil enforceParameterLength:binarySystemUptime withMaxlength:systemUptimeMaxSize];
+    
+    int lastBootTimeMaxSize = 32;
+    NSUInteger lastBootTime = [ADTSystemProfile lastBootTime];
+    NSString *binaryLastBootTime = [ADTUtil decimalToBinaryString:lastBootTime];
+    NSString *binaryLastBootTimeFormatted = [ADTUtil enforceParameterLength:binaryLastBootTime withMaxlength:lastBootTimeMaxSize];
+    
+    NSString *concatenated = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@",
+                              binaryLanguageFormatted,
+                              binaryHardwareNameFormatted,
+                              binaryOsVersionMajorFormatted,
+                              binaryOsVersionMinorFormatted,
+                              binaryOsVersionPatchFormatted,
+                              binaryMccFormatted,
+                              binaryMncFormatted,
+                              binaryChargingStatusFormatted,
+                              binaryBatteryLevelFormatted,
+                              binaryTotalSpaceFormatted,
+                              binaryFreeSpaceFormatted,
+                              binarySystemUptimeFormatted,
+                              binaryLastBootTimeFormatted];
+
+    // make sure concatenated string length is multiple of 4
+    if (concatenated.length % 4 != 0) {
+        int numberOfBits = concatenated.length % 4;
+        while (numberOfBits != 4) {
+            concatenated = [@"0" stringByAppendingString:concatenated];
+            numberOfBits += 1;
+        }
+    }
+    
+    NSString *mParameter = @"";
+    for (NSUInteger i = 0; i < concatenated.length; i += 4) {
+        // get fourplet substring
+        NSString *fourplet = [concatenated substringWithRange:NSMakeRange(i, 4)];
+        // convert fourplet to decimal number
+        long decimalFourplet = strtol([fourplet UTF8String], NULL, 2);
+        // append hex value of fourplet to final parameter
+        mParameter = [mParameter stringByAppendingString:[NSString stringWithFormat:@"%lX", decimalFourplet]];
+    }
+    
+    return mParameter;
+}
+
+- (void)adtCheckForiAd:(ADTActivityHandler *)activityHandler queue:(dispatch_queue_t)queue {
+    // if no tries for iad v3 left, stop trying
     id<ADTLogger> logger = [ADTAdtraceFactory logger];
 
-#if ADTRACE_NO_IAD || TARGET_OS_TV
-    [logger debug:@"ADTRACE_NO_IAD or TARGET_OS_TV set"];
+#if ADTUST_NO_IAD || TARGET_OS_TV
+    [logger debug:@"ADTUST_NO_IAD or TARGET_OS_TV set"];
     return;
 #else
-    [logger debug:@"ADTRACE_NO_IAD or TARGET_OS_TV not set"];
+    [logger debug:@"ADTUST_NO_IAD or TARGET_OS_TV not set"];
 
     // [[ADClient sharedClient] ...]
     Class ADClientClass = NSClassFromString(@"ADClient");
@@ -187,43 +349,64 @@
     }
 
     [logger debug:@"iAd framework successfully found in user's app"];
-    [logger debug:@"iAd with %d tries to read v3", triesV3Left];
 
-    // if no tries for iad v3 left, stop trying
-    if (triesV3Left == 0) {
-        [logger warn:@"Reached limit number of retry for iAd v3"];
-        return;
-    }
+    BOOL iAdInformationAvailable = [self setiAdWithDetails:activityHandler
+                                   adcClientSharedInstance:ADClientSharedClientInstance
+                                    queue:queue];
 
-    BOOL isIadV3Avaliable = [self adtSetIadWithDetails:activityHandler
-                          ADClientSharedClientInstance:ADClientSharedClientInstance
-                                           retriesLeft:(triesV3Left - 1)];
-
-    // if iad v3 not available
-    if (!isIadV3Avaliable) {
-        [logger warn:@"iAd v3 not available"];
+    if (!iAdInformationAvailable) {
+        [logger warn:@"iAd information not available"];
         return;
     }
 #pragma clang diagnostic pop
 #endif
 }
 
-- (BOOL)adtSetIadWithDetails:(ADTActivityHandler *)activityHandler
-ADClientSharedClientInstance:(id)ADClientSharedClientInstance
-                 retriesLeft:(int)retriesLeft {
-    SEL iadDetailsSelector = NSSelectorFromString(@"requestAttributionDetailsWithBlock:");
-    if (![ADClientSharedClientInstance respondsToSelector:iadDetailsSelector]) {
+- (BOOL)setiAdWithDetails:(ADTActivityHandler *)activityHandler
+  adcClientSharedInstance:(id)ADClientSharedClientInstance
+                    queue:(dispatch_queue_t)queue {
+    SEL iAdDetailsSelector = NSSelectorFromString(@"requestAttributionDetailsWithBlock:");
+    if (![ADClientSharedClientInstance respondsToSelector:iAdDetailsSelector]) {
         return NO;
     }
-
+    
+    __block Class lock = [ADTActivityHandler class];
+    __block BOOL completed = NO;
+    
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [ADClientSharedClientInstance performSelector:iadDetailsSelector
+    [ADClientSharedClientInstance performSelector:iAdDetailsSelector
                                        withObject:^(NSDictionary *attributionDetails, NSError *error) {
-                                           [activityHandler setAttributionDetails:attributionDetails error:error retriesLeft:retriesLeft];
-                                       }];
+        
+        @synchronized (lock) {
+            if (completed) {
+                return;
+            } else {
+                completed = YES;
+            }
+        }
+        
+        [activityHandler setAttributionDetails:attributionDetails
+                                         error:error];
+    }];
 #pragma clang diagnostic pop
-
+    
+    // 5 seconds of timeout
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), queue, ^{
+        @synchronized (lock) {
+            if (completed) {
+                return;
+            } else {
+                completed = YES;
+            }
+        }
+        
+        [activityHandler setAttributionDetails:nil
+                                         error:[NSError errorWithDomain:@"com.adtrace.sdk.iAd"
+                                                                   code:100
+                                                               userInfo:@{@"Error reason": @"iAd request timed out"}]];
+    });
+    
     return YES;
 }
 

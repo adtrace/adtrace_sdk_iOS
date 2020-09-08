@@ -28,7 +28,7 @@ class ViewControllerSwift: UIViewController {
     }
 
     @IBAction func btnTrackEventSimpleTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "g3mfiw");
+        let event = ADTEvent(eventToken: "d0cihm");
 
         // Attach callback ID to event.
         event?.setCallbackId("RandomCallbackId")
@@ -37,7 +37,7 @@ class ViewControllerSwift: UIViewController {
     }
 
     @IBAction func btnTrackEventRevenueTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "a4fd35")
+        let event = ADTEvent(eventToken: "d0cihm")
 
         // Add revenue 1 cent of an EURO.
         event?.setRevenue(0.01, currency: "EUR");
@@ -46,7 +46,7 @@ class ViewControllerSwift: UIViewController {
     }
 
     @IBAction func btnTrackEventCallbackTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "34vgg9");
+        let event = ADTEvent(eventToken: "d0cihm");
 
         // Add callback parameters to this event.
         event?.addCallbackParameter("foo", value: "bar");
@@ -56,7 +56,7 @@ class ViewControllerSwift: UIViewController {
     }
 
     @IBAction func btnTrackEventPartnerTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "w788qs");
+        let event = ADTEvent(eventToken: "d0cihm");
 
         // Add partner parameteres to this event.
         event?.addPartnerParameter("foo", value: "bar");

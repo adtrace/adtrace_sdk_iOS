@@ -1,6 +1,9 @@
 //
-//  UIDevice+ADTAdditions.h
+//  NSData+ADTAdditions.h
 //  Adtrace
+//
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -9,14 +12,17 @@
 
 @interface UIDevice(ADTAdditions)
 
+- (int)adtATTStatus;
 - (BOOL)adtTrackingEnabled;
 - (NSString *)adtIdForAdvertisers;
 - (NSString *)adtFbAnonymousId;
-- (NSString *)adtFbAttributionId;
 - (NSString *)adtDeviceType;
 - (NSString *)adtDeviceName;
 - (NSString *)adtCreateUuid;
 - (NSString *)adtVendorId;
-- (void)adtSetIad:(ADTActivityHandler *)activityHandler
-      triesV3Left:(int)triesV3Left;
+- (NSString *)adtDeviceId:(ADTDeviceInfo *)deviceInfo;
+- (void)adtCheckForiAd:(ADTActivityHandler *)activityHandler queue:(dispatch_queue_t)queue;
+
+- (void)requestTrackingAuthorizationWithCompletionHandler:(void (^)(NSUInteger status))completion;
+
 @end

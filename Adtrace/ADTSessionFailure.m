@@ -1,9 +1,9 @@
 //
-//  ADTFailureResponseData.m
-//  adtrace
+//  ADTSessionFailure.m
+//  Adtrace
 //
-//  Created by Pedro Filipe on 05/01/16.
-//  Copyright © 2016 adtrace GmbH. All rights reserved.
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import "ADTSessionFailure.h"

@@ -1,9 +1,9 @@
 //
 //  NSData+ADTAdditions.m
-//  adtrace
+//  Adtrace
 //
-//  Created by Pedro Filipe on 26/03/15.
-//  Copyright (c) 2015 adtrace GmbH. All rights reserved.
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import "NSData+ADTAdditions.h"

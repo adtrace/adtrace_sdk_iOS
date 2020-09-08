@@ -55,12 +55,12 @@ static NSString * fbAppIdStatic = nil;
     }
 }
 
-#define __adt_js_func__(x) #x
+#define __adj_js_func__(x) #x
 // BEGIN preprocessorJSCode
 
 + (NSString *)augmented_js {
     return [NSString stringWithFormat:
-        @__adt_js_func__(;(function() {
+        @__adj_js_func__(;(function() {
             window['fbmq_%@'] = {
                 'getProtocol' : function() {
                     return 'fbmq-0.1';
@@ -74,7 +74,7 @@ static NSString * fbAppIdStatic = nil;
 }
 
 + (NSString *)adtrace_js {
-    static NSString *preprocessorJSCode = @__adt_js_func__(;(function() {
+    static NSString *preprocessorJSCode = @__adj_js_func__(;(function() {
         if (window.Adtrace) {
             return;
         }
@@ -96,6 +96,11 @@ static NSString * fbAppIdStatic = nil;
             trackEvent: function(adtraceEvent) {
                 if (WebViewJavascriptBridge) {
                     WebViewJavascriptBridge.callHandler('adtrace_trackEvent', adtraceEvent, null);
+                }
+            },
+            trackAdRevenue: function(source, payload) {
+                if (WebViewJavascriptBridge != null) {
+                    WebViewJavascriptBridge.callHandler('adtrace_trackAdRevenue', {source: source, payload: payload}, null);
                 }
             },
             trackSubsessionStart: function() {
@@ -191,6 +196,11 @@ static NSString * fbAppIdStatic = nil;
                     WebViewJavascriptBridge.callHandler('adtrace_gdprForgetMe', null, null);
                 }
             },
+            disableThirdPartySharing: function() {
+                if (WebViewJavascriptBridge != null) {
+                    WebViewJavascriptBridge.callHandler('adtrace_disableThirdPartySharing', null, null);
+                }
+            },
             fbPixelEvent: function(pixelID, evtName, customData) {
                 if (WebViewJavascriptBridge != null) {
                     WebViewJavascriptBridge.callHandler('adtrace_fbPixelEvent',
@@ -211,7 +221,7 @@ static NSString * fbAppIdStatic = nil;
                 if (this.sdkPrefix) {
                     return this.sdkPrefix;
                 } else {
-                    return 'web-bridge1.0.1';
+                    return 'web-bridge1.1.0';
                 }
             },
             setTestOptions: function(testOptions) {
@@ -273,12 +283,15 @@ static NSString * fbAppIdStatic = nil;
 
             this.sdkPrefix = null;
             this.defaultTracker = null;
+            this.externalDeviceId = null;
             this.logLevel = null;
             this.eventBufferingEnabled = null;
             this.sendInBackground = null;
             this.delayStart = null;
             this.userAgent = null;
             this.isDeviceKnown = null;
+            this.allowiAdInfoReading = null;
+            this.allowIdfaReading = null;
             this.secretId = null;
             this.info1 = null;
             this.info2 = null;
@@ -293,6 +306,7 @@ static NSString * fbAppIdStatic = nil;
             this.sessionSuccessCallback = null;
             this.sessionFailureCallback = null;
             this.deferredDeeplinkCallback = null;
+            this.urlStrategy = null;
         };
 
         AdtraceConfig.EnvironmentSandbox = 'sandbox';
@@ -305,6 +319,9 @@ static NSString * fbAppIdStatic = nil;
         AdtraceConfig.LogLevelError = 'ERROR';
         AdtraceConfig.LogLevelAssert = 'ASSERT';
         AdtraceConfig.LogLevelSuppress = 'SUPPRESS';
+
+        AdtraceConfig.UrlStrategyIndia = 'UrlStrategyIndia';
+        AdtraceConfig.UrlStrategyChina = 'UrlStrategyChina';
 
         AdtraceConfig.prototype.registerCallbackHandlers = function() {
             var registerCallbackHandler = function(callbackName) {
@@ -332,6 +349,9 @@ static NSString * fbAppIdStatic = nil;
         AdtraceConfig.prototype.setDefaultTracker = function(defaultTracker) {
             this.defaultTracker = defaultTracker;
         };
+        AdtraceConfig.prototype.setExternalDeviceId = function(externalDeviceId) {
+            this.externalDeviceId = externalDeviceId;
+        };
         AdtraceConfig.prototype.setLogLevel = function(logLevel) {
             this.logLevel = logLevel;
         };
@@ -349,6 +369,12 @@ static NSString * fbAppIdStatic = nil;
         };
         AdtraceConfig.prototype.setIsDeviceKnown = function(isDeviceKnown) {
             this.isDeviceKnown = isDeviceKnown;
+        };
+        AdtraceConfig.prototype.setAllowiAdInfoReading = function(allowiAdInfoReading) {
+            this.allowiAdInfoReading = allowiAdInfoReading;
+        };
+        AdtraceConfig.prototype.setAllowIdfaReading = function(allowIdfaReading) {
+            this.allowIdfaReading = allowIdfaReading;
         };
         AdtraceConfig.prototype.setAppSecret = function(secretId, info1, info2, info3, info4) {
             this.secretId = secretId;
@@ -381,14 +407,17 @@ static NSString * fbAppIdStatic = nil;
         AdtraceConfig.prototype.setFbPixelDefaultEventToken = function(fbPixelDefaultEventToken) {
             this.fbPixelDefaultEventToken = fbPixelDefaultEventToken;
         };
-        AdtraceConfig.prototype.addFbPixelMapping = function(fbEventNameKey, adtEventTokenValue) {
+        AdtraceConfig.prototype.addFbPixelMapping = function(fbEventNameKey, adjEventTokenValue) {
             this.fbPixelMapping.push(fbEventNameKey);
-            this.fbPixelMapping.push(adtEventTokenValue);
+            this.fbPixelMapping.push(adjEventTokenValue);
+        };
+        AdtraceConfig.prototype.setUrlStrategy = function(urlStrategy) {
+            this.urlStrategy = urlStrategy;
         };
 
     })();); // END preprocessorJSCode
     //, augmentedSection];
-#undef __adt_js_func__
+#undef __adj_js_func__
     return preprocessorJSCode;
 }
 

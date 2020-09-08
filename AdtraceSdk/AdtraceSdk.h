@@ -1,6 +1,9 @@
 //
 //  AdtraceSdk.h
-//  AdtraceSdk
+//  Adtrace
+//
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 adtrace GmbH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -18,6 +21,7 @@ FOUNDATION_EXPORT const unsigned char AdtraceSdkVersionString[];
 #import <AdtraceSdk/ADTConfig.h>
 #import <AdtraceSdk/ADTLogger.h>
 #import <AdtraceSdk/ADTAttribution.h>
+#import <AdtraceSdk/ADTSubscription.h>
 #import <AdtraceSdk/ADTEventSuccess.h>
 #import <AdtraceSdk/ADTEventFailure.h>
 #import <AdtraceSdk/ADTSessionSuccess.h>

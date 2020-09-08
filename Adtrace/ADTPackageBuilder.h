@@ -1,9 +1,9 @@
 //
 //  ADTPackageBuilder.h
-//  Adtrace SDK
+//  Adtrace
 //
-//  Created by Christian Wellenbrock (@wellle) on 3rd July 2013.
-//  Copyright (c) 2013-2018 Adtrace GmbH. All rights reserved.
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import "ADTEvent.h"
@@ -13,6 +13,7 @@
 #import "ADTActivityPackage.h"
 #import "ADTSessionParameters.h"
 #import <Foundation/Foundation.h>
+#import "ADTActivityHandler.h"
 
 @interface ADTPackageBuilder : NSObject
 
@@ -32,6 +33,7 @@
            activityState:(ADTActivityState *)activityState
                   config:(ADTConfig *)adtraceConfig
        sessionParameters:(ADTSessionParameters *)sessionParameters
+   trackingStatusManager:(ADTTrackingStatusManager *)trackingStatusManager
                createdAt:(double)createdAt;
 
 - (ADTActivityPackage *)buildSessionPackage:(BOOL)isInDelay;
@@ -49,12 +51,21 @@
 
 - (ADTActivityPackage *)buildGdprPackage;
 
+- (ADTActivityPackage *)buildDisableThirdPartySharingPackage;
+
+- (ADTActivityPackage *)buildSubscriptionPackage:(ADTSubscription *)subscription
+                                       isInDelay:(BOOL)isInDelay;
+
 + (void)parameters:(NSMutableDictionary *)parameters
      setDictionary:(NSDictionary *)dictionary
             forKey:(NSString *)key;
 
 + (void)parameters:(NSMutableDictionary *)parameters
          setString:(NSString *)value
+            forKey:(NSString *)key;
+
++ (void)parameters:(NSMutableDictionary *)parameters
+            setInt:(int)value
             forKey:(NSString *)key;
 
 @end

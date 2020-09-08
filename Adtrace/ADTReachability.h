@@ -12,9 +12,9 @@
 
 
 typedef enum : NSInteger {
-	ADTNotReachable = 0,
-	ADTReachableViaWiFi,
-	ADTReachableViaWWAN
+    ADTNotReachable = 0,
+    ADTReachableViaWiFi,
+    ADTReachableViaWWAN
 } ADTNetworkStatus;
 
 

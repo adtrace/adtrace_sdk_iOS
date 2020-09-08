@@ -2,12 +2,15 @@
 //  NSString+ADTAdditions.m
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import <CommonCrypto/CommonDigest.h>
 
 #import "NSString+ADTAdditions.h"
 
-@implementation NSString(ADTAdditions)
+@implementation NSString(ADJAdditions)
 
 - (NSString *)adtTrim {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];

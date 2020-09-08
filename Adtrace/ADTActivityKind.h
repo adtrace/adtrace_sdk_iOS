@@ -2,8 +2,8 @@
 //  ADTActivityKind.h
 //  Adtrace
 //
-//  Created by Christian Wellenbrock on 11.02.14.
-//  Copyright (c) 2014 adtrace GmbH. All rights reserved.
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,15 +13,17 @@
 #endif
 
 typedef NS_ENUM(int, ADTActivityKind) {
-    ADTActivityKindUnknown      = 0,
-    ADTActivityKindSession      = 1,
-    ADTActivityKindEvent        = 2,
-//  ADTActivityKindRevenue      = 3,
-    ADTActivityKindClick        = 4,
-    ADTActivityKindAttribution  = 5,
-    ADTActivityKindInfo         = 6,
-    ADTActivityKindGdpr         = 7,
-    ADTActivityKindAdRevenue    = 8
+    ADTActivityKindUnknown = 0,
+    ADTActivityKindSession = 1,
+    ADTActivityKindEvent = 2,
+    // ADTActivityKindRevenue = 3,
+    ADTActivityKindClick = 4,
+    ADTActivityKindAttribution = 5,
+    ADTActivityKindInfo = 6,
+    ADTActivityKindGdpr = 7,
+    ADTActivityKindAdRevenue = 8,
+    ADTActivityKindDisableThirdPartySharing = 9,
+    ADTActivityKindSubscription = 10
 };
 
 @interface ADTActivityKindUtil : NSObject

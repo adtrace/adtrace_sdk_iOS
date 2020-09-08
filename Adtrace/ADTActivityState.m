@@ -2,6 +2,9 @@
 //  ADTActivityState.m
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "ADTKeychain.h"
 #import "ADTAdtraceFactory.h"
@@ -34,9 +37,11 @@ static NSString *appToken = nil;
     self.enabled = YES;
     self.isGdprForgotten = NO;
     self.askingAttribution = NO;
+    self.isThirdPartySharingDisabled = NO;
     self.deviceToken = nil;
     self.transactionIds = [NSMutableArray arrayWithCapacity:kTransactionIdCount];
     self.updatePackages = NO;
+    self.trackingManagerAuthorizationStatus = -1;
 
     return self;
 }
@@ -116,9 +121,11 @@ static NSString *appToken = nil;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"ec:%d sc:%d ssc:%d ask:%d sl:%.1f ts:%.1f la:%.1f dt:%@ gdprf:%d",
-            self.eventCount, self.sessionCount, self.subsessionCount, self.askingAttribution, self.sessionLength,
-            self.timeSpent, self.lastActivity, self.deviceToken, self.isGdprForgotten];
+    return [NSString stringWithFormat:@"ec:%d sc:%d ssc:%d ask:%d sl:%.1f ts:%.1f la:%.1f dt:%@ gdprf:%d dtps:%d att:%d",
+            self.eventCount, self.sessionCount,
+            self.subsessionCount, self.askingAttribution, self.sessionLength,
+            self.timeSpent, self.lastActivity, self.deviceToken,
+            self.isGdprForgotten, self.isThirdPartySharingDisabled, self.trackingManagerAuthorizationStatus];
 }
 
 #pragma mark - NSCoding protocol methods
@@ -169,6 +176,12 @@ static NSString *appToken = nil;
         self.askingAttribution = NO;
     }
 
+    if ([decoder containsValueForKey:@"isThirdPartySharingDisabled"]) {
+        self.isThirdPartySharingDisabled = [decoder decodeBoolForKey:@"isThirdPartySharingDisabled"];
+    } else {
+        self.isThirdPartySharingDisabled = NO;
+    }
+
     if ([decoder containsValueForKey:@"deviceToken"]) {
         self.deviceToken = [decoder decodeObjectForKey:@"deviceToken"];
     }
@@ -185,6 +198,13 @@ static NSString *appToken = nil;
 
     if ([decoder containsValueForKey:@"attributionDetails"]) {
         self.attributionDetails = [decoder decodeObjectForKey:@"attributionDetails"];
+    }
+
+    if ([decoder containsValueForKey:@"trackingManagerAuthorizationStatus"]) {
+        self.trackingManagerAuthorizationStatus =
+            [decoder decodeIntForKey:@"trackingManagerAuthorizationStatus"];
+    } else {
+        self.trackingManagerAuthorizationStatus = -1;
     }
 
     self.lastInterval = -1;
@@ -204,10 +224,13 @@ static NSString *appToken = nil;
     [encoder encodeBool:self.enabled forKey:@"enabled"];
     [encoder encodeBool:self.isGdprForgotten forKey:@"isGdprForgotten"];
     [encoder encodeBool:self.askingAttribution forKey:@"askingAttribution"];
+    [encoder encodeBool:self.isThirdPartySharingDisabled forKey:@"isThirdPartySharingDisabled"];
     [encoder encodeObject:self.deviceToken forKey:@"deviceToken"];
     [encoder encodeBool:self.updatePackages forKey:@"updatePackages"];
     [encoder encodeObject:self.adid forKey:@"adid"];
     [encoder encodeObject:self.attributionDetails forKey:@"attributionDetails"];
+    [encoder encodeInt:self.trackingManagerAuthorizationStatus
+                   forKey:@"trackingManagerAuthorizationStatus"];
 }
 
 #pragma mark - NSCopying protocol methods
@@ -228,8 +251,10 @@ static NSString *appToken = nil;
         copy.isGdprForgotten = self.isGdprForgotten;
         copy.lastActivity = self.lastActivity;
         copy.askingAttribution = self.askingAttribution;
+        copy.isThirdPartySharingDisabled = self.isThirdPartySharingDisabled;
         copy.deviceToken = [self.deviceToken copyWithZone:zone];
         copy.updatePackages = self.updatePackages;
+        copy.trackingManagerAuthorizationStatus = self.trackingManagerAuthorizationStatus;
     }
     
     return copy;

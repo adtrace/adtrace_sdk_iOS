@@ -2,63 +2,33 @@
 //  ADTAdtraceFactory.m
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "ADTAdtraceFactory.h"
+#import "ADTActivityHandler.h"
+#import "ADTPackageHandler.h"
 
-static id<ADTPackageHandler> internalPackageHandler = nil;
-static id<ADTRequestHandler> internalRequestHandler = nil;
-static id<ADTActivityHandler> internalActivityHandler = nil;
 static id<ADTLogger> internalLogger = nil;
-static id<ADTAttributionHandler> internalAttributionHandler = nil;
-static id<ADTSdkClickHandler> internalSdkClickHandler = nil;
 
 static double internalSessionInterval    = -1;
 static double intervalSubsessionInterval = -1;
+static double internalRequestTimeout = -1;
 static NSTimeInterval internalTimerInterval = -1;
 static NSTimeInterval intervalTimerStart = -1;
 static ADTBackoffStrategy * packageHandlerBackoffStrategy = nil;
 static ADTBackoffStrategy * sdkClickHandlerBackoffStrategy = nil;
+static ADTBackoffStrategy * installSessionBackoffStrategy = nil;
 static BOOL internalTesting = NO;
 static NSTimeInterval internalMaxDelayStart = -1;
 static BOOL internaliAdFrameworkEnabled = YES;
 
-static NSString * const kBaseUrl = @"https://app.adtrace.io";
-static NSString * internalBaseUrl = @"https://app.adtrace.io";
-static NSString * const kGdprUrl = @"https://gdpr.adtrace.io";
-static NSString * internalGdprUrl = @"https://gdpr.adtrace.io";
+static NSString * internalBaseUrl = nil;
+static NSString * internalGdprUrl = nil;
+static NSString * internalSubscriptionUrl = nil;
 
 @implementation ADTAdtraceFactory
-
-+ (id<ADTPackageHandler>)packageHandlerForActivityHandler:(id<ADTActivityHandler>)activityHandler
-                                            startsSending:(BOOL)startsSending {
-    if (internalPackageHandler == nil) {
-        return [ADTPackageHandler handlerWithActivityHandler:activityHandler startsSending:startsSending];
-    }
-
-    return [internalPackageHandler initWithActivityHandler:activityHandler startsSending:startsSending];
-}
-
-+ (id<ADTRequestHandler>)requestHandlerForPackageHandler:(id<ADTPackageHandler>)packageHandler
-                                      andActivityHandler:(id<ADTActivityHandler>)activityHandler {
-    if (internalRequestHandler == nil) {
-        return [ADTRequestHandler handlerWithPackageHandler:packageHandler
-                                         andActivityHandler:activityHandler];
-    }
-    return [internalRequestHandler initWithPackageHandler:packageHandler
-                                       andActivityHandler:activityHandler];
-}
-
-+ (id<ADTActivityHandler>)activityHandlerWithConfig:(ADTConfig *)adtraceConfig
-                     savedPreLaunch:(ADTSavedPreLaunch *)savedPreLaunch
-{
-    if (internalActivityHandler == nil) {
-        return [ADTActivityHandler handlerWithConfig:adtraceConfig
-                                      savedPreLaunch:savedPreLaunch
-                ];
-    }
-    return [internalActivityHandler initWithConfig:adtraceConfig
-                                    savedPreLaunch:savedPreLaunch];
-}
 
 + (id<ADTLogger>)logger {
     if (internalLogger == nil) {
@@ -80,6 +50,13 @@ static NSString * internalGdprUrl = @"https://gdpr.adtrace.io";
         return 1;                 // 1 second
     }
     return intervalSubsessionInterval;
+}
+
++ (double)requestTimeout {
+    if (internalRequestTimeout == -1) {
+        return 60;                 // 60 second
+    }
+    return internalRequestTimeout;
 }
 
 + (NSTimeInterval)timerInterval {
@@ -110,26 +87,11 @@ static NSString * internalGdprUrl = @"https://gdpr.adtrace.io";
     return sdkClickHandlerBackoffStrategy;
 }
 
-+ (id<ADTAttributionHandler>)attributionHandlerForActivityHandler:(id<ADTActivityHandler>)activityHandler
-                                                    startsSending:(BOOL)startsSending
-{
-    if (internalAttributionHandler == nil) {
-        return [ADTAttributionHandler handlerWithActivityHandler:activityHandler
-                                                   startsSending:startsSending];
++ (ADTBackoffStrategy *)installSessionBackoffStrategy {
+    if (installSessionBackoffStrategy == nil) {
+        return [ADTBackoffStrategy backoffStrategyWithType:ADTShortWait];
     }
-
-    return [internalAttributionHandler initWithActivityHandler:activityHandler
-                                                 startsSending:startsSending];
-}
-
-+ (id<ADTSdkClickHandler>)sdkClickHandlerForActivityHandler:(id<ADTActivityHandler>)activityHandler
-                                              startsSending:(BOOL)startsSending
-{
-    if (internalSdkClickHandler == nil) {
-        return [ADTSdkClickHandler handlerWithActivityHandler:activityHandler startsSending:startsSending];
-    }
-
-    return [internalSdkClickHandler initWithActivityHandler:activityHandler startsSending:startsSending];
+    return installSessionBackoffStrategy;
 }
 
 + (BOOL)testing {
@@ -155,16 +117,8 @@ static NSString * internalGdprUrl = @"https://gdpr.adtrace.io";
     return internalGdprUrl;
 }
 
-+ (void)setPackageHandler:(id<ADTPackageHandler>)packageHandler {
-    internalPackageHandler = packageHandler;
-}
-
-+ (void)setRequestHandler:(id<ADTRequestHandler>)requestHandler {
-    internalRequestHandler = requestHandler;
-}
-
-+ (void)setActivityHandler:(id<ADTActivityHandler>)activityHandler {
-    internalActivityHandler = activityHandler;
++ (NSString *)subscriptionUrl {
+    return internalSubscriptionUrl;
 }
 
 + (void)setLogger:(id<ADTLogger>)logger {
@@ -179,20 +133,16 @@ static NSString * internalGdprUrl = @"https://gdpr.adtrace.io";
     intervalSubsessionInterval = subsessionInterval;
 }
 
++ (void)setRequestTimeout:(double)requestTimeout {
+    internalRequestTimeout = requestTimeout;
+}
+
 + (void)setTimerInterval:(NSTimeInterval)timerInterval {
     internalTimerInterval = timerInterval;
 }
 
 + (void)setTimerStart:(NSTimeInterval)timerStart {
     intervalTimerStart = timerStart;
-}
-
-+ (void)setAttributionHandler:(id<ADTAttributionHandler>)attributionHandler {
-    internalAttributionHandler = attributionHandler;
-}
-
-+ (void)setSdkClickHandler:(id<ADTSdkClickHandler>)sdkClickHandler {
-    internalSdkClickHandler = sdkClickHandler;
 }
 
 + (void)setPackageHandlerBackoffStrategy:(ADTBackoffStrategy *)backoffStrategy {
@@ -223,28 +173,71 @@ static NSString * internalGdprUrl = @"https://gdpr.adtrace.io";
     internalGdprUrl = gdprUrl;
 }
 
++ (void)setSubscriptionUrl:(NSString *)subscriptionUrl {
+    internalSubscriptionUrl = subscriptionUrl;
+}
+
++ (void)enableSigning {
+    Class signerClass = NSClassFromString(@"ADTSigner");
+    if (signerClass == nil) {
+        return;
+    }
+
+    SEL enabledSEL = NSSelectorFromString(@"enableSigning");
+    if (![signerClass respondsToSelector:enabledSEL]) {
+        return;
+    }
+
+    IMP enableIMP = [signerClass methodForSelector:enabledSEL];
+    if (!enableIMP) {
+        return;
+    }
+
+    void (*enableFunc)(id, SEL) = (void *)enableIMP;
+
+    enableFunc(signerClass, enabledSEL);
+}
+
++ (void)disableSigning {
+    Class signerClass = NSClassFromString(@"ADTSigner");
+    if (signerClass == nil) {
+        return;
+    }
+
+    SEL disableSEL = NSSelectorFromString(@"disableSigning");
+    if (![signerClass respondsToSelector:disableSEL]) {
+        return;
+    }
+
+    IMP disableIMP = [signerClass methodForSelector:disableSEL];
+    if (!disableIMP) {
+        return;
+    }
+
+    void (*disableFunc)(id, SEL) = (void *)disableIMP;
+
+    disableFunc(signerClass, disableSEL);
+}
+
 + (void)teardown:(BOOL)deleteState {
     if (deleteState) {
         [ADTActivityHandler deleteState];
         [ADTPackageHandler deleteState];
     }
-    internalPackageHandler = nil;
-    internalRequestHandler = nil;
-    internalActivityHandler = nil;
     internalLogger = nil;
-    internalAttributionHandler = nil;
-    internalSdkClickHandler = nil;
 
-    internalSessionInterval    = -1;
+    internalSessionInterval = -1;
     intervalSubsessionInterval = -1;
     internalTimerInterval = -1;
     intervalTimerStart = -1;
+    internalRequestTimeout = -1;
     packageHandlerBackoffStrategy = nil;
     sdkClickHandlerBackoffStrategy = nil;
     internalTesting = NO;
     internalMaxDelayStart = -1;
-    internalBaseUrl = kBaseUrl;
-    internalGdprUrl = kGdprUrl;
+    internalBaseUrl = nil;
+    internalGdprUrl = nil;
+    internalSubscriptionUrl = nil;
     internaliAdFrameworkEnabled = YES;
 }
 @end

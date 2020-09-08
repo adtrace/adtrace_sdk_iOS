@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AdtraceDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appToken = "2fm9gkqubvpc"
+        let appToken = "bkmffvktlrw7"
         let environment = ADTEnvironmentSandbox
         let adtraceConfig = ADTConfig(appToken: appToken, environment: environment)
 

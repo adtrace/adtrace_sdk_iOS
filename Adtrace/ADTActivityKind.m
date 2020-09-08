@@ -2,6 +2,9 @@
 //  ADTActivityKind.m
 //  Adtrace
 //
+//  Created by Aref on 9/8/20.
+//  Copyright © 2020 Adtrace. All rights reserved.
+//
 
 #import "ADTActivityKind.h"
 
@@ -24,6 +27,10 @@
         return ADTActivityKindGdpr;
     } else if ([@"ad_revenue" isEqualToString:activityKindString]) {
         return ADTActivityKindAdRevenue;
+    } else if ([@"disable_third_party_sharing" isEqualToString:activityKindString]) {
+        return ADTActivityKindDisableThirdPartySharing;
+    } else if ([@"subscription" isEqualToString:activityKindString]) {
+        return ADTActivityKindSubscription;
     } else {
         return ADTActivityKindUnknown;
     }
@@ -45,6 +52,10 @@
             return @"gdpr";
         case ADTActivityKindAdRevenue:
             return @"ad_revenue";
+        case ADTActivityKindDisableThirdPartySharing:
+            return @"disable_third_party_sharing";
+        case ADTActivityKindSubscription:
+            return @"subscription";
         default:
             return @"unknown";
     }

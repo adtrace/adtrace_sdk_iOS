@@ -67,7 +67,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/(null)">
+         RemotePath = "/Adtrace Example">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF7AC2A1CB4FEDB00D3591F"
@@ -87,7 +87,7 @@
       <RemoteRunnable
          runnableDebuggingMode = "2"
          BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/(null)">
+         RemotePath = "/Adtrace Example">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF7AC2A1CB4FEDB00D3591F"

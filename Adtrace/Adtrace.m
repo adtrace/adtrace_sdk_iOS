@@ -244,7 +244,7 @@ static dispatch_once_t onceToken = 0;
     }
 }
 
-+ (ADTAttribution *)attribution {
++ (ADTAttribution *)attributionAdtrace {
     @synchronized (self) {
         return [[Adtrace getInstance] attribution];
     }

@@ -180,7 +180,7 @@ extern NSString * __nonnull const ADTUrlStrategyChina;
  *
  * @return Current attribution value for the user.
  */
-+ (nullable ADTAttribution *)attribution;
++ (nullable ADTAttribution *)attributionAdtrace;
 
 /**
  * @brief Get current Adtrace SDK version string.
@@ -336,7 +336,7 @@ extern NSString * __nonnull const ADTUrlStrategyChina;
 
 - (nullable NSString *)sdkVersion;
 
-- (nullable ADTAttribution *)attribution;
+- (nullable ADTAttribution *)attributionInstance;
 
 - (nullable NSURL *)convertUniversalLink:(nonnull NSURL *)url scheme:(nonnull NSString *)scheme;
 

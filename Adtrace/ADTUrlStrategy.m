@@ -14,13 +14,13 @@ static NSString * const baseUrl = @"https://app.adtrace.io";
 static NSString * const gdprUrl = @"https://gdpr.adtrace.io";
 static NSString * const subscriptionUrl = @"https://subscription.adtrace.io";
 
-static NSString * const baseUrlIndia = @"https://app.adtrace.net.in";
-static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.net.in";
-static NSString * const subscritionUrlIndia = @"https://subscription.adtrace.net.in";
+static NSString * const baseUrlIndia = @"https://app.adtrace.io";
+static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.io";
+static NSString * const subscritionUrlIndia = @"https://subscription.adtrace.io";
 
-static NSString * const baseUrlChina = @"https://app.adtrace.world";
-static NSString * const gdprUrlChina = @"https://gdpr.adtrace.world";
-static NSString * const subscritionUrlChina = @"https://subscription.adtrace.world";
+static NSString * const baseUrlChina = @"https://app.adtrace.io";
+static NSString * const gdprUrlChina = @"https://gdpr.adtrace.io";
+static NSString * const subscritionUrlChina = @"https://subscription.adtrace.io";
 
 @interface ADTUrlStrategy ()
 

@@ -74,6 +74,11 @@ If you're using [CocoaPods][cocoapods], you can add the following line to your `
 ```ruby
 pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :tag => 'v2.0.3'
 ```
+or
+  
+```ruby
+pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :branch => 'dev'
+```
 
 ### <a id="sdk-integrate"></a>Integrate the SDK into your app
 

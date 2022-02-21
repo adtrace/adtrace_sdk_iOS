@@ -77,7 +77,7 @@ pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :tag => 'v2.0.3
 or
   
 ```ruby
-pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :branch => 'dev'
+pod 'Adtrace', :git => 'https://github.com/adtrace/ios_sdk.git', :branch => 'beta'
 ```
 
 ### <a id="sdk-integrate"></a>Integrate the SDK into your app

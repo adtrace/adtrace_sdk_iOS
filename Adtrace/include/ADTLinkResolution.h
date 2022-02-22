@@ -1,1 +1,1 @@
-../ADJLinkResolution.h
+../ADTLinkResolution.h

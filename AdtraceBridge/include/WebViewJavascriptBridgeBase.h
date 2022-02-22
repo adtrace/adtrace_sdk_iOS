@@ -1,1 +1,1 @@
-../Adtrace.h
+../WebViewJavascriptBridgeBase.h

@@ -1,1 +1,1 @@
-../ADJConfig.h
+../ADTConfig.h

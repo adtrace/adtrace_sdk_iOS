@@ -1,1 +1,1 @@
-../ADJThirdPartySharing.h
+../ADTThirdPartySharing.h

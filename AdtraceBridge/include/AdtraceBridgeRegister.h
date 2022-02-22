@@ -1,1 +1,1 @@
-../Adtrace.h
+../AdtraceBridgeRegister.h

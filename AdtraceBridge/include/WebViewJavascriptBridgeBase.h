@@ -1,1 +1,1 @@
-../WebViewJavascriptBridgeBase.h
+../WebViewJavascriptBridge/WebViewJavascriptBridgeBase.h

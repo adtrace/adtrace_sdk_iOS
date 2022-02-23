@@ -1,1 +1,1 @@
-../WKWebViewJavascriptBridge.h
+../WebViewJavascriptBridge/WKWebViewJavascriptBridge.h

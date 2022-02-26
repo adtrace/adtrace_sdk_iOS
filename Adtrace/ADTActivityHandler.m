@@ -1608,7 +1608,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
     [ADTUtil launchInMainThread:^{
         BOOL toLaunchDeeplink = YES;
 
-        if ([selfI.adtraceDelegate respondsToSelector:@selector(adtraceDeeplinkResponseadtraceDeeplinkResponse:)]) {
+        if ([selfI.adtraceDelegate respondsToSelector:@selector(adtraceDeeplinkResponse:)]) {
             toLaunchDeeplink = [selfI.adtraceDelegate adtraceDeeplinkResponse:attributionResponseData.deeplink];
         }
 

@@ -14,51 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Adjust"
-               BuildableName = "Adjust"
-               BlueprintName = "Adjust"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Criteo"
-               BuildableName = "Criteo"
-               BlueprintName = "Criteo"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Sociomantic"
-               BuildableName = "Sociomantic"
-               BlueprintName = "Sociomantic"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Trademob"
-               BuildableName = "Trademob"
-               BlueprintName = "Trademob"
+               BlueprintIdentifier = "Adtrace"
+               BuildableName = "Adtrace"
+               BlueprintName = "Adtrace"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -106,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Adjust"
-            BuildableName = "Adjust"
-            BlueprintName = "Adjust"
+            BlueprintIdentifier = "Adtrace"
+            BuildableName = "Adtrace"
+            BlueprintName = "Adtrace"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

@@ -59,7 +59,7 @@ class LoadProductController: NSObject, ProductLoadable {
                                          SKStoreProductParameterAdNetworkIdentifier: product.adNetworkId,
                                          SKStoreProductParameterAdNetworkCampaignIdentifier: NSNumber(integerLiteral: Int(product.campaignId)!),
                                          SKStoreProductParameterAdNetworkTimestamp: NSNumber(value: Int(product.timestamp)!),
-                                         SKStoreProductParameterAdNetworkNonce: NSUUID(uuidString: product.nonce),
+                                               SKStoreProductParameterAdNetworkNonce: NSUUID(uuidString: product.nonce)!,
                                          SKStoreProductParameterAdNetworkSourceAppStoreIdentifier: product.sourceAppId,
                                          SKStoreProductParameterAdNetworkVersion: version,
                                          SKStoreProductParameterAdNetworkAttributionSignature: product.signature]

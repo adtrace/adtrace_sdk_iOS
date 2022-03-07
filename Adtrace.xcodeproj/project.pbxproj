@@ -435,7 +435,7 @@
 			containerPortal = 9679920518BBAE2800394606 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9679920C18BBAE2800394606;
-			remoteInfo = Adjust;
+			remoteInfo = Adtrace;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -1150,7 +1150,7 @@
 				9D0E2E3B210B575600133B4F /* ADTEvent.h */,
 				9D0E2E3C210B575600133B4F /* ADTSdkClickHandler.h */,
 				9D0E2E3D210B575600133B4F /* ADTActivityKind.m */,
-				9D0E2E3F210B575600133B4F /* ADJAdditions */,
+				9D0E2E3F210B575600133B4F /* ADTAdditions */,
 				9D0E2E46210B575600133B4F /* ADTAttribution.m */,
 				9D0E2E48210B575600133B4F /* ADTRequestHandler.h */,
 				9D0E2E49210B575600133B4F /* ADTActivityPackage.m */,
@@ -1185,7 +1185,7 @@
 			path = Adtrace;
 			sourceTree = SOURCE_ROOT;
 		};
-		9D0E2E3F210B575600133B4F /* ADJAdditions */ = {
+		9D0E2E3F210B575600133B4F /* ADTAdditions */ = {
 			isa = PBXGroup;
 			children = (
 				9D0E2E40210B575600133B4F /* NSString+ADTAdditions.m */,
@@ -1195,7 +1195,7 @@
 				9DF3821B260E9B8D0033F5A1 /* NSNumber+ADTAdditions.h */,
 				9DF3821A260E9B8D0033F5A1 /* NSNumber+ADTAdditions.m */,
 			);
-			name = ADJAdditions;
+			name = ADTAdditions;
 			path = ADTAdditions;
 			sourceTree = "<group>";
 		};
@@ -1755,7 +1755,7 @@
 			dependencies = (
 			);
 			name = AdtraceBridge;
-			productName = AdjustBridge;
+			productName = AdtracetBridge;
 			productReference = 9615158F1CD2CB2C0022D336 /* libAdtraceBridge.a */;
 			productType = "com.apple.product-type.library.static";
 		};
@@ -1774,7 +1774,7 @@
 			dependencies = (
 			);
 			name = Adtrace;
-			productName = Adjust;
+			productName = Adtrace;
 			productReference = 9679920D18BBAE2800394606 /* libAdtrace.a */;
 			productType = "com.apple.product-type.library.static";
 		};
@@ -1792,7 +1792,7 @@
 			dependencies = (
 			);
 			name = AdtraceSdkWebBridge;
-			productName = AdjustSdkWebBridge;
+			productName = AdtraceSdkWebBridge;
 			productReference = 9D0E2E02210B570600133B4F /* AdtraceSdkWebBridge.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -1809,7 +1809,7 @@
 			dependencies = (
 			);
 			name = AdtraceExampleTests;
-			productName = AdjustExampleTests;
+			productName = AdtraceExampleTests;
 			productReference = 9D7431E61EB9F9B700969F14 /* AdtraceExampleTests.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -1827,7 +1827,7 @@
 			dependencies = (
 			);
 			name = AdtraceSdkIm;
-			productName = AdjustSdkIm;
+			productName = AdtraceSdkIm;
 			productReference = 9DE354D22100726300D211C9 /* AdtraceSdkIm.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -1845,7 +1845,7 @@
 			dependencies = (
 			);
 			name = AdtraceSdk;
-			productName = AdjustSdk;
+			productName = AdtraceSdk;
 			productReference = 9DFA37AD1C0F219400782607 /* AdtraceSdk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -1862,7 +1862,7 @@
 			dependencies = (
 			);
 			name = AdtraceSdkTv;
-			productName = AdjustSdkTv;
+			productName = AdtraceSdkTv;
 			productReference = 9DFB06101D747070006D48FC /* AdtraceSdkTv.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -2434,7 +2434,7 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
-				DSTROOT = /tmp/Adjust.dst;
+				DSTROOT = /tmp/Adtrace.dst;
 				ENABLE_BITCODE = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2460,7 +2460,7 @@
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
-				DSTROOT = /tmp/Adjust.dst;
+				DSTROOT = /tmp/Adtrace.dst;
 				ENABLE_BITCODE = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2517,7 +2517,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdkWebBridge/Info.plist;
+				INFOPLIST_FILE = AdtraceSdkWebBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2552,7 +2552,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdkWebBridge/Info.plist;
+				INFOPLIST_FILE = AdtraceSdkWebBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2579,7 +2579,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustExampleTests/Info.plist;
+				INFOPLIST_FILE = AdtraceExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2600,7 +2600,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustExampleTests/Info.plist;
+				INFOPLIST_FILE = AdtraceExampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -2630,11 +2630,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
-					"ADJUST_IM=1",
+					"ADTRACE_IM=1",
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdkIm/Info.plist;
+				INFOPLIST_FILE = AdtraceSdkIm/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2668,9 +2668,9 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = "ADJUST_IM=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "ADTRACE_IM=1";
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdkIm/Info.plist;
+				INFOPLIST_FILE = AdtraceSdkIm/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2699,7 +2699,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdk/Info.plist;
+				INFOPLIST_FILE = AdtraceSdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2728,7 +2728,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdk/Info.plist;
+				INFOPLIST_FILE = AdtraceSdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2759,7 +2759,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdkTv/Info.plist;
+				INFOPLIST_FILE = AdtraceSdkTv/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2792,7 +2792,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdjustSdkTv/Info.plist;
+				INFOPLIST_FILE = AdtraceSdkTv/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;

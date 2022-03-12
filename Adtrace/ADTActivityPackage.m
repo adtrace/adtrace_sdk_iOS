@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 #import "ADTActivityKind.h"
 #import "ADTActivityPackage.h"
 
@@ -61,7 +67,7 @@
     self.suffix = [decoder decodeObjectForKey:@"suffix"];
     self.clientSdk = [decoder decodeObjectForKey:@"clientSdk"];
     self.parameters = [decoder decodeObjectForKey:@"parameters"];
-    self.partnerParameters = [decoder decodeObjectForKey:@"partnerParameters"];
+    self.eventValueParameters = [decoder decodeObjectForKey:@"eventValueParameters"];
     self.callbackParameters = [decoder decodeObjectForKey:@"callbackParameters"];
 
     NSString *kindString = [decoder decodeObjectForKey:@"kind"];
@@ -79,7 +85,7 @@
     [encoder encodeObject:self.clientSdk forKey:@"clientSdk"];
     [encoder encodeObject:self.parameters forKey:@"parameters"];
     [encoder encodeObject:self.callbackParameters forKey:@"callbackParameters"];
-    [encoder encodeObject:self.partnerParameters forKey:@"partnerParameters"];
+    [encoder encodeObject:self.eventValueParameters forKey:@"eventValueParameters"];
 }
 
 @end

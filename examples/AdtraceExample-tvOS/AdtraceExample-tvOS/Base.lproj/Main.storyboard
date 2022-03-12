@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="appleTV" orientation="landscape">
-        <adaptation id="light"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzf-MQ-lCf" userLabel="Button Track Simple Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzf-MQ-lCf" userLabel="Button Track Simple Event">
                                 <rect key="frame" x="200" y="65" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Track Simple Event"/>
@@ -29,7 +27,7 @@
                                     <action selector="clickTrackSimpleEvent:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="6uR-RH-5l0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtq-UU-Y4K" userLabel="Button Track Revenue Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtq-UU-Y4K" userLabel="Button Track Revenue Event">
                                 <rect key="frame" x="200" y="173" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Track Revenue Event"/>
@@ -37,7 +35,7 @@
                                     <action selector="clickTrackRevenueEvent:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="I4e-vQ-X5n"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-9p-pC8" userLabel="Button Track Callback Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGY-9p-pC8" userLabel="Button Track Callback Event">
                                 <rect key="frame" x="200" y="281" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Track Callback Event"/>
@@ -45,15 +43,15 @@
                                     <action selector="clickTrackCallbackEvent:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="TAA-y7-BLf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29h-TW-bHK" userLabel="Button Track Partner Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29h-TW-bHK" userLabel="Button Track Partner Event">
                                 <rect key="frame" x="200" y="389" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Track Partner Event"/>
+                                <state key="normal" title="Track Event Value"/>
                                 <connections>
-                                    <action selector="clickTrackPartnerEvent:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="X9h-IR-Si7"/>
+                                    <action selector="clickTrackEventValue:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="X9h-IR-Si7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTa-Zh-VPE" userLabel="Button Enable Offline Mode">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTa-Zh-VPE" userLabel="Button Enable Offline Mode">
                                 <rect key="frame" x="200" y="497" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Enable Offline Mode"/>
@@ -61,7 +59,7 @@
                                     <action selector="clickEnableOfflineMode:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="WNU-dQ-fap"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntm-dL-KxE" userLabel="Button Disable Offline Mode">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntm-dL-KxE" userLabel="Button Disable Offline Mode">
                                 <rect key="frame" x="200" y="605" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Disable Offline Mode"/>
@@ -69,7 +67,7 @@
                                     <action selector="clickDisableOfflineMode:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="SCk-9y-Kfn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-zh-P4h" userLabel="Button Enable SDK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-zh-P4h" userLabel="Button Enable SDK">
                                 <rect key="frame" x="200" y="713" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Enable SDK"/>
@@ -77,7 +75,7 @@
                                     <action selector="clickEnableSdk:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="B5A-1r-sMk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZs-XS-WCp" userLabel="Button Disable SDK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZs-XS-WCp" userLabel="Button Disable SDK">
                                 <rect key="frame" x="200" y="821" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Disable SDK"/>
@@ -85,7 +83,7 @@
                                     <action selector="clickDisableSdk:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="s5O-Xi-XP0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="774-de-8Rp" userLabel="Button Is SDK Enabled">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="774-de-8Rp" userLabel="Button Is SDK Enabled">
                                 <rect key="frame" x="200" y="929" width="1520" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Is SDK Enabled?"/>
@@ -132,18 +130,14 @@
                         <outlet property="btnEnableSdk" destination="Iib-zh-P4h" id="X1o-Po-vVa"/>
                         <outlet property="btnIsSdkEnabled" destination="774-de-8Rp" id="Nrc-go-nvj"/>
                         <outlet property="btnTrackCallbackEvent" destination="LGY-9p-pC8" id="6kT-0A-3vj"/>
-                        <outlet property="btnTrackPartnerEvent" destination="29h-TW-bHK" id="IPK-Hb-Y6f"/>
+                        <outlet property="btnTrackEventValue" destination="29h-TW-bHK" id="IPK-Hb-Y6f"/>
                         <outlet property="btnTrackRevenueEvent" destination="xtq-UU-Y4K" id="4ea-Wk-UmC"/>
                         <outlet property="btnTrackSimpleEvent" destination="fzf-MQ-lCf" id="9ti-B5-Od9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-51" y="-81"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <nil key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
 </document>

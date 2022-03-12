@@ -32,10 +32,10 @@ class LoadProductController: NSObject, ProductLoadable {
     
     func loadProduct(from source: UIViewController) {
         
-        guard var URL = URL(string: "http://10.8.2.155:8000/get-ad-impression") else {return}
+        guard var URL = URL(string: "http:
         let URLParams = [
             "skadnetwork_version": version,
-            "source_app_id": "io.adtrace.examples",
+            "source_app_id": "com.adtrace.examples",
         ]
         
         URL = URL.appendingQueryParameters(URLParams)
@@ -59,7 +59,7 @@ class LoadProductController: NSObject, ProductLoadable {
                                          SKStoreProductParameterAdNetworkIdentifier: product.adNetworkId,
                                          SKStoreProductParameterAdNetworkCampaignIdentifier: NSNumber(integerLiteral: Int(product.campaignId)!),
                                          SKStoreProductParameterAdNetworkTimestamp: NSNumber(value: Int(product.timestamp)!),
-                                               SKStoreProductParameterAdNetworkNonce: NSUUID(uuidString: product.nonce)!,
+                                         SKStoreProductParameterAdNetworkNonce: NSUUID(uuidString: product.nonce),
                                          SKStoreProductParameterAdNetworkSourceAppStoreIdentifier: product.sourceAppId,
                                          SKStoreProductParameterAdNetworkVersion: version,
                                          SKStoreProductParameterAdNetworkAttributionSignature: product.signature]
@@ -83,7 +83,12 @@ protocol URLQueryParameterStringConvertible {
 }
 
 extension Dictionary : URLQueryParameterStringConvertible {
-    
+    /**
+     This computed property returns a query parameters string from the given NSDictionary. For
+     example, if the input is @{@"day":@"Tuesday", @"month":@"January"}, the output
+     string will be @"day=Tuesday&month=January".
+     @return The computed parameters string.
+    */
     var queryParameters: String {
         var parts: [String] = []
         for (key, value) in self {
@@ -98,7 +103,11 @@ extension Dictionary : URLQueryParameterStringConvertible {
 }
 
 extension URL {
-    
+    /**
+     Creates a new URL by adding the given query parameters.
+     @param parametersDictionary The query parameter dictionary to add.
+     @return A new URL.
+    */
     func appendingQueryParameters(_ parametersDictionary : Dictionary<String, String>) -> URL {
         let URLString : String = String(format: "%@?%@", self.absoluteString, parametersDictionary.queryParameters)
         return URL(string: URLString)!

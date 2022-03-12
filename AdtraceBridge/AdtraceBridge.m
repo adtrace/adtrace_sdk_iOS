@@ -6,10 +6,11 @@
 
 
 
-#import "Adtrace.h"
+//#import "Adtrace.h"
 
-
-
+// In case of erroneous import statement try with:
+ #import <Adtrace/Adtrace.h>
+// (depends how you import the Adjust SDK to your app)
 
 #import "AdtraceBridge.h"
 #import "ADTAdtraceFactory.h"
@@ -337,7 +338,7 @@
         NSString *currency = [data objectForKey:@"currency"];
         NSString *transactionId = [data objectForKey:@"transactionId"];
         id callbackParameters = [data objectForKey:@"callbackParameters"];
-        id eventValueParameters = [data objectForKey:@"eventValueParameters"];
+        id valueParameters = [data objectForKey:@"valueParameters"];
         NSString *callbackId = [data objectForKey:@"callbackId"];
 
         ADTEvent *adtraceEvent = [ADTEvent eventWithEventToken:eventToken];
@@ -358,10 +359,10 @@
             NSString *value = [[callbackParameters objectAtIndex:(i + 1)] description];
             [adtraceEvent addCallbackParameter:key value:value];
         }
-        for (int i = 0; i < [eventValueParameters count]; i += 2) {
-            NSString *key = [[eventValueParameters objectAtIndex:i] description];
-            NSString *value = [[eventValueParameters objectAtIndex:(i + 1)] description];
-            [adtraceEvent addEventParameter:key value:value];
+        for (int i = 0; i < [valueParameters count]; i += 2) {
+            NSString *key = [[valueParameters objectAtIndex:i] description];
+            NSString *value = [[valueParameters objectAtIndex:(i + 1)] description];
+            [adtraceEvent addEventValueParameter:key value:value];
         }
         if ([self isFieldValid:callbackId]) {
             [adtraceEvent setCallbackId:callbackId];
@@ -641,7 +642,7 @@
         }
 
         id customData = [data objectForKey:@"customData"];
-        [fbPixelEvent addEventParameter:@"_fb_pixel_referral_id" value:pixelID];
+        [fbPixelEvent addEventValueParameter:@"_fb_pixel_referral_id" value:pixelID];
         
         if ([customData isKindOfClass:[NSString class]]) {
             NSError *jsonParseError = nil;
@@ -651,7 +652,7 @@
             [params enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
                 NSString *keyS = [key description];
                 NSString *valueS = [obj description];
-                [fbPixelEvent addEventParameter:keyS value:valueS];
+                [fbPixelEvent addEventValueParameter:keyS value:valueS];
             }];
         }
         [Adtrace trackEvent:fbPixelEvent];

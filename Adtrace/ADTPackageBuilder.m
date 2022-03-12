@@ -86,7 +86,7 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
 
     if (isInDelay) {
         eventPackage.callbackParameters = event.callbackParameters;
-        eventPackage.partnerParameters = event.eventParameters;
+        eventPackage.eventValueParameters = event.addEventParameters;
     }
 
     [self signWithSigV2Plugin:eventPackage];
@@ -263,7 +263,7 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
 
     if (isInDelay) {
         subscriptionPackage.callbackParameters = subscription.callbackParameters;
-        subscriptionPackage.partnerParameters = subscription.partnerParameters;
+        subscriptionPackage.eventValueParameters = subscription.partnerParameters;
     }
 
     [self signWithSigV2Plugin:subscriptionPackage];
@@ -317,7 +317,11 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
     const char *lvalActivityKind = activityKind;
     const char *lvalSdkVersion = sdkVersion;
 
-    
+    /*
+     [ADTSigner sign:parameters
+    withActivityKind:activityKindChar
+      withSdkVersion:sdkVersionChar];
+     */
 
     NSMethodSignature *signMethodSignature = [signerClass methodSignatureForSelector:signSEL];
     NSInvocation *signInvocation = [NSInvocation invocationWithMethodSignature:signMethodSignature];
@@ -334,7 +338,9 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
     if (![signerClass respondsToSelector:getVersionSEL]) {
         return;
     }
-    
+    /*
+     NSString *signerVersion = [ADTSigner getVersion];
+     */
     IMP getVersionIMP = [signerClass methodForSelector:getVersionSEL];
     if (!getVersionIMP) {
         return;
@@ -479,11 +485,11 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
                                                                    source:[event.callbackParameters copy]
                                                             parameterName:@"Callback"];
         NSDictionary *mergedPartnerParameters = [ADTUtil mergeParameters:[self.sessionParameters.partnerParameters copy]
-                                                                  source:[event.eventParameters copy]
-                                                           parameterName:@"EventValueParams"];
+                                                                  source:[event.addEventParameters copy]
+                                                           parameterName:@"Partner"];
 
         [ADTPackageBuilder parameters:parameters setDictionary:mergedCallbackParameters forKey:@"callback_params"];
-        [ADTPackageBuilder parameters:parameters setDictionary:mergedPartnerParameters forKey:@"event_value_params"];
+        [ADTPackageBuilder parameters:parameters setDictionary:mergedPartnerParameters forKey:@"partner_params"];
     }
 
     if (event.emptyReceipt) {

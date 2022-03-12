@@ -15,7 +15,7 @@
 #import "ADTPackageBuilder.h"
 #import "ADTUtil.h"
 
-static const char * const kInternalQueueName     = "io.adtrace.AttributionQueue";
+static const char * const kInternalQueueName     = "com.adtrace.AttributionQueue";
 static NSString   * const kAttributionTimerName   = @"Attribution timer";
 
 @interface ADTAttributionHandler()

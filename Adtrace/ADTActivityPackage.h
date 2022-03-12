@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 
-@property (nonatomic, strong) NSDictionary *partnerParameters;
+@property (nonatomic, strong) NSDictionary *eventValueParameters;
 
 @property (nonatomic, strong) NSDictionary *callbackParameters;
 

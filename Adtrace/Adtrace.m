@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+
 #import "Adtrace.h"
 #import "ADTUtil.h"
 #import "ADTLogger.h"
@@ -19,6 +26,8 @@ NSString * const ADTAdRevenueSourceMopub = @"mopub";
 NSString * const ADTAdRevenueSourceAdMob = @"admob_sdk";
 NSString * const ADTAdRevenueSourceIronSource = @"ironsource_sdk";
 NSString * const ADTAdRevenueSourceAdMost = @"admost_sdk";
+NSString * const ADTAdRevenueSourceUnity = @"unity_sdk";
+NSString * const ADTAdRevenueSourceHeliumChartboost = @"helium_chartboost_sdk";
 
 NSString * const ADTUrlStrategyIndia = @"UrlStrategyIndia";
 NSString * const ADTUrlStrategyChina = @"UrlStrategyChina";

@@ -1,14 +1,7 @@
-
-
-
-
-
-
-
 #import <Foundation/Foundation.h>
 #import "WebViewJavascriptBridgeBase.h"
 #import "WebViewJavascriptBridge_JS.h"
-
+//#import "AdtraceBridge_JS.h"
 #import "AdtraceBridgeRegister.h"
 
 @implementation WebViewJavascriptBridgeBase {

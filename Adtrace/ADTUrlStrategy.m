@@ -9,30 +9,30 @@
 #import "ADTUrlStrategy.h"
 #import "Adtrace.h"
 #import "ADTAdtraceFactory.h"
-// todo: base url
+
 static NSString * const baseUrl = @"https://app.adtrace.io";
 static NSString * const gdprUrl = @"https://gdpr.adtrace.io";
 static NSString * const subscriptionUrl = @"https://subscription.adtrace.io";
 
-static NSString * const baseUrlIndia = @"https://app.in.adtrace.io";
-static NSString * const gdprUrlIndia = @"https://gdpr.in.adtrace.io";
-static NSString * const subscritionUrlIndia = @"https://subscription.in.adtrace.io";
+static NSString * const baseUrlIndia = @"https://app.adtrace.io.in";
+static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.io.in";
+static NSString * const subscritionUrlIndia = @"https://subscrition.adtrace.io.in";
 
-static NSString * const baseUrlUAE = @"https://app.ua.adtrace.io";
-static NSString * const gdprUrlUAE = @"https://gdpr.ua.adtrace.io";
-static NSString * const subscritionUrlUAE = @"https://subscription.ua.adtrace.io";
+static NSString * const baseUrlChina = @"https://app.adtrace.world";
+static NSString * const gdprUrlChina = @"https://gdpr.adtrace.world";
+static NSString * const subscritionUrlChina = @"https://subscrition.adtrace.world";
 
-static NSString * const baseUrlFailOverIR = @"https://app.foir.adtrace.io";
-static NSString * const gdprUrlFailOverIR = @"https://gdpr.foir.adtrace.io";
-static NSString * const subscriptionUrlFailOverIR = @"https://subscription.foir.adtrace.io";
+static NSString * const baseUrlEU = @"https://app.eu.adtrace.io";
+static NSString * const gdprUrlEU = @"https://gdpr.eu.adtrace.io";
+static NSString * const subscriptionUrlEU = @"https://subscrition.eu.adtrace.io";
 
-static NSString * const baseUrlTR = @"https://app.tr.adtrace.io";
+static NSString * const baseUrlTR =  @"https://app.tr.adtrace.io";
 static NSString * const gdprUrlTR = @"https://gdpr.tr.adtrace.io";
-static NSString * const subscriptionUrlTR = @"https://subscription.tr.adtrace.io";
+static NSString * const subscriptionUrlTR = @"https://subscrition.tr.adtrace.io";
 
-static NSString * const baseUrlQatar = @"https://app.qa.adtrace.io";
-static NSString * const gdprUrlQatar = @"https://gdpr.qa.adtrace.io";
-static NSString * const subscriptionUrlQatar = @"https://subscription.qa.adtrace.io";
+static NSString * const baseUrlUS = @"https://app.us.adtrace.io";
+static NSString * const gdprUrlUS = @"https://gdpr.us.adtrace.io";
+static NSString * const subscriptionUrlUS = @"https://subscrition.us.adtrace.io";
 
 @interface ADTUrlStrategy ()
 
@@ -81,15 +81,15 @@ static NSString * const subscriptionUrlQatar = @"https://subscription.qa.adtrace
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
         return @[baseUrlIndia, baseUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[baseUrlUAE, baseUrl];
+        return @[baseUrlChina, baseUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[baseUrlFailOverIR];
+        return @[baseUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
         return @[baseUrlTR];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[baseUrlQatar];
+        return @[baseUrlUS];
     } else {
-        return @[baseUrl, baseUrlIndia, baseUrlUAE];
+        return @[baseUrl, baseUrlIndia, baseUrlChina];
     }
 }
 
@@ -97,15 +97,15 @@ static NSString * const subscriptionUrlQatar = @"https://subscription.qa.adtrace
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
         return @[gdprUrlIndia, gdprUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[gdprUrlUAE, gdprUrl];
+        return @[gdprUrlChina, gdprUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[gdprUrlFailOverIR];
+        return @[gdprUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
         return @[gdprUrlTR];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[gdprUrlQatar];
+        return @[gdprUrlUS];
     } else {
-        return @[gdprUrl, gdprUrlIndia, gdprUrlUAE];
+        return @[gdprUrl, gdprUrlIndia, gdprUrlChina];
     }
 }
 
@@ -113,15 +113,15 @@ static NSString * const subscriptionUrlQatar = @"https://subscription.qa.adtrace
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
         return @[subscritionUrlIndia, subscriptionUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[subscritionUrlUAE, subscriptionUrl];
+        return @[subscritionUrlChina, subscriptionUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[subscriptionUrlFailOverIR];
+        return @[subscriptionUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
         return @[subscriptionUrlTR];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[subscriptionUrlQatar];
+        return @[subscriptionUrlUS];
     } else {
-        return @[subscriptionUrl, subscritionUrlIndia, subscritionUrlUAE];
+        return @[subscriptionUrl, subscritionUrlIndia, subscritionUrlChina];
     }
 }
 

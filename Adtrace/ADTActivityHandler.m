@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 #import <UIKit/UIKit.h>
 
 #import "ADTActivityPackage.h"
@@ -221,7 +227,12 @@ typedef NS_ENUM(NSInteger, AdtADClientError) {
                      preLaunchActions:savedPreLaunch];
                      }];
 
+    /* Not needed, done already in initI:preLaunchActionsArray: method.
     
+    if (self.activityState != nil) {
+        [self setDeviceToken:[ADTUserDefaults getPushToken]];
+    }
+    */
 
     [self addNotificationObserver];
 
@@ -1492,21 +1503,21 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
 
     
     if (eventResponseData.success
-        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceEventTrackingSucceeded:)])
+        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceEventTrackingSucceededadtraceEventTrackingSucceeded:)])
     {
         [selfI.logger debug:@"Launching success event tracking delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceEventTrackingSucceeded:)
+                           selector:@selector(adtraceEventTrackingSucceededadtraceEventTrackingSucceeded:)
                          withObject:[eventResponseData successResponseData]];
         return;
     }
     
     if (!eventResponseData.success
-        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceEventTrackingFailed:)])
+        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceEventTrackingFailedadtraceEventTrackingFailed:)])
     {
         [selfI.logger debug:@"Launching failed event tracking delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceEventTrackingFailed:)
+                           selector:@selector(adtraceEventTrackingFailedadtraceEventTrackingFailed:)
                          withObject:[eventResponseData failureResponseData]];
         return;
     }
@@ -1525,20 +1536,20 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
 
     
     if (sessionResponseData.success
-        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceSessionTrackingSucceeded:)])
+        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceSessionTrackingSucceededadtraceSessionTrackingSucceeded:)])
     {
         [selfI.logger debug:@"Launching success session tracking delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceSessionTrackingSucceeded:)
+                           selector:@selector(adtraceSessionTrackingSucceededadtraceSessionTrackingSucceeded:)
                          withObject:[sessionResponseData successResponseData]];
     }
     
     if (!sessionResponseData.success
-        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceSessionTrackingFailed:)])
+        && [selfI.adtraceDelegate respondsToSelector:@selector(adtraceSessionTrackingFailedadtraceSessionTrackingFailed:)])
     {
         [selfI.logger debug:@"Launching failed session tracking delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceSessionTrackingFailed:)
+                           selector:@selector(adtraceSessionTrackingFailedadtraceSessionTrackingFailed:)
                          withObject:[sessionResponseData failureResponseData]];
     }
 
@@ -1546,7 +1557,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
     if (toLaunchAttributionDelegate) {
         [selfI.logger debug:@"Launching attribution changed delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceAttributionChanged:)
+                           selector:@selector(adtraceAttributionChangedadtraceAttributionChanged:)
                          withObject:sessionResponseData.attribution];
     }
 
@@ -1568,7 +1579,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
     if (toLaunchAttributionDelegate) {
         [selfI.logger debug:@"Launching attribution changed delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceAttributionChanged:)
+                           selector:@selector(adtraceAttributionChangedadtraceAttributionChanged:)
                          withObject:sdkClickResponseData.attribution];
     }
 }
@@ -1586,7 +1597,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
     if (toLaunchAttributionDelegate) {
         [selfI.logger debug:@"Launching attribution changed delegate"];
         [ADTUtil launchInMainThread:selfI.adtraceDelegate
-                           selector:@selector(adtraceAttributionChanged:)
+                           selector:@selector(adtraceAttributionChangedadtraceAttributionChanged:)
                          withObject:attributionResponseData.attribution];
     }
 
@@ -1608,7 +1619,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
     [ADTUtil launchInMainThread:^{
         BOOL toLaunchDeeplink = YES;
 
-        if ([selfI.adtraceDelegate respondsToSelector:@selector(adtraceDeeplinkResponse:)]) {
+        if ([selfI.adtraceDelegate respondsToSelector:@selector(adtraceDeeplinkResponseadtraceDeeplinkResponse:)]) {
             toLaunchDeeplink = [selfI.adtraceDelegate adtraceDeeplinkResponse:attributionResponseData.deeplink];
         }
 
@@ -1652,7 +1663,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
         return NO;
     }
 
-    if (![selfI.adtraceDelegate respondsToSelector:@selector(adtraceAttributionChanged:)]) {
+    if (![selfI.adtraceDelegate respondsToSelector:@selector(adtraceAttributionChangedadtraceAttributionChanged:)]) {
         return NO;
     }
 

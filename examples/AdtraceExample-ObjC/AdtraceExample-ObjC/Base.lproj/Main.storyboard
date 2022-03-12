@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +29,7 @@
                                     <action selector="clickTrackSimpleEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3rC-Zv-JNn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOy-JF-sz3" userLabel="Button Track Revenue Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOy-JF-sz3" userLabel="Button Track Revenue Event">
                                 <rect key="frame" x="50" y="158.5" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Track Revenue Event" backgroundImage="button_background">
@@ -39,7 +39,7 @@
                                     <action selector="clickTrackRevenueEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AeX-jH-kSB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkT-aw-5FP" userLabel="Button Track Callback Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkT-aw-5FP" userLabel="Button Track Callback Event">
                                 <rect key="frame" x="50" y="212" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Track Callback Event" backgroundImage="button_background">
@@ -49,17 +49,17 @@
                                     <action selector="clickTrackCallbackEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SJO-Tu-6xN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-OV-t7P" userLabel="Button Track Partner Event">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdn-OV-t7P" userLabel="Button Track Event Value">
                                 <rect key="frame" x="50" y="265" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Track Partner Event" backgroundImage="button_background">
+                                <state key="normal" title="Track Event Value" backgroundImage="button_background">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickTrackPartnerEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0AJ-C9-R7U"/>
+                                    <action selector="clickTrackEventValue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0AJ-C9-R7U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcl-gg-Wh1" userLabel="Button Enable Offline Mode">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcl-gg-Wh1" userLabel="Button Enable Offline Mode">
                                 <rect key="frame" x="50" y="318.5" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Enable Offline Mode" backgroundImage="button_background">
@@ -69,7 +69,7 @@
                                     <action selector="clickEnableOfflineMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Kg-os-Zmk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtA-LW-sfH" userLabel="Button Disable Offline Mode">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtA-LW-sfH" userLabel="Button Disable Offline Mode">
                                 <rect key="frame" x="50" y="372" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Disable Offline Mode" backgroundImage="button_background">
@@ -79,7 +79,7 @@
                                     <action selector="clickDisableOfflineMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WHz-On-5as"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz4-ql-pka" userLabel="Button Enable SDK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nz4-ql-pka" userLabel="Button Enable SDK">
                                 <rect key="frame" x="50" y="425" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Enable SDK" backgroundImage="button_background">
@@ -89,7 +89,7 @@
                                     <action selector="clickEnableSdk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7u3-QN-RuK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0l-tK-3Xp" userLabel="Button Disable SDK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0l-tK-3Xp" userLabel="Button Disable SDK">
                                 <rect key="frame" x="50" y="478.5" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Disable SDK" backgroundImage="button_background">
@@ -99,7 +99,7 @@
                                     <action selector="clickDisableSdk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bme-GZ-0U2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h38-T3-Es8" userLabel="Button Is SDK Enabled">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h38-T3-Es8" userLabel="Button Is SDK Enabled">
                                 <rect key="frame" x="50" y="532" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Is SDK Enabled?" backgroundImage="button_background">
@@ -149,7 +149,7 @@
                         <outlet property="btnEnableSdk" destination="Nz4-ql-pka" id="vww-HY-nni"/>
                         <outlet property="btnIsSdkEnabled" destination="h38-T3-Es8" id="zaE-wQ-ZpV"/>
                         <outlet property="btnTrackCallbackEvent" destination="WkT-aw-5FP" id="Ssd-iW-gs9"/>
-                        <outlet property="btnTrackPartnerEvent" destination="xdn-OV-t7P" id="efN-Ig-HCT"/>
+                        <outlet property="btnTrackEventValue" destination="xdn-OV-t7P" id="efN-Ig-HCT"/>
                         <outlet property="btnTrackRevenueEvent" destination="qOy-JF-sz3" id="sb2-Iu-Vks"/>
                         <outlet property="btnTrackSimpleEvent" destination="GIu-rR-F7C" id="iYQ-cG-atT"/>
                     </connections>

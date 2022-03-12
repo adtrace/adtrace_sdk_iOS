@@ -39,7 +39,7 @@ static NSRegularExpression *optionalRedirectRegex = nil;
 static NSRegularExpression *shortUniversalLinkRegex = nil;
 static NSRegularExpression *excludedDeeplinkRegex = nil;
 
-static NSString * const kClientSdk                  = @"ios2.0.1";
+static NSString * const kClientSdk                  = @"ios2.0.7";
 static NSString * const kDeeplinkParam              = @"deep_link=";
 static NSString * const kSchemeDelimiter            = @"://";
 static NSString * const kDefaultScheme              = @"AdtraceUniversalScheme";
@@ -609,7 +609,8 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 
     NSString *tailSubString = [urlString substringWithRange:[match rangeAtIndex:1]];
     NSString *finalTailSubString = [ADTUtil removeOptionalRedirect:tailSubString];
-    NSString *extractedUrlString = [NSString stringWithFormat:@"%@://%@", scheme, finalTailSubString];    [logger info:@"Converted deeplink from universal link %@", extractedUrlString];
+    NSString *extractedUrlString = [NSString stringWithFormat:@"%@://%@", scheme, finalTailSubString];
+    [logger info:@"Converted deeplink from universal link %@", extractedUrlString];
     NSURL *extractedUrl = [NSURL URLWithString:extractedUrlString];
     if ([ADTUtil isNull:extractedUrl]) {
         [logger error:@"Unable to parse converted deeplink from universal link %@", extractedUrlString];
@@ -898,7 +899,13 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     SEL openUrlSelector = @selector(openURL:options:completionHandler:);
 #pragma clang diagnostic pop
     if ([sharedUIApplication respondsToSelector:openUrlSelector]) {
-        
+        /*
+         [sharedUIApplication openURL:deepLinkUrl options:@{} completionHandler:^(BOOL success) {
+         if (!success) {
+         [ADTAdtraceFactory.logger error:@"Unable to open deep link (%@)", deepLinkUrl];
+         }
+         }];
+         */
         NSMethodSignature *methSig = [sharedUIApplication methodSignatureForSelector:openUrlSelector];
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methSig];
         [invocation setSelector: openUrlSelector];
@@ -1274,7 +1281,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     if (attributionClass == nil) {
         [logger warn:@"AdServices framework not found in the app (AAAttribution class not found)"];
         if (errorPtr) {
-            *errorPtr = [NSError errorWithDomain:@"io.adtrace.sdk.adServices"
+            *errorPtr = [NSError errorWithDomain:@"com.adtrace.sdk.adServices"
                                             code:100
                                         userInfo:@{@"Error reason": @"AdServices framework not found"}];
         }
@@ -1285,7 +1292,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     if (![attributionClass respondsToSelector:attributionTokenSelector]) {
         [logger warn:@"AdServices framework not found in the app (attributionTokenWithError: method not found)"];
         if (errorPtr) {
-            *errorPtr = [NSError errorWithDomain:@"io.adtrace.sdk.adServices"
+            *errorPtr = [NSError errorWithDomain:@"com.adtrace.sdk.adServices"
                                             code:100
                                         userInfo:@{@"Error reason": @"AdServices framework not found"}];
         }
@@ -1392,7 +1399,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
             }
         }
         [activityHandler setAttributionDetails:nil
-                                         error:[NSError errorWithDomain:@"io.adtrace.sdk.iAd"
+                                         error:[NSError errorWithDomain:@"com.adtrace.sdk.iAd"
                                                                    code:100
                                                                userInfo:@{@"Error reason": @"iAd request timed out"}]];
     });

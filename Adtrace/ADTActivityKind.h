@@ -1,4 +1,11 @@
 
+
+
+
+
+
+
+
 #import <Foundation/Foundation.h>
 
 #ifndef NS_ENUM
@@ -9,7 +16,7 @@ typedef NS_ENUM(int, ADTActivityKind) {
     ADTActivityKindUnknown = 0,
     ADTActivityKindSession = 1,
     ADTActivityKindEvent = 2,
-    
+
     ADTActivityKindClick = 4,
     ADTActivityKindAttribution = 5,
     ADTActivityKindInfo = 6,

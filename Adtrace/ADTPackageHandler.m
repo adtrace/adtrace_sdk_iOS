@@ -283,12 +283,12 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
 
         
         NSDictionary * mergedPartnerParameters = [ADTUtil mergeParameters:sessionParameters.partnerParameters
-                                                                   source:activityPackage.partnerParameters
-                                                            parameterName:@"Partner"];
+                                                                   source:activityPackage.eventValueParameters
+                                                            parameterName:@"Value"];
 
         [ADTPackageBuilder parameters:activityPackage.parameters
                         setDictionary:mergedPartnerParameters
-                               forKey:@"partner_params"];
+                               forKey:@"event_value_params"];
     }
 
     [selfI writePackageQueueS:selfI];

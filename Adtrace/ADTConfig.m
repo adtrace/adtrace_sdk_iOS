@@ -99,32 +99,32 @@
         return;
     }
 
-    if ([delegate respondsToSelector:@selector(adtraceAttributionChanged:)]) {
+    if ([delegate respondsToSelector:@selector(adtraceAttributionChangedadtraceAttributionChanged:)]) {
         [self.logger debug:@"Delegate implements adtraceAttributionChanged:"];
         hasResponseDelegate = YES;
     }
 
-    if ([delegate respondsToSelector:@selector(adtraceEventTrackingSucceeded:)]) {
+    if ([delegate respondsToSelector:@selector(adtraceEventTrackingSucceededadtraceEventTrackingSucceeded:)]) {
         [self.logger debug:@"Delegate implements adtraceEventTrackingSucceeded:"];
         hasResponseDelegate = YES;
     }
 
-    if ([delegate respondsToSelector:@selector(adtraceEventTrackingFailed:)]) {
+    if ([delegate respondsToSelector:@selector(adtraceEventTrackingFailedadtraceEventTrackingFailed:)]) {
         [self.logger debug:@"Delegate implements adtraceEventTrackingFailed:"];
         hasResponseDelegate = YES;
     }
 
-    if ([delegate respondsToSelector:@selector(adtraceSessionTrackingSucceeded:)]) {
+    if ([delegate respondsToSelector:@selector(adtraceSessionTrackingSucceededadtraceSessionTrackingSucceeded:)]) {
         [self.logger debug:@"Delegate implements adtraceSessionTrackingSucceeded:"];
         hasResponseDelegate = YES;
     }
 
-    if ([delegate respondsToSelector:@selector(adtraceSessionTrackingFailed:)]) {
+    if ([delegate respondsToSelector:@selector(adtraceSessionTrackingFailedadtraceSessionTrackingFailed:)]) {
         [self.logger debug:@"Delegate implements adtraceSessionTrackingFailed:"];
         hasResponseDelegate = YES;
     }
 
-    if ([delegate respondsToSelector:@selector(adtraceDeeplinkResponse:)]) {
+    if ([delegate respondsToSelector:@selector(adtraceDeeplinkResponseadtraceDeeplinkResponse:)]) {
         [self.logger debug:@"Delegate implements adtraceDeeplinkResponse:"];
         
         implementsDeeplinkCallback = YES;

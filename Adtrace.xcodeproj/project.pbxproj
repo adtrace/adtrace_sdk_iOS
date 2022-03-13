@@ -569,6 +569,7 @@
 		7FC81DC727DCDFAA00A3F012 /* Adtrace */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adtrace; sourceTree = SOURCE_ROOT; };
 		7FC81DC827DCDFF500A3F012 /* AdtraceBridge */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdtraceBridge; sourceTree = SOURCE_ROOT; };
 		7FC81DC927DCDFF500A3F012 /* Adtrace */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adtrace; sourceTree = SOURCE_ROOT; };
+		7FE7119027DDD9E30010F99A /* Adtrace */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adtrace; sourceTree = SOURCE_ROOT; };
 		9601C19C1A31DD7F00A9AE21 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9601C1A11A31DE0300A9AE21 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9601CAE21C74B70600670879 /* ADTEventSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTEventSuccess.h; sourceTree = "<group>"; };
@@ -790,6 +791,7 @@
 		9648C5E41CD1765E00A3B049 /* AdtraceBridge */ = {
 			isa = PBXGroup;
 			children = (
+				7FE7119027DDD9E30010F99A /* Adtrace */,
 				9648C5F51CD1770300A3B049 /* AdtraceBridge.h */,
 				9648C5F61CD1770300A3B049 /* AdtraceBridge.m */,
 				968595EC1D0B25970011CA2B /* AdtraceBridgeRegister.h */,

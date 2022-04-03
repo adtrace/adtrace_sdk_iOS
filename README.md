@@ -76,6 +76,7 @@ If you're using [CocoaPods][cocoapods], you can add the following line to your `
 
 ```ruby
 pod 'Adtrace-sdk', '~> 2.0.7'
+
 ```
 
 or:

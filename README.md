@@ -40,11 +40,6 @@ If your app is an app which uses web views you would like to use adtrace trackin
    * [Disable tracking](#disable-tracking)
    * [Offline mode](#offline-mode)
    * [Event buffering](#event-buffering)
-   * [GDPR right to be forgotten](#gdpr-forget-me)
-   * [Third-party sharing](#third-party-sharing)
-      * [Disable third-party sharing](#disable-third-party-sharing)
-      * [Enable third-party sharing](#enable-third-party-sharing)
-   * [Consent measurement](#measurement-consent)
    * [SDK signature](#sdk-signature)
    * [Background tracking](#background-tracking)
    * [Device IDs](#device-ids)
@@ -52,15 +47,11 @@ If your app is an app which uses web views you would like to use adtrace trackin
       * [Adtrace device identifier](#di-adid)
    * [User attribution](#user-attribution)
    * [Push token](#push-token)
-   * [Pre-installed trackers](#pre-installed-trackers)
    * [Deep linking](#deeplinking)
       * [Standard deep linking scenario](#deeplinking-standard)
       * [Deep linking on iOS 8 and earlier](#deeplinking-setup-old)
       * [Deep linking on iOS 9 and later](#deeplinking-setup-new)
       * [Deferred deep linking scenario](#deeplinking-deferred)
-      * [Reattribution via deep links](#deeplinking-reattribution)
-      * [Link resolution](#link-resolution)
-   * [[beta] Data residency](#data-residency)
 * [Troubleshooting](#troubleshooting)
    * [Issues with delayed SDK initialisation](#ts-delayed-init)
    * [I'm seeing "Adtrace requires ARC" error](#ts-arc)
@@ -84,13 +75,13 @@ We will describe the steps to integrate the Adtrace SDK into your iOS project. W
 If you're using [CocoaPods][cocoapods], you can add the following line to your `Podfile` and continue from [this step](#sdk-integrate):
 
 ```ruby
-pod 'Adtrace', '~> 2.0.7'
+pod 'Adtrace-sdk', '~> 2.0.7'
 ```
 
 or:
 
 ```ruby
-pod 'Adtrace', :git => 'https://github.com/adtrace/adtrace_sdk_iOS', :tag => 'v2.0.7'
+pod 'Adtrace-sdk', :git => 'https://github.com/adtrace/adtrace_sdk_iOS', :tag => 'v2.0.7'
 ```
 
 ---
@@ -335,7 +326,7 @@ In case you don't want the Adtrace SDK to automatically communicate with SKAdNet
 
 ### <a id="skadn-update-conversion-value"></a>Update SKAdNetwork conversion value
 
-As of iOS SDK v4.26.0 you can use Adtrace SDK wrapper method `updateConversionValue:` to update SKAdNetwork conversion value for your user:
+As of iOS SDK v2.0.5 you can use Adtrace SDK wrapper method `updateConversionValue:` to update SKAdNetwork conversion value for your user:
 
 ```objc
 [Adtrace updateConversionValue:6];
@@ -575,90 +566,6 @@ If any value is unavailable, it will default to `nil`.
 
 Note: The cost data - `costType`, `costAmount` & `costCurrency` are only available when configured in `ADTConfig` by calling `setNeedsCost:` method. If not configured or configured, but not being part of the attribution, these fields will have value `nil`. This feature is available in SDK v4.24.0 and above.
 
-### <a id="ad-revenue"></a>Ad revenue tracking
-
-**Note**: This ad revenue tracking API is available only in the native SDK v4.29.0 and above.
-
-You can track ad revenue information with Adtrace SDK by invoking the following method:
-
-```objc
-// initilise ADTAdRevenue instance with appropriate ad revenue source
-ADTAdRevenue *adRevenue = [[ADTAdRevenue alloc] initWithSource:source];
-// pass revenue and currency values
-[adRevenue setRevenue:1.6 currency:@"USD"];
-// pass optional parameters
-[adRevenue setAdImpressionsCount:adImpressionsCount];
-[adRevenue setAdRevenueUnit:adRevenueUnit];
-[adRevenue setAdRevenuePlacement:adRevenuePlacement];
-[adRevenue setAdRevenueNetwork:adRevenueNetwork];
-// attach callback and/or partner parameter if needed
-[adRevenue addCallbackParameter:key value:value];
-[adRevenue addPartnerParameter:key value:value];
-
-// track ad revenue
-[Adtrace trackAdRevenue:source payload:payload];
-```
-
-Currently we support the below `source` parameter values:
-
-- `ADTAdRevenueSourceAppLovinMAX` - representing AppLovin MAX platform.
-- `ADTAdRevenueSourceMopub` - representing MoPub platform.
-- `ADTAdRevenueSourceAdMob` - representing AdMob platform.
-- `ADTAdRevenueSourceIronSource` - representing IronSource platform.
-
-**Note**: Additional documentation which explains detailed integration with every of the supported sources will be provided outside of this README. Also, in order to use this feature, additional setup is needed for your app in Adtrace dashboard, so make sure to get in touch with our support team to make sure that everything is set up correctly before you start to use this feature.
-
-### <a id="subscriptions"></a>Subscription tracking
-
-**Note**: This feature is only available in the native SDK v4.22.0 and above. We recommend using at least version 4.22.1. 
-
-**Important**: The following steps only set up subscription tracking within the SDK. To complete setup, certain app-specific information must be added within Adtrace’s internal interface. An Adtrace representative must take this action: please contact support@adtrace.com or your Technical Account Manager. 
-
-You can track App Store subscriptions and verify their validity with the Adtrace SDK. After a subscription has been successfully purchased, make the following call to the Adtrace SDK:
-
-```objc
-ADTSubscription *subscription = [[ADTSubscription alloc] initWithPrice:price
-                                                              currency:currency
-                                                         transactionId:transactionId
-                                                            andReceipt:receipt];
-[subscription setTransactionDate:transactionDate];
-[subscription setSalesRegion:salesRegion];
-
-[Adtrace trackSubscription:subscription];
-```
-
-Only do this when the state has changed to `SKPaymentTransactionStatePurchased` or `SKPaymentTransactionStateRestored`. Then make a call to `finishTransaction` in `paymentQueue:updatedTransactions` .
-
-Subscription tracking parameters:
-
-- [price](https://developer.apple.com/documentation/storekit/skproduct/1506094-price?language=objc)
-- currency (you need to pass [currencyCode](https://developer.apple.com/documentation/foundation/nslocale/1642836-currencycode?language=objc) of the [priceLocale](https://developer.apple.com/documentation/storekit/skproduct/1506145-pricelocale?language=objc) object)
-- [transactionId](https://developer.apple.com/documentation/storekit/skpaymenttransaction/1411288-transactionidentifier?language=objc)
-- [receipt](https://developer.apple.com/documentation/foundation/nsbundle/1407276-appstorereceipturl)
-- [transactionDate](https://developer.apple.com/documentation/storekit/skpaymenttransaction/1411273-transactiondate?language=objc)
-- salesRegion (you need to pass [countryCode](https://developer.apple.com/documentation/foundation/nslocale/1643060-countrycode?language=objc) of the [priceLocale](https://developer.apple.com/documentation/storekit/skproduct/1506145-pricelocale?language=objc) object)
-
-Just like with event tracking, you can attach callback and partner parameters to the subscription object as well:
-
-```objc
-ADTSubscription *subscription = [[ADTSubscription alloc] initWithPrice:price
-                                                              currency:currency
-                                                         transactionId:transactionId
-                                                            andReceipt:receipt];
-[subscription setTransactionDate:transactionDate];
-[subscription setSalesRegion:salesRegion];
-
-// add callback parameters
-[subscription addCallbackParameter:@"key" value:@"value"];
-[subscription addCallbackParameter:@"foo" value:@"bar"];
-
-// add partner parameters
-[subscription addPartnerParameter:@"key" value:@"value"];
-[subscription addPartnerParameter:@"foo" value:@"bar"];
-
-[Adtrace trackSubscription:subscription];
-```
-
 ### <a id="event-session-callbacks"></a>Event and session callbacks
 
 You can register a delegate callback to be notified of successful and failed tracked events and/or sessions. The same optional protocol `AdtraceDelegate` used for the [attribution callback](#attribution-callback) is used.
@@ -743,62 +650,6 @@ If your app makes heavy use of event tracking, you might want to delay some HTTP
 
 If nothing is set, event buffering is **disabled by default**.
 
-### <a id="gdpr-forget-me"></a>GDPR right to be forgotten
-
-In accordance with article 17 of the EU's General Data Protection Regulation (GDPR), you can notify Adtrace when a user has exercised their right to be forgotten. Calling the following method will instruct the Adtrace SDK to communicate the user's choice to be forgotten to the Adtrace backend:
-
-```objc
-[Adtrace gdprForgetMe];
-```
-
-Upon receiving this information, Adtrace will erase the user's data and the Adtrace SDK will stop tracking the user. No requests from this device will be sent to Adtrace in the future.
-
-## <a id="third-party-sharing"></a>Third-party sharing for specific users
-
-You can notify Adtrace when a user disables, enables, and re-enables data sharing with third-party partners.
-
-### <a id="disable-third-party-sharing"></a>Disable third-party sharing for specific users
-
-Call the following method to instruct the Adtrace SDK to communicate the user's choice to disable data sharing to the Adtrace backend:
-
-```objc
-ADTThirdPartySharing *adtraceThirdPartySharing = [[ADTThirdPartySharing alloc] initWithIsEnabledNumberBool:@NO];
-[Adtrace trackThirdPartySharing:adtraceThirdPartySharing];
-```
-
-Upon receiving this information, Adtrace will block the sharing of that specific user's data to partners and the Adtrace SDK will continue to work as usual.
-
-### <a id="enable-third-party-sharing">Enable or re-enable third-party sharing for specific users</a>
-
-Call the following method to instruct the Adtrace SDK to communicate the user's choice to share data or change data sharing, to the Adtrace backend:
-
-```objc
-ADTThirdPartySharing *adtraceThirdPartySharing = [[ADTThirdPartySharing alloc] initWithIsEnabledNumberBool:@YES];
-[Adtrace trackThirdPartySharing:adtraceThirdPartySharing];
-```
-
-Upon receiving this information, Adtrace changes sharing the specific user's data to partners. The Adtrace SDK will continue to work as expected.
-
-Call the following method to instruct the Adtrace SDK to send the granular options to the Adtrace backend:
-
-```objc
-ADTThirdPartySharing *adtraceThirdPartySharing = [[ADTThirdPartySharing alloc] initWithIsEnabledNumberBool:nil];
-[adtraceThirdPartySharing addGranularOption:@"PartnerA" key:@"foo" value:@"bar"];
-[Adtrace trackThirdPartySharing:adtraceThirdPartySharing];
-```
-
-### <a id="measurement-consent"></a>Consent measurement for specific users
-
-To enable or disable the Data Privacy settings in the Adtrace Dashboard, including the consent expiry period and the user data retention period, you need to implement the below method.
-
-Call the following method to instruct the Adtrace SDK to communicate the Data Privacy settings, to the Adtrace backend:
-
-```objc
-[Adtrace trackMeasurementConsent:YES];
-```
-
-Upon receiving this information, Adtrace changes sharing the specific user's data to partners. The Adtrace SDK will continue to work as expected.
-
 ### <a id="sdk-signature"></a> SDK signature
 
 The Adtrace SDK signature is enabled on a client-by-client basis. If you are interested in using this feature, please contact your account manager.
@@ -867,29 +718,6 @@ To send us the push notification token, add the following call to `Adtrace` in t
 }
 ```
 
-### <a id="pre-installed-trackers"></a>Pre-installed trackers
-
-If you want to use the Adtrace SDK to recognize users that found your app pre-installed on their device, follow these steps.
-
-1. Create a new tracker in your [dashboard].
-2. Open your app delegate and add set the default tracker of your `ADTConfig`:
-
-  ```objc
-  ADTConfig *adtraceConfig = [ADTConfig configWithAppToken:yourAppToken environment:environment];
-  [adtraceConfig setDefaultTracker:@"{TrackerToken}"];
-  [Adtrace appDidLaunch:adtraceConfig];
-  ```
-
-  Replace `{TrackerToken}` with the tracker token you created in step 2. Please note that the dashboard displays a tracker
-  URL (including `http://app.adtrace.com/`). In your source code, you should specify only the six-character token and not
-  the entire URL.
-
-3. Build and run your app. You should see a line like the following in XCode:
-
-    ```
-    Default tracker: 'abc123'
-    ```
-
 ### <a id="deeplinking"></a>Deep linking
 
 If you are using the adtrace tracker URL with an option to deep link into your app from the URL, there is the possibility to get info about the deep link URL and its content. Hitting the URL can happen when the user has your app already installed (standard deep linking scenario) or if they don't have the app on their device (deferred deep linking scenario). Both of these scenarios are supported by the Adtrace SDK and in both cases the deep link URL will be provided to you after you app has been started after hitting the tracker URL. In order to use this feature in your app, you need to set it up properly.
@@ -897,27 +725,6 @@ If you are using the adtrace tracker URL with an option to deep link into your a
 ### <a id="deeplinking-standard"></a>Standard deep linking scenario
 
 If your user already has the app installed and hits the tracker URL with deep link information in it, your application will be opened and the content of the deep link will be sent to your app so that you can parse it and decide what to do next. With introduction of iOS 9, Apple has changed the way how deep linking should be handled in the app. Depending on which scenario you want to use for your app (or if you want to use them both to support wide range of devices), you need to set up your app to handle one or both of the following scenarios.
-
-### <a id="deeplinking-setup-old"></a>Deep linking on iOS 8 and earlier
-
-Deep linking on iOS 8 and earlier devices is being done with usage of a custom URL scheme setting. You need to pick a custom URL scheme name which your app will be in charge for opening. This scheme name will also be used in the adtrace tracker URL as part of the `deep_link` parameter. In order to set this in your app, open your `Info.plist` file and add new `URL types` row to it. In there, as `URL identifier` write you app's bundle ID and under `URL schemes` add scheme name(s) which you want your app to handle. In the example below, we have chosen that our app should handle the `adtraceExample` scheme name.
-
-![][custom-url-scheme]
-
-After this has been set up, your app will be opened after you click the adtrace tracker URL with `deep_link` parameter which contains the scheme name which you have chosen. After app is opened, `openURL` method of your `AppDelegate` class will be triggered and the place where the content of the `deep_link` parameter from the tracker URL will be delivered. If you want to access the content of the deep link, override this method.
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
-    // url object contains your deep link content
-
-    // Apply your logic to determine the return value of this method
-    return YES;
-    // or
-    // return NO;
-}
-```
-
-With this setup, you have successfully set up deep linking handling for iOS devices with iOS 8 and earlier versions.
 
 ### <a id="deeplinking-setup-new"></a>Deep linking on iOS 9 and later
 
@@ -989,83 +796,6 @@ Follow the same steps and implement the following delegate callback function for
 The callback function will be called after the SDK receives a deferred deep link from our server and before opening it. Within the callback function you have access to the deep link. The returned boolean value determines if the SDK will launch the deep link. You could, for example, not allow the SDK to open the deep link at the current moment, save it, and open it yourself later.
 
 If this callback is not implemented, **the Adtrace SDK will always try to open the deep link by default**.
-
-### <a id="deeplinking-reattribution"></a>Reattribution via deep links
-
-Adtrace enables you to run re-engagement campaigns with usage of deep links. For more information on how to do that, please check our [official docs][reattribution-with-deeplinks].
-
-If you are using this feature, in order for your user to be properly reattributed, you need to make one additional call to the Adtrace SDK in your app.
-
-Once you have received deep link content information in your app, add a call to the `appWillOpenUrl` method. By making this call, the Adtrace SDK will try to find if there is any new attribution info inside of the deep link and if any, it will be sent to the adtrace backend. If your user should be reattributed due to a click on the adtrace tracker URL with deep link content in it, you will see the [attribution callback](#attribution-callback) in your app being triggered with new attribution info for this user.
-
-The call to `appWillOpenUrl` should be done like this to support deep linking reattributions in all iOS versions:
-
-```objc
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
-    // url object contains your deep link content
-    
-    [Adtrace appWillOpenUrl:url];
-
-    // Apply your logic to determine the return value of this method
-    return YES;
-    // or
-    // return NO;
-}
-```
-
-``` objc
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
-    if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        NSURL url = [userActivity webpageURL];
-
-        [Adtrace appWillOpenUrl:url];
-    }
-
-    // Apply your logic to determine the return value of this method
-    return YES;
-    // or
-    // return NO;
-}
-```
-
-### <a id="link-resolution"></a>Link resolution
-
-If you are serving deep links from an Email Service Provider (ESP) and need to track clicks through a custom tracking link, you can use the `resolveLinkWithUrl` method of the  `ADTLinkResolution` class to resolve the link. This ensures that you record the interaction with your email tracking campaigns when a deep link is opened in your application.
-
-The `resolveLinkWithUrl` method takes the following parameters:
-
-- `url` - the deep link that opened the application
-- `resolveUrlSuffixArray` - the custom domains of the configured campaigns that need to be resolved
-- `callback` - the callback that will contain the final URL
-
-If the link received does not belong to any of the domains specified in the `resolveUrlSuffixArray`, the callback will forward the deep link URL as is. If the link does contain one of the domains specified, the SDK will attempt to resolve the link and return the resulting deep link to the `callback` parameter. The returned deep link can also be reattributed in the Adtrace SDK using the `[Adtrace appWillOpenUrl:]` method.
-
-> **Note**: The SDK will automatically follow up to ten redirects when attempting to resolve the URL. It will return the latest URL it has followed as the `callback` URL, meaning that if there are more than ten redirects to follow the **tenth redirect URL** will be returned.
-
-**Example**
-
-```objc
-[ADTLinkResolution
-    resolveLinkWithUrl:url
-    resolveUrlSuffixArray:@[@"example.com"]
-    callback:^(NSURL * _Nullable resolvedLink)
-    {
-        [Adtrace appWillOpenUrl:resolvedLink];
-    }];
-```
-
-### <a id="data-residency"></a>[beta] Data residency
-
-In order to enable data residency feature, make sure to make a call to `setUrlStrategy:` method of the `ADTConfig` instance with one of the following constants:
-
-```objc
-[adtraceConfig setUrlStrategy:ADTDataResidencyEU]; // for EU data residency region
-[adtraceConfig setUrlStrategy:ADTDataResidencyTR]; // for Turkey data residency region
-[adtraceConfig setUrlStrategy:ADTDataResidencyUS]; // for US data residency region
-```
-
-**Note:** This feature is currently in beta testing phase. If you are interested in getting access to it, please contact your dedicated account manager or write an email to support@adtrace.com. Please, do not turn this setting on before making sure with the support team that this feature is enabled for your app because otherwise SDK traffic will get dropped.
 
 ## <a id="troubleshooting"></a>Troubleshooting
 

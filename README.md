@@ -1,7 +1,6 @@
-
 ## Summary
 
-This is the iOS SDK of Adtrace™. You can read more about Adtrace™ at [adtrace.io].
+This is the iOS SDK of Adtrace™. You can read more about Adtrace™ at [adtrace.com].
 
 If your app is an app which uses web views you would like to use adtrace tracking from Javascript code, please consult our [iOS web views SDK guide][ios-web-views-guide].
 
@@ -18,11 +17,17 @@ If your app is an app which uses web views you would like to use adtrace trackin
    * [Adtrace logging](#adtrace-logging)
    * [Build your app](#build-the-app)
 * [Additional features](#additional-features)
+   * [AppTrackingTransparency framework](#att-framework)
+      * [App-tracking authorisation wrapper](#ata-wrapper)
+      * [Get current authorisation status](#ata-getter)
+   * [SKAdNetwork framework](#skadn-framework)
+      * [Update SKAdNetwork conversion value](#skadn-update-conversion-value)
+      * [Conversion value updated callback](#skadn-cv-updated-callback)
    * [Event tracking](#event-tracking)
-      * [Event parameters](#event-parameters)
       * [Revenue tracking](#revenue-tracking)
       * [Revenue deduplication](#revenue-deduplication)
       * [Callback parameters](#callback-parameters)
+      * [Partner parameters](#partner-parameters)
       * [Callback identifier](#callback-id)
    * [Session parameters](#session-parameters)
       * [Session callback parameters](#session-callback-parameters)
@@ -30,11 +35,11 @@ If your app is an app which uses web views you would like to use adtrace trackin
       * [Delay start](#delay-start)
    * [Attribution callback](#attribution-callback)
    * [Ad revenue tracking](#ad-revenue)
+   * [Subscription tracking](#subscriptions)
    * [Event and session callbacks](#event-session-callbacks)
    * [Disable tracking](#disable-tracking)
    * [Offline mode](#offline-mode)
    * [Event buffering](#event-buffering)
-   * [GDPR right to be forgotten](#gdpr-forget-me)
    * [SDK signature](#sdk-signature)
    * [Background tracking](#background-tracking)
    * [Device IDs](#device-ids)
@@ -42,13 +47,11 @@ If your app is an app which uses web views you would like to use adtrace trackin
       * [Adtrace device identifier](#di-adid)
    * [User attribution](#user-attribution)
    * [Push token](#push-token)
-   * [Pre-installed trackers](#pre-installed-trackers)
    * [Deep linking](#deeplinking)
       * [Standard deep linking scenario](#deeplinking-standard)
       * [Deep linking on iOS 8 and earlier](#deeplinking-setup-old)
       * [Deep linking on iOS 9 and later](#deeplinking-setup-new)
       * [Deferred deep linking scenario](#deeplinking-deferred)
-      * [Reattribution via deep links](#deeplinking-reattribution)
 * [Troubleshooting](#troubleshooting)
    * [Issues with delayed SDK initialisation](#ts-delayed-init)
    * [I'm seeing "Adtrace requires ARC" error](#ts-arc)
@@ -61,7 +64,7 @@ If your app is an app which uses web views you would like to use adtrace trackin
 
 ## <a id="example-apps"></a>Example apps
 
-There are example apps inside the [`examples` directory][examples] for [`iOS (Objective-C)`][example-ios-objc], [`iOS (Swift)`][example-ios-swift], [`tvOS`][example-tvos]. You can open any of these Xcode projects to see an example of how the Adtrace SDK can be integrated.
+There are example apps inside the [`examples` directory][examples] for [`iOS (Objective-C)`][example-ios-objc], [`iOS (Swift)`][example-ios-swift], [`tvOS`][example-tvos], [`iMessage`][example-imessage] and [`Apple Watch`][example-iwatch]. You can open any of these Xcode projects to see an example of how the Adtrace SDK can be integrated.
 
 ## <a id="basic-integration">Basic integration
 
@@ -69,16 +72,28 @@ We will describe the steps to integrate the Adtrace SDK into your iOS project. W
 
 ### <a id="sdk-add"></a>Add the SDK to your project
 
-If you're using [CocoaPods][cocoapods], you can add the following line to your `Podfile` and continue  [this step](#sdk-integrate):
+If you're using [CocoaPods][cocoapods], you can add the following line to your `Podfile` and continue from [this step](#sdk-integrate):
 
 ```ruby
-pod 'Adtrace', :git => 'https://github.com/adtrace/adtrace_sdk_iOS.git', :tag => 'v2.0.4'
+pod 'Adtrace-sdk', '~> 2.0.7'
+
 ```
-or
-  
+
+or:
+
 ```ruby
-pod 'Adtrace', :git => 'https://github.com/adtrace/adtrace_sdk_iOS.git', :branch => 'beta'
+pod 'Adtrace-sdk', :git => 'https://github.com/adtrace/adtrace_sdk_iOS', :tag => 'v2.0.7'
 ```
+
+---
+
+If you're using [Carthage][carthage], you can add following line to your `Cartfile` and continue from [this step](#sdk-frameworks):
+
+```ruby
+github "adtrace/adtrace_sdk_iOS"
+```
+
+---
 
 ### <a id="sdk-integrate"></a>Integrate the SDK into your app
 
@@ -158,6 +173,46 @@ NSString *environment = ADTEnvironmentProduction;
 
 We use this environment to distinguish between real traffic and test traffic from test devices. It is very important that you keep this value meaningful at all times! This is especially important if you are tracking revenue.
 
+### <a id="basic-setup-imessage"></a>iMessage specific setup
+
+**Adding SDK from source:** In case that you have chosen to add Adtrace SDK to your iMessage app **from source**, please make sure that you have pre-processor macro **ADTUST_IM=1** set in your iMessage project settings.
+
+**Adding SDK as framework:** After you have added `AdtraceSdkIm.framework` to your iMessage app, please make sure to add `New Copy Files Phase` in your `Build Phases` project settings and select that `AdtraceSdkIm.framework` should be copied to `Frameworks` folder.
+
+**Session tracking:** If you would like to have session tracking properly working in your iMessage app, you will need to do one additional integration step. In standard iOS apps Adtrace SDK is automatically subscribed to iOS system notifications which enable us to know when app entered or left foreground. In case of iMessage app, this is not the case, so we need you to add explicit calls to `trackSubsessionStart` and `trackSubsessionEnd` methods inside of your iMessage app view controller to make our SDK aware of the moments when your app is being in foreground or not.
+
+Add call to `trackSubsessionStart` inside of `didBecomeActiveWithConversation:` method:
+
+```objc
+-(void)didBecomeActiveWithConversation:(MSConversation *)conversation {
+    // Called when the extension is about to move from the inactive to active state.
+    // This will happen when the extension is about to present UI.
+    // Use this method to configure the extension and restore previously stored state.
+
+    [Adtrace trackSubsessionStart];
+}
+```
+
+Add call to `trackSubsessionEnd` inside of `willResignActiveWithConversation:` method:
+
+```objc
+-(void)willResignActiveWithConversation:(MSConversation *)conversation {
+    // Called when the extension is about to move from the active to inactive state.
+    // This will happen when the user dissmises the extension, changes to a different
+    // conversation or quits Messages.
+    
+    // Use this method to release shared resources, save user data, invalidate timers,
+    // and store enough state information to restore your extension to its current state
+    // in case it is terminated later.
+
+    [Adtrace trackSubsessionEnd];
+}
+```
+
+With this set, Adtrace SDK will be able to successfully perform session tracking inside of your iMessage app.
+
+**Note:** You should be aware that your iOS app and iMessage extension you wrote for it are running in different memory spaces and they as well have different bundle identifiers. Initialising Adtrace SDK with same app token in both places will result in two independent instances tracking things unaware of each other which might cause data mixture you don't want to see in your dashboard data. General advice would be to create separate app in Adtrace dashboard for your iMessage app and initialise SDK inside of it with separate app token.
+
 ### <a id="adtrace-logging"></a>Adtrace logging
 
 You can increase or decrease the amount of logs that you see during testing by calling `setLogLevel:` on your `ADTConfig` instance with one of the following parameters:
@@ -202,6 +257,93 @@ Build and run your app. If the build succeeds, you should carefully read the SDK
 
 Once you integrate the Adtrace SDK into your project, you can take advantage of the following features.
 
+### <a id="att-framework"></a>AppTrackingTransparency framework
+
+For each package sent, the Adtrace backend receives one of the following four (4) states of consent for access to app-related data that can be used for tracking the user or the device:
+
+- Authorized
+- Denied
+- Not Determined
+- Restricted
+
+After a device receives an authorization request to approve access to app-related data, which is used for user device tracking, the returned status will either be Authorized or Denied.
+
+Before a device receives an authorization request for access to app-related data, which is used for tracking the user or device, the returned status will be Not Determined.
+
+If authorization to use app tracking data is restricted, the returned status will be Restricted.
+
+The SDK has a built-in mechanism to receive an updated status after a user responds to the pop-up dialog, in case you don't want to customize your displayed dialog pop-up. To conveniently and efficiently communicate the new state of consent to the backend, Adtrace SDK offers a wrapper around the app tracking authorization method described in the following chapter, App-tracking authorization wrapper.
+
+### <a id="ata-wrapper"></a>App-tracking authorisation wrapper
+
+Adtrace SDK offers the possibility to use it for requesting user authorization in accessing their app-related data. Adtrace SDK has a wrapper built on top of the [requestTrackingAuthorizationWithCompletionHandler:](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorizationwith?language=objc) method, where you can as well define the callback method to get information about a user's choice. Also, with the use of this wrapper, as soon as a user responds to the pop-up dialog, it's then communicated back using your callback method. The SDK will also inform the backend of the user's choice. The `NSUInteger` value will be delivered via your callback method with the following meaning:
+
+- 0: `ATTrackingManagerAuthorizationStatusNotDetermined`
+- 1: `ATTrackingManagerAuthorizationStatusRestricted`
+- 2: `ATTrackingManagerAuthorizationStatusDenied`
+- 3: `ATTrackingManagerAuthorizationStatusAuthorized`
+
+To use this wrapper, you can call it as such:
+
+```objc
+[Adtrace requestTrackingAuthorizationWithCompletionHandler:^(NSUInteger status) {
+    switch (status) {
+        case 0:
+            // ATTrackingManagerAuthorizationStatusNotDetermined case
+            break;
+        case 1:
+            // ATTrackingManagerAuthorizationStatusRestricted case
+            break;
+        case 2:
+            // ATTrackingManagerAuthorizationStatusDenied case
+            break;
+        case 3:
+            // ATTrackingManagerAuthorizationStatusAuthorized case
+            break;
+    }
+}];
+```
+
+### <a id="ata-getter"></a>Get current authorisation status
+
+To get the current app tracking authorization status you can call `[Adtrace appTrackingAuthorizationStatus]` that will return one of the following possibilities:
+
+* `0`: The user hasn't been asked yet
+* `1`: The user device is restricted
+* `2`: The user denied access to IDFA
+* `3`: The user authorized access to IDFA
+* `-1`: The status is not available
+
+
+### <a id="skadn-framework"></a>SKAdNetwork framework
+
+If you have implemented the Adtrace iOS SDK v4.23.0 or above and your app is running on iOS 14, the communication with SKAdNetwork will be set on by default, although you can choose to turn it off. When set on, Adtrace automatically registers for SKAdNetwork attribution when the SDK is initialized. If events are set up in the Adtrace dashboard to receive conversion values, the Adtrace backend sends the conversion value data to the SDK. The SDK then sets the conversion value. After Adtrace receives the SKAdNetwork callback data, it is then displayed in the dashboard.
+
+In case you don't want the Adtrace SDK to automatically communicate with SKAdNetwork, you can disable that by calling the following method on configuration object:
+
+```objc
+[adtraceConfig deactivateSKAdNetworkHandling];
+```
+
+### <a id="skadn-update-conversion-value"></a>Update SKAdNetwork conversion value
+
+As of iOS SDK v2.0.5 you can use Adtrace SDK wrapper method `updateConversionValue:` to update SKAdNetwork conversion value for your user:
+
+```objc
+[Adtrace updateConversionValue:6];
+```
+
+### <a id="skadn-cv-updated-callback"></a>Conversion value updated callback
+
+You can register callback to get notified each time when Adtrace SDK updates conversion value for the user. You need to implement `AdtraceDelegate` protocol, implement optional `adtraceConversionValueUpdated:` method:
+
+```objc
+- (void)adtraceConversionValueUpdated:(NSNumber *)conversionValue {
+    NSLog(@"Conversion value updated callback called!");
+    NSLog(@"Conversion value: %@", conversionValue);
+}
+```
+
 ### <a id="event-tracking"></a>Event tracking
 
 You can use adtrace to track events. Lets say you want to track every tap on a particular button. You would create a new event token in your [dashboard], which has an associated event token - looking something like `abc123`. In your button's `buttonDown` method you would then add the following lines to track the tap:
@@ -213,22 +355,7 @@ ADTEvent *event = [ADTEvent eventWithEventToken:@"abc123"];
 
 When tapping the button you should now see `Event tracked` in the logs.
 
-The event instance can be used to configure the event further before tracking it.
-
-
-### <a id="event-parameters"></a> Event parameters
-in order to add desired information to an event you can simply add those information each as `key` and `value` to the event. 
-
-```objc
-ADTEvent *event = [ADTEvent eventWithEventToken:kEventToken];
-
-[event addEventParameter:@"foo" value:@"bar"];
-[event addEventParameter:@"key" value:@"value"];
-...
-
-[Adtrace trackEvent:event];
-```
-you can add **any number** of parameters to the event. 
+The event instance can be used to configure the event further before tracking it:
 
 ### <a id="revenue-tracking"></a>Revenue tracking
 
@@ -246,13 +373,13 @@ This can be combined with callback parameters of course.
 
 When you set a currency token, adtrace will automatically convert the incoming revenues into a reporting revenue of your choice. Read more about [currency conversion here.][currency-conversion]
 
-You can read more about revenue and event tracking in the [event tracking guide](https://docs.adtrace.io/en/event-tracking/#tracking-purchases-and-revenues).
+You can read more about revenue and event tracking in the [event tracking guide](https://docs.adtrace.com/en/event-tracking/#tracking-purchases-and-revenues).
 
 ### <a id="revenue-deduplication"></a>Revenue deduplication
 
 You can also pass in an optional transaction ID to avoid tracking duplicate revenues. The last ten transaction IDs are remembered and revenue events with duplicate transaction IDs are skipped. This is especially useful for in-app purchase tracking. See an example below.
 
-If you want to track in-app purchases, please make sure to call `trackEvent` after `finishTransaction` in `paymentQueue:updatedTransaction` only if the state changed to `SKPaymentTransactionStatePurchased`. That way you can avoid tracking revenue that is not actually being generated.
+If you want to track in-app purchases, please make sure to call `trackEvent` after `finishTransaction` in `paymentQueue:updatedTransactions` only if the state changed to `SKPaymentTransactionStatePurchased`. That way you can avoid tracking revenue that is not actually being generated.
 
 ```objc
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
@@ -272,13 +399,6 @@ If you want to track in-app purchases, please make sure to call `trackEvent` aft
     }
 }
 ```
-
-
-
-
-### <a id="iap-verification"></a>In-App Purchase verification
-
-If you want to check the validity of In-App Purchases made in your app using Purchase Verification, adtrace's server side receipt verification tool, then check out our iOS purchase SDK and read more about it [here][ios-purchase-verification].
 
 ### <a id="callback-parameters"></a>Callback parameters
 
@@ -302,6 +422,21 @@ In that case we would track the event and send a request to:
 It should be mentioned that we support a variety of placeholders like `{idfa}` that can be used as parameter values. In the resulting callback this placeholder would be replaced with the ID for Advertisers of the current device. Also note that we don't store any of your custom parameters, but only append them to your callbacks, thus without a callback they will not be saved nor sent to you.
 
 You can read more about using URL callbacks, including a full list of available values, in our [callbacks guide][callbacks-guide].
+
+### <a id="partner-parameters"></a>Value parameters
+
+You can also add parameters to be transmitted to our servers, which have been activated in your Adtrace dashboard.
+
+This works similarly to the callback parameters mentioned above, but can be added by calling the `addEventValueParameter` method on your `ADTEvent` instance.
+
+```objc
+ADTEvent *event = [ADTEvent eventWithEventToken:@"abc123"];
+
+[event addEventValueParameter:@"key" value:@"value"];
+[event addEventValueParameter:@"foo" value:@"bar"];
+
+[Adtrace trackEvent:event];
+```
 
 
 ### <a id="callback-id"></a>Callback identifier
@@ -424,25 +559,13 @@ The delegate function will be called after the SDK receives the final attributio
 - `NSString creative` the creative grouping level of the current attribution.
 - `NSString clickLabel` the click label of the current attribution.
 - `NSString adid` the unique device identifier provided by attribution.
+- `NSString costType` the cost type string.
+- `NSNumber costAmount` the cost amount.
+- `NSString costCurrency` the cost currency string.
 
 If any value is unavailable, it will default to `nil`.
 
-### <a id="ad-revenue"></a>Ad revenue tracking
-
-You can track ad revenue information with Adtrace SDK by invoking following method:
-
-```objc
-[Adtrace trackAdRevenue:source payload:payload];
-```
-
-Parameters of the method which you need to pass are:
-
-- `source` - `NSString` object which indicates the source of ad revenue info.
-- `payload` - `NSData` object which contains ad revenue JSON.
-
-Currently we support the below `source` parameter values:
-
-- `ADTAdRevenueSourceMopub` - representing MoPub mediation platform (for more information, check [integration guide][sdk2sdk-mopub])
+Note: The cost data - `costType`, `costAmount` & `costCurrency` are only available when configured in `ADTConfig` by calling `setNeedsCost:` method. If not configured or configured, but not being part of the attribution, these fields will have value `nil`. This feature is available in SDK v4.24.0 and above.
 
 ### <a id="event-session-callbacks"></a>Event and session callbacks
 
@@ -528,16 +651,6 @@ If your app makes heavy use of event tracking, you might want to delay some HTTP
 
 If nothing is set, event buffering is **disabled by default**.
 
-### <a id="gdpr-forget-me"></a>GDPR right to be forgotten
-
-In accordance with article 17 of the EU's General Data Protection Regulation (GDPR), you can notify Adtrace when a user has exercised their right to be forgotten. Calling the following method will instruct the Adtrace SDK to communicate the user's choice to be forgotten to the Adtrace backend:
-
-```objc
-[Adtrace gdprForgetMe];
-```
-
-Upon receiving this information, Adtrace will erase the user's data and the Adtrace SDK will stop tracking the user. No requests from this device will be sent to Adtrace in the future.
-
 ### <a id="sdk-signature"></a> SDK signature
 
 The Adtrace SDK signature is enabled on a client-by-client basis. If you are interested in using this feature, please contact your account manager.
@@ -606,29 +719,6 @@ To send us the push notification token, add the following call to `Adtrace` in t
 }
 ```
 
-### <a id="pre-installed-trackers"></a>Pre-installed trackers
-
-If you want to use the Adtrace SDK to recognize users that found your app pre-installed on their device, follow these steps.
-
-1. Create a new tracker in your [dashboard].
-2. Open your app delegate and add set the default tracker of your `ADTConfig`:
-
-  ```objc
-  ADTConfig *adtraceConfig = [ADTConfig configWithAppToken:yourAppToken environment:environment];
-  [adtraceConfig setDefaultTracker:@"{TrackerToken}"];
-  [Adtrace appDidLaunch:adtraceConfig];
-  ```
-
-  Replace `{TrackerToken}` with the tracker token you created in step 2. Please note that the dashboard displays a tracker
-  URL (including `http://app.adtrace.io/`). In your source code, you should specify only the six-character token and not
-  the entire URL.
-
-3. Build and run your app. You should see a line like the following in XCode:
-
-    ```
-    Default tracker: 'abc123'
-    ```
-
 ### <a id="deeplinking"></a>Deep linking
 
 If you are using the adtrace tracker URL with an option to deep link into your app from the URL, there is the possibility to get info about the deep link URL and its content. Hitting the URL can happen when the user has your app already installed (standard deep linking scenario) or if they don't have the app on their device (deferred deep linking scenario). Both of these scenarios are supported by the Adtrace SDK and in both cases the deep link URL will be provided to you after you app has been started after hitting the tracker URL. In order to use this feature in your app, you need to set it up properly.
@@ -636,28 +726,6 @@ If you are using the adtrace tracker URL with an option to deep link into your a
 ### <a id="deeplinking-standard"></a>Standard deep linking scenario
 
 If your user already has the app installed and hits the tracker URL with deep link information in it, your application will be opened and the content of the deep link will be sent to your app so that you can parse it and decide what to do next. With introduction of iOS 9, Apple has changed the way how deep linking should be handled in the app. Depending on which scenario you want to use for your app (or if you want to use them both to support wide range of devices), you need to set up your app to handle one or both of the following scenarios.
-
-### <a id="deeplinking-setup-old"></a>Deep linking on iOS 8 and earlier
-
-Deep linking on iOS 8 and earlier devices is being done with usage of a custom URL scheme setting. You need to pick a custom URL scheme name which your app will be in charge for opening. This scheme name will also be used in the adtrace tracker URL as part of the `deep_link` parameter. In order to set this in your app, open your `Info.plist` file and add new `URL types` row to it. In there, as `URL identifier` write you app's bundle ID and under `URL schemes` add scheme name(s) which you want your app to handle. In the example below, we have chosen that our app should handle the `adtraceExample` scheme name.
-
-![][custom-url-scheme]
-
-After this has been set up, your app will be opened after you click the adtrace tracker URL with `deep_link` parameter which contains the scheme name which you have chosen. After app is opened, `openURL` method of your `AppDelegate` class will be triggered and the place where the content of the `deep_link` parameter from the tracker URL will be delivered. If you want to access the content of the deep link, override this method.
-
-```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    // url object contains your deep link content
-
-    // Apply your logic to determine the return value of this method
-    return YES;
-    // or
-    // return NO;
-}
-```
-
-With this setup, you have successfully set up deep linking handling for iOS devices with iOS 8 and earlier versions.
 
 ### <a id="deeplinking-setup-new"></a>Deep linking on iOS 9 and later
 
@@ -726,49 +794,9 @@ Follow the same steps and implement the following delegate callback function for
 }
 ```
 
-The callback function will be called after the SDK receives a deffered deep link from our server and before opening it. Within the callback function you have access to the deep link. The returned boolean value determines if the SDK will launch the deep link. You could, for example, not allow the SDK to open the deep link at the current moment, save it, and open it yourself later.
+The callback function will be called after the SDK receives a deferred deep link from our server and before opening it. Within the callback function you have access to the deep link. The returned boolean value determines if the SDK will launch the deep link. You could, for example, not allow the SDK to open the deep link at the current moment, save it, and open it yourself later.
 
 If this callback is not implemented, **the Adtrace SDK will always try to open the deep link by default**.
-
-### <a id="deeplinking-reattribution"></a>Reattribution via deep links
-
-Adtrace enables you to run re-engagement campaigns with usage of deep links. For more information on how to do that, please check our [official docs][reattribution-with-deeplinks].
-
-If you are using this feature, in order for your user to be properly reattributed, you need to make one additional call to the Adtrace SDK in your app.
-
-Once you have received deep link content information in your app, add a call to the `appWillOpenUrl` method. By making this call, the Adtrace SDK will try to find if there is any new attribution info inside of the deep link and if any, it will be sent to the adtrace backend. If your user should be reattributed due to a click on the adtrace tracker URL with deep link content in it, you will see the [attribution callback](#attribution-callback) in your app being triggered with new attribution info for this user.
-
-The call to `appWillOpenUrl` should be done like this to support deep linking reattributions in all iOS versions:
-
-```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    // url object contains your deep link content
-    
-    [Adtrace appWillOpenUrl:url];
-
-    // Apply your logic to determine the return value of this method
-    return YES;
-    // or
-    // return NO;
-}
-```
-
-``` objc
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
-    if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        NSURL url = [userActivity webpageURL];
-
-        [Adtrace appWillOpenUrl:url];
-    }
-
-    // Apply your logic to determine the return value of this method
-    return YES;
-    // or
-    // return NO;
-}
-```
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
@@ -851,11 +879,11 @@ Session failed (Ignoring too frequent session. Last session: YYYY-MM-DDTHH:mm:ss
 <a id="forget-device">With the `{yourAppToken}` and  either `{adidValue}` or `{idfaValue}` values filled in below, open one of the following links:
 
 ```
-http://app.adtrace.io/forget_device?app_token={yourAppToken}&adid={adidValue}
+http://app.adtrace.com/forget_device?app_token={yourAppToken}&adid={adidValue}
 ```
 
 ```
-http://app.adtrace.io/forget_device?app_token={yourAppToken}&idfa={idfaValue}
+http://app.adtrace.com/forget_device?app_token={yourAppToken}&idfa={idfaValue}
 ```
 
 When the device is forgotten, the link just returns `Forgot device`. If the device was already forgotten or the values were incorrect, the link returns `Device not found`.
@@ -938,13 +966,18 @@ Usually, a user's code for tracking revenue event looks something like this:
 If you are seing any value in the dashboard other than what you expected to be tracked, **please, check your logic for determining amount value**.
 
 
-[dashboard]:   http://adtrace.io
-[adtrace.io]:  http://adtrace.io
+[dashboard]:   http://adtrace.com
+[adtrace.com]:  http://adtrace.com
 
 [en-readme]:  README.md
 [zh-readme]:  doc/chinese/README.md
 [ja-readme]:  doc/japanese/README.md
 [ko-readme]:  doc/korean/README.md
+  
+[en-helpcenter]: https://help.adtrace.com/en/developer/ios-sdk-documentation
+[zh-helpcenter]: https://help.adtrace.com/zh/developer/ios-sdk-documentation
+[ja-helpcenter]: https://help.adtrace.com/ja/developer/ios-sdk-documentation
+[ko-helpcenter]: https://help.adtrace.com/ko/developer/ios-sdk-documentation
 
 [sdk2sdk-mopub]:  doc/english/sdk-to-sdk/mopub.md
 
@@ -962,21 +995,21 @@ If you are seing any value in the dashboard other than what you expected to be t
 [example-ios-swift]:  examples/AdtraceExample-Swift
 
 [AEPriceMatrix]:     https://github.com/adtrace/AEPriceMatrix
-[event-tracking]:    https://docs.adtrace.io/en/event-tracking
-[callbacks-guide]:   https://docs.adtrace.io/en/callbacks
+[event-tracking]:    https://docs.adtrace.com/en/event-tracking
+[callbacks-guide]:   https://docs.adtrace.com/en/callbacks
 [universal-links]:   https://developer.apple.com/library/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html
 
-[special-partners]:           https://docs.adtrace.io/en/special-partners
+[special-partners]:           https://docs.adtrace.com/en/special-partners
 [attribution-data]:           https://github.com/adtrace/sdks/blob/master/doc/attribution-data.md
 [ios-web-views-guide]:        doc/english/web_views.md
-[currency-conversion]:        https://docs.adtrace.io/en/event-tracking/#tracking-purchases-in-different-currencies
-[universal-links-guide]:      https://docs.adtrace.io/en/universal-links/
-[adtrace-universal-links]:     https://docs.adtrace.io/en/universal-links/#redirecting-to-universal-links-directly
-[universal-links-testing]:    https://docs.adtrace.io/en/universal-links/#testing-universal-link-implementations
-[reattribution-deeplinks]:    https://docs.adtrace.io/en/deeplinking/#manually-appending-attribution-data-to-a-deep-link
+[currency-conversion]:        https://docs.adtrace.com/en/event-tracking/#tracking-purchases-in-different-currencies
+[universal-links-guide]:      https://docs.adtrace.com/en/universal-links/
+[adtrace-universal-links]:     https://docs.adtrace.com/en/universal-links/#redirecting-to-universal-links-directly
+[universal-links-testing]:    https://docs.adtrace.com/en/universal-links/#testing-universal-link-implementations
+[reattribution-deeplinks]:    https://docs.adtrace.com/en/deeplinking/#manually-appending-attribution-data-to-a-deep-link
 [ios-purchase-verification]:  https://github.com/adtrace/ios_purchase_sdk
 
-[reattribution-with-deeplinks]:   https://docs.adtrace.io/en/deeplinking/#manually-appending-attribution-data-to-a-deep-link
+[reattribution-with-deeplinks]:   https://docs.adtrace.com/en/deeplinking/#manually-appending-attribution-data-to-a-deep-link
 
 [run]:         https://raw.github.com/adtrace/sdks/master/Resources/ios/run5.png
 [add]:         https://raw.github.com/adtrace/sdks/master/Resources/ios/add5.png
@@ -992,3 +1025,27 @@ If you are seing any value in the dashboard other than what you expected to be t
 
 [associated-domains-applinks]:      https://raw.github.com/adtrace/sdks/master/Resources/ios/associated-domains-applinks.png
 [universal-links-dashboard-values]: https://raw.github.com/adtrace/sdks/master/Resources/ios/universal-links-dashboard-values5.png
+
+## <a id="license"></a>License
+
+The Adtrace SDK is licensed under the MIT License.
+
+Copyright (c) 2012-Present Adtrace GmbH, http://www.adtrace.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

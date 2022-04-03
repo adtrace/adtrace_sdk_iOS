@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnTrackSimpleEvent;
 @property (weak, nonatomic) IBOutlet UIButton *btnTrackRevenueEvent;
 @property (weak, nonatomic) IBOutlet UIButton *btnTrackCallbackEvent;
-@property (weak, nonatomic) IBOutlet UIButton *btnTrackPartnerEvent;
+@property (weak, nonatomic) IBOutlet UIButton *btnTrackEventValue;
 @property (weak, nonatomic) IBOutlet UIButton *btnEnableOfflineMode;
 @property (weak, nonatomic) IBOutlet UIButton *btnDisableOfflineMode;
 @property (weak, nonatomic) IBOutlet UIButton *btnEnableSdk;
@@ -60,13 +60,13 @@
     [Adtrace trackEvent:event];
 }
 
-- (IBAction)clickTrackPartnerEvent:(UIButton *)sender {
+- (IBAction)clickTrackEventValue:(UIButton *)sender {
     ADTEvent *event = [ADTEvent eventWithEventToken:kEventToken4];
 
     
-    [event addPartnerParameter:@"x" value:@"y"];
-    [event addPartnerParameter:@"foo" value:@"bar"];
-    [event addPartnerParameter:@"x" value:@"z"];
+    [event addEventValueParameter:@"x" value:@"y"];
+    [event addEventValueParameter:@"foo" value:@"bar"];
+    [event addEventValueParameter:@"x" value:@"z"];
 
     [Adtrace trackEvent:event];
 }

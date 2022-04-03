@@ -28,7 +28,7 @@ static NSString *appToken = nil;
 
     self.eventCount = 0;
     self.sessionCount = 0;
-    self.subsessionCount = -1;
+    self.subsessionCount = -1;   
     self.sessionLength = -1;
     self.timeSpent = -1;
     self.lastActivity = -1;

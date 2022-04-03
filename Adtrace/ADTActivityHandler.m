@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 #import <UIKit/UIKit.h>
 
 #import "ADTActivityPackage.h"
@@ -221,7 +227,12 @@ typedef NS_ENUM(NSInteger, AdtADClientError) {
                      preLaunchActions:savedPreLaunch];
                      }];
 
+    /* Not needed, done already in initI:preLaunchActionsArray: method.
     
+    if (self.activityState != nil) {
+        [self setDeviceToken:[ADTUserDefaults getPushToken]];
+    }
+    */
 
     [self addNotificationObserver];
 

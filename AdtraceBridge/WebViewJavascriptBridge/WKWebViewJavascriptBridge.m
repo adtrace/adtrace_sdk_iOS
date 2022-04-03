@@ -15,7 +15,8 @@
     WebViewJavascriptBridgeBase *_base;
 }
 
-
+/* API
+ *****/
 
 + (void)enableLogging { [WebViewJavascriptBridgeBase enableLogging]; }
 
@@ -66,7 +67,8 @@
     [_base disableJavscriptAlertBoxSafetyTimeout];
 }
 
-
+/* Internals
+ ***********/
 
 - (void)dealloc {
     _base = nil;
@@ -76,7 +78,8 @@
 }
 
 
-
+/* WKWebView Specific Internals
+ ******************************/
 
 - (void) _setupInstance:(WKWebView*)webView {
     _webView = webView;

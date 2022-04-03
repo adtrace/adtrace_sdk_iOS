@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 #import <Foundation/Foundation.h>
 
 @interface ADTActivityState : NSObject <NSCoding, NSCopying>

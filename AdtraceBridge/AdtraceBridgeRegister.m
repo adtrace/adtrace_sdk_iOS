@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 #import "AdtraceBridgeRegister.h"
 
 static NSString * const kHandlerPrefix = @"adtrace_";
@@ -246,7 +238,7 @@ static NSString * fbAppIdStatic = nil;
                 if (this.sdkPrefix) {
                     return this.sdkPrefix;
                 } else {
-                    return 'web-bridge2.0.3';
+                    return 'web-bridge2.0.7';
                 }
             },
             setTestOptions: function(testOptions) {
@@ -264,7 +256,7 @@ static NSString * fbAppIdStatic = nil;
             this.transactionId = null;
             this.callbackId = null;
             this.callbackParameters = [];
-            this.eventValueParameters = [];
+            this.valueParameters = [];
         };
 
         AdtraceEvent.prototype.addCallbackParameter = function(key, value) {
@@ -272,8 +264,8 @@ static NSString * fbAppIdStatic = nil;
             this.callbackParameters.push(value);
         };
         AdtraceEvent.prototype.addEventValueParameter = function(key, value) {
-            this.eventValueParameters.push(key);
-            this.eventValueParameters.push(value);
+            this.valueParameters.push(key);
+            this.valueParameters.push(value);
         };
         AdtraceEvent.prototype.setRevenue = function(revenue, currency) {
             this.revenue = revenue;

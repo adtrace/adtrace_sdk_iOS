@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 #import "WebViewJavascriptBridge_JS.h"
 
 NSString * WebViewJavascriptBridge_js() {
@@ -66,9 +56,8 @@ NSString * WebViewJavascriptBridge_js() {
 			message['callbackId'] = callbackId;
 		}
 		sendMessageQueue.push(message);
-        messagingIframe.src = CUSTOM_PROTOCOL_SCHEME + '://' + QUEUE_HAS_MESSAGE;
-        
-    }
+		messagingIframe.src = CUSTOM_PROTOCOL_SCHEME + '://' + QUEUE_HAS_MESSAGE;
+	}
 
 	function _fetchQueue() {
 		var messageQueueString = JSON.stringify(sendMessageQueue);
@@ -119,8 +108,8 @@ NSString * WebViewJavascriptBridge_js() {
 
 	messagingIframe = document.createElement('iframe');
 	messagingIframe.style.display = 'none';
-    messagingIframe.src = CUSTOM_PROTOCOL_SCHEME + '://' + QUEUE_HAS_MESSAGE;
-    document.documentElement.appendChild(messagingIframe);
+	messagingIframe.src = CUSTOM_PROTOCOL_SCHEME + '://' + QUEUE_HAS_MESSAGE;
+	document.documentElement.appendChild(messagingIframe);
 
 	registerHandler("_disableJavascriptAlertBoxSafetyTimeout", disableJavscriptAlertBoxSafetyTimeout);
 	

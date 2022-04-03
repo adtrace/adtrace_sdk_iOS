@@ -13,14 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AdtraceDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appToken = "08q13yyy0twf"
+        let appToken = "2fm9gkqubvpc"
         let environment = ADTEnvironmentSandbox
         let adtraceConfig = ADTConfig(appToken: appToken, environment: environment)
 
         
         adtraceConfig?.logLevel = ADTLogLevelVerbose
+
+        
+        
+
+        
+        
+
+        
+        
+        
         
         adtraceConfig?.delegate = self
+        
+        
+        
+        
         
         Adtrace.addSessionCallbackParameter("obi", value: "wan")
         Adtrace.addSessionCallbackParameter("master", value: "yoda")

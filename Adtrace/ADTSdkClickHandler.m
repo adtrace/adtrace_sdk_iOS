@@ -14,7 +14,7 @@
 #import "ADTUserDefaults.h"
 #import "ADTPackageBuilder.h"
 
-static const char * const kInternalQueueName = "io.adtrace.SdkClickQueue";
+static const char * const kInternalQueueName = "com.adtrace.SdkClickQueue";
 
 @interface ADTSdkClickHandler()
 

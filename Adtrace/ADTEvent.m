@@ -14,7 +14,7 @@
 
 @property (nonatomic, weak) id<ADTLogger> logger;
 @property (nonatomic, strong) NSMutableDictionary *callbackMutableParameters;
-@property (nonatomic, strong) NSMutableDictionary *partnerMutableParameters;
+@property (nonatomic, strong) NSMutableDictionary *eventMutableParameters;
 
 @end
 
@@ -67,29 +67,29 @@
     }
 }
 
-- (void)addEventParameter:(NSString *)key value:(NSString *)value {
+- (void)addEventValueParameter:(NSString *)key value:(NSString *)value {
     @synchronized (self) {
         NSString *immutableKey = [key copy];
         NSString *immutableValue = [value copy];
 
         if (![ADTUtil isValidParameter:immutableKey
                          attributeType:@"key"
-                         parameterName:@"EventValueParams"]) {
+                         parameterName:@"Value"]) {
             return;
         }
         if (![ADTUtil isValidParameter:immutableValue
                          attributeType:@"value"
-                         parameterName:@"EventValueParams"]) {
+                         parameterName:@"Value"]) {
             return;
         }
 
-        if (self.partnerMutableParameters == nil) {
-            self.partnerMutableParameters = [[NSMutableDictionary alloc] init];
+        if (self.eventMutableParameters == nil) {
+            self.eventMutableParameters = [[NSMutableDictionary alloc] init];
         }
-        if ([self.partnerMutableParameters objectForKey:immutableKey]) {
-            [self.logger warn:@"Value parameter key %@ was overwritten", immutableKey];
+        if ([self.eventMutableParameters objectForKey:immutableKey]) {
+            [self.logger warn:@"Event value parameter key %@ was overwritten", immutableKey];
         }
-        [self.partnerMutableParameters setObject:immutableValue forKey:immutableKey];
+        [self.eventMutableParameters setObject:immutableValue forKey:immutableKey];
     }
 }
 
@@ -123,9 +123,9 @@
     }
 }
 
-- (NSDictionary *)eventParameters {
+- (NSDictionary *)addEventParameters {
     @synchronized (self) {
-        return (NSDictionary *)self.partnerMutableParameters;
+        return (NSDictionary *)self.eventMutableParameters;
     }
 }
 
@@ -198,7 +198,7 @@
         copy->_revenue = [self.revenue copyWithZone:zone];
         copy->_currency = [self.currency copyWithZone:zone];
         copy.callbackMutableParameters = [self.callbackMutableParameters copyWithZone:zone];
-        copy.partnerMutableParameters = [self.partnerMutableParameters copyWithZone:zone];
+        copy.eventMutableParameters = [self.eventMutableParameters copyWithZone:zone];
         copy->_transactionId = [self.transactionId copyWithZone:zone];
         copy->_receipt = [self.receipt copyWithZone:zone];
         copy->_emptyReceipt = self.emptyReceipt;

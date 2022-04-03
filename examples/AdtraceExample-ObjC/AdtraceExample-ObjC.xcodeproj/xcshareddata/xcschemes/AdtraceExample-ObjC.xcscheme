@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9639093B1BCBFCF300A2E8A4"
-               BuildableName = "AdjustExample-ObjC.app"
-               BlueprintName = "AdjustExample-ObjC"
-               ReferencedContainer = "container:AdjustExample-ObjC.xcodeproj">
+               BuildableName = "AdtraceExample-ObjC.app"
+               BlueprintName = "AdtraceExample-ObjC"
+               ReferencedContainer = "container:AdtraceExample-ObjC.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9639093B1BCBFCF300A2E8A4"
-            BuildableName = "AdjustExample-ObjC.app"
-            BlueprintName = "AdjustExample-ObjC"
-            ReferencedContainer = "container:AdjustExample-ObjC.xcodeproj">
+            BuildableName = "AdtraceExample-ObjC.app"
+            BlueprintName = "AdtraceExample-ObjC"
+            ReferencedContainer = "container:AdtraceExample-ObjC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9639093B1BCBFCF300A2E8A4"
-            BuildableName = "AdjustExample-ObjC.app"
-            BlueprintName = "AdjustExample-ObjC"
-            ReferencedContainer = "container:AdjustExample-ObjC.xcodeproj">
+            BuildableName = "AdtraceExample-ObjC.app"
+            BlueprintName = "AdtraceExample-ObjC"
+            ReferencedContainer = "container:AdtraceExample-ObjC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

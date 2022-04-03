@@ -14,7 +14,7 @@ class ViewControllerSwift: UIViewController {
     @IBOutlet weak var btnTrackEventSimple: UIButton?
     @IBOutlet weak var btnTrackEventRevenue: UIButton?
     @IBOutlet weak var btnTrackEventCallback: UIButton?
-    @IBOutlet weak var btnTrackEventPartner: UIButton?
+    @IBOutlet weak var btnTrackEventValue: UIButton?
     @IBOutlet weak var btnEnableOfflineMode: UIButton?
     @IBOutlet weak var btnDisableOfflineMode: UIButton?
     @IBOutlet weak var btnEnableSDK: UIButton?
@@ -56,7 +56,7 @@ class ViewControllerSwift: UIViewController {
     }
 
     @IBAction func btnTrackEventSimpleTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "v02d2i");
+        let event = ADTEvent(eventToken: "g3mfiw");
 
         
         event?.setCallbackId("RandomCallbackId")
@@ -74,7 +74,7 @@ class ViewControllerSwift: UIViewController {
     }
 
     @IBAction func btnTrackEventCallbackTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "v02d2i");
+        let event = ADTEvent(eventToken: "34vgg9");
 
         
         event?.addCallbackParameter("foo", value: "bar");
@@ -83,15 +83,17 @@ class ViewControllerSwift: UIViewController {
         Adtrace.trackEvent(event);
     }
 
-    @IBAction func btnTrackEventPartnerTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "v02d2i");
+    @IBAction func btnTrackEventValueTapped(_sender: UIButton) {
+        let event = ADTEvent(eventToken: "w788qs");
 
         
-        event?.addParameter("foo", value: "bar");
-        event?.addParameter("key", value: "value");
+        event?.addEventValueParameter("foo", value: "bar");
+        event?.addEventValueParameter("key", value: "value");
 
         Adtrace.trackEvent(event);
     }
+    
+    
 
     @IBAction func btnEnableOfflineModeTapped(_sender: UIButton) {
         Adtrace.setOfflineMode(true);

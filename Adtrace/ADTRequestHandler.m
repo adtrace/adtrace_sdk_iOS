@@ -198,7 +198,42 @@ authorizationHeader:(NSString *)authorizationHeader
     [session finishTasksAndInvalidate];
 }
 
+/* Manual testing code to fail certain percentage of requests
+ 
+- (void)
+    URLSession:(NSURLSession *)session
+    didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+    completionHandler:
+        (void (^)
+            (NSURLSessionAuthChallengeDisposition disposition,
+             NSURLCredential * _Nullable credential))completionHandler
+{
+    uint32_t randomNumber = arc4random_uniform(2);
+    NSLog(@"URLSession:didReceiveChallenge:completionHandler: random number %d", randomNumber);
+    if (randomNumber != 0) {
+        completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+        return;
+    }
 
+    
+    
+    
+    
+    completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
+    
+}
+
+ - (void)connection:(NSURLConnection *)connection
+ willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+ {
+     if (challenge.previousFailureCount > 0) {
+         [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+     } else {
+         NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+         [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+     }
+ }
+ */
 
 - (void)sendNSURLConnectionRequest:(NSMutableURLRequest *)request
                 responseData:(ADTResponseData *)responseData
@@ -313,7 +348,7 @@ authorizationHeader:(NSString *)authorizationHeader
     [self.logger verbose:@"Sending request to endpoint: %@", urlString];
 
     NSURL *url = [NSURL URLWithString:urlString];
-    
+     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.timeoutInterval = self.requestTimeout;
     request.HTTPMethod = @"POST";

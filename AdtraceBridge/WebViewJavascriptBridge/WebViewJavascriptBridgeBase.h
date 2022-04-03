@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 #import <Foundation/Foundation.h>
 
 #define kOldProtocolScheme @"wvjbscheme"

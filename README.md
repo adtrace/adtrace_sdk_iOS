@@ -317,7 +317,7 @@ To get the current app tracking authorization status you can call `[Adtrace appT
 
 ### <a id="skadn-framework"></a>SKAdNetwork framework
 
-If you have implemented the Adtrace iOS SDK v4.23.0 or above and your app is running on iOS 14, the communication with SKAdNetwork will be set on by default, although you can choose to turn it off. When set on, Adtrace automatically registers for SKAdNetwork attribution when the SDK is initialized. If events are set up in the Adtrace dashboard to receive conversion values, the Adtrace backend sends the conversion value data to the SDK. The SDK then sets the conversion value. After Adtrace receives the SKAdNetwork callback data, it is then displayed in the dashboard.
+If you have implemented the Adtrace iOS SDK v2.0.5 or above and your app is running on iOS 14, the communication with SKAdNetwork will be set on by default, although you can choose to turn it off. When set on, Adtrace automatically registers for SKAdNetwork attribution when the SDK is initialized. If events are set up in the Adtrace dashboard to receive conversion values, the Adtrace backend sends the conversion value data to the SDK. The SDK then sets the conversion value. After Adtrace receives the SKAdNetwork callback data, it is then displayed in the dashboard.
 
 In case you don't want the Adtrace SDK to automatically communicate with SKAdNetwork, you can disable that by calling the following method on configuration object:
 
@@ -565,7 +565,7 @@ The delegate function will be called after the SDK receives the final attributio
 
 If any value is unavailable, it will default to `nil`.
 
-Note: The cost data - `costType`, `costAmount` & `costCurrency` are only available when configured in `ADTConfig` by calling `setNeedsCost:` method. If not configured or configured, but not being part of the attribution, these fields will have value `nil`. This feature is available in SDK v4.24.0 and above.
+Note: The cost data - `costType`, `costAmount` & `costCurrency` are only available when configured in `ADTConfig` by calling `setNeedsCost:` method. If not configured or configured, but not being part of the attribution, these fields will have value `nil`. This feature is available in SDK v2.0.5 and above.
 
 ### <a id="event-session-callbacks"></a>Event and session callbacks
 

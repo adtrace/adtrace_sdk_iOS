@@ -54,8 +54,10 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Adtrace Example">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF7AC2A1CB4FEDB00D3591F"
@@ -63,7 +65,7 @@
             BlueprintName = "AdtraceExample-iWatch WatchKit App"
             ReferencedContainer = "container:AdtraceExample-iWatch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,8 +73,10 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Adtrace Example">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9DF7AC2A1CB4FEDB00D3591F"
@@ -80,7 +84,16 @@
             BlueprintName = "AdtraceExample-iWatch WatchKit App"
             ReferencedContainer = "container:AdtraceExample-iWatch.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "9DF7AC2A1CB4FEDB00D3591F"
+            BuildableName = "AdtraceExample-iWatch WatchKit App.app"
+            BlueprintName = "AdtraceExample-iWatch WatchKit App"
+            ReferencedContainer = "container:AdtraceExample-iWatch.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

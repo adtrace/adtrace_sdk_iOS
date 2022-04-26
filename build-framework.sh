@@ -1,4 +1,4 @@
-
+# created by Adtrace (Nasser Amini github.com/namini40) Apr 2022
 # create archives and frameworks
 rm -rf frameworks
 mkdir frameworks 

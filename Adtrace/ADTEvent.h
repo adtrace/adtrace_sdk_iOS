@@ -82,11 +82,11 @@
 - (void)addCallbackParameter:(nonnull NSString *)key value:(nonnull NSString *)value;
 
 /**
- * @brief Add a key-pair to be fowarded to a partner.
+ * @brief Add a key-pair to be sent with event.
  *
- * @param key String key to be fowarded to the partner.
- * @param value String value of the key to be fowarded to the partner.
- */
+ * @param key String key to be sent with event.
+ * @param value String value of the key to be sent with event.
+ *  */
 - (void)addEventValueParameter:(nonnull NSString *)key value:(nonnull NSString *)value;
 
 /**

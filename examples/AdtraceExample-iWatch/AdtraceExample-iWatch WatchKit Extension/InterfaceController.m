@@ -34,7 +34,7 @@
     [row1.wkLblTitle setText:@"Simple Event"];
     [row2.wkLblTitle setText:@"Revenue Event"];
     [row3.wkLblTitle setText:@"Callback Event"];
-    [row4.wkLblTitle setText:@"Partner Event"];
+    [row4.wkLblTitle setText:@"Value Event"];
 }
 
 - (void)willActivate {
@@ -235,7 +235,7 @@
             break;
         }
         case 3: {
-            NSDictionary *requst = @{@"request":@"event_partner"};
+            NSDictionary *requst = @{@"request":@"event_value_params"};
 
             [InterfaceController openParentApplication:requst reply:^(NSDictionary *replyInfo, NSError *error) {
 
@@ -246,10 +246,10 @@
 
                     if ([[replyInfo objectForKey:@"response"] isEqualToString:@"ack"]) {
                         
-                        message = @"Partner event tracked!";
+                        message = @"Value event tracked!";
                     } else {
                         
-                        message = @"Partner event not tracked!";
+                        message = @"Value event not tracked!";
                     }
                     
                     [self pushControllerWithName:@"EventTrackedController" context:message];

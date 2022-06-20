@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnTrackSimpleEvent;
 @property (weak, nonatomic) IBOutlet UIButton *btnTrackRevenueEvent;
 @property (weak, nonatomic) IBOutlet UIButton *btnTrackEventWithCallback;
-@property (weak, nonatomic) IBOutlet UIButton *btnTrackEventWithPartner;
+@property (weak, nonatomic) IBOutlet UIButton *btnTrackEventWithValue;
 
 @end
 

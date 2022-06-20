@@ -69,7 +69,7 @@
         replyHandler(response);
 
         [[AdtraceLoggingHelper sharedInstance] logText:@"Callback event tracked!"];
-    } else if ([[message objectForKey:@"request"] isEqualToString:@"event_partner"]) {
+    } else if ([[message objectForKey:@"request"] isEqualToString:@"event_value_params"]) {
         NSLog(@"Received request from Apple Watch to track simple event.");
 
         [[AdtraceTrackingHelper sharedInstance] trackEventValue];
@@ -111,15 +111,15 @@
         reply(response);
 
         [[AdtraceLoggingHelper sharedInstance] logText:@"Callback event tracked!"];
-    } else if ([[userInfo objectForKey:@"request"] isEqualToString:@"event_partner"]) {
+    } else if ([[userInfo objectForKey:@"request"] isEqualToString:@"event_value_params"]) {
         NSLog(@"Received request from Apple Watch to track simple event.");
 
-        [[AdtraceTrackingHelper sharedInstance] trackPartnerEvent];
+        [[AdtraceTrackingHelper sharedInstance] trackValueEvent];
 
         NSDictionary *response = @{@"response" : @"ack"};
         reply(response);
         
-        [[AdtraceLoggingHelper sharedInstance] logText:@"Partner event tracked!"];
+        [[AdtraceLoggingHelper sharedInstance] logText:@"Value event tracked!"];
     }
 }
  */

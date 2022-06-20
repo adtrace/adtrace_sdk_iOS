@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -116,7 +116,7 @@
                             <constraint firstItem="Nz4-ql-pka" firstAttribute="leading" secondItem="CtA-LW-sfH" secondAttribute="leading" id="9GO-Cv-FrB" userLabel="Button Enable SDK - Left"/>
                             <constraint firstItem="WkT-aw-5FP" firstAttribute="leading" secondItem="qOy-JF-sz3" secondAttribute="leading" id="CJF-Q6-e7Z" userLabel="Button Track Callback Event - Left"/>
                             <constraint firstItem="h38-T3-Es8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.64" id="F0k-JU-12S" userLabel="Button Is SDK Enabled - Center Y"/>
-                            <constraint firstItem="xdn-OV-t7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.84" id="L8f-G1-kEA" userLabel="Button Track Partner Event - Center Y"/>
+                            <constraint firstItem="xdn-OV-t7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.84" id="L8f-G1-kEA" userLabel="Button Track Value Event - Center Y"/>
                             <constraint firstItem="pcl-gg-Wh1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NHS-Ap-Qt8" userLabel="Button Enable Offline Mode - Center Y"/>
                             <constraint firstItem="G0l-tK-3Xp" firstAttribute="leading" secondItem="Nz4-ql-pka" secondAttribute="leading" id="NNY-X4-9w9" userLabel="Button Disable SDK - Left"/>
                             <constraint firstItem="h38-T3-Es8" firstAttribute="leading" secondItem="G0l-tK-3Xp" secondAttribute="leading" id="Ppc-dh-GZU" userLabel="Button Is SDK Enabled - Left"/>
@@ -126,7 +126,7 @@
                             <constraint firstItem="CtA-LW-sfH" firstAttribute="leading" secondItem="pcl-gg-Wh1" secondAttribute="leading" id="avj-OZ-xkQ" userLabel="Button Disable Offline Mode - Left"/>
                             <constraint firstItem="GIu-rR-F7C" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" constant="-50" id="b67-VF-K9H" userLabel="Button Track Simple Event - Right"/>
                             <constraint firstItem="GIu-rR-F7C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="b9I-zW-S0s" userLabel="Button Track Simple Event - Left"/>
-                            <constraint firstItem="xdn-OV-t7P" firstAttribute="leading" secondItem="WkT-aw-5FP" secondAttribute="leading" id="cpC-AL-syT" userLabel="Button Track Partner Event - Left"/>
+                            <constraint firstItem="xdn-OV-t7P" firstAttribute="leading" secondItem="WkT-aw-5FP" secondAttribute="leading" id="cpC-AL-syT" userLabel="Button Track Value Event - Left"/>
                             <constraint firstItem="CtA-LW-sfH" firstAttribute="trailing" secondItem="pcl-gg-Wh1" secondAttribute="trailing" id="gck-Oj-n7R" userLabel="Button Disable Offline Mode - Right"/>
                             <constraint firstItem="qOy-JF-sz3" firstAttribute="leading" secondItem="GIu-rR-F7C" secondAttribute="leading" id="j38-xp-iIV" userLabel="Button Track Revenue Event - Left"/>
                             <constraint firstItem="G0l-tK-3Xp" firstAttribute="trailing" secondItem="Nz4-ql-pka" secondAttribute="trailing" id="jEc-Dd-B2q" userLabel="Button Disable SDK - Right"/>
@@ -135,7 +135,7 @@
                             <constraint firstItem="Nz4-ql-pka" firstAttribute="trailing" secondItem="CtA-LW-sfH" secondAttribute="trailing" id="oII-Wo-jTT" userLabel="Button Enable SDK - Right"/>
                             <constraint firstItem="qOy-JF-sz3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.52" id="qFt-9H-RmJ" userLabel="Button Track Revenue Event - Center Y"/>
                             <constraint firstItem="Nz4-ql-pka" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.32" id="t8W-D5-kvX" userLabel="Button Enable SDK - Center Y"/>
-                            <constraint firstItem="xdn-OV-t7P" firstAttribute="trailing" secondItem="WkT-aw-5FP" secondAttribute="trailing" id="umj-lw-QZG" userLabel="Button Track Partner Event - Right"/>
+                            <constraint firstItem="xdn-OV-t7P" firstAttribute="trailing" secondItem="WkT-aw-5FP" secondAttribute="trailing" id="umj-lw-QZG" userLabel="Button Track Value Event - Right"/>
                             <constraint firstItem="CtA-LW-sfH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.16" id="wIb-2M-xGQ" userLabel="Button Disable Offline Mode - Center Y"/>
                             <constraint firstItem="qOy-JF-sz3" firstAttribute="trailing" secondItem="GIu-rR-F7C" secondAttribute="trailing" id="xsR-c3-YDy" userLabel="Button Track Revenue Event - Right"/>
                             <constraint firstItem="pcl-gg-Wh1" firstAttribute="trailing" secondItem="xdn-OV-t7P" secondAttribute="trailing" id="ys8-TB-urQ" userLabel="Button Enable Offline Mode - Right"/>

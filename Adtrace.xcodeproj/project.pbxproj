@@ -25,7 +25,6 @@
 		2067002A1F18BDC700B4FDE1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601C19C1A31DD7F00A9AE21 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6FAB784C2636DC0E00773869 /* ADTLinkResolution.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FAB784A2636DC0E00773869 /* ADTLinkResolution.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FAB784D2636DC0E00773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB784B2636DC0E00773869 /* ADTLinkResolution.m */; };
-		7FC81DC427DCDF7500A3F012 /* Adtrace in Resources */ = {isa = PBXBuildFile; fileRef = 7FC81DBA27DCDF7400A3F012 /* Adtrace */; };
 		7FC81DC627DCDF9500A3F012 /* Adtrace in Resources */ = {isa = PBXBuildFile; fileRef = 7FC81DC527DCDF9500A3F012 /* Adtrace */; };
 		7FC81DCC27DCE0BE00A3F012 /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE8F224E2C26F00FEF3F1 /* ADTUrlStrategy.m */; };
 		7FC81DCD27DCE0E300A3F012 /* ADTUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE8F124E2C26F00FEF3F1 /* ADTUrlStrategy.h */; };
@@ -383,6 +382,7 @@
 		7FC81F4127DCE96F00A3F012 /* ADTSessionParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B6710E1D788EEC0090A023 /* ADTSessionParameters.h */; };
 		7FC81F4227DCE96F00A3F012 /* ADTUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DD0E9AC1F44690B00B2A759 /* ADTUserDefaults.h */; };
 		7FC81F4327DCE96F00A3F012 /* ADTUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE8F124E2C26F00FEF3F1 /* ADTUrlStrategy.h */; };
+		7FFFAB4E28BDF52300718724 /* module.modulemap in Resources */ = {isa = PBXBuildFile; fileRef = 7FFFAB4328BDF50D00718724 /* module.modulemap */; };
 		9601CAE41C74B70600670879 /* ADTEventSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 9601CAE21C74B70600670879 /* ADTEventSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9601CAE51C74B70600670879 /* ADTEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9601CAE31C74B70600670879 /* ADTEventSuccess.m */; };
 		9601CAE81C74BAAE00670879 /* ADTEventFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 9601CAE61C74BAAE00670879 /* ADTEventFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -570,6 +570,7 @@
 		7FC81DC827DCDFF500A3F012 /* AdtraceBridge */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AdtraceBridge; sourceTree = SOURCE_ROOT; };
 		7FC81DC927DCDFF500A3F012 /* Adtrace */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adtrace; sourceTree = SOURCE_ROOT; };
 		7FE7119027DDD9E30010F99A /* Adtrace */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Adtrace; sourceTree = SOURCE_ROOT; };
+		7FFFAB4328BDF50D00718724 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = ModuleMap/module.modulemap; sourceTree = "<group>"; };
 		9601C19C1A31DD7F00A9AE21 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9601C1A11A31DE0300A9AE21 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9601CAE21C74B70600670879 /* ADTEventSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTEventSuccess.h; sourceTree = "<group>"; };
@@ -817,6 +818,7 @@
 		9679920418BBAE2800394606 = {
 			isa = PBXGroup;
 			children = (
+				7FFFAB4328BDF50D00718724 /* module.modulemap */,
 				96E5E34B18BBB48A008E7B30 /* Adtrace */,
 				9DFA37AE1C0F219400782607 /* AdtraceSdk */,
 				9DE354D32100726300D211C9 /* AdtraceSdkIm */,
@@ -1564,7 +1566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FC81DC427DCDF7500A3F012 /* Adtrace in Resources */,
+				7FFFAB4E28BDF52300718724 /* module.modulemap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

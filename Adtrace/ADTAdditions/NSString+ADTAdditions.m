@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import <CommonCrypto/CommonDigest.h>
 
 #import "NSString+ADTAdditions.h"
@@ -45,9 +38,9 @@
                                                                                  (CFStringRef)@"!*'\"();:@&=+$,/?%#[]% ",
                                                                                  CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding)));
 #pragma clang diagnostic pop
-    
-    
-    
+    // Alternative:
+    // return [self stringByAddingPercentEncodingWithAllowedCharacters:
+    //        [NSCharacterSet characterSetWithCharactersInString:@"!*'\"();:@&=+$,/?%#[]% "]];
 }
 
 - (NSString *)adtUrlDecode {

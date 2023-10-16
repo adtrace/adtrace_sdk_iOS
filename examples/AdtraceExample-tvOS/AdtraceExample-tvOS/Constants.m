@@ -1,16 +1,5 @@
 
-
-
-
-
-
-
-
 #import "Constants.h"
-
-NSString * const kParamIdfv      = @"idfv";
-NSString * const kParamAppToken  = @"app_token";
-NSString * const kBaseForgetUrl  = @"https:
 
 NSString * const kAppToken       = @"2fm9gkqubvpc";
 NSString * const kEventToken1    = @"g3mfiw";

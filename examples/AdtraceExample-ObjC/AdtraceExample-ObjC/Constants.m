@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "Constants.h"
 
 NSString * const kAppToken = @"2fm9gkqubvpc";

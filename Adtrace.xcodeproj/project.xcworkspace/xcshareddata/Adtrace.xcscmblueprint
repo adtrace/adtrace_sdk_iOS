@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5D3A06A058226D065739B53871A0207A1C3022C2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5D3A06A058226D065739B53871A0207A1C3022C2" : 0,
+    "F7C6F209B1DCA446C89CD9019B5C206C0685236A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "39D3F7B5-32C4-4987-9F89-1A4B49A266EA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5D3A06A058226D065739B53871A0207A1C3022C2" : "adtrace_sdk_iOS\/",
+    "F7C6F209B1DCA446C89CD9019B5C206C0685236A" : "adtrace_sdk_cordova\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Adtrace",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Adtrace.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:adtrace\/adtrace_sdk_iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5D3A06A058226D065739B53871A0207A1C3022C2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:adtrace\/adtrace_sdk_cordova.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F7C6F209B1DCA446C89CD9019B5C206C0685236A"
+    }
+  ]
+}

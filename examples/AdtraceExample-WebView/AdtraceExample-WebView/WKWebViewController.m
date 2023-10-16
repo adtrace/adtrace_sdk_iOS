@@ -1,10 +1,10 @@
-
-
-
-
-
-
-
+//
+//  WKWebViewController.m
+//  AdtraceExample-WebView
+//
+//  Created by Uglješa Erceg (@uerceg) on 31st May 2016.
+//  Copyright © 2016-Present Adtrace GmbH. All rights reserved.
+//
 
 #import "WKWebViewController.h"
 
@@ -31,18 +31,19 @@
     webView.navigationDelegate = self;
     webView.UIDelegate = self;
     [self.view addSubview:webView];
-
+    
     _adtraceBridge = [[AdtraceBridge alloc] init];
     [_adtraceBridge loadWKWebViewBridge:webView wkWebViewDelegate:self];
 
-    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"AdtraceExample-WebView" ofType:@"html"];
-    NSString *appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
-    [webView loadHTMLString:appHtml baseURL:baseURL];
-}
+    // load remote web page
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://adtraceweb.neocities.org"]];
+    [webView loadRequest:request];
 
-- (void)callWkHandler:(id)sender {
-    
+    // alternative to load web page from local HTML resource
+    // NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"AdtraceExample-WebView" ofType:@"html"];
+    // NSString *appHtml = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+    // NSURL *baseURL = [NSURL fileURLWithPath:htmlPath];
+    // [webView loadHTMLString:appHtml baseURL:baseURL];
 }
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
@@ -52,8 +53,8 @@
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
                                                         style:UIAlertActionStyleCancel
                                                       handler:^(UIAlertAction *action) {
-                                                          completionHandler();
-                                                      }]];
+        completionHandler();
+    }]];
     [self presentViewController:alertController animated:YES completion:^{}];
 }
 

@@ -6,7 +6,7 @@
 static const char _base64EncodingTable[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 // http://stackoverflow.com/a/4727124
-- (NSString *)adjEncodeBase64 {
+- (NSString *)adtEncodeBase64 {
     const unsigned char* objRawData = self.bytes;
     char* objPointer;
     char* strResult;

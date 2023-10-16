@@ -1,22 +1,15 @@
 {
   "images" : [
     {
-      "extent" : "full-screen",
-      "idiom" : "tv",
-      "minimum-system-version" : "11.0",
       "orientation" : "landscape",
-      "scale" : "2x"
-    },
-    {
-      "extent" : "full-screen",
       "idiom" : "tv",
+      "extent" : "full-screen",
       "minimum-system-version" : "9.0",
-      "orientation" : "landscape",
       "scale" : "1x"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   }
 }

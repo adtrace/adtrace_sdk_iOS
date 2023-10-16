@@ -1,0 +1,6 @@
+framework module AdtraceSdkWebBridge {
+  umbrella header "AdtraceSdkWebBridge.h"
+
+  export *
+  module * { export * }
+}

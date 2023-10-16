@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import <Foundation/Foundation.h>
 #import "ADTActivityHandler.h"
 #import "ADTActivityPackage.h"

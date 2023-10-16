@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTUserDefaults.h"
 
 static NSString * const PREFS_KEY_PUSH_TOKEN_DATA = @"adt_push_token";

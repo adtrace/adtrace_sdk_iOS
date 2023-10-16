@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #include <string.h>
 
 #import "ADTUtil.h"

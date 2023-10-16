@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTResponseData.h"
 #import "ADTActivityKind.h"
 

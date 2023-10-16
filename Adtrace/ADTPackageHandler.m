@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTPackageHandler.h"
 #import "ADTActivityPackage.h"
 #import "ADTLogger.h"

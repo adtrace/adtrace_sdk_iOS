@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "WKWebViewJavascriptBridge.h"
 
 @implementation WKWebViewJavascriptBridge {

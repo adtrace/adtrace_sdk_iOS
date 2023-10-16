@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTSessionSuccess.h"
 
 @implementation ADTSessionSuccess

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTEvent.h"
 #import "ADTAdtraceFactory.h"
 #import "ADTUtil.h"

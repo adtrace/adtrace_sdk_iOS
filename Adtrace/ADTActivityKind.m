@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTActivityKind.h"
 
 @implementation ADTActivityKindUtil

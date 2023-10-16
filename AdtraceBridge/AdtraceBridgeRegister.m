@@ -1,3 +1,4 @@
+
 #import "AdtraceBridgeRegister.h"
 
 static NSString * const kHandlerPrefix = @"adtrace_";

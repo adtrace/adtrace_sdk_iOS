@@ -1,3 +1,4 @@
+
 #import "WebViewJavascriptBridge_JS.h"
 
 NSString * WebViewJavascriptBridge_js() {

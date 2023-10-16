@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTLinkResolution.h"
 
 static NSUInteger kMaxRecursions = 10;

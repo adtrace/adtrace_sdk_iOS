@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTSessionFailure.h"
 
 @implementation ADTSessionFailure

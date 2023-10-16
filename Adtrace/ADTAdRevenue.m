@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTAdRevenue.h"
 #import "ADTAdtraceFactory.h"
 #import "ADTUtil.h"

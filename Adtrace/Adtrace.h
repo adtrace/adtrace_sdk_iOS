@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 #import "ADTEvent.h"
 #import "ADTConfig.h"
 #import "ADTAttribution.h"

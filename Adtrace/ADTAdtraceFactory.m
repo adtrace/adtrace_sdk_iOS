@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTAdtraceFactory.h"
 #import "ADTActivityHandler.h"
 #import "ADTPackageHandler.h"

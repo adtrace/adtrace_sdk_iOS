@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "Adtrace.h"
 #import "ADTResponseData.h"
 #import "ADTActivityState.h"

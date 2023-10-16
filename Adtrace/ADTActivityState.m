@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTAdtraceFactory.h"
 #import "ADTActivityState.h"
 #import "NSString+ADTAdditions.h"

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTActivityKind.h"
 
 @interface ADTActivityPackage : NSObject <NSCoding>

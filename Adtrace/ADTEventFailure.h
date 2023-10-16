@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import <Foundation/Foundation.h>
 
 @interface ADTEventFailure : NSObject

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTLogger.h"
 
 static NSString * const kLogTag = @"Adtrace";

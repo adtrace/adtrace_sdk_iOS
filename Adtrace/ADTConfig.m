@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTConfig.h"
 #import "ADTAdtraceFactory.h"
 #import "ADTLogger.h"

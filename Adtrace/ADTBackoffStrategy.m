@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTBackoffStrategy.h"
 
 @implementation ADTBackoffStrategy

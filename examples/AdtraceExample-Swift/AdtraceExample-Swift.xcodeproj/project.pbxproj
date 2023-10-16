@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F1C9D4B27DCB14300881CC7 /* Adtrace in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C9D4A27DCB14300881CC7 /* Adtrace */; };
+		9DF7A9C61CB4ECA600D3591F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF7A9C51CB4ECA600D3591F /* AppDelegate.swift */; };
+		9DF7A9C81CB4ECA600D3591F /* ViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF7A9C71CB4ECA600D3591F /* ViewControllerSwift.swift */; };
+		9DF7A9CB1CB4ECA600D3591F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF7A9C91CB4ECA600D3591F /* Main.storyboard */; };
+		9DF7A9CD1CB4ECA600D3591F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF7A9CC1CB4ECA600D3591F /* Assets.xcassets */; };
+		9DF7A9D01CB4ECA600D3591F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF7A9CE1CB4ECA600D3591F /* LaunchScreen.storyboard */; };
+		9DFB04C21D745B22006D48FC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFB04C11D745B22006D48FC /* iAd.framework */; };
+		9DFB04C41D745B28006D48FC /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFB04C31D745B28006D48FC /* AdSupport.framework */; };
+		D71BFB7024CAD74A00878F3E /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71BFB6F24CAD74A00878F3E /* AppTrackingTransparency.framework */; };
+		D731B41524DAAB5C0036F619 /* LoadProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731B41424DAAB5C0036F619 /* LoadProductController.swift */; };
+		D758F83A2567BD3700F885BD /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D758F8392567BD3700F885BD /* AdServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F1C9D4A27DCB14300881CC7 /* Adtrace */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Adtrace; path = ../../../Adtrace; sourceTree = "<group>"; };
+		9D319B9823054502000E28A6 /* AdtraceExample-Swift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AdtraceExample-Swift.entitlements"; sourceTree = "<group>"; };
+		9DF7A9C21CB4ECA600D3591F /* AdtraceExample-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdtraceExample-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DF7A9C51CB4ECA600D3591F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9DF7A9C71CB4ECA600D3591F /* ViewControllerSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSwift.swift; sourceTree = "<group>"; };
+		9DF7A9CA1CB4ECA600D3591F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9DF7A9CC1CB4ECA600D3591F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DF7A9CF1CB4ECA600D3591F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9DF7A9D11CB4ECA600D3591F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF7A9DF1CB4F01B00D3591F /* AdjustExample-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdjustExample-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DFB04C11D745B22006D48FC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		9DFB04C31D745B28006D48FC /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		D71BFB6F24CAD74A00878F3E /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		D731B41424DAAB5C0036F619 /* LoadProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProductController.swift; sourceTree = "<group>"; };
+		D758F8392567BD3700F885BD /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DF7A9BF1CB4ECA600D3591F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D71BFB7024CAD74A00878F3E /* AppTrackingTransparency.framework in Frameworks */,
+				D758F83A2567BD3700F885BD /* AdServices.framework in Frameworks */,
+				9DFB04C21D745B22006D48FC /* iAd.framework in Frameworks */,
+				9DFB04C41D745B28006D48FC /* AdSupport.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DF7A9B91CB4ECA600D3591F = {
+			isa = PBXGroup;
+			children = (
+				9DF7A9C41CB4ECA600D3591F /* AdtraceExample-Swift */,
+				9DF7A9C31CB4ECA600D3591F /* Products */,
+				D71BFB6E24CAD74A00878F3E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9DF7A9C31CB4ECA600D3591F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DF7A9C21CB4ECA600D3591F /* AdtraceExample-Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DF7A9C41CB4ECA600D3591F /* AdtraceExample-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				7F1C9D4A27DCB14300881CC7 /* Adtrace */,
+				9D319B9823054502000E28A6 /* AdtraceExample-Swift.entitlements */,
+				9DF7A9C51CB4ECA600D3591F /* AppDelegate.swift */,
+				9DF7A9C71CB4ECA600D3591F /* ViewControllerSwift.swift */,
+				9DF7A9C91CB4ECA600D3591F /* Main.storyboard */,
+				9DF7A9CC1CB4ECA600D3591F /* Assets.xcassets */,
+				9DF7A9CE1CB4ECA600D3591F /* LaunchScreen.storyboard */,
+				9DF7A9D11CB4ECA600D3591F /* Info.plist */,
+				9DF7A9DF1CB4F01B00D3591F /* AdjustExample-Swift-Bridging-Header.h */,
+				9DFB04C01D745B13006D48FC /* Frameworks */,
+				D731B41424DAAB5C0036F619 /* LoadProductController.swift */,
+			);
+			path = "AdtraceExample-Swift";
+			sourceTree = "<group>";
+		};
+		9DFB04C01D745B13006D48FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DFB04C11D745B22006D48FC /* iAd.framework */,
+				9DFB04C31D745B28006D48FC /* AdSupport.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D71BFB6E24CAD74A00878F3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D758F8392567BD3700F885BD /* AdServices.framework */,
+				D71BFB6F24CAD74A00878F3E /* AppTrackingTransparency.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DF7A9C11CB4ECA600D3591F /* AdtraceExample-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DF7A9D41CB4ECA600D3591F /* Build configuration list for PBXNativeTarget "AdtraceExample-Swift" */;
+			buildPhases = (
+				9DF7A9BE1CB4ECA600D3591F /* Sources */,
+				9DF7A9BF1CB4ECA600D3591F /* Frameworks */,
+				9DF7A9C01CB4ECA600D3591F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AdtraceExample-Swift";
+			productName = "AdjustExample-Swift";
+			productReference = 9DF7A9C21CB4ECA600D3591F /* AdtraceExample-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DF7A9BA1CB4ECA600D3591F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = Adtrace;
+				TargetAttributes = {
+					9DF7A9C11CB4ECA600D3591F = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = QGUGW9AUMK;
+						LastSwiftMigration = 1030;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 9DF7A9BD1CB4ECA600D3591F /* Build configuration list for PBXProject "AdtraceExample-Swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DF7A9B91CB4ECA600D3591F;
+			productRefGroup = 9DF7A9C31CB4ECA600D3591F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DF7A9C11CB4ECA600D3591F /* AdtraceExample-Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DF7A9C01CB4ECA600D3591F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF7A9D01CB4ECA600D3591F /* LaunchScreen.storyboard in Resources */,
+				9DF7A9CD1CB4ECA600D3591F /* Assets.xcassets in Resources */,
+				9DF7A9CB1CB4ECA600D3591F /* Main.storyboard in Resources */,
+				7F1C9D4B27DCB14300881CC7 /* Adtrace in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DF7A9BE1CB4ECA600D3591F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF7A9C81CB4ECA600D3591F /* ViewControllerSwift.swift in Sources */,
+				D731B41524DAAB5C0036F619 /* LoadProductController.swift in Sources */,
+				9DF7A9C61CB4ECA600D3591F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9DF7A9C91CB4ECA600D3591F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF7A9CA1CB4ECA600D3591F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9DF7A9CE1CB4ECA600D3591F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF7A9CF1CB4ECA600D3591F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DF7A9D21CB4ECA600D3591F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DF7A9D31CB4ECA600D3591F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DF7A9D51CB4ECA600D3591F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "AdtraceExample-Swift/AdtraceExample-Swift.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "AdtraceExample-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = io.adtrace.examples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdtraceExample-Swift/AdtraceExample-Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9DF7A9D61CB4ECA600D3591F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "AdtraceExample-Swift/AdtraceExample-Swift.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "AdtraceExample-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = io.adtrace.examples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdtraceExample-Swift/AdtraceExample-Swift-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DF7A9BD1CB4ECA600D3591F /* Build configuration list for PBXProject "AdtraceExample-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF7A9D21CB4ECA600D3591F /* Debug */,
+				9DF7A9D31CB4ECA600D3591F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DF7A9D41CB4ECA600D3591F /* Build configuration list for PBXNativeTarget "AdtraceExample-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DF7A9D51CB4ECA600D3591F /* Debug */,
+				9DF7A9D61CB4ECA600D3591F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DF7A9BA1CB4ECA600D3591F /* Project object */;
+}

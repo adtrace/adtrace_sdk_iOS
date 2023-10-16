@@ -84,6 +84,14 @@ static const char * const kInternalQueueName = "com.adtrace.SdkClickQueue";
                      }];
 }
 
+- (void)updatePackagesWithIdfaAndAttStatus {
+    [ADTUtil launchInQueue:self.internalQueue
+                selfInject:self
+                     block:^(ADTSdkClickHandler *selfI) {
+        [selfI updatePackagesWithIdfaAndAttStatusI:selfI];
+    }];
+}
+
 - (void)teardown {
     [ADTAdtraceFactory.logger verbose:@"ADTSdkClickHandler teardown"];
 
@@ -140,16 +148,16 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
     }
     
     if ([ADTPackageBuilder isAdServicesPackage:sdkClickPackage]) {
-        
+        // refresh token
         NSString *token = [ADTUtil fetchAdServicesAttribution:nil];
-        
+
         if (token != nil && ![sdkClickPackage.parameters[ADTAttributionTokenParameter] isEqualToString:token]) {
-            
+            // update token
             [ADTPackageBuilder parameters:sdkClickPackage.parameters
                                 setString:token
                                    forKey:ADTAttributionTokenParameter];
-            
-            
+
+            // update created_at
             [ADTPackageBuilder parameters:sdkClickPackage.parameters
                               setDate1970:[NSDate.date timeIntervalSince1970]
                                    forKey:@"created_at"];
@@ -179,6 +187,20 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(waitTime * NSEC_PER_SEC)), self.internalQueue, work);
 }
 
+- (void)updatePackagesWithIdfaAndAttStatusI:(ADTSdkClickHandler *)selfI {
+    int attStatus = [ADTUtil attStatus];
+    [selfI.logger debug:@"Updating sdk_click queue with idfa and att_status: %d", attStatus];
+    for (ADTActivityPackage *activityPackage in selfI.packageQueue) {
+        [ADTPackageBuilder parameters:activityPackage.parameters
+                               setInt:attStatus
+                               forKey:@"att_status"];
+        [ADTPackageBuilder addIdfaToParameters:activityPackage.parameters
+                                    withConfig:self.activityHandler.adtraceConfig
+                                        logger:[ADTAdtraceFactory logger]];
+    }
+}
+
+
 - (void)responseCallback:(ADTResponseData *)responseData {
     if (responseData.jsonResponse) {
         [self.logger debug:
@@ -187,8 +209,8 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
         [self.logger error:
             @"Could not get click JSON response with message: %@", responseData.message];
     }
-    
-    
+    // Check if any package response contains information that user has opted out.
+    // If yes, disable SDK and flush any potentially stored packages that happened afterwards.
     if (responseData.trackingState == ADTTrackingStateOptedOut) {
         self.lastPackageRetriesCount = 0;
         [self.activityHandler setTrackingStateOptedOut];
@@ -202,14 +224,8 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
     }
     self.lastPackageRetriesCount = 0;
     
-    if ([responseData.sdkClickPackage.parameters.allValues containsObject:ADTiAdPackageKey]) {
-        
-        [ADTUserDefaults cleariAdErrors];
-        [self.logger info:@"Received iAd click response"];
-    }
-    
     if ([ADTPackageBuilder isAdServicesPackage:responseData.sdkClickPackage]) {
-        
+        // set as tracked
         [ADTUserDefaults setAdServicesTracked];
         [self.logger info:@"Received Apple Ads click response"];
     }

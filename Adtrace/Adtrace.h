@@ -6,12 +6,15 @@
 #import "ADTThirdPartySharing.h"
 #import "ADTAdRevenue.h"
 #import "ADTLinkResolution.h"
+#import "ADTPurchase.h"
+#import "ADTPurchaseVerificationResult.h"
 
 @interface AdtraceTestOptions : NSObject
 
 @property (nonatomic, copy, nullable) NSString *baseUrl;
 @property (nonatomic, copy, nullable) NSString *gdprUrl;
 @property (nonatomic, copy, nullable) NSString *subscriptionUrl;
+@property (nonatomic, copy, nullable) NSString *purchaseVerificationUrl;
 @property (nonatomic, copy, nullable) NSString *extraPath;
 @property (nonatomic, copy, nullable) NSNumber *timerIntervalInMilliseconds;
 @property (nonatomic, copy, nullable) NSNumber *timerStartInMilliseconds;
@@ -20,7 +23,6 @@
 @property (nonatomic, assign) BOOL teardown;
 @property (nonatomic, assign) BOOL deleteState;
 @property (nonatomic, assign) BOOL noBackoffWait;
-@property (nonatomic, assign) BOOL iAdFrameworkEnabled;
 @property (nonatomic, assign) BOOL adServicesFrameworkEnabled;
 @property (nonatomic, assign) BOOL enableSigning;
 @property (nonatomic, assign) BOOL disableSigning;
@@ -43,12 +45,14 @@ extern NSString * __nonnull const ADTAdRevenueSourceIronSource;
 extern NSString * __nonnull const ADTAdRevenueSourceAdMost;
 extern NSString * __nonnull const ADTAdRevenueSourceUnity;
 extern NSString * __nonnull const ADTAdRevenueSourceHeliumChartboost;
+extern NSString * __nonnull const ADTAdRevenueSourcePublisher;
 
 /**
  * Constants for country app's URL strategies.
  */
 extern NSString * __nonnull const ADTUrlStrategyIndia;
 extern NSString * __nonnull const ADTUrlStrategyChina;
+extern NSString * __nonnull const ADTUrlStrategyCn;
 extern NSString * __nonnull const ADTDataResidencyEU;
 extern NSString * __nonnull const ADTDataResidencyTR;
 extern NSString * __nonnull const ADTDataResidencyUS;
@@ -70,7 +74,7 @@ extern NSString * __nonnull const ADTDataResidencyUS;
  *
  * @param adtraceConfig The configuration object that includes the environment
  *                     and the App Token of your app. This unique identifier can
- *                     be found it in your dashboard at http:
+ *                     be found it in your dashboard and should always
  *                     be 12 characters long.
  */
 + (void)appDidLaunch:(nullable ADTConfig *)adtraceConfig;
@@ -81,7 +85,7 @@ extern NSString * __nonnull const ADTDataResidencyUS;
  * @note See ADTEvent.h for more event options.
  *
  * @param event The Event object for this kind of event. It needs a event token
- *              that is created in the dashboard at http:
+ *              that is created in the dashboard and should be six
  *              characters long.
  */
 + (void)trackEvent:(nullable ADTEvent *)event;
@@ -299,16 +303,70 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 /**
  * @brief Getter for app tracking authorization status.
  *
- * return Value of app tracking authorization status.
+ * @return Value of app tracking authorization status.
  */
 + (int)appTrackingAuthorizationStatus;
 
 /**
- * @brief Adtrace wrapper for updateConversionValue: method.
+ * @brief Adtrace wrapper for SKAdNetwork's updateConversionValue: method.
  *
  * @param conversionValue Conversion value you would like SDK to set for given user.
  */
 + (void)updateConversionValue:(NSInteger)conversionValue;
+
+/**
+ * @brief Adtrace wrapper for SKAdNetwork's updatePostbackConversionValue:completionHandler: method.
+ *
+ * @param conversionValue Conversion value you would like SDK to set for given user.
+ * @param completion Completion handler you can provide to catch and handle any errors.
+ */
++ (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                    completionHandler:(void (^_Nullable)(NSError *_Nullable error))completion;
+
+/**
+ * @brief Adtrace wrapper for SKAdNetwork's updatePostbackConversionValue:coarseValue:completionHandler: method.
+ *
+ * @param fineValue Conversion value you would like SDK to set for given user.
+ * @param coarseValue One of the possible SKAdNetworkCoarseConversionValue values.
+ * @param completion Completion handler you can provide to catch and handle any errors.
+ */
++ (void)updatePostbackConversionValue:(NSInteger)fineValue
+                          coarseValue:(nonnull NSString *)coarseValue
+                    completionHandler:(void (^_Nullable)(NSError *_Nullable error))completion;
+
+/**
+ * @brief Adtrace wrapper for SKAdNetwork's updatePostbackConversionValue:coarseValue:lockWindow:completionHandler: method.
+ *
+ * @param fineValue Conversion value you would like SDK to set for given user.
+ * @param coarseValue One of the possible SKAdNetworkCoarseConversionValue values.
+ * @param lockWindow A Boolean value that indicates whether to send the postback before the conversion window ends.
+ * @param completion Completion handler you can provide to catch and handle any errors.
+ */
++ (void)updatePostbackConversionValue:(NSInteger)fineValue
+                          coarseValue:(nonnull NSString *)coarseValue
+                           lockWindow:(BOOL)lockWindow
+                    completionHandler:(void (^_Nullable)(NSError *_Nullable error))completion;
+
+/**
+ * @brief Instruct to Adtrace SDK to check current state of att_status.
+ */
++ (void)checkForNewAttStatus;
+
+/**
+ * @brief Get the last deep link which has opened the app.
+ *
+ * @return Last deep link which has opened the app.
+ */
++ (nullable NSURL *)lastDeeplink;
+
+/**
+ * @brief Verify in-app-purchase.
+ *
+ * @param purchase          Purchase object.
+ * @param completionHandler Callback where verification result will be repoted.
+ */
++ (void)verifyPurchase:(nonnull ADTPurchase *)purchase
+     completionHandler:(void (^_Nonnull)(ADTPurchaseVerificationResult * _Nonnull verificationResult))completionHandler;
 
 /**
  * @brief Method used for internal testing only. Don't use it in production.
@@ -378,10 +436,29 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 
 - (void)updateConversionValue:(NSInteger)conversionValue;
 
+- (void)updatePostbackConversionValue:(NSInteger)conversionValue
+                    completionHandler:(void (^_Nullable)(NSError *_Nullable error))completion;
+
+- (void)updatePostbackConversionValue:(NSInteger)fineValue
+                          coarseValue:(nonnull NSString *)coarseValue
+                    completionHandler:(void (^_Nullable)(NSError *_Nullable error))completion;
+
+- (void)updatePostbackConversionValue:(NSInteger)fineValue
+                          coarseValue:(nonnull NSString *)coarseValue
+                           lockWindow:(BOOL)lockWindow
+                    completionHandler:(void (^_Nullable)(NSError *_Nullable error))completion;
+
 - (void)trackThirdPartySharing:(nonnull ADTThirdPartySharing *)thirdPartySharing;
 
 - (void)trackMeasurementConsent:(BOOL)enabled;
 
 - (void)trackAdRevenue:(nonnull ADTAdRevenue *)adRevenue;
+
+- (void)checkForNewAttStatus;
+
+- (nullable NSURL *)lastDeeplink;
+
+- (void)verifyPurchase:(nonnull ADTPurchase *)purchase
+     completionHandler:(void (^_Nonnull)(ADTPurchaseVerificationResult * _Nonnull verificationResult))completionHandler;
 
 @end

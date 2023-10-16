@@ -4,7 +4,7 @@
 #import "ADTAdtraceFactory.h"
 #import "ADTUtil.h"
 
-static const uint64_t kTimerLeeway   =  1 * NSEC_PER_SEC; 
+static const uint64_t kTimerLeeway   =  1 * NSEC_PER_SEC; // 1 second
 
 #pragma mark - private
 @interface ADTTimerOnce()
@@ -56,7 +56,7 @@ static const uint64_t kTimerLeeway   =  1 * NSEC_PER_SEC;
 }
 
 - (void)startIn:(NSTimeInterval)startIn {
-    
+    // cancel previous
     [self cancel:NO];
 
     self.fireDate = [[NSDate alloc] initWithTimeIntervalSinceNow:startIn];

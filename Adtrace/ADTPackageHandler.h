@@ -15,13 +15,14 @@
                 startsSending:(BOOL)startsSending
                     userAgent:(NSString *)userAgent
                   urlStrategy:(ADTUrlStrategy *)urlStrategy;
-                    
+                    //extraPath:(NSString *)extraPath;
 
 - (void)addPackage:(ADTActivityPackage *)package;
 - (void)sendFirstPackage;
 - (void)pauseSending;
 - (void)resumeSending;
-- (void)updatePackages:(ADTSessionParameters *)sessionParameters;
+- (void)updatePackagesWithSessionParams:(ADTSessionParameters *)sessionParameters;
+- (void)updatePackagesWithIdfaAndAttStatus;
 - (void)flush;
 
 - (void)teardown;

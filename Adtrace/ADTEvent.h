@@ -52,10 +52,15 @@
 @property (nonatomic, assign, readonly) BOOL emptyReceipt;
 
 /**
+ * @brief IAP product ID.
+ */
+@property (nonatomic, copy, readonly, nonnull) NSString *productId;
+
+/**
  * @brief Create Event object with event token.
  *
  * @param eventToken Event token that is created in the dashboard
- *                   at http:
+ *                   and should be six characters long.
  */
 + (nullable ADTEvent *)eventWithEventToken:(nonnull NSString *)eventToken;
 
@@ -113,6 +118,20 @@
 - (void)setCallbackId:(nonnull NSString *)callbackId;
 
 /**
+ * @brief Set the product ID of a In-App Purchases to perform IAP verification.
+ *
+ * @param productId The product ID of the purchased item.
+ */
+- (void)setProductId:(NSString * _Nonnull)productId;
+
+/**
+ * @brief Set the receipt of a In-App Purchases to perform IAP verification.
+ *
+ * @param receipt The receipt obtained after successful IAP.
+ */
+- (void)setReceipt:(NSData * _Nonnull)receipt;
+
+/**
  * @brief Check if created adtrace event object is valid.
  *
  * @return Boolean indicating whether the adtrace event object is valid or not.
@@ -126,7 +145,6 @@
  * @param transactionId The identifier used to validate the receipt and to avoid duplicate revenue events.
  *
  * @note This method is obsolete and should not be used.
- *       For more information, visit: https:
  */
 - (void)setReceipt:(nonnull NSData *)receipt transactionId:(nonnull NSString *)transactionId;
 

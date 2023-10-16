@@ -5,8 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edbed46a-7065-49c1-ad76-52c65b6ce3ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityKind.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityKind.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityKind.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityKind.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityPackage.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityPackage.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityPackage.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityPackage.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityState.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityState.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTAdtraceFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTAdtraceFactory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTAdtraceFactory.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTAdtraceFactory.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTAttributionHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTAttributionHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTConfig.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTConfig.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTEvent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTEvent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTEvent.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTEvent.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTLinkResolution.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTLinkResolution.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTLogger.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTLogger.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTRequestHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTRequestHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTResponseData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTResponseData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTResponseData.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTResponseData.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTSdkClickHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTSdkClickHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTSdkClickHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTSdkClickHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTSubscription.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTSubscription.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTThirdPartySharing.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTThirdPartySharing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTThirdPartySharing.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTThirdPartySharing.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTTimerOnce.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTTimerOnce.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUrlStrategy.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUrlStrategy.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUserDefaults.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUserDefaults.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUserDefaults.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUserDefaults.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUtil.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUtil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUtil.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUtil.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/Adtrace.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/Adtrace.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/Adtrace.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/Adtrace.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +65,7 @@
     "last_opened_file_path": "/Users/nasser/SOFTWARE/iOSProjects/update/adtrace_sdk_iOS",
     "settings.editor.selected.configurable": "AndroidSdkUpdater",
     "show.migrate.to.gradle.popup": "false",
-    "two.files.diff.last.used.file": "/Users/nasser/SOFTWARE/iOSProjects/update/ios_sdk/Adjust/ADJActivityHandler.m"
+    "two.files.diff.last.used.file": "/Users/nasser/SOFTWARE/iOSProjects/update/ios_sdk/Adjust/ADJUtil.m"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

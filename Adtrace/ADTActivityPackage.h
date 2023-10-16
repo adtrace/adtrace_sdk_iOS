@@ -3,7 +3,7 @@
 
 @interface ADTActivityPackage : NSObject <NSCoding>
 
-
+// Data
 
 @property (nonatomic, copy) NSString *path;
 
@@ -15,7 +15,9 @@
 
 @property (nonatomic, strong) NSDictionary *callbackParameters;
 
+@property (nonatomic, copy) void (^purchaseVerificationCallback)(id);
 
+// Logs
 
 @property (nonatomic, copy) NSString *suffix;
 

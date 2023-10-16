@@ -9,7 +9,7 @@ typedef NS_ENUM(int, ADTActivityKind) {
     ADTActivityKindUnknown = 0,
     ADTActivityKindSession = 1,
     ADTActivityKindEvent = 2,
-
+    // ADTActivityKindRevenue = 3,
     ADTActivityKindClick = 4,
     ADTActivityKindAttribution = 5,
     ADTActivityKindInfo = 6,
@@ -18,7 +18,8 @@ typedef NS_ENUM(int, ADTActivityKind) {
     ADTActivityKindDisableThirdPartySharing = 9,
     ADTActivityKindSubscription = 10,
     ADTActivityKindThirdPartySharing = 11,
-    ADTActivityKindMeasurementConsent = 12
+    ADTActivityKindMeasurementConsent = 12,
+    ADTActivityKindPurchaseVerification = 13
 };
 
 @interface ADTActivityKindUtil : NSObject

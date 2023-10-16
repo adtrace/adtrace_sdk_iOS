@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edbed46a-7065-49c1-ad76-52c65b6ce3ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AdtraceSdk/AdtraceSdk.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdk/AdtraceSdk.h" afterDir="false" />
-    </list>
+    <list default="true" id="edbed46a-7065-49c1-ad76-52c65b6ce3ba" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,14 +28,16 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/nasser/SOFTWARE/iOSProjects/update/adtrace_sdk_iOS/Adtrace",
+    "last_opened_file_path": "/Users/nasser/SOFTWARE/iOSProjects/update/adtrace_sdk_iOS",
     "settings.editor.selected.configurable": "AndroidSdkUpdater",
     "show.migrate.to.gradle.popup": "false",
-    "two.files.diff.last.used.file": "/Users/nasser/SOFTWARE/iOSProjects/update/ios_sdk/AdjustSdk/AdjustSdk.h"
+    "two.files.diff.last.used.file": "/Users/nasser/SOFTWARE/iOSProjects/update/ios_sdk/AdjustSdkWebBridge/Info.plist"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/script" />
       <recent name="$PROJECT_DIR$/Adtrace" />
     </key>
   </component>

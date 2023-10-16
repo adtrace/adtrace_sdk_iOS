@@ -49,7 +49,7 @@ static NSString * fbAppIdStatic = nil;
 }
 
 #define __adt_js_func__(x) #x
-
+// BEGIN preprocessorJSCode
 
 + (NSString *)augmented_js {
     return [NSString stringWithFormat:
@@ -62,7 +62,7 @@ static NSString * fbAppIdStatic = nil;
                     Adtrace.fbPixelEvent(pixelID, evtName, customData);
                 }
             };
-        })();) 
+        })();) // END preprocessorJSCode
      , fbAppIdStatic];
 }
 
@@ -72,7 +72,7 @@ static NSString * fbAppIdStatic = nil;
             return;
         }
 
-        
+        // Copied from adtrace.js
         window.Adtrace = {
             appDidLaunch: function(adtraceConfig) {
                 if (WebViewJavascriptBridge) {
@@ -154,6 +154,25 @@ static NSString * fbAppIdStatic = nil;
                     WebViewJavascriptBridge.callHandler('adtrace_updateConversionValue', conversionValue, null);
                 }
             },
+            updateConversionValueWithCallback: function(conversionValue, callback) {
+                if (WebViewJavascriptBridge) {
+                    WebViewJavascriptBridge.callHandler('adtrace_updateConversionValueCompletionHandler', conversionValue, callback);
+                }
+            },
+            updateConversionValueWithCoarseValueAndCallback: function(conversionValue, coarseValue, callback) {
+                if (WebViewJavascriptBridge != null) {
+                    WebViewJavascriptBridge.callHandler('adtrace_updateConversionValueCoarseValueCompletionHandler',
+                                                        {conversionValue: conversionValue, coarseValue: coarseValue},
+                                                        callback);
+                }
+            },
+            updateConversionValueWithCoarseValueLockWindowAndCallback: function(conversionValue, coarseValue, lockWindow, callback) {
+                if (WebViewJavascriptBridge != null) {
+                    WebViewJavascriptBridge.callHandler('adtrace_updateConversionValueCoarseValueLockWindowCompletionHandler',
+                                                        {conversionValue: conversionValue, coarseValue: coarseValue},
+                                                        callback);
+                }
+            },
             getAdid: function(callback) {
                 if (WebViewJavascriptBridge) {
                     WebViewJavascriptBridge.callHandler('adtrace_adid', null, callback);
@@ -219,6 +238,16 @@ static NSString * fbAppIdStatic = nil;
                     WebViewJavascriptBridge.callHandler('adtrace_trackMeasurementConsent', consentMeasurement, null);
                 }
             },
+            checkForNewAttStatus: function() {
+                if (WebViewJavascriptBridge != null) {
+                    WebViewJavascriptBridge.callHandler('adtrace_checkForNewAttStatus', null, null);
+                }
+            },
+            getLastDeeplink: function(callback) {
+                if (WebViewJavascriptBridge) {
+                    WebViewJavascriptBridge.callHandler('adtrace_lastDeeplink', null, callback);
+                }
+            },
             fbPixelEvent: function(pixelID, evtName, customData) {
                 if (WebViewJavascriptBridge != null) {
                     WebViewJavascriptBridge.callHandler('adtrace_fbPixelEvent',
@@ -249,7 +278,7 @@ static NSString * fbAppIdStatic = nil;
             }
         };
 
-        
+        // Copied from adtrace_event.js
         window.AdtraceEvent = function(eventToken) {
             this.eventToken = eventToken;
             this.revenue = null;
@@ -279,32 +308,37 @@ static NSString * fbAppIdStatic = nil;
             this.callbackId = callbackId;
         };
 
-        
+        // Adtrace Third Party Sharing
         window.AdtraceThirdPartySharing = function(isEnabled) {
             this.isEnabled = isEnabled;
             this.granularOptions = [];
+            this.partnerSharingSettings = [];
         };
-
         AdtraceThirdPartySharing.prototype.addGranularOption = function(partnerName, key, value) {
             this.granularOptions.push(partnerName);
             this.granularOptions.push(key);
             this.granularOptions.push(value);
         };
+        AdtraceThirdPartySharing.prototype.addPartnerSharingSetting = function(partnerName, key, value) {
+            this.partnerSharingSettings.push(partnerName);
+            this.partnerSharingSettings.push(key);
+            this.partnerSharingSettings.push(value);
+        };
 
-        
+        // Copied from adtrace_config.js
         window.AdtraceConfig = function(appToken, environment, legacy) {
             if (arguments.length === 2) {
-                
+                // New format does not require bridge as first parameter.
                 this.appToken = appToken;
                 this.environment = environment;
             } else if (arguments.length === 3) {
-                
+                // New format with allowSuppressLogLevel.
                 if (typeof(legacy) == typeof(true)) {
                     this.appToken = appToken;
                     this.environment = environment;
                     this.allowSuppressLogLevel = legacy;
                 } else {
-                    
+                    // Old format with first argument being the bridge instance.
                     this.bridge = appToken;
                     this.appToken = environment;
                     this.environment = legacy;
@@ -316,12 +350,13 @@ static NSString * fbAppIdStatic = nil;
             this.externalDeviceId = null;
             this.logLevel = null;
             this.eventBufferingEnabled = null;
+            this.coppaCompliantEnabled = null;
+            this.linkMeEnabled = null;
             this.sendInBackground = null;
             this.delayStart = null;
             this.userAgent = null;
             this.isDeviceKnown = null;
             this.needsCost = null;
-            this.allowiAdInfoReading = null;
             this.allowAdServicesInfoReading = null;
             this.allowIdfaReading = null;
             this.allowSkAdNetworkHandling = null;
@@ -355,6 +390,7 @@ static NSString * fbAppIdStatic = nil;
 
         AdtraceConfig.UrlStrategyIndia = 'UrlStrategyIndia';
         AdtraceConfig.UrlStrategyChina = 'UrlStrategyChina';
+        AdtraceConfig.UrlStrategyCn = 'UrlStrategyCn';
         AdtraceConfig.DataResidencyEU = 'DataResidencyEU';
         AdtraceConfig.DataResidencyTR = 'DataResidencyTR';
         AdtraceConfig.DataResidencyUS = 'DataResidencyUS';
@@ -394,6 +430,12 @@ static NSString * fbAppIdStatic = nil;
         AdtraceConfig.prototype.setEventBufferingEnabled = function(isEnabled) {
             this.eventBufferingEnabled = isEnabled;
         };
+        AdtraceConfig.prototype.setCoppaCompliantEnabled = function(isEnabled) {
+            this.coppaCompliantEnabled = isEnabled;
+        };
+        AdtraceConfig.prototype.setLinkMeEnabled = function(isEnabled) {
+            this.linkMeEnabled = isEnabled;
+        };
         AdtraceConfig.prototype.setSendInBackground = function(isEnabled) {
             this.sendInBackground = isEnabled;
         };
@@ -410,7 +452,7 @@ static NSString * fbAppIdStatic = nil;
             this.needsCost = needsCost;
         };
         AdtraceConfig.prototype.setAllowiAdInfoReading = function(allowiAdInfoReading) {
-            this.allowiAdInfoReading = allowiAdInfoReading;
+            // Apple has official sunset support for Apple Search Ads attribution via iAd.framework as of February 7th 2023
         };
         AdtraceConfig.prototype.setAllowAdServicesInfoReading = function(allowAdServicesInfoReading) {
             this.allowAdServicesInfoReading = allowAdServicesInfoReading;
@@ -460,8 +502,8 @@ static NSString * fbAppIdStatic = nil;
             this.urlStrategy = urlStrategy;
         };
 
-    })();); 
-    
+    })();); // END preprocessorJSCode
+    //, augmentedSection];
 #undef __adt_js_func__
     return preprocessorJSCode;
 }

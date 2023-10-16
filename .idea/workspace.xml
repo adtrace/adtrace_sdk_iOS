@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edbed46a-7065-49c1-ad76-52c65b6ce3ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceBridge/AdtraceBridge.m" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceBridge/AdtraceBridge.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceBridge/AdtraceBridgeRegister.m" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceBridge/AdtraceBridgeRegister.m" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     "last_opened_file_path": "/Users/nasser/SOFTWARE/iOSProjects/update/adtrace_sdk_iOS/Adtrace",
     "settings.editor.selected.configurable": "AndroidSdkUpdater",
     "show.migrate.to.gradle.popup": "false",
-    "two.files.diff.last.used.file": "/Users/nasser/SOFTWARE/iOSProjects/update/ios_sdk/Adjust/Info.plist"
+    "two.files.diff.last.used.file": "/Users/nasser/SOFTWARE/iOSProjects/update/ios_sdk/AdjustBridge/AdjustBridgeRegister.m"
   }
 }]]></component>
   <component name="RecentsManager">

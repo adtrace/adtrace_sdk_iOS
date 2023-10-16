@@ -3,7 +3,7 @@
 
 // In case of erroneous import statement try with:
  #import <Adtrace/Adtrace.h>
-// (depends how you import the Adjust SDK to your app)
+// (depends how you import the Adtrace SDK to your app)
 
 #import "AdtraceBridge.h"
 #import "ADTAdtraceFactory.h"
@@ -165,7 +165,7 @@
 - (void)loadWKWebViewBridge:(WKWebView *)wkWebView
           wkWebViewDelegate:(id<WKNavigationDelegate>)wkWebViewDelegate {
     if (self.bridgeRegister != nil) {
-        
+        // WebViewBridge already loaded.
         return;
     }
 
@@ -181,12 +181,13 @@
         NSString *externalDeviceId = [data objectForKey:@"externalDeviceId"];
         NSString *logLevel = [data objectForKey:@"logLevel"];
         NSNumber *eventBufferingEnabled = [data objectForKey:@"eventBufferingEnabled"];
+        NSNumber *coppaCompliantEnabled = [data objectForKey:@"coppaCompliantEnabled"];
+        NSNumber *linkMeEnabled = [data objectForKey:@"linkMeEnabled"];
         NSNumber *sendInBackground = [data objectForKey:@"sendInBackground"];
         NSNumber *delayStart = [data objectForKey:@"delayStart"];
         NSString *userAgent = [data objectForKey:@"userAgent"];
         NSNumber *isDeviceKnown = [data objectForKey:@"isDeviceKnown"];
         NSNumber *needsCost = [data objectForKey:@"needsCost"];
-        NSNumber *allowiAdInfoReading = [data objectForKey:@"allowiAdInfoReading"];
         NSNumber *allowAdServicesInfoReading = [data objectForKey:@"allowAdServicesInfoReading"];
         NSNumber *allowIdfaReading = [data objectForKey:@"allowIdfaReading"];
         NSNumber *allowSkAdNetworkHandling = [data objectForKey:@"allowSkAdNetworkHandling"];
@@ -213,7 +214,7 @@
             adtraceConfig = [ADTConfig configWithAppToken:appToken environment:environment];
         }
 
-        
+        // No need to continue if adtrace config is not valid.
         if (![adtraceConfig isValid]) {
             return;
         }
@@ -233,6 +234,12 @@
         if ([self isFieldValid:eventBufferingEnabled]) {
             [adtraceConfig setEventBufferingEnabled:[eventBufferingEnabled boolValue]];
         }
+        if ([self isFieldValid:coppaCompliantEnabled]) {
+            [adtraceConfig setCoppaCompliantEnabled:[coppaCompliantEnabled boolValue]];
+        }
+        if ([self isFieldValid:linkMeEnabled]) {
+            [adtraceConfig setLinkMeEnabled:[linkMeEnabled boolValue]];
+        }
         if ([self isFieldValid:sendInBackground]) {
             [adtraceConfig setSendInBackground:[sendInBackground boolValue]];
         }
@@ -247,9 +254,6 @@
         }
         if ([self isFieldValid:needsCost]) {
             [adtraceConfig setNeedsCost:[needsCost boolValue]];
-        }
-        if ([self isFieldValid:allowiAdInfoReading]) {
-            [adtraceConfig setAllowiAdInfoReading:[allowiAdInfoReading boolValue]];
         }
         if ([self isFieldValid:allowAdServicesInfoReading]) {
             [adtraceConfig setAllowAdServicesInfoReading:[allowAdServicesInfoReading boolValue]];
@@ -307,8 +311,8 @@
             self.deferredDeeplinkCallbackName = deferredDeeplinkCallback;
         }
 
-        
-        
+        // Set self as delegate if any callback is configured.
+        // Change to swizzle the methods in the future.
         if (self.attributionCallbackName != nil
             || self.eventSuccessCallbackName != nil
             || self.eventFailureCallbackName != nil
@@ -335,7 +339,7 @@
         NSString *callbackId = [data objectForKey:@"callbackId"];
 
         ADTEvent *adtraceEvent = [ADTEvent eventWithEventToken:eventToken];
-        
+        // No need to continue if adtrace event is not valid
         if (![adtraceEvent isValid]) {
             return;
         }
@@ -438,14 +442,55 @@
         
         responseCallback([NSNumber numberWithInt:[Adtrace appTrackingAuthorizationStatus]]);
     }];
-    
+
     [self.bridgeRegister registerHandler:@"adtrace_updateConversionValue" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (![data isKindOfClass:[NSNumber class]]) {
             return;
         }
         [Adtrace updateConversionValue:[(NSNumber *)data integerValue]];
     }];
-    
+
+    [self.bridgeRegister registerHandler:@"adtrace_updateConversionValueCompletionHandler"
+                                 handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (![data isKindOfClass:[NSNumber class]]) {
+            return;
+        }
+        [Adtrace updatePostbackConversionValue:[(NSNumber *)data integerValue]
+                            completionHandler:^(NSError * _Nullable error) {
+            if (error != nil) {
+                responseCallback([NSString stringWithFormat:@"%@", error]);
+            }
+        }];
+    }];
+
+    [self.bridgeRegister registerHandler:@"adtrace_updateConversionValueCoarseValueCompletionHandler"
+                                 handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSNumber *conversionValue = [data objectForKey:@"conversionValue"];
+        NSString *coarseValue = [data objectForKey:@"coarseValue"];
+        [Adtrace updatePostbackConversionValue:[conversionValue integerValue]
+                                  coarseValue:coarseValue
+                            completionHandler:^(NSError * _Nullable error) {
+            if (error != nil) {
+                responseCallback([NSString stringWithFormat:@"%@", error]);
+            }
+        }];
+    }];
+
+    [self.bridgeRegister registerHandler:@"adtrace_updateConversionValueCoarseValueLockWindowCompletionHandler"
+                                 handler:^(id data, WVJBResponseCallback responseCallback) {
+        NSNumber *conversionValue = [data objectForKey:@"conversionValue"];
+        NSString *coarseValue = [data objectForKey:@"coarseValue"];
+        NSNumber *lockWindow = [data objectForKey:@"lockWindow"];
+        [Adtrace updatePostbackConversionValue:[conversionValue integerValue]
+                                  coarseValue:coarseValue
+                                   lockWindow:[lockWindow boolValue]
+                            completionHandler:^(NSError * _Nullable error) {
+            if (error != nil) {
+                responseCallback([NSString stringWithFormat:@"%@", error]);
+            }
+        }];
+    }];
+
     [self.bridgeRegister registerHandler:@"adtrace_adid" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (responseCallback == nil) {
             return;
@@ -523,20 +568,25 @@
     [self.bridgeRegister registerHandler:@"adtrace_trackThirdPartySharing" handler:^(id data, WVJBResponseCallback responseCallback) {
         id isEnabledO = [data objectForKey:@"isEnabled"];
         id granularOptions = [data objectForKey:@"granularOptions"];
+        id partnerSharingSettings = [data objectForKey:@"partnerSharingSettings"];
 
         NSNumber *isEnabled = nil;
         if ([isEnabledO isKindOfClass:[NSNumber class]]) {
             isEnabled = (NSNumber *)isEnabledO;
         }
-
         ADTThirdPartySharing *adtraceThirdPartySharing =
             [[ADTThirdPartySharing alloc] initWithIsEnabledNumberBool:isEnabled];
-
         for (int i = 0; i < [granularOptions count]; i += 3) {
             NSString *partnerName = [[granularOptions objectAtIndex:i] description];
             NSString *key = [[granularOptions objectAtIndex:(i + 1)] description];
             NSString *value = [[granularOptions objectAtIndex:(i + 2)] description];
             [adtraceThirdPartySharing addGranularOption:partnerName key:key value:value];
+        }
+        for (int i = 0; i < [partnerSharingSettings count]; i += 3) {
+            NSString *partnerName = [[partnerSharingSettings objectAtIndex:i] description];
+            NSString *key = [[partnerSharingSettings objectAtIndex:(i + 1)] description];
+            BOOL value = [[partnerSharingSettings objectAtIndex:(i + 2)] boolValue];
+            [adtraceThirdPartySharing addPartnerSharingSetting:partnerName key:key value:value];
         }
 
         [Adtrace trackThirdPartySharing:adtraceThirdPartySharing];
@@ -549,6 +599,17 @@
         [Adtrace trackMeasurementConsent:[(NSNumber *)data boolValue]];
     }];
 
+    [self.bridgeRegister registerHandler:@"adtrace_checkForNewAttStatus" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [Adtrace checkForNewAttStatus];
+    }];
+
+    [self.bridgeRegister registerHandler:@"adtrace_lastDeeplink" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (responseCallback == nil) {
+            return;
+        }
+        NSURL *lastDeeplink = [Adtrace lastDeeplink];
+        responseCallback(lastDeeplink != nil ? [lastDeeplink absoluteString] : nil);
+    }];
 
     [self.bridgeRegister registerHandler:@"adtrace_setTestOptions" handler:^(id data, WVJBResponseCallback responseCallback) {
         NSString *baseUrl = [data objectForKey:@"baseUrl"];
@@ -561,7 +622,6 @@
         NSNumber *teardown = [data objectForKey:@"teardown"];
         NSNumber *deleteState = [data objectForKey:@"deleteState"];
         NSNumber *noBackoffWait = [data objectForKey:@"noBackoffWait"];
-        NSNumber *iAdFrameworkEnabled = [data objectForKey:@"iAdFrameworkEnabled"];
         NSNumber *adServicesFrameworkEnabled = [data objectForKey:@"adServicesFrameworkEnabled"];
 
         AdtraceTestOptions *testOptions = [[AdtraceTestOptions alloc] init];
@@ -599,9 +659,6 @@
         if ([self isFieldValid:noBackoffWait]) {
             testOptions.noBackoffWait = [noBackoffWait boolValue];
         }
-        if ([self isFieldValid:iAdFrameworkEnabled]) {
-            testOptions.iAdFrameworkEnabled = [iAdFrameworkEnabled boolValue];
-        }
         if ([self isFieldValid:adServicesFrameworkEnabled]) {
             testOptions.adServicesFrameworkEnabled = [adServicesFrameworkEnabled boolValue];
         }
@@ -635,8 +692,8 @@
         }
 
         id customData = [data objectForKey:@"customData"];
-        [fbPixelEvent addEventValueParameter:@"_fb_pixel_referral_id" value:pixelID];
-        
+        [fbPixelEvent addPartnerParameter:@"_fb_pixel_referral_id" value:pixelID];
+        // [fbPixelEvent addPartnerParameter:@"_eventName" value:evtName];
         if ([customData isKindOfClass:[NSString class]]) {
             NSError *jsonParseError = nil;
             NSDictionary *params = [NSJSONSerialization JSONObjectWithData:[customData dataUsingEncoding:NSUTF8StringEncoding]

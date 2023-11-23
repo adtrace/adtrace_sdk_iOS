@@ -23,10 +23,13 @@ NSString * const ADTAdRevenueSourceAdMost = @"admost_sdk";
 NSString * const ADTAdRevenueSourceUnity = @"unity_sdk";
 NSString * const ADTAdRevenueSourceHeliumChartboost = @"helium_chartboost_sdk";
 NSString * const ADTAdRevenueSourcePublisher = @"publisher_sdk";
+NSString * const ADTAdRevenueSourceTopOn = @"topon_sdk";
+NSString * const ADTAdRevenueSourceADX = @"adx_sdk";
 
 NSString * const ADTUrlStrategyIndia = @"UrlStrategyIndia";
 NSString * const ADTUrlStrategyChina = @"UrlStrategyChina";
 NSString * const ADTUrlStrategyCn = @"UrlStrategyCn";
+NSString * const ADJUrlStrategyCnOnly = @"UrlStrategyCnOnly";
 
 NSString * const ADTDataResidencyEU = @"DataResidencyEU";
 NSString * const ADTDataResidencyTR = @"DataResidencyTR";
@@ -141,6 +144,12 @@ static dispatch_once_t onceToken = 0;
 + (NSString *)idfa {
     @synchronized (self) {
         return [[Adtrace getInstance] idfa];
+    }
+}
+
++ (NSString *)idfv {
+    @synchronized (self) {
+        return [[Adtrace getInstance] idfv];
     }
 }
 
@@ -425,6 +434,10 @@ static dispatch_once_t onceToken = 0;
 
 - (NSString *)idfa {
     return [ADTUtil idfa];
+}
+
+- (NSString *)idfv {
+    return [ADTUtil idfv];
 }
 
 - (NSURL *)convertUniversalLink:(NSURL *)url scheme:(NSString *)scheme {

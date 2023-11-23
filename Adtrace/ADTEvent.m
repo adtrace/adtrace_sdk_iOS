@@ -8,6 +8,8 @@
 @property (nonatomic, weak) id<ADTLogger> logger;
 @property (nonatomic, strong) NSMutableDictionary *callbackMutableParameters;
 @property (nonatomic, strong) NSMutableDictionary *eventMutableParameters;
+@property (nonatomic, strong) NSMutableDictionary *partnerMutableParameters;
+
 
 @end
 
@@ -57,6 +59,32 @@
             [self.logger warn:@"Callback parameter key %@ was overwritten", immutableKey];
         }
         [self.callbackMutableParameters setObject:immutableValue forKey:immutableKey];
+    }
+}
+
+- (void)addPartnerParameter:(NSString *)key value:(NSString *)value {
+    @synchronized (self) {
+        NSString *immutableKey = [key copy];
+        NSString *immutableValue = [value copy];
+
+        if (![ADTUtil isValidParameter:immutableKey
+                         attributeType:@"key"
+                         parameterName:@"Partner"]) {
+            return;
+        }
+        if (![ADTUtil isValidParameter:immutableValue
+                         attributeType:@"value"
+                         parameterName:@"Partner"]) {
+            return;
+        }
+
+        if (self.partnerMutableParameters == nil) {
+            self.partnerMutableParameters = [[NSMutableDictionary alloc] init];
+        }
+        if ([self.partnerMutableParameters objectForKey:immutableKey]) {
+            [self.logger warn:@"Partner parameter key %@ was overwritten", immutableKey];
+        }
+        [self.partnerMutableParameters setObject:immutableValue forKey:immutableKey];
     }
 }
 
@@ -116,7 +144,14 @@
     }
 }
 
-- (NSDictionary *)addEventParameters {
+- (NSDictionary *)partnerParameters {
+    @synchronized (self) {
+        return (NSDictionary *)self.partnerMutableParameters;
+    }
+}
+
+
+- (NSDictionary *)eventValueParameters {
     @synchronized (self) {
         return (NSDictionary *)self.eventMutableParameters;
     }
@@ -203,6 +238,7 @@
         copy->_revenue = [self.revenue copyWithZone:zone];
         copy->_currency = [self.currency copyWithZone:zone];
         copy.callbackMutableParameters = [self.callbackMutableParameters copyWithZone:zone];
+        copy.partnerMutableParameters = [self.partnerMutableParameters copyWithZone:zone];
         copy.eventMutableParameters = [self.eventMutableParameters copyWithZone:zone];
         copy->_transactionId = [self.transactionId copyWithZone:zone];
         copy->_receipt = [self.receipt copyWithZone:zone];

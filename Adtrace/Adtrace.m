@@ -715,7 +715,6 @@ static dispatch_once_t onceToken = 0;
         [ADTAdtraceFactory disableSigning];
     }
 
-    [ADTAdtraceFactory setiAdFrameworkEnabled:testOptions.iAdFrameworkEnabled];
     [ADTAdtraceFactory setAdServicesFrameworkEnabled:testOptions.adServicesFrameworkEnabled];
 }
 

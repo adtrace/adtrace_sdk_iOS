@@ -66,8 +66,9 @@
     self.suffix = [decoder decodeObjectForKey:@"suffix"];
     self.clientSdk = [decoder decodeObjectForKey:@"clientSdk"];
     self.parameters = [decoder decodeObjectForKey:@"parameters"];
-    self.eventValueParameters = [decoder decodeObjectForKey:@"eventValueParameters"];
+    self.partnerParameters = [decoder decodeObjectForKey:@"partnerParameters"];
     self.callbackParameters = [decoder decodeObjectForKey:@"callbackParameters"];
+    self.eventValueParameters = [decoder decodeObjectForKey:@"eventValueParameters"];
 
     NSString *kindString = [decoder decodeObjectForKey:@"kind"];
     self.activityKind = [ADTActivityKindUtil activityKindFromString:kindString];
@@ -83,6 +84,7 @@
     [encoder encodeObject:self.suffix forKey:@"suffix"];
     [encoder encodeObject:self.clientSdk forKey:@"clientSdk"];
     [encoder encodeObject:self.parameters forKey:@"parameters"];
+    [encoder encodeObject:self.partnerParameters forKey:@"partnerParameters"];
     [encoder encodeObject:self.callbackParameters forKey:@"callbackParameters"];
     [encoder encodeObject:self.eventValueParameters forKey:@"eventValueParameters"];
 }

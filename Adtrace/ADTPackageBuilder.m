@@ -77,7 +77,8 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
     eventPackage.parameters = parameters;
     if (isInDelay) {
         eventPackage.callbackParameters = [ADTUtil deepCopyOfDictionary:event.callbackParameters];
-        eventPackage.eventValueParameters = [ADTUtil deepCopyOfDictionary:event.addEventParameters];
+        eventPackage.partnerParameters = [ADTUtil deepCopyOfDictionary:event.partnerParameters];
+        eventPackage.eventValueParameters = [ADTUtil deepCopyOfDictionary:event.eventValueParameters];
     }
     eventPackage.parameters = [ADTUtil deepCopyOfDictionary:eventPackage.parameters];
 
@@ -460,11 +461,15 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
         NSDictionary *mergedCallbackParameters = [ADTUtil mergeParameters:[self.sessionParameters.callbackParameters copy]
                                                                    source:[event.callbackParameters copy]
                                                             parameterName:@"Callback"];
+        NSDictionary *mergedPartnerParameters = [ADTUtil mergeParameters:[self.sessionParameters.partnerParameters copy]
+                                                                  source:[event.partnerParameters copy]
+                                                           parameterName:@"Partner"];
         NSDictionary *mergedValueParameters = [ADTUtil mergeParameters:[self.sessionParameters.partnerParameters copy]
-                                                                  source:[event.addEventParameters copy]
+                                                                  source:[event.eventValueParameters copy]
                                                            parameterName:@"Value"];
 
         [ADTPackageBuilder parameters:parameters setDictionary:mergedCallbackParameters forKey:@"callback_params"];
+        [ADTPackageBuilder parameters:parameters setDictionary:mergedPartnerParameters forKey:@"partner_params"];
         [ADTPackageBuilder parameters:parameters setDictionary:mergedValueParameters forKey:@"event_value_params"];
     }
 

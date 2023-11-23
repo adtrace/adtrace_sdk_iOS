@@ -84,8 +84,6 @@
 
 - (BOOL)updateAttributionI:(id<ADTActivityHandler> _Nullable)selfI
                attribution:(ADTAttribution * _Nullable)attribution;
-- (void)setAttributionDetails:(NSDictionary * _Nullable)attributionDetails
-                        error:(NSError * _Nullable)error;
 - (void)setAdServicesAttributionToken:(NSString * _Nullable)token
                                 error:(NSError * _Nullable)error;
 
@@ -144,9 +142,10 @@
 
 @interface ADTTrackingStatusManager : NSObject
 
-- (instancetype _Nullable)initWithActivityHandler:(ADTActivityHandler * _Nullable)activityHandler;
+@property (nonatomic, readonly, assign) BOOL trackingEnabled;
+@property (nonatomic, readonly, assign) int attStatus;
 
-- (instancetype _Nullable)initWithActivityHandler:(ADJActivityHandler * _Nullable)activityHandler;
+- (instancetype _Nullable)initWithActivityHandler:(ADTActivityHandler * _Nullable)activityHandler;
 - (void)checkForNewAttStatus;
 - (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser;
 - (BOOL)canGetAttStatus;

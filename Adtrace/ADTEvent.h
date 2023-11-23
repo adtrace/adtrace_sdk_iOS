@@ -37,14 +37,20 @@
 @property (nonatomic, copy, readonly, nonnull) NSData *receipt;
 
 /**
- * @brief List of event parameters.
- */
-@property (nonatomic, readonly, nonnull) NSDictionary *addEventParameters;
-
-/**
  * @brief List of callback parameters.
  */
 @property (nonatomic, readonly, nonnull) NSDictionary *callbackParameters;
+
+/**
+ * @brief List of partner parameters.
+ */
+@property (nonatomic, readonly, nonnull) NSDictionary *partnerParameters;
+
+/**
+ * @brief List of event parameters.
+ */
+@property (nonatomic, readonly, nonnull) NSDictionary *eventValueParameters;
+
 
 /**
  * @brief Is the given receipt empty.
@@ -78,6 +84,14 @@
  *       will be forwarded to these callbacks.
  */
 - (void)addCallbackParameter:(nonnull NSString *)key value:(nonnull NSString *)value;
+
+/**
+ * @brief Add a key-pair to be fowarded to a partner.
+ *
+ * @param key String key to be fowarded to the partner.
+ * @param value String value of the key to be fowarded to the partner.
+ */
+- (void)addPartnerParameter:(nonnull NSString *)key value:(nonnull NSString *)value;
 
 /**
  * @brief Add a key-pair to be sent with event.

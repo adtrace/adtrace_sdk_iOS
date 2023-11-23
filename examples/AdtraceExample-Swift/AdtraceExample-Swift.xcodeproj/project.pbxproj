@@ -142,7 +142,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 1250;
-				ORGANIZATIONNAME = "Adtrace GmbH";
+				ORGANIZATIONNAME = Adtrace;
 				TargetAttributes = {
 					9DF7A9C11CB4ECA600D3591F = {
 						CreatedOnToolsVersion = 7.3;

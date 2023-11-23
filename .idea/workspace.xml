@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edbed46a-7065-49c1-ad76-52c65b6ce3ba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/xcshareddata/Adjust.xcscmblueprint" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/Adtrace.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceBridge.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceExampleTests.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceSdk.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceSdkTv.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceStatic.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
-    </list>
+    <list default="true" id="edbed46a-7065-49c1-ad76-52c65b6ce3ba" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -251,12 +251,6 @@
 		0ABE89DC2A8E49C20099CCF5 /* ADTPurchaseVerificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE89D62A8E49C20099CCF5 /* ADTPurchaseVerificationHandler.m */; };
 		0ABE89DD2A8E49C20099CCF5 /* ADTPurchaseVerificationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABE89D72A8E49C20099CCF5 /* ADTPurchaseVerificationResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0ABE89DE2A8E49C20099CCF5 /* ADTPurchaseVerificationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE89D82A8E49C20099CCF5 /* ADTPurchaseVerificationResult.m */; };
-		0ABE89E52A8E49D40099CCF5 /* ADTPurchaseVerificationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE89DF2A8E49D40099CCF5 /* ADTPurchaseVerificationResult.m */; };
-		0ABE89E62A8E49D40099CCF5 /* ADTPurchase.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABE89E02A8E49D40099CCF5 /* ADTPurchase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0ABE89E72A8E49D40099CCF5 /* ADTPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE89E12A8E49D40099CCF5 /* ADTPurchase.m */; };
-		0ABE89E82A8E49D40099CCF5 /* ADTPurchaseVerificationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABE89E22A8E49D40099CCF5 /* ADTPurchaseVerificationHandler.h */; };
-		0ABE89E92A8E49D40099CCF5 /* ADTPurchaseVerificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABE89E32A8E49D40099CCF5 /* ADTPurchaseVerificationHandler.m */; };
-		0ABE89EA2A8E49D40099CCF5 /* ADTPurchaseVerificationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ABE89E42A8E49D40099CCF5 /* ADTPurchaseVerificationResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0ABE89EB2A8E4AA60099CCF5 /* ADTPurchase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D775B3C2A1F4B19009D0BE8 /* ADTPurchase.h */; };
 		0ABE89EC2A8E4AA60099CCF5 /* ADTPurchaseVerificationResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D775B572A1F7C7A009D0BE8 /* ADTPurchaseVerificationResult.h */; };
 		0ABE89ED2A8E4AB70099CCF5 /* ADTPurchase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D775B3C2A1F4B19009D0BE8 /* ADTPurchase.h */; };
@@ -265,8 +259,6 @@
 		0ABE89F02A8E4AF90099CCF5 /* ADTPurchaseVerificationResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D775B572A1F7C7A009D0BE8 /* ADTPurchaseVerificationResult.h */; };
 		0ABE89F12A8E4B060099CCF5 /* ADTPurchase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D775B3C2A1F4B19009D0BE8 /* ADTPurchase.h */; };
 		0ABE89F22A8E4B060099CCF5 /* ADTPurchaseVerificationResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D775B572A1F7C7A009D0BE8 /* ADTPurchaseVerificationResult.h */; };
-		6F84512425B1B1380004C7C0 /* ADTThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F84511025B1B1380004C7C0 /* ADTThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6F84512525B1B1380004C7C0 /* ADTThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F84512325B1B1380004C7C0 /* ADTThirdPartySharing.m */; };
 		6FAB784C2636DC0E00773869 /* ADTLinkResolution.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FAB784A2636DC0E00773869 /* ADTLinkResolution.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FAB784D2636DC0E00773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB784B2636DC0E00773869 /* ADTLinkResolution.m */; };
 		6FAB786B2636DC8400773869 /* ADTLinkResolution.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FAB78692636DC8400773869 /* ADTLinkResolution.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -275,8 +267,6 @@
 		6FAB78792636DCB600773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB78772636DCB600773869 /* ADTLinkResolution.m */; };
 		6FAB78852636DCCD00773869 /* ADTLinkResolution.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FAB78832636DCCD00773869 /* ADTLinkResolution.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FAB78862636DCCD00773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB78842636DCCD00773869 /* ADTLinkResolution.m */; };
-		6FAB78922636DCE700773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB78902636DCE700773869 /* ADTLinkResolution.m */; };
-		6FAB78932636DCE700773869 /* ADTLinkResolution.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FAB78912636DCE700773869 /* ADTLinkResolution.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBE0C6E2577CDAC00EC2CE0 /* ADTThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBE0C6C2577CDAC00EC2CE0 /* ADTThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FBE0C6F2577CDAC00EC2CE0 /* ADTThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE0C6D2577CDAC00EC2CE0 /* ADTThirdPartySharing.m */; };
 		6FBEE92624E422EB00FEF3F1 /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92424E422EB00FEF3F1 /* ADTUrlStrategy.m */; };
@@ -287,9 +277,6 @@
 		6FBEE92D24E4230800FEF3F1 /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92B24E4230700FEF3F1 /* ADTUrlStrategy.m */; };
 		6FBEE93024E4231400FEF3F1 /* ADTUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE92E24E4231300FEF3F1 /* ADTUrlStrategy.h */; };
 		6FBEE93124E4231400FEF3F1 /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE92F24E4231300FEF3F1 /* ADTUrlStrategy.m */; };
-		6FBEE93424E4232800FEF3F1 /* ADTUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FBEE93224E4232800FEF3F1 /* ADTUrlStrategy.h */; };
-		6FBEE93524E4232800FEF3F1 /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE93324E4232800FEF3F1 /* ADTUrlStrategy.m */; };
-		9601C1A31A31DE0D00A9AE21 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9601C1A11A31DE0300A9AE21 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9601CAE41C74B70600670879 /* ADTEventSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 9601CAE21C74B70600670879 /* ADTEventSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9601CAE51C74B70600670879 /* ADTEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9601CAE31C74B70600670879 /* ADTEventSuccess.m */; };
 		9601CAE81C74BAAE00670879 /* ADTEventFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 9601CAE61C74BAAE00670879 /* ADTEventFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -308,12 +295,9 @@
 		96164D841CCA4D10009431AB /* ADTSdkClickHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 96164D701CC8FA73009431AB /* ADTSdkClickHandler.h */; };
 		96164D861CCA4D27009431AB /* ADTBackoffStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 965B7F2E1CC78F6600098639 /* ADTBackoffStrategy.h */; };
 		96325E8A190E892600A97911 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96325E84190E5CD900A97911 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		96325E8C190E8D6B00A97911 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96325E84190E5CD900A97911 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		965B7F301CC78F6600098639 /* ADTBackoffStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 965B7F2E1CC78F6600098639 /* ADTBackoffStrategy.h */; };
 		965B7F311CC78F6600098639 /* ADTBackoffStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 965B7F2F1CC78F6600098639 /* ADTBackoffStrategy.m */; };
 		9679921118BBAE2800394606 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9679921018BBAE2800394606 /* Foundation.framework */; };
-		9679922018BBAE2800394606 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9679921018BBAE2800394606 /* Foundation.framework */; };
-		9679922518BBAE2800394606 /* libAdtrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9679920D18BBAE2800394606 /* libAdtrace.a */; };
 		968173831C3C2D07002AE1DE /* ADTSessionSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 968173811C3C2D07002AE1DE /* ADTSessionSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		968173841C3C2D07002AE1DE /* ADTSessionSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 968173821C3C2D07002AE1DE /* ADTSessionSuccess.m */; };
 		968173871C3C2D36002AE1DE /* ADTSessionFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 968173851C3C2D36002AE1DE /* ADTSessionFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -349,8 +333,6 @@
 		96BCFBE01AC9936C005A65C5 /* ADTAttributionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 969952CD1A012F5300928462 /* ADTAttributionHandler.h */; };
 		96C0EFE01A3EF47A00B39F31 /* NSString+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CD2BDD1A13BFC600A40AFB /* NSString+ADTAdditions.m */; };
 		96C93DF51AC47F2E00B53F56 /* NSData+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C93DF41AC47F2E00B53F56 /* NSData+ADTAdditions.m */; };
-		96C93DF61AC47FE000B53F56 /* NSData+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C93DF41AC47F2E00B53F56 /* NSData+ADTAdditions.m */; };
-		96CD2BE01A13BFC600A40AFB /* NSString+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CD2BDD1A13BFC600A40AFB /* NSString+ADTAdditions.m */; };
 		96E5E38118BBB48A008E7B30 /* Adtrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E5E34D18BBB48A008E7B30 /* Adtrace.m */; };
 		96E5E38B18BBB48A008E7B30 /* ADTActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E5E36318BBB48A008E7B30 /* ADTActivityHandler.m */; };
 		96E5E38C18BBB48A008E7B30 /* ADTActivityKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E5E36518BBB48A008E7B30 /* ADTActivityKind.m */; };
@@ -364,73 +346,6 @@
 		96E5E39918BBB48A008E7B30 /* ADTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E5E38018BBB48A008E7B30 /* ADTUtil.m */; };
 		96FCC53A1C186426007BBFE1 /* ADTResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = 96FCC5361C186426007BBFE1 /* ADTResponseData.h */; };
 		96FCC53B1C186426007BBFE1 /* ADTResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FCC5371C186426007BBFE1 /* ADTResponseData.m */; };
-		9D0E2E06210B570600133B4F /* AdtraceSdkWebBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E04210B570600133B4F /* AdtraceSdkWebBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2E6B210B575600133B4F /* ADTConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E17210B575600133B4F /* ADTConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2E6D210B575600133B4F /* ADTTimerOnce.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E19210B575600133B4F /* ADTTimerOnce.m */; };
-		9D0E2E6E210B575600133B4F /* ADTAttributionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E1A210B575600133B4F /* ADTAttributionHandler.m */; };
-		9D0E2E6F210B575600133B4F /* Adtrace.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E1B210B575600133B4F /* Adtrace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2E70210B575600133B4F /* ADTActivityPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E1C210B575600133B4F /* ADTActivityPackage.h */; };
-		9D0E2E71210B575600133B4F /* ADTRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E1D210B575600133B4F /* ADTRequestHandler.m */; };
-		9D0E2E73210B575600133B4F /* ADTAttribution.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E1F210B575600133B4F /* ADTAttribution.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2E75210B575600133B4F /* ADTSdkClickHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E21210B575600133B4F /* ADTSdkClickHandler.m */; };
-		9D0E2E76210B575600133B4F /* ADTActivityKind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E22210B575600133B4F /* ADTActivityKind.h */; };
-		9D0E2E77210B575600133B4F /* ADTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E23210B575600133B4F /* ADTEvent.m */; };
-		9D0E2E78210B575600133B4F /* ADTPackageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E24210B575600133B4F /* ADTPackageHandler.h */; };
-		9D0E2E79210B575600133B4F /* ADTPackageBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E25210B575600133B4F /* ADTPackageBuilder.h */; };
-		9D0E2E7A210B575600133B4F /* ADTResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E26210B575600133B4F /* ADTResponseData.h */; };
-		9D0E2E7B210B575600133B4F /* ADTSessionSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E27210B575600133B4F /* ADTSessionSuccess.m */; };
-		9D0E2E7C210B575600133B4F /* ADTEventFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E28210B575600133B4F /* ADTEventFailure.m */; };
-		9D0E2E7D210B575600133B4F /* ADTAdtraceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E29210B575600133B4F /* ADTAdtraceFactory.h */; };
-		9D0E2E7E210B575600133B4F /* ADTEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E2A210B575600133B4F /* ADTEventSuccess.m */; };
-		9D0E2E7F210B575600133B4F /* ADTActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E2B210B575600133B4F /* ADTActivityState.m */; };
-		9D0E2E80210B575600133B4F /* ADTSessionFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E2C210B575600133B4F /* ADTSessionFailure.m */; };
-		9D0E2E81210B575600133B4F /* ADTUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E2D210B575600133B4F /* ADTUtil.h */; };
-		9D0E2E83210B575600133B4F /* ADTActivityHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E2F210B575600133B4F /* ADTActivityHandler.h */; };
-		9D0E2E84210B575600133B4F /* ADTTimerCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E30210B575600133B4F /* ADTTimerCycle.m */; };
-		9D0E2E85210B575600133B4F /* ADTSessionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E31210B575600133B4F /* ADTSessionParameters.m */; };
-		9D0E2E86210B575600133B4F /* ADTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E32210B575600133B4F /* ADTLogger.m */; };
-		9D0E2E87210B575600133B4F /* ADTBackoffStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E33210B575600133B4F /* ADTBackoffStrategy.m */; };
-		9D0E2E88210B575600133B4F /* ADTUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E34210B575600133B4F /* ADTUserDefaults.h */; };
-		9D0E2E89210B575600133B4F /* Adtrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E35210B575600133B4F /* Adtrace.m */; };
-		9D0E2E8A210B575600133B4F /* ADTAttributionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E36210B575600133B4F /* ADTAttributionHandler.h */; };
-		9D0E2E8B210B575600133B4F /* ADTTimerOnce.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E37210B575600133B4F /* ADTTimerOnce.h */; };
-		9D0E2E8D210B575600133B4F /* ADTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E39210B575600133B4F /* ADTConfig.m */; };
-		9D0E2E8E210B575600133B4F /* ADTPackageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E3A210B575600133B4F /* ADTPackageHandler.m */; };
-		9D0E2E8F210B575600133B4F /* ADTEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E3B210B575600133B4F /* ADTEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2E90210B575600133B4F /* ADTSdkClickHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E3C210B575600133B4F /* ADTSdkClickHandler.h */; };
-		9D0E2E91210B575600133B4F /* ADTActivityKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E3D210B575600133B4F /* ADTActivityKind.m */; };
-		9D0E2E93210B575600133B4F /* NSString+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E40210B575600133B4F /* NSString+ADTAdditions.m */; };
-		9D0E2E95210B575600133B4F /* NSData+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E42210B575600133B4F /* NSData+ADTAdditions.m */; };
-		9D0E2E96210B575600133B4F /* NSData+ADTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E43210B575600133B4F /* NSData+ADTAdditions.h */; };
-		9D0E2E98210B575600133B4F /* NSString+ADTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E45210B575600133B4F /* NSString+ADTAdditions.h */; };
-		9D0E2E99210B575600133B4F /* ADTAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E46210B575600133B4F /* ADTAttribution.m */; };
-		9D0E2E9B210B575600133B4F /* ADTRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E48210B575600133B4F /* ADTRequestHandler.h */; };
-		9D0E2E9C210B575600133B4F /* ADTActivityPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E49210B575600133B4F /* ADTActivityPackage.m */; };
-		9D0E2E9D210B575600133B4F /* ADTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E4A210B575600133B4F /* ADTUtil.m */; };
-		9D0E2E9E210B575600133B4F /* ADTSessionFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E4B210B575600133B4F /* ADTSessionFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2E9F210B575600133B4F /* ADTActivityState.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E4C210B575600133B4F /* ADTActivityState.h */; };
-		9D0E2EA0210B575600133B4F /* ADTAdtraceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E4D210B575600133B4F /* ADTAdtraceFactory.m */; };
-		9D0E2EA1210B575600133B4F /* ADTEventSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E4E210B575600133B4F /* ADTEventSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EA2210B575600133B4F /* ADTEventFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E4F210B575600133B4F /* ADTEventFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EA3210B575600133B4F /* ADTResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E50210B575600133B4F /* ADTResponseData.m */; };
-		9D0E2EA4210B575600133B4F /* ADTSessionSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E51210B575600133B4F /* ADTSessionSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EA5210B575600133B4F /* ADTPackageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E52210B575600133B4F /* ADTPackageBuilder.m */; };
-		9D0E2EA6210B575600133B4F /* ADTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E53210B575600133B4F /* ADTUserDefaults.m */; };
-		9D0E2EA7210B575600133B4F /* ADTBackoffStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E54210B575600133B4F /* ADTBackoffStrategy.h */; };
-		9D0E2EA8210B575600133B4F /* ADTLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E55210B575600133B4F /* ADTLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EA9210B575600133B4F /* ADTSessionParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E56210B575600133B4F /* ADTSessionParameters.h */; };
-		9D0E2EAB210B575600133B4F /* ADTTimerCycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E58210B575600133B4F /* ADTTimerCycle.h */; };
-		9D0E2EAC210B575600133B4F /* ADTActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E59210B575600133B4F /* ADTActivityHandler.m */; };
-		9D0E2EAE210B575600133B4F /* AdtraceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E5C210B575600133B4F /* AdtraceBridge.m */; };
-		9D0E2EAF210B575600133B4F /* AdtraceBridgeRegister.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E5D210B575600133B4F /* AdtraceBridgeRegister.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EB0210B575600133B4F /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E5F210B575600133B4F /* WebViewJavascriptBridgeBase.m */; };
-		9D0E2EB2210B575600133B4F /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E61210B575600133B4F /* WKWebViewJavascriptBridge.m */; };
-		9D0E2EB4210B575600133B4F /* WebViewJavascriptBridge_JS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E63210B575600133B4F /* WebViewJavascriptBridge_JS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EB5210B575600133B4F /* WebViewJavascriptBridgeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E64210B575600133B4F /* WebViewJavascriptBridgeBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EB7210B575600133B4F /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E66210B575600133B4F /* WebViewJavascriptBridge_JS.m */; };
-		9D0E2EB9210B575600133B4F /* WKWebViewJavascriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E68210B575600133B4F /* WKWebViewJavascriptBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EBA210B575600133B4F /* AdtraceBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D0E2E69210B575600133B4F /* AdtraceBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0E2EBB210B575600133B4F /* AdtraceBridgeRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E2E6A210B575600133B4F /* AdtraceBridgeRegister.m */; };
 		9D2F23E22447CE5C00B7CA90 /* ADTSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F23E02447CE5C00B7CA90 /* ADTSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D2F23E32447CE5C00B7CA90 /* ADTSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23E12447CE5C00B7CA90 /* ADTSubscription.m */; };
 		9D2F23F82447DCE800B7CA90 /* ADTSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23F62447DCE800B7CA90 /* ADTSubscription.m */; };
@@ -439,8 +354,6 @@
 		9D2F23FD2447DD2500B7CA90 /* ADTSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23FB2447DD2500B7CA90 /* ADTSubscription.m */; };
 		9D2F24002447DD3700B7CA90 /* ADTSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F23FE2447DD3600B7CA90 /* ADTSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D2F24012447DD3700B7CA90 /* ADTSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F23FF2447DD3700B7CA90 /* ADTSubscription.m */; };
-		9D2F24042447DD6000B7CA90 /* ADTSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F24022447DD6000B7CA90 /* ADTSubscription.m */; };
-		9D2F24052447DD6000B7CA90 /* ADTSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D2F24032447DD6000B7CA90 /* ADTSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D363AC31BDA50FA00B47FE9 /* ADTLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 96E5E37318BBB48A008E7B30 /* ADTLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D3A2ABE2625BEB800BD6E44 /* ADTAdRevenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A2AAA2625BEB800BD6E44 /* ADTAdRevenue.m */; };
 		9D3A2ABF2625BEB800BD6E44 /* ADTAdRevenue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D3A2ABD2625BEB800BD6E44 /* ADTAdRevenue.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -450,16 +363,12 @@
 		9D3A2ACA2626505800BD6E44 /* ADTAdRevenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A2AC82626505800BD6E44 /* ADTAdRevenue.m */; };
 		9D3A2ACD2626508F00BD6E44 /* ADTAdRevenue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D3A2ACB2626508F00BD6E44 /* ADTAdRevenue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D3A2ACE2626508F00BD6E44 /* ADTAdRevenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A2ACC2626508F00BD6E44 /* ADTAdRevenue.m */; };
-		9D3A2AD1262650C300BD6E44 /* ADTAdRevenue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D3A2ACF262650C300BD6E44 /* ADTAdRevenue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D3A2AD2262650C300BD6E44 /* ADTAdRevenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A2AD0262650C300BD6E44 /* ADTAdRevenue.m */; };
 		9D49D15E290FEBA200042345 /* ADTSKAdNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D49D14A290FEBA200042345 /* ADTSKAdNetwork.h */; };
 		9D49D15F290FEBA200042345 /* ADTSKAdNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49D15D290FEBA200042345 /* ADTSKAdNetwork.m */; };
 		9D49D162290FEBB200042345 /* ADTSKAdNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D49D160290FEBB200042345 /* ADTSKAdNetwork.h */; };
 		9D49D163290FEBB200042345 /* ADTSKAdNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49D161290FEBB200042345 /* ADTSKAdNetwork.m */; };
 		9D49D166290FEBC000042345 /* ADTSKAdNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D49D164290FEBC000042345 /* ADTSKAdNetwork.h */; };
 		9D49D167290FEBC000042345 /* ADTSKAdNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49D165290FEBC000042345 /* ADTSKAdNetwork.m */; };
-		9D49D16A290FEBD100042345 /* ADTSKAdNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D49D168290FEBD100042345 /* ADTSKAdNetwork.h */; };
-		9D49D16B290FEBD100042345 /* ADTSKAdNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49D169290FEBD100042345 /* ADTSKAdNetwork.m */; };
 		9D651BF525B25A64006D69D6 /* ADTThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D651BE125B25A64006D69D6 /* ADTThirdPartySharing.m */; };
 		9D651BF625B25A64006D69D6 /* ADTThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D651BF425B25A64006D69D6 /* ADTThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D651C8825B26DF5006D69D6 /* ADTThirdPartySharing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D651C8625B26DF4006D69D6 /* ADTThirdPartySharing.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -560,16 +469,12 @@
 		9DF38203260E9B0A0033F5A1 /* NSNumber+ADTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF38201260E9B0A0033F5A1 /* NSNumber+ADTAdditions.h */; };
 		9DF3820F260E9B740033F5A1 /* NSNumber+ADTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF3820D260E9B740033F5A1 /* NSNumber+ADTAdditions.h */; };
 		9DF38210260E9B740033F5A1 /* NSNumber+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3820E260E9B740033F5A1 /* NSNumber+ADTAdditions.m */; };
-		9DF3821C260E9B8D0033F5A1 /* NSNumber+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3821A260E9B8D0033F5A1 /* NSNumber+ADTAdditions.m */; };
-		9DF3821D260E9B8D0033F5A1 /* NSNumber+ADTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF3821B260E9B8D0033F5A1 /* NSNumber+ADTAdditions.h */; };
 		9DF92D832630ED02000FC3FC /* ADTPackageParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF92D812630ED02000FC3FC /* ADTPackageParams.h */; };
 		9DF92D842630ED02000FC3FC /* ADTPackageParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92D822630ED02000FC3FC /* ADTPackageParams.m */; };
 		9DF92D872630ED3D000FC3FC /* ADTPackageParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF92D852630ED3D000FC3FC /* ADTPackageParams.h */; };
 		9DF92D882630ED3D000FC3FC /* ADTPackageParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92D862630ED3D000FC3FC /* ADTPackageParams.m */; };
 		9DF92D8B2630ED59000FC3FC /* ADTPackageParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF92D892630ED59000FC3FC /* ADTPackageParams.h */; };
 		9DF92D8C2630ED59000FC3FC /* ADTPackageParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92D8A2630ED59000FC3FC /* ADTPackageParams.m */; };
-		9DF92D8F2630ED7B000FC3FC /* ADTPackageParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92D8D2630ED7B000FC3FC /* ADTPackageParams.m */; };
-		9DF92D902630ED7B000FC3FC /* ADTPackageParams.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF92D8E2630ED7B000FC3FC /* ADTPackageParams.h */; };
 		9DF9C9091D6F3CA5008E362F /* ADTActivityHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF9C8C91D6F3CA5008E362F /* ADTActivityHandler.h */; };
 		9DF9C90A1D6F3CA5008E362F /* ADTActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9C8CA1D6F3CA5008E362F /* ADTActivityHandler.m */; };
 		9DF9C90B1D6F3CA5008E362F /* ADTActivityKind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DF9C8CB1D6F3CA5008E362F /* ADTActivityKind.h */; };
@@ -677,27 +582,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		52BD7389221C3EDC004F2E87 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52BD7374221C3EDB004F2E87 /* PocketSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEE5E30A18B37DD500BAE47A;
-			remoteInfo = PocketSocket;
-		};
-		52BD738B221C3EDC004F2E87 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52BD7374221C3EDB004F2E87 /* PocketSocket.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 275D3AE91B02811E0013B9A9;
-			remoteInfo = "PocketSocket-Mac";
-		};
-		9679922318BBAE2800394606 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9679920518BBAE2800394606 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9679920C18BBAE2800394606;
-			remoteInfo = Adtrace;
-		};
 		9D01680320FF88DE0029CFFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */;
@@ -1041,7 +925,6 @@
 		96E5E37A18BBB48A008E7B30 /* ADTRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTRequestHandler.m; sourceTree = "<group>"; };
 		96E5E37F18BBB48A008E7B30 /* ADTUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTUtil.h; sourceTree = "<group>"; };
 		96E5E38018BBB48A008E7B30 /* ADTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTUtil.m; sourceTree = "<group>"; };
-		96E5E39B18BBB49E008E7B30 /* Adtrace-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Adtrace-Prefix.pch"; sourceTree = "<group>"; };
 		96FCC5361C186426007BBFE1 /* ADTResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTResponseData.h; sourceTree = "<group>"; };
 		96FCC5371C186426007BBFE1 /* ADTResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTResponseData.m; sourceTree = "<group>"; };
 		9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-iMessage.xcodeproj"; path = "examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj"; sourceTree = "<group>"; };
@@ -1405,31 +1288,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9679921A18BBAE2800394606 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9679922518BBAE2800394606 /* libAdtrace.a in Frameworks */,
-				96325E8C190E8D6B00A97911 /* AdSupport.framework in Frameworks */,
-				9679922018BBAE2800394606 /* Foundation.framework in Frameworks */,
-				9601C1A31A31DE0D00A9AE21 /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D0E2DFE210B570600133B4F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D7431E31EB9F9B700969F14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE354CE2100726300D211C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1657,6 +1515,11 @@
 				9D775B602A1F9CC5009D0BE8 /* ADTPurchaseVerificationHandler.m */,
 			);
 			path = Adtrace;
+			sourceTree = "<group>";
+		};
+		9AA927F52B0F6D3500F4BEC3 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9D0167FF20FF88DE0029CFFF /* Products */ = {
@@ -2215,58 +2078,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D0E2DFF210B570600133B4F /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0ABE89EA2A8E49D40099CCF5 /* ADTPurchaseVerificationResult.h in Headers */,
-				0ABE89E62A8E49D40099CCF5 /* ADTPurchase.h in Headers */,
-				9D0E2E06210B570600133B4F /* AdtraceSdkWebBridge.h in Headers */,
-				9D0E2EBA210B575600133B4F /* AdtraceBridge.h in Headers */,
-				9D0E2EAF210B575600133B4F /* AdtraceBridgeRegister.h in Headers */,
-				9D0E2EB9210B575600133B4F /* WKWebViewJavascriptBridge.h in Headers */,
-				9D0E2EB4210B575600133B4F /* WebViewJavascriptBridge_JS.h in Headers */,
-				9D0E2EB5210B575600133B4F /* WebViewJavascriptBridgeBase.h in Headers */,
-				9D0E2E6F210B575600133B4F /* Adtrace.h in Headers */,
-				9D0E2E6B210B575600133B4F /* ADTConfig.h in Headers */,
-				9D0E2E8F210B575600133B4F /* ADTEvent.h in Headers */,
-				9D0E2E73210B575600133B4F /* ADTAttribution.h in Headers */,
-				9D2F24052447DD6000B7CA90 /* ADTSubscription.h in Headers */,
-				9DF3821D260E9B8D0033F5A1 /* NSNumber+ADTAdditions.h in Headers */,
-				9D0E2EA2210B575600133B4F /* ADTEventFailure.h in Headers */,
-				9D0E2EA1210B575600133B4F /* ADTEventSuccess.h in Headers */,
-				9D0E2E9E210B575600133B4F /* ADTSessionFailure.h in Headers */,
-				9D0E2EA4210B575600133B4F /* ADTSessionSuccess.h in Headers */,
-				9D0E2EA8210B575600133B4F /* ADTLogger.h in Headers */,
-				6F84512425B1B1380004C7C0 /* ADTThirdPartySharing.h in Headers */,
-				0ABE89E82A8E49D40099CCF5 /* ADTPurchaseVerificationHandler.h in Headers */,
-				9D49D16A290FEBD100042345 /* ADTSKAdNetwork.h in Headers */,
-				6FAB78932636DCE700773869 /* ADTLinkResolution.h in Headers */,
-				9D3A2AD1262650C300BD6E44 /* ADTAdRevenue.h in Headers */,
-				9D0E2E7D210B575600133B4F /* ADTAdtraceFactory.h in Headers */,
-				9D0E2E76210B575600133B4F /* ADTActivityKind.h in Headers */,
-				9D0E2E88210B575600133B4F /* ADTUserDefaults.h in Headers */,
-				9D0E2E8B210B575600133B4F /* ADTTimerOnce.h in Headers */,
-				9DF92D902630ED7B000FC3FC /* ADTPackageParams.h in Headers */,
-				9D0E2EAB210B575600133B4F /* ADTTimerCycle.h in Headers */,
-				9D0E2E7A210B575600133B4F /* ADTResponseData.h in Headers */,
-				9D0E2E98210B575600133B4F /* NSString+ADTAdditions.h in Headers */,
-				9D0E2EA7210B575600133B4F /* ADTBackoffStrategy.h in Headers */,
-				6FBEE93424E4232800FEF3F1 /* ADTUrlStrategy.h in Headers */,
-				9D0E2E90210B575600133B4F /* ADTSdkClickHandler.h in Headers */,
-				9D0E2E81210B575600133B4F /* ADTUtil.h in Headers */,
-				9D0E2E78210B575600133B4F /* ADTPackageHandler.h in Headers */,
-				9D0E2EA9210B575600133B4F /* ADTSessionParameters.h in Headers */,
-				9D0E2E9B210B575600133B4F /* ADTRequestHandler.h in Headers */,
-				9D0E2E83210B575600133B4F /* ADTActivityHandler.h in Headers */,
-				9D0E2E79210B575600133B4F /* ADTPackageBuilder.h in Headers */,
-				9D0E2E70210B575600133B4F /* ADTActivityPackage.h in Headers */,
-				9D0E2E8A210B575600133B4F /* ADTAttributionHandler.h in Headers */,
-				9D0E2E96210B575600133B4F /* NSData+ADTAdditions.h in Headers */,
-				9D0E2E9F210B575600133B4F /* ADTActivityState.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE354CF2100726300D211C9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2580,7 +2391,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1420;
-				ORGANIZATIONNAME = "Adtrace GmbH";
+				ORGANIZATIONNAME = Adtrace;
 				TargetAttributes = {
 					0AB1C97027DD450D00509231 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -2599,15 +2410,6 @@
 					};
 					96BCFBE71AC99FBD005A65C5 = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					9D0E2E01210B570600133B4F = {
-						CreatedOnToolsVersion = 9.4.1;
-						ProvisioningStyle = Manual;
-					};
-					9D7431E51EB9F9B700969F14 = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = QGUGW9AUMK;
-						ProvisioningStyle = Automatic;
 					};
 					9DE354D12100726300D211C9 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -2662,7 +2464,7 @@
 					ProjectRef = 9D449DCB1E6ED24400E7E80B /* AdtraceExample-WebView.xcodeproj */;
 				},
 				{
-					ProductGroup = 52BD7375221C3EDB004F2E87 /* Products */;
+					ProductGroup = 9AA927F52B0F6D3500F4BEC3 /* Products */;
 					ProjectRef = 52BD7374221C3EDB004F2E87 /* PocketSocket.xcodeproj */;
 				},
 			);
@@ -2674,7 +2476,6 @@
 				9DFA37AC1C0F219400782607 /* AdtraceSdk */,
 				9DE354D12100726300D211C9 /* AdtraceSdkIm */,
 				9DFB060F1D747070006D48FC /* AdtraceSdkTv */,
-				9D0E2E01210B570600133B4F /* AdtraceSdkWebBridge */,
 				0AB1C97027DD450D00509231 /* AdtraceSdkStatic */,
 				0AB1CA2427DF462200509231 /* AdtraceSdkTvStatic */,
 				0AB1CA6727DF5D3200509231 /* AdtraceSdkImStatic */,
@@ -2684,20 +2485,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		52BD738A221C3EDC004F2E87 /* libPocketSocket.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPocketSocket.a;
-			remoteRef = 52BD7389221C3EDC004F2E87 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		52BD738C221C3EDC004F2E87 /* libPocketSocket-Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPocketSocket-Mac.a";
-			remoteRef = 52BD738B221C3EDC004F2E87 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9D01680420FF88DE0029CFFF /* AdtraceExample-iMessage.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -2771,27 +2558,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9679921B18BBAE2800394606 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D0E2E00210B570600133B4F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D7431E41EB9F9B700969F14 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE354D02100726300D211C9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3174,73 +2940,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9679921918BBAE2800394606 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96CD2BE01A13BFC600A40AFB /* NSString+ADTAdditions.m in Sources */,
-				96C93DF61AC47FE000B53F56 /* NSData+ADTAdditions.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D0E2DFD210B570600133B4F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D0E2E93210B575600133B4F /* NSString+ADTAdditions.m in Sources */,
-				9D3A2AD2262650C300BD6E44 /* ADTAdRevenue.m in Sources */,
-				9D0E2E7E210B575600133B4F /* ADTEventSuccess.m in Sources */,
-				9D0E2E7C210B575600133B4F /* ADTEventFailure.m in Sources */,
-				9D0E2E7F210B575600133B4F /* ADTActivityState.m in Sources */,
-				9D0E2EB0210B575600133B4F /* WebViewJavascriptBridgeBase.m in Sources */,
-				9D0E2E95210B575600133B4F /* NSData+ADTAdditions.m in Sources */,
-				9D0E2E75210B575600133B4F /* ADTSdkClickHandler.m in Sources */,
-				9D0E2E85210B575600133B4F /* ADTSessionParameters.m in Sources */,
-				9D0E2E9D210B575600133B4F /* ADTUtil.m in Sources */,
-				9D0E2E89210B575600133B4F /* Adtrace.m in Sources */,
-				9D0E2EAC210B575600133B4F /* ADTActivityHandler.m in Sources */,
-				9D0E2E80210B575600133B4F /* ADTSessionFailure.m in Sources */,
-				9D0E2EB2210B575600133B4F /* WKWebViewJavascriptBridge.m in Sources */,
-				9D0E2E7B210B575600133B4F /* ADTSessionSuccess.m in Sources */,
-				9D0E2EB7210B575600133B4F /* WebViewJavascriptBridge_JS.m in Sources */,
-				9D0E2E71210B575600133B4F /* ADTRequestHandler.m in Sources */,
-				9D0E2E91210B575600133B4F /* ADTActivityKind.m in Sources */,
-				9D0E2E9C210B575600133B4F /* ADTActivityPackage.m in Sources */,
-				9D0E2E8E210B575600133B4F /* ADTPackageHandler.m in Sources */,
-				9D0E2E86210B575600133B4F /* ADTLogger.m in Sources */,
-				9D0E2E6D210B575600133B4F /* ADTTimerOnce.m in Sources */,
-				9D0E2E77210B575600133B4F /* ADTEvent.m in Sources */,
-				9D0E2E8D210B575600133B4F /* ADTConfig.m in Sources */,
-				0ABE89E72A8E49D40099CCF5 /* ADTPurchase.m in Sources */,
-				9D2F24042447DD6000B7CA90 /* ADTSubscription.m in Sources */,
-				9DF3821C260E9B8D0033F5A1 /* NSNumber+ADTAdditions.m in Sources */,
-				9D0E2E6E210B575600133B4F /* ADTAttributionHandler.m in Sources */,
-				0ABE89E92A8E49D40099CCF5 /* ADTPurchaseVerificationHandler.m in Sources */,
-				9DF92D8F2630ED7B000FC3FC /* ADTPackageParams.m in Sources */,
-				9D49D16B290FEBD100042345 /* ADTSKAdNetwork.m in Sources */,
-				9D0E2E87210B575600133B4F /* ADTBackoffStrategy.m in Sources */,
-				9D0E2EBB210B575600133B4F /* AdtraceBridgeRegister.m in Sources */,
-				6F84512525B1B1380004C7C0 /* ADTThirdPartySharing.m in Sources */,
-				0ABE89E52A8E49D40099CCF5 /* ADTPurchaseVerificationResult.m in Sources */,
-				9D0E2E84210B575600133B4F /* ADTTimerCycle.m in Sources */,
-				6FBEE93524E4232800FEF3F1 /* ADTUrlStrategy.m in Sources */,
-				9D0E2EA5210B575600133B4F /* ADTPackageBuilder.m in Sources */,
-				9D0E2E99210B575600133B4F /* ADTAttribution.m in Sources */,
-				9D0E2EA3210B575600133B4F /* ADTResponseData.m in Sources */,
-				9D0E2EA0210B575600133B4F /* ADTAdtraceFactory.m in Sources */,
-				9D0E2EA6210B575600133B4F /* ADTUserDefaults.m in Sources */,
-				9D0E2EAE210B575600133B4F /* AdtraceBridge.m in Sources */,
-				6FAB78922636DCE700773869 /* ADTLinkResolution.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D7431E21EB9F9B700969F14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE354CD2100726300D211C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3382,11 +3081,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9679922418BBAE2800394606 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9679920C18BBAE2800394606 /* Adtrace */;
-			targetProxy = 9679922318BBAE2800394606 /* PBXContainerItemProxy */;
-		};
 		9DE7C9001AE68EF1001556E5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9679920C18BBAE2800394606 /* Adtrace */;
@@ -3822,84 +3516,6 @@
 			};
 			name = Release;
 		};
-		9D0E2E07210B570600133B4F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = QGUGW9AUMK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdtraceSdkWebBridge/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = io.adtrace.AdtraceSdkWebBridge;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		9D0E2E08210B570600133B4F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = QGUGW9AUMK;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = AdtraceSdkWebBridge/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = io.adtrace.AdtraceSdkWebBridge;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		9DE354D72100726300D211C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4209,15 +3825,6 @@
 			buildConfigurations = (
 				96BCFBE91AC99FBD005A65C5 /* Debug */,
 				96BCFBEA1AC99FBD005A65C5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9D0E2E15210B570600133B4F /* Build configuration list for PBXNativeTarget "AdtraceSdkWebBridge" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D0E2E07210B570600133B4F /* Debug */,
-				9D0E2E08210B570600133B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

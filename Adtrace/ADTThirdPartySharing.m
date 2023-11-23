@@ -1,6 +1,7 @@
 
 #import "ADTThirdPartySharing.h"
 #import "ADTAdtraceFactory.h"
+#import "ADTUtil.h"
 
 @implementation ADTThirdPartySharing
 

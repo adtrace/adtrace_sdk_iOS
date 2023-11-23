@@ -61,6 +61,16 @@
     [Adtrace trackEvent:event];
 }
 
+- (IBAction)clickTrackEventValue:(UIButton *)sender {
+    ADTEvent *event = [ADTEvent eventWithEventToken:kEventToken4];
+
+    // Add value parameteres to this event.
+    [event addEventValueParameter:@"foo" value:@"bar"];
+    [event addEventValueParameter:@"key" value:@"value"];
+
+    [Adtrace trackEvent:event];
+}
+
 - (IBAction)clickEnableOfflineMode:(id)sender {
     [Adtrace setOfflineMode:YES];
 }

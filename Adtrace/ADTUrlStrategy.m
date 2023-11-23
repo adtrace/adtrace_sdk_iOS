@@ -10,12 +10,12 @@ static NSString * const purchaseVerificationUrl = @"https://ssrv.adtrace.cio";
 
 static NSString * const baseUrlIndia = @"https://app.adtrace.io.in";
 static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.io.in";
-static NSString * const subscritionUrlIndia = @"https://subscrition.adtrace.io.in";
+static NSString * const subscriptionUrlIndia = @"https://subscrition.adtrace.io.in";
 static NSString * const purchaseVerificationUrlIndia = @"https://ssrv.adtrace.io.in";
 
 static NSString * const baseUrlChina = @"https://app.adtrace.world";
 static NSString * const gdprUrlChina = @"https://gdpr.adtrace.world";
-static NSString * const subscritionUrlChina = @"https://subscrition.adtrace.world";
+static NSString * const subscriptionUrlChina = @"https://subscrition.adtrace.world";
 static NSString * const purchaseVerificationUrlChina = @"https://ssrv.adtrace.world";
 
 static NSString * const baseUrlCn = @"https://app.adtrace.cn";
@@ -84,7 +84,7 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
     return self;
 }
 
-+ (NSArray<NSString *> *)baseUrlChoicesWithWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
++ (NSArray<NSString *> *)baseUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
         return @[baseUrlIndia, baseUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
@@ -102,7 +102,7 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
     }
 }
 
-+ (NSArray<NSString *> *)gdprUrlChoicesWithWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
++ (NSArray<NSString *> *)gdprUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
         return @[gdprUrlIndia, gdprUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {

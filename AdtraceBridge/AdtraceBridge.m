@@ -424,6 +424,13 @@
         }
         responseCallback([Adtrace idfa]);
     }];
+
+    [self.bridgeRegister registerHandler:@"adtrace_idfv" handler:^(id data, WVJBResponseCallback responseCallback) {
+        if (responseCallback == nil) {
+            return;
+        }
+        responseCallback([Adtrace idfa]);
+    }];
     
     [self.bridgeRegister registerHandler:@"adtrace_requestTrackingAuthorizationWithCompletionHandler" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (responseCallback == nil) {

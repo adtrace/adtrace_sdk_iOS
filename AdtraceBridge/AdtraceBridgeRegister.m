@@ -138,6 +138,11 @@ static NSString * fbAppIdStatic = nil;
                 if (WebViewJavascriptBridge) {
                     WebViewJavascriptBridge.callHandler('adtrace_idfa', null, callback);
                 }
+            },
+            getIdfv: function(callback) {
+                if (WebViewJavascriptBridge) {
+                    WebViewJavascriptBridge.callHandler('adtrace_idfv', null, callback);
+                }
                 },
             requestTrackingAuthorizationWithCompletionHandler: function(callback) {
                 if (WebViewJavascriptBridge) {

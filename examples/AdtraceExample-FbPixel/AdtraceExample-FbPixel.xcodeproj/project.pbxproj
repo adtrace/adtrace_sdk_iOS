@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A893432B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8933F2B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m */; };
+		07A893442B0B980B0011DAB8 /* ADTPurchaseVerificationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893402B0B980B0011DAB8 /* ADTPurchaseVerificationResult.m */; };
+		07A893452B0B980B0011DAB8 /* ADTPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893412B0B980B0011DAB8 /* ADTPurchase.m */; };
 		07AF832327BD3CBF00C5DD9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07AF832227BD3CBF00C5DD9E /* Main.storyboard */; };
 		6FAB78C12636DDC400773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB78BF2636DDC400773869 /* ADTLinkResolution.m */; };
 		9D49D17A290FEC2E00042345 /* ADTSKAdNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49D179290FEC2E00042345 /* ADTSKAdNetwork.m */; };
@@ -60,6 +63,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07A8933D2B0B980B0011DAB8 /* ADTPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchase.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchase.h"; sourceTree = "<group>"; };
+		07A8933E2B0B980B0011DAB8 /* ADTPurchaseVerificationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchaseVerificationResult.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationResult.h"; sourceTree = "<group>"; };
+		07A8933F2B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchaseVerificationHandler.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adrace/ADTPurchaseVerificationHandler.m"; sourceTree = "<group>"; };
+		07A893402B0B980B0011DAB8 /* ADTPurchaseVerificationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchaseVerificationResult.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationResult.m"; sourceTree = "<group>"; };
+		07A893412B0B980B0011DAB8 /* ADTPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchase.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchase.m"; sourceTree = "<group>"; };
+		07A893422B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchaseVerificationHandler.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationHandler.h"; sourceTree = "<group>"; };
 		07AF832227BD3CBF00C5DD9E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6FAB78BF2636DDC400773869 /* ADTLinkResolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTLinkResolution.m; sourceTree = "<group>"; };
 		6FAB78C02636DDC400773869 /* ADTLinkResolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTLinkResolution.h; sourceTree = "<group>"; };
@@ -413,12 +422,14 @@
 				9DF92F1C2630F377000FC3FC /* ADTActivityPackage.m in Sources */,
 				9DF92F0C2630F377000FC3FC /* ADTEventSuccess.m in Sources */,
 				9DF92FB02630F3A1000FC3FC /* WKWebViewJavascriptBridge.m in Sources */,
+				07A893432B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m in Sources */,
 				9DF92F232630F377000FC3FC /* ADTUserDefaults.m in Sources */,
 				9DF92F182630F377000FC3FC /* NSData+ADTAdditions.m in Sources */,
 				9DF92F212630F377000FC3FC /* ADTPackageBuilder.m in Sources */,
 				9DF92F132630F377000FC3FC /* Adtrace.m in Sources */,
 				9DF92F172630F377000FC3FC /* NSString+ADTAdditions.m in Sources */,
 				9DF92F052630F377000FC3FC /* ADTTimerOnce.m in Sources */,
+				07A893452B0B980B0011DAB8 /* ADTPurchase.m in Sources */,
 				9DF92F072630F377000FC3FC /* ADTRequestHandler.m in Sources */,
 				9DF92F122630F377000FC3FC /* ADTBackoffStrategy.m in Sources */,
 				9DF92F222630F377000FC3FC /* ADTSubscription.m in Sources */,

@@ -335,6 +335,7 @@
         NSString *currency = [data objectForKey:@"currency"];
         NSString *transactionId = [data objectForKey:@"transactionId"];
         id callbackParameters = [data objectForKey:@"callbackParameters"];
+        id partnerParameters = [data objectForKey:@"partnerParameters"];
         id valueParameters = [data objectForKey:@"valueParameters"];
         NSString *callbackId = [data objectForKey:@"callbackId"];
 
@@ -355,6 +356,11 @@
             NSString *key = [[callbackParameters objectAtIndex:i] description];
             NSString *value = [[callbackParameters objectAtIndex:(i + 1)] description];
             [adtraceEvent addCallbackParameter:key value:value];
+        }
+        for (int i = 0; i < [partnerParameters count]; i += 2) {
+            NSString *key = [[partnerParameters objectAtIndex:i] description];
+            NSString *value = [[partnerParameters objectAtIndex:(i + 1)] description];
+            [adtraceEvent addPartnerParameter:key value:value];
         }
         for (int i = 0; i < [valueParameters count]; i += 2) {
             NSString *key = [[valueParameters objectAtIndex:i] description];

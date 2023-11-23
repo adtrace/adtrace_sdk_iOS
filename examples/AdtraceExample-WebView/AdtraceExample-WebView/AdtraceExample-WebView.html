@@ -96,14 +96,25 @@
             Adtrace.trackEvent(adtraceEvent)
         }
 
+        var btnTrackEventValue = document.getElementById('btnTrackEventValue')
+        btnTrackEventValue.onclick = function(e) {
+            e.preventDefault()
+            var adtraceEvent = new AdtraceEvent('w788qs')
+            adtraceEvent.addEventValueParameter('foo', 'bar')
+            adtraceEvent.addEventValueParameter('x', 'y')
+            adtraceEvent.addEventValueParameter('foo', 'foot')
+            adtraceEvent.addEventValueParameter('x', 'z')
+            Adtrace.trackEvent(adtraceEvent);
+        }
+
         var btnTrackPartnerEvent = document.getElementById('btnTrackPartnerEvent')
         btnTrackPartnerEvent.onclick = function(e) {
             e.preventDefault()
             var adtraceEvent = new AdtraceEvent('w788qs')
             adtraceEvent.addPartnerParameter('foo', 'bar')
             adtraceEvent.addPartnerParameter('x', 'y')
-            adtraceEvent.addPartnerParameter('foo', 'foot')
-            adtraceEvent.addPartnerParameter('x', 'z')
+            adtraceEvent.addPartnerParameter('apple', 'orange')
+            adtraceEvent.addPartnerParameter('w', 'z')
             Adtrace.trackEvent(adtraceEvent);
         }
 
@@ -177,6 +188,9 @@
         </div>
         <div style="width:300px;height:35px;text-align:center;">
             <button id='btnTrackPartnerEvent'>Track Partner event</button>
+        </div>
+        <div style="width:300px;height:35px;text-align:center;">
+            <button id='btnTrackEventValue'>Track Event values</button>
         </div>
         <div style="width:300px;height:35px;text-align:center;">
             <button id='btnEnableOfflineMode'>Enable Offline mode</button>

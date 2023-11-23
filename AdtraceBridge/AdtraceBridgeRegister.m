@@ -291,12 +291,17 @@ static NSString * fbAppIdStatic = nil;
             this.transactionId = null;
             this.callbackId = null;
             this.callbackParameters = [];
+            this.partnerParameters = [];
             this.valueParameters = [];
         };
 
         AdtraceEvent.prototype.addCallbackParameter = function(key, value) {
             this.callbackParameters.push(key);
             this.callbackParameters.push(value);
+        };
+        AdtraceEvent.prototype.addPartnerParameter = function(key, value) {
+            this.partnerParameters.push(key);
+            this.partnerParameters.push(value);
         };
         AdtraceEvent.prototype.addEventValueParameter = function(key, value) {
             this.valueParameters.push(key);

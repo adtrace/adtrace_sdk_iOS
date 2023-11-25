@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/nassernas/Software/XcodeProjects/sdk_version_new/adtrace/examples/AdjustExample-WebView/AdtraceExample-WebView.xcodeproj">
+      location = "self:AdtraceExample-WebView.xcodeproj">
    </FileRef>
 </Workspace>

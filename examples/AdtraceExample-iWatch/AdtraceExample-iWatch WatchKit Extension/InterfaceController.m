@@ -1,10 +1,10 @@
-
-
-
-
-
-
-
+//
+//  InterfaceController.m
+//  AdtraceExample-iWatch WatchKit Extension
+//
+//  Created by Uglješa Erceg (@uerceg) on 6th April 2016
+//  Copyright © 2016-Present Adtrace GmbH. All rights reserved.
+//
 
 #import "TableRowController.h"
 #import "InterfaceController.h"
@@ -17,7 +17,6 @@
 @property (nonatomic, weak) IBOutlet WKInterfaceTable *wkTblEventTable;
 
 @end
-
 
 @implementation InterfaceController
 
@@ -34,7 +33,7 @@
     [row1.wkLblTitle setText:@"Simple Event"];
     [row2.wkLblTitle setText:@"Revenue Event"];
     [row3.wkLblTitle setText:@"Callback Event"];
-    [row4.wkLblTitle setText:@"Value Event"];
+    [row4.wkLblTitle setText:@"Partner Event"];
 }
 
 - (void)willActivate {
@@ -48,7 +47,7 @@
 }
 
 - (void)didDeactivate {
-    
+    // This method is called when watch view controller is no longer visible
     [super didDeactivate];
 }
 
@@ -62,10 +61,10 @@
                                            NSString *message = @"";
 
                                            if ([[reply objectForKey:@"response"] isEqualToString:@"ack"]) {
-                                               
+                                               // Event successfully tracked.
                                                message = @"Simple event tracked!";
                                            } else {
-                                               
+                                               // Event failed to be tracked.
                                                message = @"Simple event not tracked!";
                                            }
                                            
@@ -86,10 +85,10 @@
                                            NSString *message = @"";
 
                                            if ([[reply objectForKey:@"response"] isEqualToString:@"ack"]) {
-                                               
+                                               // Event successfully tracked.
                                                message = @"Revenue event tracked!";
                                            } else {
-                                               
+                                               // Event failed to be tracked.
                                                message = @"Revenue event not tracked!";
                                            }
 
@@ -110,10 +109,10 @@
                                            NSString *message = @"";
 
                                            if ([[reply objectForKey:@"response"] isEqualToString:@"ack"]) {
-                                               
+                                               // Event successfully tracked.
                                                message = @"Callback event tracked!";
                                            } else {
-                                               
+                                               // Event failed to be tracked.
                                                message = @"Callback event not tracked!";
                                            }
 
@@ -127,18 +126,18 @@
             break;
         }
         case 3: {
-            NSDictionary *requst = @{@"request":@"event_value_param"};
+            NSDictionary *requst = @{@"request":@"event_partner"};
 
             [[WCSession defaultSession] sendMessage:requst
                                        replyHandler:^(NSDictionary *reply) {
                                            NSString *message = @"";
 
                                            if ([[reply objectForKey:@"response"] isEqualToString:@"ack"]) {
-                                               
-                                               message = @"Event value tracked!";
+                                               // Event successfully tracked.
+                                               message = @"Partner event tracked!";
                                            } else {
-                                               
-                                               message = @"Event value not tracked!";
+                                               // Event failed to be tracked.
+                                               message = @"Partner event not tracked!";
                                            }
 
                                            [self pushControllerWithName:@"EventTrackedController" context:message];
@@ -155,7 +154,7 @@
     }
 }
 
-
+// watchOS 1.x
 /*
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     switch (rowIndex) {
@@ -170,10 +169,10 @@
                     NSString *message = @"";
 
                     if ([[replyInfo objectForKey:@"response"] isEqualToString:@"ack"]) {
-                        
+                        // Event successfully tracked.
                         message = @"Simple event tracked!";
                     } else {
-                        
+                        // Event failed to be tracked.
                         message = @"Simple event not tracked!";
                     }
 
@@ -195,10 +194,10 @@
                     NSString *message = @"";
 
                     if ([[replyInfo objectForKey:@"response"] isEqualToString:@"ack"]) {
-                        
+                        // Event successfully tracked.
                         message = @"Revenue event tracked!";
                     } else {
-                        
+                        // Event failed to be tracked.
                         message = @"Revenue event not tracked!";
                     }
 
@@ -220,10 +219,10 @@
                     NSString *message = @"";
 
                     if ([[replyInfo objectForKey:@"response"] isEqualToString:@"ack"]) {
-                        
+                        // Event successfully tracked.
                         message = @"Callback event tracked!";
                     } else {
-                        
+                        // Event failed to be tracked.
                         message = @"Callback event not tracked!";
                     }
 
@@ -235,7 +234,7 @@
             break;
         }
         case 3: {
-            NSDictionary *requst = @{@"request":@"event_value_params"};
+            NSDictionary *requst = @{@"request":@"event_partner"};
 
             [InterfaceController openParentApplication:requst reply:^(NSDictionary *replyInfo, NSError *error) {
 
@@ -245,11 +244,11 @@
                     NSString *message = @"";
 
                     if ([[replyInfo objectForKey:@"response"] isEqualToString:@"ack"]) {
-                        
-                        message = @"Value event tracked!";
+                        // Event successfully tracked.
+                        message = @"Partner event tracked!";
                     } else {
-                        
-                        message = @"Value event not tracked!";
+                        // Event failed to be tracked.
+                        message = @"Partner event not tracked!";
                     }
                     
                     [self pushControllerWithName:@"EventTrackedController" context:message];

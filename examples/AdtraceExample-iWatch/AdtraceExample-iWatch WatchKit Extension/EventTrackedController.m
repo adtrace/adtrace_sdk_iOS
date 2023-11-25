@@ -1,10 +1,10 @@
-
-
-
-
-
-
-
+//
+//  EventTrackedController.m
+//  AdtraceExample-iWatch
+//
+//  Created by Uglješa Erceg (@uerceg) on 6th April 2016
+//  Copyright © 2016-Present Adtrace GmbH. All rights reserved.
+//
 
 #import "EventTrackedController.h"
 
@@ -23,12 +23,12 @@
 }
 
 - (void)willActivate {
-    
+    // This method is called when watch view controller is about to be visible to user
     [super willActivate];
 }
 
 - (void)didDeactivate {
-    
+    // This method is called when watch view controller is no longer visible
     [super didDeactivate];
 }
 

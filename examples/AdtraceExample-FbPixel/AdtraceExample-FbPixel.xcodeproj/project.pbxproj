@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07A893432B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A8933F2B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m */; };
+		07A893442B0B980B0011DAB8 /* ADTPurchaseVerificationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893402B0B980B0011DAB8 /* ADTPurchaseVerificationResult.m */; };
+		07A893452B0B980B0011DAB8 /* ADTPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893412B0B980B0011DAB8 /* ADTPurchase.m */; };
+		07AF832327BD3CBF00C5DD9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07AF832227BD3CBF00C5DD9E /* Main.storyboard */; };
+		6FAB78C12636DDC400773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB78BF2636DDC400773869 /* ADTLinkResolution.m */; };
+		9D49D17A290FEC2E00042345 /* ADTSKAdNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49D179290FEC2E00042345 /* ADTSKAdNetwork.m */; };
+		9D9D1533212EB3920081445E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D1532212EB3920081445E /* AppDelegate.m */; };
+		9D9D153B212EB3940081445E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9D153A212EB3940081445E /* Assets.xcassets */; };
+		9D9D153E212EB3940081445E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9D153C212EB3940081445E /* LaunchScreen.storyboard */; };
+		9D9D1541212EB3940081445E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D1540212EB3940081445E /* main.m */; };
+		9D9D1563212EB40D0081445E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9D1562212EB40D0081445E /* AdSupport.framework */; };
+		9D9D1565212EB4130081445E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9D1564212EB4130081445E /* WebKit.framework */; };
+		9D9D15E3212EB47C0081445E /* AdtraceExample-FbPixel.html in Resources */ = {isa = PBXBuildFile; fileRef = 9D9D15E2212EB47C0081445E /* AdtraceExample-FbPixel.html */; };
+		9D9D15E9212EB5230081445E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9D15E6212EB5230081445E /* WKWebViewController.m */; };
+		9DF92F042630F377000FC3FC /* ADTAdRevenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EB22630F377000FC3FC /* ADTAdRevenue.m */; };
+		9DF92F052630F377000FC3FC /* ADTTimerOnce.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EB32630F377000FC3FC /* ADTTimerOnce.m */; };
+		9DF92F062630F377000FC3FC /* ADTAttributionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EB42630F377000FC3FC /* ADTAttributionHandler.m */; };
+		9DF92F072630F377000FC3FC /* ADTRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EB72630F377000FC3FC /* ADTRequestHandler.m */; };
+		9DF92F082630F377000FC3FC /* ADTSdkClickHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EBA2630F377000FC3FC /* ADTSdkClickHandler.m */; };
+		9DF92F092630F377000FC3FC /* ADTEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EBC2630F377000FC3FC /* ADTEvent.m */; };
+		9DF92F0A2630F377000FC3FC /* ADTSessionSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EC12630F377000FC3FC /* ADTSessionSuccess.m */; };
+		9DF92F0B2630F377000FC3FC /* ADTEventFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EC22630F377000FC3FC /* ADTEventFailure.m */; };
+		9DF92F0C2630F377000FC3FC /* ADTEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92ED02630F377000FC3FC /* ADTEventSuccess.m */; };
+		9DF92F0D2630F377000FC3FC /* ADTActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92ED12630F377000FC3FC /* ADTActivityState.m */; };
+		9DF92F0E2630F377000FC3FC /* ADTSessionFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92ED32630F377000FC3FC /* ADTSessionFailure.m */; };
+		9DF92F0F2630F377000FC3FC /* ADTTimerCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92ED72630F377000FC3FC /* ADTTimerCycle.m */; };
+		9DF92F102630F377000FC3FC /* ADTSessionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92ED82630F377000FC3FC /* ADTSessionParameters.m */; };
+		9DF92F112630F377000FC3FC /* ADTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92ED92630F377000FC3FC /* ADTLogger.m */; };
+		9DF92F122630F377000FC3FC /* ADTBackoffStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EDA2630F377000FC3FC /* ADTBackoffStrategy.m */; };
+		9DF92F132630F377000FC3FC /* Adtrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EDC2630F377000FC3FC /* Adtrace.m */; };
+		9DF92F142630F377000FC3FC /* ADTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EE02630F377000FC3FC /* ADTConfig.m */; };
+		9DF92F152630F377000FC3FC /* ADTPackageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EE12630F377000FC3FC /* ADTPackageHandler.m */; };
+		9DF92F162630F377000FC3FC /* ADTActivityKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EE42630F377000FC3FC /* ADTActivityKind.m */; };
+		9DF92F172630F377000FC3FC /* NSString+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EE72630F377000FC3FC /* NSString+ADTAdditions.m */; };
+		9DF92F182630F377000FC3FC /* NSData+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EE82630F377000FC3FC /* NSData+ADTAdditions.m */; };
+		9DF92F192630F377000FC3FC /* NSNumber+ADTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EE92630F377000FC3FC /* NSNumber+ADTAdditions.m */; };
+		9DF92F1A2630F377000FC3FC /* ADTAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EEC2630F377000FC3FC /* ADTAttribution.m */; };
+		9DF92F1B2630F377000FC3FC /* ADTThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EED2630F377000FC3FC /* ADTThirdPartySharing.m */; };
+		9DF92F1C2630F377000FC3FC /* ADTActivityPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EEF2630F377000FC3FC /* ADTActivityPackage.m */; };
+		9DF92F1D2630F377000FC3FC /* ADTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EF02630F377000FC3FC /* ADTUtil.m */; };
+		9DF92F1E2630F377000FC3FC /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EF12630F377000FC3FC /* ADTUrlStrategy.m */; };
+		9DF92F1F2630F377000FC3FC /* ADTAdtraceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EF42630F377000FC3FC /* ADTAdtraceFactory.m */; };
+		9DF92F202630F377000FC3FC /* ADTResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EF82630F377000FC3FC /* ADTResponseData.m */; };
+		9DF92F212630F377000FC3FC /* ADTPackageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EFA2630F377000FC3FC /* ADTPackageBuilder.m */; };
+		9DF92F222630F377000FC3FC /* ADTSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EFB2630F377000FC3FC /* ADTSubscription.m */; };
+		9DF92F232630F377000FC3FC /* ADTUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92EFC2630F377000FC3FC /* ADTUserDefaults.m */; };
+		9DF92F252630F377000FC3FC /* ADTActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F022630F377000FC3FC /* ADTActivityHandler.m */; };
+		9DF92F262630F377000FC3FC /* ADTPackageParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F032630F377000FC3FC /* ADTPackageParams.m */; };
+		9DF92F8B2630F3A1000FC3FC /* AdtraceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F282630F3A0000FC3FC /* AdtraceBridge.m */; };
+		9DF92FAF2630F3A1000FC3FC /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F7E2630F3A1000FC3FC /* WebViewJavascriptBridgeBase.m */; };
+		9DF92FB02630F3A1000FC3FC /* WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F7F2630F3A1000FC3FC /* WKWebViewJavascriptBridge.m */; };
+		9DF92FB12630F3A1000FC3FC /* WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F822630F3A1000FC3FC /* WebViewJavascriptBridge_JS.m */; };
+		9DF92FB22630F3A1000FC3FC /* AdtraceBridgeRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF92F8A2630F3A1000FC3FC /* AdtraceBridgeRegister.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07A8933D2B0B980B0011DAB8 /* ADTPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchase.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchase.h"; sourceTree = "<group>"; };
+		07A8933E2B0B980B0011DAB8 /* ADTPurchaseVerificationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchaseVerificationResult.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationResult.h"; sourceTree = "<group>"; };
+		07A8933F2B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchaseVerificationHandler.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adrace/ADTPurchaseVerificationHandler.m"; sourceTree = "<group>"; };
+		07A893402B0B980B0011DAB8 /* ADTPurchaseVerificationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchaseVerificationResult.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationResult.m"; sourceTree = "<group>"; };
+		07A893412B0B980B0011DAB8 /* ADTPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchase.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchase.m"; sourceTree = "<group>"; };
+		07A893422B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchaseVerificationHandler.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationHandler.h"; sourceTree = "<group>"; };
+		07AF832227BD3CBF00C5DD9E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6FAB78BF2636DDC400773869 /* ADTLinkResolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTLinkResolution.m; sourceTree = "<group>"; };
+		6FAB78C02636DDC400773869 /* ADTLinkResolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTLinkResolution.h; sourceTree = "<group>"; };
+		9D49D178290FEC2E00042345 /* ADTSKAdNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSKAdNetwork.h; sourceTree = "<group>"; };
+		9D49D179290FEC2E00042345 /* ADTSKAdNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTSKAdNetwork.m; sourceTree = "<group>"; };
+		9D9D152E212EB3920081445E /* AdtraceExample-FbPixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdtraceExample-FbPixel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D9D1531212EB3920081445E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9D9D1532212EB3920081445E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9D9D153A212EB3940081445E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D9D153D212EB3940081445E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9D9D153F212EB3940081445E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9D1540212EB3940081445E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D9D1560212EB4080081445E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		9D9D1562212EB40D0081445E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		9D9D1564212EB4130081445E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		9D9D15E2212EB47C0081445E /* AdtraceExample-FbPixel.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "AdtraceExample-FbPixel.html"; sourceTree = "<group>"; };
+		9D9D15E6212EB5230081445E /* WKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		9D9D15E7212EB5230081445E /* WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		9DF92EB12630F377000FC3FC /* ADTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTConfig.h; sourceTree = "<group>"; };
+		9DF92EB22630F377000FC3FC /* ADTAdRevenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTAdRevenue.m; sourceTree = "<group>"; };
+		9DF92EB32630F377000FC3FC /* ADTTimerOnce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTTimerOnce.m; sourceTree = "<group>"; };
+		9DF92EB42630F377000FC3FC /* ADTAttributionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTAttributionHandler.m; sourceTree = "<group>"; };
+		9DF92EB52630F377000FC3FC /* Adtrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adtrace.h; sourceTree = "<group>"; };
+		9DF92EB62630F377000FC3FC /* ADTActivityPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTActivityPackage.h; sourceTree = "<group>"; };
+		9DF92EB72630F377000FC3FC /* ADTRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTRequestHandler.m; sourceTree = "<group>"; };
+		9DF92EB82630F377000FC3FC /* ADTThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTThirdPartySharing.h; sourceTree = "<group>"; };
+		9DF92EB92630F377000FC3FC /* ADTAttribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTAttribution.h; sourceTree = "<group>"; };
+		9DF92EBA2630F377000FC3FC /* ADTSdkClickHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTSdkClickHandler.m; sourceTree = "<group>"; };
+		9DF92EBB2630F377000FC3FC /* ADTActivityKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTActivityKind.h; sourceTree = "<group>"; };
+		9DF92EBC2630F377000FC3FC /* ADTEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTEvent.m; sourceTree = "<group>"; };
+		9DF92EBD2630F377000FC3FC /* ADTPackageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTPackageHandler.h; sourceTree = "<group>"; };
+		9DF92EBE2630F377000FC3FC /* ADTSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSubscription.h; sourceTree = "<group>"; };
+		9DF92EBF2630F377000FC3FC /* ADTPackageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTPackageBuilder.h; sourceTree = "<group>"; };
+		9DF92EC02630F377000FC3FC /* ADTResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTResponseData.h; sourceTree = "<group>"; };
+		9DF92EC12630F377000FC3FC /* ADTSessionSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTSessionSuccess.m; sourceTree = "<group>"; };
+		9DF92EC22630F377000FC3FC /* ADTEventFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTEventFailure.m; sourceTree = "<group>"; };
+		9DF92EC32630F377000FC3FC /* ADTAdtraceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTAdtraceFactory.h; sourceTree = "<group>"; };
+		9DF92ED02630F377000FC3FC /* ADTEventSuccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTEventSuccess.m; sourceTree = "<group>"; };
+		9DF92ED12630F377000FC3FC /* ADTActivityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTActivityState.m; sourceTree = "<group>"; };
+		9DF92ED22630F377000FC3FC /* ADTUrlStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTUrlStrategy.h; sourceTree = "<group>"; };
+		9DF92ED32630F377000FC3FC /* ADTSessionFailure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTSessionFailure.m; sourceTree = "<group>"; };
+		9DF92ED42630F377000FC3FC /* ADTUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTUtil.h; sourceTree = "<group>"; };
+		9DF92ED52630F377000FC3FC /* ADTPackageParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTPackageParams.h; sourceTree = "<group>"; };
+		9DF92ED62630F377000FC3FC /* ADTActivityHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTActivityHandler.h; sourceTree = "<group>"; };
+		9DF92ED72630F377000FC3FC /* ADTTimerCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTTimerCycle.m; sourceTree = "<group>"; };
+		9DF92ED82630F377000FC3FC /* ADTSessionParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTSessionParameters.m; sourceTree = "<group>"; };
+		9DF92ED92630F377000FC3FC /* ADTLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTLogger.m; sourceTree = "<group>"; };
+		9DF92EDA2630F377000FC3FC /* ADTBackoffStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTBackoffStrategy.m; sourceTree = "<group>"; };
+		9DF92EDB2630F377000FC3FC /* ADTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTUserDefaults.h; sourceTree = "<group>"; };
+		9DF92EDC2630F377000FC3FC /* Adtrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Adtrace.m; sourceTree = "<group>"; };
+		9DF92EDD2630F377000FC3FC /* ADTAttributionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTAttributionHandler.h; sourceTree = "<group>"; };
+		9DF92EDE2630F377000FC3FC /* ADTTimerOnce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTTimerOnce.h; sourceTree = "<group>"; };
+		9DF92EDF2630F377000FC3FC /* ADTAdRevenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTAdRevenue.h; sourceTree = "<group>"; };
+		9DF92EE02630F377000FC3FC /* ADTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTConfig.m; sourceTree = "<group>"; };
+		9DF92EE12630F377000FC3FC /* ADTPackageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTPackageHandler.m; sourceTree = "<group>"; };
+		9DF92EE22630F377000FC3FC /* ADTEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTEvent.h; sourceTree = "<group>"; };
+		9DF92EE32630F377000FC3FC /* ADTSdkClickHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSdkClickHandler.h; sourceTree = "<group>"; };
+		9DF92EE42630F377000FC3FC /* ADTActivityKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTActivityKind.m; sourceTree = "<group>"; };
+		9DF92EE62630F377000FC3FC /* NSNumber+ADTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ADTAdditions.h"; sourceTree = "<group>"; };
+		9DF92EE72630F377000FC3FC /* NSString+ADTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ADTAdditions.m"; sourceTree = "<group>"; };
+		9DF92EE82630F377000FC3FC /* NSData+ADTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ADTAdditions.m"; sourceTree = "<group>"; };
+		9DF92EE92630F377000FC3FC /* NSNumber+ADTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ADTAdditions.m"; sourceTree = "<group>"; };
+		9DF92EEA2630F377000FC3FC /* NSData+ADTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ADTAdditions.h"; sourceTree = "<group>"; };
+		9DF92EEB2630F377000FC3FC /* NSString+ADTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ADTAdditions.h"; sourceTree = "<group>"; };
+		9DF92EEC2630F377000FC3FC /* ADTAttribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTAttribution.m; sourceTree = "<group>"; };
+		9DF92EED2630F377000FC3FC /* ADTThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTThirdPartySharing.m; sourceTree = "<group>"; };
+		9DF92EEE2630F377000FC3FC /* ADTRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTRequestHandler.h; sourceTree = "<group>"; };
+		9DF92EEF2630F377000FC3FC /* ADTActivityPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTActivityPackage.m; sourceTree = "<group>"; };
+		9DF92EF02630F377000FC3FC /* ADTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTUtil.m; sourceTree = "<group>"; };
+		9DF92EF12630F377000FC3FC /* ADTUrlStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTUrlStrategy.m; sourceTree = "<group>"; };
+		9DF92EF22630F377000FC3FC /* ADTSessionFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSessionFailure.h; sourceTree = "<group>"; };
+		9DF92EF32630F377000FC3FC /* ADTActivityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTActivityState.h; sourceTree = "<group>"; };
+		9DF92EF42630F377000FC3FC /* ADTAdtraceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTAdtraceFactory.m; sourceTree = "<group>"; };
+		9DF92EF52630F377000FC3FC /* ADTEventSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTEventSuccess.h; sourceTree = "<group>"; };
+		9DF92EF62630F377000FC3FC /* ADTEventFailure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTEventFailure.h; sourceTree = "<group>"; };
+		9DF92EF82630F377000FC3FC /* ADTResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTResponseData.m; sourceTree = "<group>"; };
+		9DF92EF92630F377000FC3FC /* ADTSessionSuccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSessionSuccess.h; sourceTree = "<group>"; };
+		9DF92EFA2630F377000FC3FC /* ADTPackageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTPackageBuilder.m; sourceTree = "<group>"; };
+		9DF92EFB2630F377000FC3FC /* ADTSubscription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTSubscription.m; sourceTree = "<group>"; };
+		9DF92EFC2630F377000FC3FC /* ADTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTUserDefaults.m; sourceTree = "<group>"; };
+		9DF92EFD2630F377000FC3FC /* ADTBackoffStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTBackoffStrategy.h; sourceTree = "<group>"; };
+		9DF92EFE2630F377000FC3FC /* ADTLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTLogger.h; sourceTree = "<group>"; };
+		9DF92EFF2630F377000FC3FC /* ADTSessionParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTSessionParameters.h; sourceTree = "<group>"; };
+		9DF92F002630F377000FC3FC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF92F012630F377000FC3FC /* ADTTimerCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTTimerCycle.h; sourceTree = "<group>"; };
+		9DF92F022630F377000FC3FC /* ADTActivityHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTActivityHandler.m; sourceTree = "<group>"; };
+		9DF92F032630F377000FC3FC /* ADTPackageParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTPackageParams.m; sourceTree = "<group>"; };
+		9DF92F282630F3A0000FC3FC /* AdtraceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdtraceBridge.m; sourceTree = "<group>"; };
+		9DF92F7C2630F3A1000FC3FC /* AdtraceBridgeRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdtraceBridgeRegister.h; sourceTree = "<group>"; };
+		9DF92F7E2630F3A1000FC3FC /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
+		9DF92F7F2630F3A1000FC3FC /* WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		9DF92F802630F3A1000FC3FC /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
+		9DF92F812630F3A1000FC3FC /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
+		9DF92F822630F3A1000FC3FC /* WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
+		9DF92F832630F3A1000FC3FC /* WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		9DF92F892630F3A1000FC3FC /* AdtraceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdtraceBridge.h; sourceTree = "<group>"; };
+		9DF92F8A2630F3A1000FC3FC /* AdtraceBridgeRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdtraceBridgeRegister.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D9D152B212EB3920081445E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9D1563212EB40D0081445E /* AdSupport.framework in Frameworks */,
+				9D9D1565212EB4130081445E /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D9D1525212EB3920081445E = {
+			isa = PBXGroup;
+			children = (
+				9D9D1530212EB3920081445E /* AdtraceExample-FbPixel */,
+				9D9D152F212EB3920081445E /* Products */,
+				9D9D155F212EB4080081445E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9D9D152F212EB3920081445E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D9D152E212EB3920081445E /* AdtraceExample-FbPixel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D9D1530212EB3920081445E /* AdtraceExample-FbPixel */ = {
+			isa = PBXGroup;
+			children = (
+				9D9D1531212EB3920081445E /* AppDelegate.h */,
+				9D9D1532212EB3920081445E /* AppDelegate.m */,
+				9D9D15E7212EB5230081445E /* WKWebViewController.h */,
+				9D9D15E6212EB5230081445E /* WKWebViewController.m */,
+				9D9D153A212EB3940081445E /* Assets.xcassets */,
+				07AF832227BD3CBF00C5DD9E /* Main.storyboard */,
+				9D9D153C212EB3940081445E /* LaunchScreen.storyboard */,
+				9D9D153F212EB3940081445E /* Info.plist */,
+				9D9D1540212EB3940081445E /* main.m */,
+				9D9D15E2212EB47C0081445E /* AdtraceExample-FbPixel.html */,
+				9DF92EB02630F377000FC3FC /* Adtrace */,
+				9DF92F272630F3A0000FC3FC /* AdtraceBridge */,
+			);
+			path = "AdtraceExample-FbPixel";
+			sourceTree = "<group>";
+		};
+		9D9D155F212EB4080081445E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D9D1564212EB4130081445E /* WebKit.framework */,
+				9D9D1562212EB40D0081445E /* AdSupport.framework */,
+				9D9D1560212EB4080081445E /* iAd.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DF92EB02630F377000FC3FC /* Adtrace */ = {
+			isa = PBXGroup;
+			children = (
+				9DF92EB12630F377000FC3FC /* ADTConfig.h */,
+				9DF92EB22630F377000FC3FC /* ADTAdRevenue.m */,
+				9DF92EB32630F377000FC3FC /* ADTTimerOnce.m */,
+				9DF92EB42630F377000FC3FC /* ADTAttributionHandler.m */,
+				9DF92EB52630F377000FC3FC /* Adtrace.h */,
+				9DF92EB62630F377000FC3FC /* ADTActivityPackage.h */,
+				9DF92EB72630F377000FC3FC /* ADTRequestHandler.m */,
+				9DF92EB82630F377000FC3FC /* ADTThirdPartySharing.h */,
+				9DF92EB92630F377000FC3FC /* ADTAttribution.h */,
+				9DF92EBA2630F377000FC3FC /* ADTSdkClickHandler.m */,
+				9DF92EBB2630F377000FC3FC /* ADTActivityKind.h */,
+				9DF92EBC2630F377000FC3FC /* ADTEvent.m */,
+				9DF92EBD2630F377000FC3FC /* ADTPackageHandler.h */,
+				9DF92EBE2630F377000FC3FC /* ADTSubscription.h */,
+				9DF92EBF2630F377000FC3FC /* ADTPackageBuilder.h */,
+				9DF92EC02630F377000FC3FC /* ADTResponseData.h */,
+				9DF92EC12630F377000FC3FC /* ADTSessionSuccess.m */,
+				9DF92EC22630F377000FC3FC /* ADTEventFailure.m */,
+				9DF92EC32630F377000FC3FC /* ADTAdtraceFactory.h */,
+				9DF92ED02630F377000FC3FC /* ADTEventSuccess.m */,
+				9DF92ED12630F377000FC3FC /* ADTActivityState.m */,
+				9DF92ED22630F377000FC3FC /* ADTUrlStrategy.h */,
+				9DF92ED32630F377000FC3FC /* ADTSessionFailure.m */,
+				9DF92ED42630F377000FC3FC /* ADTUtil.h */,
+				9DF92ED52630F377000FC3FC /* ADTPackageParams.h */,
+				9DF92ED62630F377000FC3FC /* ADTActivityHandler.h */,
+				9DF92ED72630F377000FC3FC /* ADTTimerCycle.m */,
+				9DF92ED82630F377000FC3FC /* ADTSessionParameters.m */,
+				9DF92ED92630F377000FC3FC /* ADTLogger.m */,
+				9DF92EDA2630F377000FC3FC /* ADTBackoffStrategy.m */,
+				9DF92EDB2630F377000FC3FC /* ADTUserDefaults.h */,
+				9DF92EDC2630F377000FC3FC /* Adtrace.m */,
+				9DF92EDD2630F377000FC3FC /* ADTAttributionHandler.h */,
+				9DF92EDE2630F377000FC3FC /* ADTTimerOnce.h */,
+				9DF92EDF2630F377000FC3FC /* ADTAdRevenue.h */,
+				9DF92EE02630F377000FC3FC /* ADTConfig.m */,
+				9DF92EE12630F377000FC3FC /* ADTPackageHandler.m */,
+				9DF92EE22630F377000FC3FC /* ADTEvent.h */,
+				9DF92EE32630F377000FC3FC /* ADTSdkClickHandler.h */,
+				9DF92EE42630F377000FC3FC /* ADTActivityKind.m */,
+				9DF92EE52630F377000FC3FC /* ADTAdditions */,
+				9DF92EEC2630F377000FC3FC /* ADTAttribution.m */,
+				9DF92EED2630F377000FC3FC /* ADTThirdPartySharing.m */,
+				9DF92EEE2630F377000FC3FC /* ADTRequestHandler.h */,
+				9DF92EEF2630F377000FC3FC /* ADTActivityPackage.m */,
+				9DF92EF02630F377000FC3FC /* ADTUtil.m */,
+				9DF92EF12630F377000FC3FC /* ADTUrlStrategy.m */,
+				9DF92EF22630F377000FC3FC /* ADTSessionFailure.h */,
+				9DF92EF32630F377000FC3FC /* ADTActivityState.h */,
+				9DF92EF42630F377000FC3FC /* ADTAdtraceFactory.m */,
+				9DF92EF52630F377000FC3FC /* ADTEventSuccess.h */,
+				9DF92EF62630F377000FC3FC /* ADTEventFailure.h */,
+				9DF92EF82630F377000FC3FC /* ADTResponseData.m */,
+				9DF92EF92630F377000FC3FC /* ADTSessionSuccess.h */,
+				9DF92EFA2630F377000FC3FC /* ADTPackageBuilder.m */,
+				9DF92EFB2630F377000FC3FC /* ADTSubscription.m */,
+				9DF92EFC2630F377000FC3FC /* ADTUserDefaults.m */,
+				9DF92EFD2630F377000FC3FC /* ADTBackoffStrategy.h */,
+				9DF92EFE2630F377000FC3FC /* ADTLogger.h */,
+				9DF92EFF2630F377000FC3FC /* ADTSessionParameters.h */,
+				9DF92F002630F377000FC3FC /* Info.plist */,
+				9DF92F012630F377000FC3FC /* ADTTimerCycle.h */,
+				9DF92F022630F377000FC3FC /* ADTActivityHandler.m */,
+				9DF92F032630F377000FC3FC /* ADTPackageParams.m */,
+				6FAB78C02636DDC400773869 /* ADTLinkResolution.h */,
+				6FAB78BF2636DDC400773869 /* ADTLinkResolution.m */,
+				9D49D178290FEC2E00042345 /* ADTSKAdNetwork.h */,
+				9D49D179290FEC2E00042345 /* ADTSKAdNetwork.m */,
+			);
+			name = Adtrace;
+			path = ../../../Adtrace;
+			sourceTree = "<group>";
+		};
+		9DF92EE52630F377000FC3FC /* ADTAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				9DF92EE62630F377000FC3FC /* NSNumber+ADTAdditions.h */,
+				9DF92EE72630F377000FC3FC /* NSString+ADTAdditions.m */,
+				9DF92EE82630F377000FC3FC /* NSData+ADTAdditions.m */,
+				9DF92EE92630F377000FC3FC /* NSNumber+ADTAdditions.m */,
+				9DF92EEA2630F377000FC3FC /* NSData+ADTAdditions.h */,
+				9DF92EEB2630F377000FC3FC /* NSString+ADTAdditions.h */,
+			);
+			path = ADTAdditions;
+			sourceTree = "<group>";
+		};
+		9DF92F272630F3A0000FC3FC /* AdtraceBridge */ = {
+			isa = PBXGroup;
+			children = (
+				9DF92F892630F3A1000FC3FC /* AdtraceBridge.h */,
+				9DF92F282630F3A0000FC3FC /* AdtraceBridge.m */,
+				9DF92F7C2630F3A1000FC3FC /* AdtraceBridgeRegister.h */,
+				9DF92F8A2630F3A1000FC3FC /* AdtraceBridgeRegister.m */,
+				9DF92F7D2630F3A1000FC3FC /* WebViewJavascriptBridge */,
+			);
+			name = AdtraceBridge;
+			path = ../../../AdtraceBridge;
+			sourceTree = "<group>";
+		};
+		9DF92F7D2630F3A1000FC3FC /* WebViewJavascriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				9DF92F7E2630F3A1000FC3FC /* WebViewJavascriptBridgeBase.m */,
+				9DF92F7F2630F3A1000FC3FC /* WKWebViewJavascriptBridge.m */,
+				9DF92F802630F3A1000FC3FC /* WebViewJavascriptBridge_JS.h */,
+				9DF92F812630F3A1000FC3FC /* WebViewJavascriptBridgeBase.h */,
+				9DF92F822630F3A1000FC3FC /* WebViewJavascriptBridge_JS.m */,
+				9DF92F832630F3A1000FC3FC /* WKWebViewJavascriptBridge.h */,
+			);
+			path = WebViewJavascriptBridge;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D9D152D212EB3920081445E /* AdtraceExample-FbPixel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D9D1544212EB3940081445E /* Build configuration list for PBXNativeTarget "AdtraceExample-FbPixel" */;
+			buildPhases = (
+				9D9D152A212EB3920081445E /* Sources */,
+				9D9D152B212EB3920081445E /* Frameworks */,
+				9D9D152C212EB3920081445E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AdtraceExample-FbPixel";
+			productName = "AdtraceExample-FbPixel";
+			productReference = 9D9D152E212EB3920081445E /* AdtraceExample-FbPixel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D9D1526212EB3920081445E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = "Adtrace GmbH";
+				TargetAttributes = {
+					9D9D152D212EB3920081445E = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 9D9D1529212EB3920081445E /* Build configuration list for PBXProject "AdtraceExample-FbPixel" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9D9D1525212EB3920081445E;
+			productRefGroup = 9D9D152F212EB3920081445E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D9D152D212EB3920081445E /* AdtraceExample-FbPixel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D9D152C212EB3920081445E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9D15E3212EB47C0081445E /* AdtraceExample-FbPixel.html in Resources */,
+				9D9D153E212EB3940081445E /* LaunchScreen.storyboard in Resources */,
+				9D9D153B212EB3940081445E /* Assets.xcassets in Resources */,
+				07AF832327BD3CBF00C5DD9E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D9D152A212EB3920081445E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DF92FAF2630F3A1000FC3FC /* WebViewJavascriptBridgeBase.m in Sources */,
+				9D9D15E9212EB5230081445E /* WKWebViewController.m in Sources */,
+				9DF92F1F2630F377000FC3FC /* ADTAdtraceFactory.m in Sources */,
+				9DF92F0B2630F377000FC3FC /* ADTEventFailure.m in Sources */,
+				9DF92F152630F377000FC3FC /* ADTPackageHandler.m in Sources */,
+				9DF92F202630F377000FC3FC /* ADTResponseData.m in Sources */,
+				9DF92F1C2630F377000FC3FC /* ADTActivityPackage.m in Sources */,
+				9DF92F0C2630F377000FC3FC /* ADTEventSuccess.m in Sources */,
+				9DF92FB02630F3A1000FC3FC /* WKWebViewJavascriptBridge.m in Sources */,
+				07A893432B0B980B0011DAB8 /* ADTPurchaseVerificationHandler.m in Sources */,
+				9DF92F232630F377000FC3FC /* ADTUserDefaults.m in Sources */,
+				9DF92F182630F377000FC3FC /* NSData+ADTAdditions.m in Sources */,
+				9DF92F212630F377000FC3FC /* ADTPackageBuilder.m in Sources */,
+				9DF92F132630F377000FC3FC /* Adtrace.m in Sources */,
+				9DF92F172630F377000FC3FC /* NSString+ADTAdditions.m in Sources */,
+				9DF92F052630F377000FC3FC /* ADTTimerOnce.m in Sources */,
+				07A893452B0B980B0011DAB8 /* ADTPurchase.m in Sources */,
+				9DF92F072630F377000FC3FC /* ADTRequestHandler.m in Sources */,
+				9DF92F122630F377000FC3FC /* ADTBackoffStrategy.m in Sources */,
+				9DF92F222630F377000FC3FC /* ADTSubscription.m in Sources */,
+				9DF92F112630F377000FC3FC /* ADTLogger.m in Sources */,
+				9DF92FB22630F3A1000FC3FC /* AdtraceBridgeRegister.m in Sources */,
+				9DF92F192630F377000FC3FC /* NSNumber+ADTAdditions.m in Sources */,
+				9DF92F262630F377000FC3FC /* ADTPackageParams.m in Sources */,
+				9D9D1541212EB3940081445E /* main.m in Sources */,
+				9DF92F082630F377000FC3FC /* ADTSdkClickHandler.m in Sources */,
+				9DF92F8B2630F3A1000FC3FC /* AdtraceBridge.m in Sources */,
+				9D9D1533212EB3920081445E /* AppDelegate.m in Sources */,
+				9DF92F252630F377000FC3FC /* ADTActivityHandler.m in Sources */,
+				9DF92F1D2630F377000FC3FC /* ADTUtil.m in Sources */,
+				9DF92F102630F377000FC3FC /* ADTSessionParameters.m in Sources */,
+				9DF92F062630F377000FC3FC /* ADTAttributionHandler.m in Sources */,
+				9DF92F1A2630F377000FC3FC /* ADTAttribution.m in Sources */,
+				9D49D17A290FEC2E00042345 /* ADTSKAdNetwork.m in Sources */,
+				9DF92F0F2630F377000FC3FC /* ADTTimerCycle.m in Sources */,
+				9DF92FB12630F3A1000FC3FC /* WebViewJavascriptBridge_JS.m in Sources */,
+				9DF92F0E2630F377000FC3FC /* ADTSessionFailure.m in Sources */,
+				9DF92F1E2630F377000FC3FC /* ADTUrlStrategy.m in Sources */,
+				6FAB78C12636DDC400773869 /* ADTLinkResolution.m in Sources */,
+				9DF92F1B2630F377000FC3FC /* ADTThirdPartySharing.m in Sources */,
+				9DF92F162630F377000FC3FC /* ADTActivityKind.m in Sources */,
+				9DF92F092630F377000FC3FC /* ADTEvent.m in Sources */,
+				9DF92F0D2630F377000FC3FC /* ADTActivityState.m in Sources */,
+				9DF92F0A2630F377000FC3FC /* ADTSessionSuccess.m in Sources */,
+				9DF92F042630F377000FC3FC /* ADTAdRevenue.m in Sources */,
+				9DF92F142630F377000FC3FC /* ADTConfig.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9D9D153C212EB3940081445E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D9D153D212EB3940081445E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9D9D1542212EB3940081445E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9D9D1543212EB3940081445E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9D9D1545212EB3940081445E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
+				INFOPLIST_FILE = "AdtraceExample-FbPixel/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.adtrace.examples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D9D1546212EB3940081445E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
+				INFOPLIST_FILE = "AdtraceExample-FbPixel/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.adtrace.examples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D9D1529212EB3920081445E /* Build configuration list for PBXProject "AdtraceExample-FbPixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D9D1542212EB3940081445E /* Debug */,
+				9D9D1543212EB3940081445E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D9D1544212EB3940081445E /* Build configuration list for PBXNativeTarget "AdtraceExample-FbPixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D9D1545212EB3940081445E /* Debug */,
+				9D9D1546212EB3940081445E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D9D1526212EB3920081445E /* Project object */;
+}

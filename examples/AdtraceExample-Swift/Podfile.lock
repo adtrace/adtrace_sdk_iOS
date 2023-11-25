@@ -1,0 +1,18 @@
+PODS:
+  - Adtrace (4.35.2):
+    - Adtrace/Core (= 4.35.2)
+  - Adtrace/Core (4.35.2)
+
+DEPENDENCIES:
+  - Adtrace (from `../../`)
+
+EXTERNAL SOURCES:
+  Adtrace:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Adtrace: cac836ba910f868b38d0350045aaf498f794719a
+
+PODFILE CHECKSUM: 4c79da456db9adb90cdd42adc7f721c7bb6490cd
+
+COCOAPODS: 1.12.1

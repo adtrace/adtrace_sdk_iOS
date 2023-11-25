@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.adtrace.example</string>
+	<string>io.adtrace.example</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

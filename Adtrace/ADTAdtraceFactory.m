@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTAdtraceFactory.h"
 #import "ADTActivityHandler.h"
 #import "ADTPackageHandler.h"
@@ -22,18 +15,18 @@ static ADTBackoffStrategy * sdkClickHandlerBackoffStrategy = nil;
 static ADTBackoffStrategy * installSessionBackoffStrategy = nil;
 static BOOL internalTesting = NO;
 static NSTimeInterval internalMaxDelayStart = -1;
-static BOOL internaliAdFrameworkEnabled = YES;
 static BOOL internalAdServicesFrameworkEnabled = YES;
 
 static NSString * internalBaseUrl = nil;
 static NSString * internalGdprUrl = nil;
 static NSString * internalSubscriptionUrl = nil;
+static NSString * internalPurchaseVerificationUrl = nil;
 
 @implementation ADTAdtraceFactory
 
 + (id<ADTLogger>)logger {
     if (internalLogger == nil) {
-        
+        //  same instance of logger
         internalLogger = [[ADTLogger alloc] init];
     }
     return internalLogger;
@@ -41,35 +34,35 @@ static NSString * internalSubscriptionUrl = nil;
 
 + (double)sessionInterval {
     if (internalSessionInterval < 0) {
-        return 30 * 60;           
+        return 30 * 60;           // 30 minutes
     }
     return internalSessionInterval;
 }
 
 + (double)subsessionInterval {
     if (intervalSubsessionInterval == -1) {
-        return 1;                 
+        return 1;                 // 1 second
     }
     return intervalSubsessionInterval;
 }
 
 + (double)requestTimeout {
     if (internalRequestTimeout == -1) {
-        return 60;                 
+        return 60;                 // 60 second
     }
     return internalRequestTimeout;
 }
 
 + (NSTimeInterval)timerInterval {
     if (internalTimerInterval < 0) {
-        return 60;                
+        return 60;                // 1 minute
     }
     return internalTimerInterval;
 }
 
 + (NSTimeInterval)timerStart {
     if (intervalTimerStart < 0) {
-        return 60;                 
+        return 60;                 // 1 minute
     }
     return intervalTimerStart;
 }
@@ -99,17 +92,13 @@ static NSString * internalSubscriptionUrl = nil;
     return internalTesting;
 }
 
-+ (BOOL)iAdFrameworkEnabled {
-    return internaliAdFrameworkEnabled;
-}
-
 + (BOOL)adServicesFrameworkEnabled {
     return internalAdServicesFrameworkEnabled;
 }
 
 + (NSTimeInterval)maxDelayStart {
     if (internalMaxDelayStart < 0) {
-        return 10.0;               
+        return 10.0;               // 10 seconds
     }
     return internalMaxDelayStart;
 }
@@ -124,6 +113,10 @@ static NSString * internalSubscriptionUrl = nil;
 
 + (NSString *)subscriptionUrl {
     return internalSubscriptionUrl;
+}
+
++ (NSString *)purchaseVerificationUrl {
+    return internalPurchaseVerificationUrl;
 }
 
 + (void)setLogger:(id<ADTLogger>)logger {
@@ -162,10 +155,6 @@ static NSString * internalSubscriptionUrl = nil;
     internalTesting = testing;
 }
 
-+ (void)setiAdFrameworkEnabled:(BOOL)iAdFrameworkEnabled {
-    internaliAdFrameworkEnabled = iAdFrameworkEnabled;
-}
-
 + (void)setAdServicesFrameworkEnabled:(BOOL)adServicesFrameworkEnabled {
     internalAdServicesFrameworkEnabled = adServicesFrameworkEnabled;
 }
@@ -184,6 +173,10 @@ static NSString * internalSubscriptionUrl = nil;
 
 + (void)setSubscriptionUrl:(NSString *)subscriptionUrl {
     internalSubscriptionUrl = subscriptionUrl;
+}
+
++ (void)setPurchaseVerificationUrl:(NSString *)purchaseVerificationUrl {
+    internalPurchaseVerificationUrl = purchaseVerificationUrl;
 }
 
 + (void)enableSigning {
@@ -248,7 +241,7 @@ static NSString * internalSubscriptionUrl = nil;
     internalBaseUrl = nil;
     internalGdprUrl = nil;
     internalSubscriptionUrl = nil;
-    internaliAdFrameworkEnabled = YES;
+    internalPurchaseVerificationUrl = nil;
     internalAdServicesFrameworkEnabled = YES;
 }
 @end

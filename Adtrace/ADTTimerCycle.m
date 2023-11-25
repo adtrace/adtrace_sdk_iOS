@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTTimerCycle.h"
 #import "ADTLogger.h"
 #import "ADTAdtraceFactory.h"

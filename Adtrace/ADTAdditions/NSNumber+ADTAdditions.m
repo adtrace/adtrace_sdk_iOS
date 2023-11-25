@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "NSNumber+ADTAdditions.h"
 
 @implementation NSNumber(ADTAdditions)

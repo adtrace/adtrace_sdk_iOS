@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTLogger.h"
 
 static NSString * const kLogTag = @"Adtrace";
@@ -25,7 +18,7 @@ static NSString * const kLogTag = @"Adtrace";
     self = [super init];
     if (self == nil) return nil;
 
-    
+    //default values
     _loglevel = ADTLogLevelInfo;
     self.logLevelLocked = NO;
     self.isProductionEnvironment = NO;
@@ -94,7 +87,7 @@ isProductionEnvironment:(BOOL)isProductionEnvironment
     [self logLevel:@"a" format:format parameters:parameters];
 }
 
-
+// private implementation
 - (void)logLevel:(NSString *)logLevel format:(NSString *)format parameters:(va_list)parameters {
     NSString *string = [[NSString alloc] initWithFormat:format arguments:parameters];
     va_end(parameters);
@@ -127,7 +120,7 @@ isProductionEnvironment:(BOOL)isProductionEnvironment
     if ([logLevelString isEqualToString:@"suppress"])
         return ADTLogLevelSuppress;
 
-    
+    // default value if string does not match
     return ADTLogLevelInfo;
 }
 

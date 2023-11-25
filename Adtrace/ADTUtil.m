@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #include <math.h>
 #include <dlfcn.h>
 #include <stdlib.h>
@@ -28,10 +21,6 @@
 #import <AdSupport/ASIdentifierManager.h>
 #endif
 
-#if !ADTRACE_NO_IAD && !TARGET_OS_TV
-#import <iAd/iAd.h>
-#endif
-
 static NSString *userAgent = nil;
 static NSRegularExpression *universalLinkRegex = nil;
 static NSNumberFormatter *secondsNumberFormatter = nil;
@@ -39,13 +28,13 @@ static NSRegularExpression *optionalRedirectRegex = nil;
 static NSRegularExpression *shortUniversalLinkRegex = nil;
 static NSRegularExpression *excludedDeeplinkRegex = nil;
 
-static NSString * const kClientSdk                  = @"ios2.1.0";
+static NSString * const kClientSdk                  = @"ios2.2.0";
 static NSString * const kDeeplinkParam              = @"deep_link=";
 static NSString * const kSchemeDelimiter            = @"://";
 static NSString * const kDefaultScheme              = @"AdtraceUniversalScheme";
 static NSString * const kUniversalLinkPattern       = @"https://[^.]*\\.ulink\\.adtrace\\.io/ulink/?(.*)";
 static NSString * const kOptionalRedirectPattern    = @"adtrace_redirect=[^&#]*";
-static NSString * const kShortUniversalLinkPattern  = @"http[s]?://[a-z0-9]{4}\\.adt\\.io/?(.*)";
+static NSString * const kShortUniversalLinkPattern  = @"http[s]?://[a-z0-9]{4}\\.(?:[a-z]{2}\\.)?adt\\.io/?(.*)";
 static NSString * const kExcludedDeeplinksPattern   = @"^(fb|vk)[0-9]{5,}[^:]*://authorize.*access_token=.*";
 static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'Z";
 
@@ -152,7 +141,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     return dateFormatter;
 }
 
-
+// Inspired by https://gist.github.com/kevinbarrett/2002382
 + (void)excludeFromBackup:(NSString *)path {
     NSURL *url = [NSURL fileURLWithPath:path];
     const char* filePath = [[url path] fileSystemRepresentation];
@@ -168,18 +157,18 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
         if (result != 0) {
             [logger debug:@"Failed to exclude '%@' from backup", url.lastPathComponent];
         }
-    } else { 
-        
+    } else { // iOS 5.0 and higher
+        // First try and remove the extended attribute if it is present
         ssize_t result = getxattr(filePath, attrName, NULL, sizeof(u_int8_t), 0, 0);
         if (result != -1) {
-            
+            // The attribute exists, we need to remove it
             int removeResult = removexattr(filePath, attrName, 0);
             if (removeResult == 0) {
                 [logger debug:@"Removed extended attribute on file '%@'", url];
             }
         }
 
-        
+        // Set the new key
         NSError *error = nil;
         BOOL success = [url setResourceValue:[NSNumber numberWithBool:YES]
                                       forKey:NSURLIsExcludedFromBackupKey
@@ -215,12 +204,12 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
         NSString *documentsFilePath = [ADTUtil getFilePathInDocumentsDir:fileName];
         NSString *appSupportFilePath = [ADTUtil getFilePathInAppSupportDir:fileName];
 
-        
+        // Try to read from Application Support directory first.
         @try {
             id appSupportObject;
             if (@available(iOS 11.0, tvOS 11.0, *)) {
                 NSData *data = [NSData dataWithContentsOfFile:appSupportFilePath];
-                
+                // API introduced in iOS 11.
                 NSError *errorUnarchiver = nil;
                 NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data
                                                                                             error:&errorUnarchiver];
@@ -228,48 +217,48 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
                     [unarchiver setRequiresSecureCoding:NO];
                     appSupportObject = [unarchiver decodeObjectOfClass:classToRead forKey:NSKeyedArchiveRootObjectKey];
                 } else {
-                    
-                    
+                    // TODO: try to make this error fit the logging flow; if not, remove it
+                    // [[ADTAdtraceFactory logger] debug:@"Failed to read %@ with error: %@", objectName, errorUnarchiver.localizedDescription];
                 }
             } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                
-                
+                // API_DEPRECATED [2.0-12.0]
+                // "Use +unarchivedObjectOfClass:fromData:error: instead"
                 appSupportObject = [NSKeyedUnarchiver unarchiveObjectWithFile:appSupportFilePath];
 #pragma clang diagnostic pop
             }
 
             if (appSupportObject != nil) {
                 if ([appSupportObject isKindOfClass:classToRead]) {
-                    
+                    // Successfully read object from Application Support folder, return it.
                     if ([appSupportObject isKindOfClass:[NSArray class]]) {
                         [[ADTAdtraceFactory logger] debug:@"Package handler read %d packages", [appSupportObject count]];
                     } else {
                         [[ADTAdtraceFactory logger] debug:@"Read %@: %@", objectName, appSupportObject];
                     }
 
-                    
+                    // Just in case check if old file exists in Documents folder and if yes, remove it.
                     [ADTUtil deleteFileInPath:documentsFilePath];
 
                     return appSupportObject;
                 }
             } else {
-                
+                // [[ADTAdtraceFactory logger] error:@"Failed to read %@ file", appSupportFilePath];
                 [[ADTAdtraceFactory logger] debug:@"File %@ not found in \"Application Support/Adtrace\" folder", fileName];
             }
         } @catch (NSException *ex) {
-            
+            // [[ADTAdtraceFactory logger] error:@"Failed to read %@ file  (%@)", appSupportFilePath, ex];
             [[ADTAdtraceFactory logger] error:@"Failed to read %@ file from \"Application Support/Adtrace\" folder (%@)", fileName, ex];
         }
 
-        
-        
+        // If in here, for some reason, reading of file from Application Support folder failed.
+        // Let's check the Documents folder.
         @try {
             id documentsObject;
             if (@available(iOS 11.0, tvOS 11.0, *)) {
                 NSData *data = [NSData dataWithContentsOfFile:documentsFilePath];
-                
+                // API introduced in iOS 11.
                 NSError *errorUnarchiver = nil;
                 NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data
                                                                                             error:&errorUnarchiver];
@@ -277,37 +266,37 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
                     [unarchiver setRequiresSecureCoding:NO];
                     documentsObject = [unarchiver decodeObjectOfClass:classToRead forKey:NSKeyedArchiveRootObjectKey];
                 } else {
-                    
-                    
+                    // TODO: try to make this error fit the logging flow; if not, remove it
+                    // [[ADTAdtraceFactory logger] debug:@"Failed to read %@ with error: %@", objectName, errorUnarchiver.localizedDescription];
                 }
             } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                
-                
+                // API_DEPRECATED [2.0-12.0]
+                // "Use +unarchivedObjectOfClass:fromData:error: instead"
                 documentsObject = [NSKeyedUnarchiver unarchiveObjectWithFile:documentsFilePath];
 #pragma clang diagnostic pop
             }
 
             if (documentsObject != nil) {
-                
+                // Successfully read object from Documents folder.
                 if ([documentsObject isKindOfClass:[NSArray class]]) {
                     [[ADTAdtraceFactory logger] debug:@"Package handler read %d packages", [documentsObject count]];
                 } else {
                     [[ADTAdtraceFactory logger] debug:@"Read %@: %@", objectName, documentsObject];
                 }
 
-                
+                // Do the file migration.
                 [[ADTAdtraceFactory logger] verbose:@"Migrating %@ file from Documents to \"Application Support/Adtrace\" folder", fileName];
                 [ADTUtil migrateFileFromPath:documentsFilePath toPath:appSupportFilePath];
 
                 return documentsObject;
             } else {
-                
+                // [[ADTAdtraceFactory logger] error:@"Failed to read %@ file", documentsFilePath];
                 [[ADTAdtraceFactory logger] debug:@"File %@ not found in Documents folder", fileName];
             }
         } @catch (NSException *ex) {
-            
+            // [[ADTAdtraceFactory logger] error:@"Failed to read %@ file (%@)", documentsFilePath, ex];
             [[ADTAdtraceFactory logger] error:@"Failed to read %@ file from Documents folder (%@)", fileName, ex];
         }
 
@@ -332,19 +321,21 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
             }
 
             if (@available(iOS 11.0, tvOS 11.0, *)) {
-                NSError *errorArchiving = nil;
-                
-                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object requiringSecureCoding:NO error:&errorArchiving];
-                if (data && errorArchiving == nil) {
-                    NSError *errorWriting = nil;
-                    result = [data writeToFile:filePath options:NSDataWritingAtomic error:&errorWriting];
-                    result = result && (errorWriting == nil);
-                } else {
-                    result = NO;
+                @autoreleasepool {
+                    NSError *errorArchiving = nil;
+                    // API introduced in iOS 11.
+                    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object requiringSecureCoding:NO error:&errorArchiving];
+                    if (data && errorArchiving == nil) {
+                        NSError *errorWriting = nil;
+                        result = [data writeToFile:filePath options:NSDataWritingAtomic error:&errorWriting];
+                        result = result && (errorWriting == nil);
+                    } else {
+                        result = NO;
+                    }
                 }
             } else {
-                
-                
+                // API_DEPRECATED [2.0-12.0]
+                // Use +archivedDataWithRootObject:requiringSecureCoding:error: and -writeToURL:options:error: instead
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 result = [NSKeyedArchiver archiveRootObject:object toFile:filePath];
@@ -404,12 +395,12 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
         [[ADTAdtraceFactory logger] error:[error description]];
         return NO;
     }
-    
+    // Migration successful.
     return YES;
 }
 
 + (NSString *)getFilePathInDocumentsDir:(NSString *)fileName {
-    
+    // Documents directory exists by default inside app bundle, no need to check for it's presence.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
     NSString *filePath = [documentsDir stringByAppendingPathComponent:fileName];
@@ -417,8 +408,8 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 }
 
 + (NSString *)getFilePathInAppSupportDir:(NSString *)fileName {
-    
-    
+    // Application Support directory doesn't exist by default inside app bundle.
+    // All Adtrace files are going to be stored in Adtrace sub-directory inside Application Support directory.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString *appSupportDir = [paths firstObject];
     NSString *adtraceDirName = @"Adtrace";
@@ -434,8 +425,8 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 }
 
 + (BOOL)checkForDirectoryPresenceInPath:(NSString *)path forFolder:(NSString *)folderName {
-    
-    
+    // Check for presence of directory first.
+    // If it doesn't exist, make one.
     Class class = NSClassFromString([NSString adtJoin:@"N", @"S", @"file", @"manager", nil]);
     if (class == nil) {
         return NO;
@@ -539,23 +530,23 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     return value != nil && value != (id)[NSNull null];
 }
 
-
+// Convert all values to strings, if value is dictionary -> recursive call
 + (NSDictionary *)convertDictionaryValues:(NSDictionary *)dictionary {
     NSMutableDictionary *convertedDictionary = [[NSMutableDictionary alloc] initWithCapacity:dictionary.count];
     for (NSString *key in dictionary) {
         id value = [dictionary objectForKey:key];
         if ([value isKindOfClass:[NSDictionary class]]) {
-            
+            // Dictionary value, recursive call
             NSDictionary *dictionaryValue = [ADTUtil convertDictionaryValues:(NSDictionary *)value];
             [convertedDictionary setObject:dictionaryValue forKey:key];
         } else if ([value isKindOfClass:[NSDate class]]) {
-            
+            // Format date to our custom format
             NSString *dateStingValue = [ADTUtil formatDate:value];
             if (dateStingValue != nil) {
                 [convertedDictionary setObject:dateStingValue forKey:key];
             }
         } else {
-            
+            // Convert all other objects directly to string
             NSString *stringValue = [NSString stringWithFormat:@"%@", value];
             [convertedDictionary setObject:stringValue forKey:key];
         }
@@ -668,7 +659,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 }
 
 + (NSString *)secondsNumberFormat:(double)seconds {
-    
+    // Normalize negative zero
     if (seconds < 0) {
         seconds = seconds * -1;
     }
@@ -679,15 +670,8 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 }
 
 + (double)randomInRange:(double)minRange maxRange:(double)maxRange {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        srand48(arc4random());
-    });
-    double random = drand48();
     double range = maxRange - minRange;
-    double scaled = random  * range;
-    double shifted = scaled + minRange;
-    return shifted;
+    return minRange + (range * arc4random_uniform(100)*1.0/100);
 }
 
 + (NSTimeInterval)waitingTime:(NSInteger)retries
@@ -696,15 +680,15 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
         return 0;
     }
 
-    
+    // Start with base 0
     NSInteger base = retries - backoffStrategy.minRetries;
-    
+    // Get the exponential Time from the base: 1, 2, 4, 8, 16, ... * times the multiplier
     NSTimeInterval exponentialTime = pow(2.0, base) * backoffStrategy.secondMultiplier;
-    
+    // Limit the maximum allowed time to wait
     NSTimeInterval ceilingTime = MIN(exponentialTime, backoffStrategy.maxWait);
-    
+    // Add 1 to allow maximum value
     double randomRange = [ADTUtil randomInRange:backoffStrategy.minRange maxRange:backoffStrategy.maxRange];
-    
+    // Apply jitter factor
     NSTimeInterval waitingTime =  ceilingTime * randomRange;
     return waitingTime;
 }
@@ -718,7 +702,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     } else {
         [receiver performSelectorOnMainThread:selector
                                    withObject:object
-                                waitUntilDone:NO];  
+                                waitUntilDone:NO];  // non-blocking
     }
 }
 
@@ -737,7 +721,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 
 + (BOOL)isInactive {
 #if ADTRACE_IM
-    
+    // Assume iMessage extension app can't be started from background.
     return NO;
 #else
     return [[UIApplication sharedApplication] applicationState] != UIApplicationStateActive;
@@ -890,7 +874,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 
 + (void)launchDeepLinkMain:(NSURL *)deepLinkUrl {
 #if ADTRACE_IM
-    
+    // No deep linking in iMessage extension apps.
     return;
 #else
     UIApplication *sharedUIApplication = [UIApplication sharedApplication];
@@ -932,7 +916,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 #endif
 }
 
-
+// adapted from https://stackoverflow.com/a/9084784
 + (NSString *)convertDeviceToken:(NSData *)deviceToken {
     NSUInteger dataLength  = [deviceToken length];
 
@@ -953,44 +937,6 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     }
 
     return [hexString copy];
-}
-
-+ (BOOL)checkAttributionDetails:(NSDictionary *)attributionDetails {
-    if ([ADTUtil isNull:attributionDetails]) {
-        return NO;
-    }
-
-    NSDictionary *details = [attributionDetails objectForKey:@"Version3.1"];
-    if ([ADTUtil isNull:details]) {
-        return YES;
-    }
-
-    
-    if (![ADTUtil contains:details key:@"iad-org-name" value:@"OrgName"] ||
-        ![ADTUtil contains:details key:@"iad-campaign-id" value:@"1234567890"] ||
-        ![ADTUtil contains:details key:@"iad-campaign-name" value:@"CampaignName"] ||
-        ![ADTUtil contains:details key:@"iad-lineitem-id" value:@"1234567890"] ||
-        ![ADTUtil contains:details key:@"iad-lineitem-name" value:@"LineName"]) {
-        [ADTAdtraceFactory.logger debug:@"iAd attribution details has dummy common fields for both iAd3 and Apple Search Ads"];
-        return YES;
-    }
-    
-    if ([ADTUtil contains:details key:@"iad-adgroup-id" value:@"1234567890"] &&
-        [ADTUtil contains:details key:@"iad-keyword" value:@"Keyword"] && (
-            [ADTUtil contains:details key:@"iad-adgroup-name" value:@"AdgroupName"] ||
-            [ADTUtil contains:details key:@"iad-adgroup-name" value:@"AdGroupName"]
-        )) {
-        [ADTAdtraceFactory.logger debug:@"iAd attribution details has dummy Apple Search Ads fields"];
-        return NO;
-    }
-    
-    if ([ADTUtil contains:details key:@"iad-adgroup-id" value:@"1234567890"] &&
-        [ADTUtil contains:details key:@"iad-creative-name" value:@"CreativeName"]) {
-        [ADTAdtraceFactory.logger debug:@"iAd attribution details has dummy iAd3 fields"];
-        return NO;
-    }
-
-    return YES;
 }
 
 + (BOOL)contains:(NSDictionary *)dictionary
@@ -1031,31 +977,6 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     return kClientSdk;
 }
 
-+ (void)updateSkAdNetworkConversionValue:(NSNumber *)conversionValue {
-    id<ADTLogger> logger = [ADTAdtraceFactory logger];
-    
-    Class skAdNetwork = NSClassFromString(@"SKAdNetwork");
-    if (skAdNetwork == nil) {
-        [logger warn:@"StoreKit framework not found in the app (SKAdNetwork not found)"];
-        return;
-    }
-    
-    SEL updateConversionValueSelector = NSSelectorFromString(@"updateConversionValue:");
-    if ([skAdNetwork respondsToSelector:updateConversionValueSelector]) {
-        NSInteger intValue = [conversionValue integerValue];
-        
-        NSMethodSignature *conversionValueMethodSignature = [skAdNetwork methodSignatureForSelector:updateConversionValueSelector];
-        NSInvocation *conversionInvocation = [NSInvocation invocationWithMethodSignature:conversionValueMethodSignature];
-        [conversionInvocation setSelector:updateConversionValueSelector];
-        [conversionInvocation setTarget:skAdNetwork];
-
-        [conversionInvocation setArgument:&intValue atIndex:2];
-        [conversionInvocation invoke];
-        
-        [logger verbose:@"Call to SKAdNetwork's updateConversionValue: method made with value %d", intValue];
-    }
-}
-
 + (Class)adSupportManager {
     NSString *className = [NSString adtJoin:@"A", @"S", @"identifier", @"manager", nil];
     Class class = NSClassFromString(className);
@@ -1072,7 +993,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 #if ADTRACE_NO_IDFA
     return NO;
 #else
-    
+    // return [[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled];
     Class adSupportClass = [ADTUtil adSupportManager];
     if (adSupportClass == nil) {
         return NO;
@@ -1108,7 +1029,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 #if ADTRACE_NO_IDFA
     return @"";
 #else
-    
+    // return [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     Class adSupportClass = [ADTUtil adSupportManager];
     if (adSupportClass == nil) {
         return @"";
@@ -1171,10 +1092,10 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 #if TARGET_OS_TV
     return @"";
 #else
-    
-    
-    
-    
+    // pre FB SDK v6.0.0
+    // return [FBSDKAppEventsUtility retrievePersistedAnonymousID];
+    // post FB SDK v6.0.0
+    // return [FBSDKBasicUtility retrievePersistedAnonymousID];
     Class class = nil;
     SEL selGetId = NSSelectorFromString(@"retrievePersistedAnonymousID");
     class = NSClassFromString(@"FBSDKBasicUtility");
@@ -1276,12 +1197,12 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 + (NSString *)fetchAdServicesAttribution:(NSError **)errorPtr {
     id<ADTLogger> logger = [ADTAdtraceFactory logger];
 
-    
+    // [AAAttribution attributionTokenWithError:...]
     Class attributionClass = NSClassFromString(@"AAAttribution");
     if (attributionClass == nil) {
         [logger warn:@"AdServices framework not found in the app (AAAttribution class not found)"];
         if (errorPtr) {
-            *errorPtr = [NSError errorWithDomain:@"com.adtrace.sdk.adServices"
+            *errorPtr = [NSError errorWithDomain:@"io.adtrace.sdk.adServices"
                                             code:100
                                         userInfo:@{@"Error reason": @"AdServices framework not found"}];
         }
@@ -1292,7 +1213,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     if (![attributionClass respondsToSelector:attributionTokenSelector]) {
         [logger warn:@"AdServices framework not found in the app (attributionTokenWithError: method not found)"];
         if (errorPtr) {
-            *errorPtr = [NSError errorWithDomain:@"com.adtrace.sdk.adServices"
+            *errorPtr = [NSError errorWithDomain:@"io.adtrace.sdk.adServices"
                                             code:100
                                         userInfo:@{@"Error reason": @"AdServices framework not found"}];
         }
@@ -1321,89 +1242,6 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
     [tokenInvocation getReturnValue:&tmpToken];
     NSString *token = tmpToken;
     return token;
-}
-
-+ (void)checkForiAd:(ADTActivityHandler *)activityHandler queue:(dispatch_queue_t)queue {
-    
-    id<ADTLogger> logger = [ADTAdtraceFactory logger];
-
-#if ADTRACE_NO_IAD || TARGET_OS_TV
-    [logger debug:@"ADTRACE_NO_IAD or TARGET_OS_TV set"];
-    return;
-#else
-    [logger debug:@"ADTRACE_NO_IAD or TARGET_OS_TV not set"];
-
-    
-    Class ADClientClass = NSClassFromString(@"ADClient");
-    if (ADClientClass == nil) {
-        [logger warn:@"iAd framework not found in the app (ADClientClass not found)"];
-        return;
-    }
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    SEL sharedClientSelector = NSSelectorFromString(@"sharedClient");
-    if (![ADClientClass respondsToSelector:sharedClientSelector]) {
-        [logger warn:@"iAd framework not found in the app (sharedClient method not found)"];
-        return;
-    }
-    id ADClientSharedClientInstance = [ADClientClass performSelector:sharedClientSelector];
-    if (ADClientSharedClientInstance == nil) {
-        [logger warn:@"iAd framework not found in the app (ADClientSharedClientInstance is nil)"];
-        return;
-    }
-    [logger debug:@"iAd framework successfully found in the app"];
-    BOOL iAdInformationAvailable = [ADTUtil setiAdWithDetails:activityHandler
-                                       adClientSharedInstance:ADClientSharedClientInstance
-                                                        queue:queue];
-    if (!iAdInformationAvailable) {
-        [logger warn:@"iAd information not available"];
-        return;
-    }
-#pragma clang diagnostic pop
-#endif
-}
-
-+ (BOOL)setiAdWithDetails:(ADTActivityHandler *)activityHandler
-   adClientSharedInstance:(id)ADClientSharedClientInstance
-                    queue:(dispatch_queue_t)queue {
-    SEL iAdDetailsSelector = NSSelectorFromString(@"requestAttributionDetailsWithBlock:");
-    if (![ADClientSharedClientInstance respondsToSelector:iAdDetailsSelector]) {
-        return NO;
-    }
-
-    __block Class lock = [ADTActivityHandler class];
-    __block BOOL completed = NO;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [ADClientSharedClientInstance performSelector:iAdDetailsSelector
-                                       withObject:^(NSDictionary *attributionDetails, NSError *error) {
-        @synchronized (lock) {
-            if (completed) {
-                return;
-            } else {
-                completed = YES;
-            }
-        }
-        [activityHandler setAttributionDetails:attributionDetails
-                                         error:error];
-    }];
-#pragma clang diagnostic pop
-
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), queue, ^{
-        @synchronized (lock) {
-            if (completed) {
-                return;
-            } else {
-                completed = YES;
-            }
-        }
-        [activityHandler setAttributionDetails:nil
-                                         error:[NSError errorWithDomain:@"com.adtrace.sdk.iAd"
-                                                                   code:100
-                                                               userInfo:@{@"Error reason": @"iAd request timed out"}]];
-    });
-    return YES;
 }
 
 + (void)requestTrackingAuthorizationWithCompletionHandler:(void (^)(NSUInteger status))completion {
@@ -1579,6 +1417,18 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
             return NO;
         }
     }
+}
+
++ (NSMutableDictionary *)deepCopyOfDictionary:(NSMutableDictionary *)dictionary {
+    if (dictionary == nil) {
+        return nil;
+    }
+
+    NSMutableDictionary *deepCopy =
+    (NSMutableDictionary *)CFBridgingRelease(CFPropertyListCreateDeepCopy(kCFAllocatorDefault,
+                                                                          (CFDictionaryRef)dictionary,
+                                                                          kCFPropertyListMutableContainersAndLeaves));
+    return deepCopy;
 }
 
 @end

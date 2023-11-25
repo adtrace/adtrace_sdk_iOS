@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTAttributionHandler.h"
 #import "ADTAdtraceFactory.h"
 #import "ADTUtil.h"
@@ -206,8 +199,8 @@ attributionResponseData:(ADTAttributionResponseData *)attributionResponseData {
             @"Could not get attribution JSON response with message: %@", responseData.message];
     }
 
-    
-    
+    // Check if any package response contains information that user has opted out.
+    // If yes, disable SDK and flush any potentially stored packages that happened afterwards.
     if (responseData.trackingState == ADTTrackingStateOptedOut) {
         [self.activityHandler setTrackingStateOptedOut];
         return;
@@ -230,7 +223,7 @@ attributionResponseData:(ADTAttributionResponseData *)attributionResponseData {
         [selfI.logger debug:@"Waiting to query attribution in %d milliseconds", milliSecondsDelay];
     }
 
-    
+    // set the new time the timer will fire in
     [selfI.attributionTimer startIn:secondsDelay];
 }
 

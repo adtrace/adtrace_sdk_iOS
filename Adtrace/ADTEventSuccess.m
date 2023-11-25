@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTEventSuccess.h"
 
 @implementation ADTEventSuccess

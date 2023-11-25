@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTEvent.h"
 #import "ADTConfig.h"
 #import "ADTPackageParams.h"
@@ -19,6 +12,8 @@
 @interface ADTPackageBuilder : NSObject
 
 @property (nonatomic, copy) NSString * _Nullable deeplink;
+
+@property (nonatomic, copy) NSString * _Nullable reftag;
 
 @property (nonatomic, copy) NSDate * _Nullable clickTime;
 
@@ -52,6 +47,11 @@
 - (ADTActivityPackage * _Nullable)buildClickPackage:(NSString * _Nullable)clickSource
                                               token:(NSString * _Nullable)token
                                     errorCodeNumber:(NSNumber * _Nullable)errorCodeNumber;
+
+- (ADTActivityPackage * _Nullable)buildClickPackage:(NSString * _Nullable)clickSource
+                                          linkMeUrl:(NSString * _Nullable)linkMeUrl;
+
+- (ADTActivityPackage * _Nullable)buildPurchaseVerificationPackage:(ADTPurchase * _Nullable)purchase;
 
 - (ADTActivityPackage * _Nullable)buildAttributionPackage:(NSString * _Nullable)initiatedBy;
 
@@ -87,6 +87,9 @@
 
 + (BOOL)isAdServicesPackage:(ADTActivityPackage * _Nullable)activityPackage;
 
++ (void)addIdfaToParameters:(NSMutableDictionary * _Nullable)parameters
+                 withConfig:(ADTConfig * _Nullable)adtConfig
+                     logger:(id<ADTLogger> _Nullable)logger;
 @end
 
 extern NSString * _Nullable const ADTAttributionTokenParameter;

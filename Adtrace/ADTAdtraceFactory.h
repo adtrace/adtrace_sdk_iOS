@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 #import <Foundation/Foundation.h>
 
 #import "ADTLogger.h"
@@ -29,7 +23,7 @@
 + (NSString *)baseUrl;
 + (NSString *)gdprUrl;
 + (NSString *)subscriptionUrl;
-+ (BOOL)iAdFrameworkEnabled;
++ (NSString *)purchaseVerificationUrl;
 + (BOOL)adServicesFrameworkEnabled;
 
 + (void)setLogger:(id<ADTLogger>)logger;
@@ -41,12 +35,12 @@
 + (void)setPackageHandlerBackoffStrategy:(ADTBackoffStrategy *)backoffStrategy;
 + (void)setSdkClickHandlerBackoffStrategy:(ADTBackoffStrategy *)backoffStrategy;
 + (void)setTesting:(BOOL)testing;
-+ (void)setiAdFrameworkEnabled:(BOOL)iAdFrameworkEnabled;
 + (void)setAdServicesFrameworkEnabled:(BOOL)adServicesFrameworkEnabled;
 + (void)setMaxDelayStart:(NSTimeInterval)maxDelayStart;
 + (void)setBaseUrl:(NSString *)baseUrl;
 + (void)setGdprUrl:(NSString *)gdprUrl;
 + (void)setSubscriptionUrl:(NSString *)subscriptionUrl;
++ (void)setPurchaseVerificationUrl:(NSString *)purchaseVerificationUrl;
 
 + (void)enableSigning;
 + (void)disableSigning;

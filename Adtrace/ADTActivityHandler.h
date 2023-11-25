@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "Adtrace.h"
 #import "ADTResponseData.h"
 #import "ADTActivityState.h"
@@ -20,8 +13,10 @@
 @property (nonatomic, assign) BOOL background;
 @property (nonatomic, assign) BOOL delayStart;
 @property (nonatomic, assign) BOOL updatePackages;
+@property (nonatomic, assign) BOOL updatePackagesAttData;
 @property (nonatomic, assign) BOOL firstLaunch;
 @property (nonatomic, assign) BOOL sessionResponseProcessed;
+@property (nonatomic, assign) BOOL waitingForAttStatus;
 
 - (BOOL)isEnabled;
 - (BOOL)isDisabled;
@@ -32,8 +27,10 @@
 - (BOOL)isInDelayedStart;
 - (BOOL)isNotInDelayedStart;
 - (BOOL)itHasToUpdatePackages;
+- (BOOL)itHasToUpdatePackagesAttData;
 - (BOOL)isFirstLaunch;
 - (BOOL)hasSessionResponseNotBeenProcessed;
+- (BOOL)isWaitingForAttStatus;
 
 @end
 
@@ -87,8 +84,6 @@
 
 - (BOOL)updateAttributionI:(id<ADTActivityHandler> _Nullable)selfI
                attribution:(ADTAttribution * _Nullable)attribution;
-- (void)setAttributionDetails:(NSDictionary * _Nullable)attributionDetails
-                        error:(NSError * _Nullable)error;
 - (void)setAdServicesAttributionToken:(NSString * _Nullable)token
                                 error:(NSError * _Nullable)error;
 
@@ -111,6 +106,9 @@
 - (void)trackSubscription:(ADTSubscription * _Nullable)subscription;
 - (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser;
 - (void)trackAdRevenue:(ADTAdRevenue * _Nullable)adRevenue;
+- (void)checkForNewAttStatus;
+- (void)verifyPurchase:(nonnull ADTPurchase *)purchase
+     completionHandler:(void (^_Nonnull)(ADTPurchaseVerificationResult * _Nonnull verificationResult))completionHandler;
 
 - (ADTPackageParams * _Nullable)packageParams;
 - (ADTActivityState * _Nullable)activityState;
@@ -144,17 +142,16 @@
 
 @interface ADTTrackingStatusManager : NSObject
 
-- (instancetype _Nullable)initWithActivityHandler:(ADTActivityHandler * _Nullable)activityHandler;
-
-- (void)checkForNewAttStatus;
-- (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser;
-
-- (BOOL)canGetAttStatus;
-
 @property (nonatomic, readonly, assign) BOOL trackingEnabled;
 @property (nonatomic, readonly, assign) int attStatus;
 
+- (instancetype _Nullable)initWithActivityHandler:(ADTActivityHandler * _Nullable)activityHandler;
+- (void)checkForNewAttStatus;
+- (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser;
+- (BOOL)canGetAttStatus;
+- (void)setAppInActiveState:(BOOL)activeState;
+- (BOOL)shouldWaitForAttStatus;
+
 @end
 
-extern NSString * _Nullable const ADTiAdPackageKey;
 extern NSString * _Nullable const ADTAdServicesPackageKey;

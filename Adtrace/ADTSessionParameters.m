@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTSessionParameters.h"
 
 @implementation ADTSessionParameters

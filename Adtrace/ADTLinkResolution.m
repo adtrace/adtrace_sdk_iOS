@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTLinkResolution.h"
 
 static NSUInteger kMaxRecursions = 10;
@@ -28,7 +21,7 @@ static NSUInteger kMaxRecursions = 10;
 
 + (nonnull ADTLinkResolutionDelegate *)sharedInstance {
     static ADTLinkResolutionDelegate *sharedInstance = nil;
-    static dispatch_once_t onceToken; 
+    static dispatch_once_t onceToken; // onceToken = 0
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
     });
@@ -118,7 +111,7 @@ static NSUInteger kMaxRecursions = 10;
                   NSURLResponse * _Nullable response,
                   NSError * _Nullable error)
             {
-                
+                // bootstrap the recursion of resolving the link
                 [ADTLinkResolution
                     resolveLinkWithResponseUrl:response != nil ? response.URL : nil
                     previousUrl:httpsUrl
@@ -135,25 +128,25 @@ static NSUInteger kMaxRecursions = 10;
                            session:(nonnull NSURLSession *)session
                           callback:(nonnull void (^)(NSURL *_Nullable resolvedLink))callback
 {
-    
+    // return (possible nil) previous url when the current one does not exist
     if (responseUrl == nil) {
         callback(previousUrl);
         return;
     }
 
-    
+    // return found url with expected host
     if ([ADTLinkResolution isTerminalUrlWithHost:responseUrl.host]) {
         callback(responseUrl);
         return;
     }
 
-    
+    // return previous (non-nil) url when it reached the max number of recursive tries
     if (recursionNumber >= kMaxRecursions) {
         callback(responseUrl);
         return;
     }
 
-    
+    // when found a non expected url host, use it to recursively resolve the link
     NSURLSessionDataTask *task =
         [session
             dataTaskWithURL:responseUrl

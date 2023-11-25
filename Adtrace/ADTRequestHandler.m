@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTUtil.h"
 #import "ADTLogger.h"
 #import "ADTActivityKind.h"
@@ -55,15 +48,14 @@ static NSString * const ADTMethodPOST = @"MethodPOST";
     self.logger = ADTAdtraceFactory.logger;
     self.defaultSessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
 
-    self.exceptionKeys =
-        [NSHashTable hashTableWithOptions:NSHashTableStrongMemory];
-    [self.exceptionKeys addObject:@"event_callback_id"];
+    self.exceptionKeys = [NSHashTable hashTableWithOptions:NSHashTableStrongMemory];
     [self.exceptionKeys addObject:@"secret_id"];
     [self.exceptionKeys addObject:@"signature"];
     [self.exceptionKeys addObject:@"headers_id"];
     [self.exceptionKeys addObject:@"native_version"];
     [self.exceptionKeys addObject:@"algorithm"];
     [self.exceptionKeys addObject:@"app_secret"];
+    [self.exceptionKeys addObject:@"adt_signing_id"];
 
     return self;
 }
@@ -71,6 +63,7 @@ static NSString * const ADTMethodPOST = @"MethodPOST";
 - (void)sendPackageByPOST:(ADTActivityPackage *)activityPackage
         sendingParameters:(NSDictionary *)sendingParameters
 {
+    [self signWithSigV2Plugin:activityPackage];
     NSDictionary *parameters = [[NSDictionary alloc]
                                 initWithDictionary:activityPackage.parameters
                                 copyItems:YES];
@@ -103,6 +96,7 @@ static NSString * const ADTMethodPOST = @"MethodPOST";
 - (void)sendPackageByGET:(ADTActivityPackage *)activityPackage
        sendingParameters:(NSDictionary *)sendingParameters
 {
+    [self signWithSigV2Plugin:activityPackage];
     NSDictionary *parameters = [[NSDictionary alloc]
                                 initWithDictionary:activityPackage.parameters
                                 copyItems:YES];
@@ -189,7 +183,7 @@ authorizationHeader:(NSString *)authorizationHeader
                              methodTypeInfo:methodTypeInfo];
             } else {
                 [self.logger debug:@"Request failed with current URL strategy and it will not be retried"];
-                
+                //  Stop retrying with different type and return to caller
                 [self.responseCallback responseCallback:responseData];
             }
         }];
@@ -199,7 +193,7 @@ authorizationHeader:(NSString *)authorizationHeader
 }
 
 /* Manual testing code to fail certain percentage of requests
- 
+ // needs .h to comply with NSURLSessionDelegate
 - (void)
     URLSession:(NSURLSession *)session
     didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
@@ -215,12 +209,12 @@ authorizationHeader:(NSString *)authorizationHeader
         return;
     }
 
-    
-    
-    
-    
+    //if (self.urlStrategy.usingIpAddress) {
+    //    completionHandler(NSURLSessionAuthChallengeUseCredential,
+    //                  [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]);
+    //} else {
     completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
-    
+    //}
 }
 
  - (void)connection:(NSURLConnection *)connection
@@ -266,7 +260,7 @@ authorizationHeader:(NSString *)authorizationHeader
                              methodTypeInfo:methodTypeInfo];
             } else {
                 [self.logger debug:@"failed with current url strategy and it will not retry"];
-                
+                //  Stop retrying with different type and return to caller
                 [self.responseCallback responseCallback:responseData];
             }
         });
@@ -292,7 +286,7 @@ authorizationHeader:(NSString *)authorizationHeader
                          error:(NSError *)responseError
                        responseData:(ADTResponseData *)responseData
 {
-    
+    // Connection error
     if (responseError != nil) {
         responseData.message = responseError.description;
         return;
@@ -348,7 +342,7 @@ authorizationHeader:(NSString *)authorizationHeader
     [self.logger verbose:@"Sending request to endpoint: %@", urlString];
 
     NSURL *url = [NSURL URLWithString:urlString];
-     
+    //NSURL *url = [baseUrl URLByAppendingPathComponent:path];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.timeoutInterval = self.requestTimeout;
     request.HTTPMethod = @"POST";
@@ -397,7 +391,7 @@ authorizationHeader:(NSString *)authorizationHeader
     [self.logger verbose:@"Sending request to endpoint: %@",
      [NSString stringWithFormat:@"%@%@%@", urlHostString, self.urlStrategy.extraPath, path]];
 
-    
+    // [self.logger verbose:@"requestForGetPackage with urlString: %@", urlString];
 
     NSURL *url = [NSURL URLWithString:urlString];
 
@@ -432,18 +426,28 @@ authorizationHeader:(NSString *)authorizationHeader
 - (NSString *)buildAuthorizationHeader:(NSDictionary *)parameters
                           activityKind:(ADTActivityKind)activityKind
 {
-    NSString *secretId = [parameters objectForKey:@"secret_id"];
+    NSString *adtSigningId = [parameters objectForKey:@"adt_signing_id"];
     NSString *signature = [parameters objectForKey:@"signature"];
     NSString *headersId = [parameters objectForKey:@"headers_id"];
     NSString *nativeVersion = [parameters objectForKey:@"native_version"];
     NSString *algorithm = [parameters objectForKey:@"algorithm"];
-    NSString *authorizationHeader = [self buildAuthorizationHeaderV2:signature
-                                                            secretId:secretId
-                                                           headersId:headersId
-                                                       nativeVersion:nativeVersion
-                                                           algorithm:algorithm];
-    if (authorizationHeader != nil) {
-        return authorizationHeader;
+    NSString *authorizationHeaderWithAdtSigningId = [self buildAuthorizationHeaderV2:signature
+                                                                        adtSigningId:adtSigningId
+                                                                           headersId:headersId
+                                                                       nativeVersion:nativeVersion
+                                                                           algorithm:algorithm];
+    if (authorizationHeaderWithAdtSigningId != nil) {
+        return authorizationHeaderWithAdtSigningId;
+    }
+
+    NSString *secretId = [parameters objectForKey:@"secret_id"];
+    NSString *authorizationHeaderWithSecretId = [self buildAuthorizationHeaderV2:signature
+                                                                        secretId:secretId
+                                                                       headersId:headersId
+                                                                   nativeVersion:nativeVersion
+                                                                       algorithm:algorithm];
+    if (authorizationHeaderWithSecretId != nil) {
+        return authorizationHeaderWithSecretId;
     }
 
     NSString * appSecret = [parameters objectForKey:@"app_secret"];
@@ -452,6 +456,31 @@ authorizationHeader:(NSString *)authorizationHeader
                                     parameters:parameters
                                   activityKind:activityKind];
 }
+
+- (NSString *)buildAuthorizationHeaderV2:(NSString *)signature
+                            adtSigningId:(NSString *)adtSigningId
+                               headersId:(NSString *)headersId
+                           nativeVersion:(NSString *)nativeVersion
+                               algorithm:(NSString *)algorithm
+{
+    if (adtSigningId == nil || signature == nil || headersId == nil) {
+        return nil;
+    }
+
+    NSString * signatureHeader = [NSString stringWithFormat:@"signature=\"%@\"", signature];
+    NSString * adtSigningIdHeader = [NSString stringWithFormat:@"adt_signing_id=\"%@\"", adtSigningId];
+    NSString * idHeader        = [NSString stringWithFormat:@"headers_id=\"%@\"", headersId];
+    NSString * algorithmHeader = [NSString stringWithFormat:@"algorithm=\"%@\"", algorithm != nil ? algorithm : @"adt1"];
+
+    NSString * authorizationHeader = [NSString stringWithFormat:@"Signature %@,%@,%@,%@",
+            signatureHeader, adtSigningIdHeader, algorithmHeader, idHeader];
+
+    if (nativeVersion == nil) {
+        return [authorizationHeader stringByAppendingFormat:@",native_version=\"\""];
+    }
+    return [authorizationHeader stringByAppendingFormat:@",native_version=\"%@\"", nativeVersion];
+}
+
 
 - (NSString *)buildAuthorizationHeaderV2:(NSString *)signature
                                 secretId:(NSString *)secretId
@@ -493,7 +522,7 @@ authorizationHeader:(NSString *)authorizationHeader
     NSMutableString *fields = [[NSMutableString alloc] initWithCapacity:5];
     NSMutableString *clearSignature = [[NSMutableString alloc] initWithCapacity:5];
 
-    
+    // signature part of header
     for (NSDictionary *key in signatureParameters) {
         [fields appendFormat:@"%@ ", key];
         NSString *value = [signatureParameters objectForKey:key];
@@ -501,19 +530,19 @@ authorizationHeader:(NSString *)authorizationHeader
     }
 
     NSString *secretIdHeader = [NSString stringWithFormat:@"secret_id=\"%@\"", secretId];
-    
+    // algorithm part of header
     NSString *algorithm = @"sha256";
     NSString *signature = [clearSignature adtSha256];
     NSString *signatureHeader = [NSString stringWithFormat:@"signature=\"%@\"", signature];
     NSString *algorithmHeader = [NSString stringWithFormat:@"algorithm=\"%@\"", algorithm];
-    
-    
+    // fields part of header
+    // Remove last empty space.
     if (fields.length > 0) {
         [fields deleteCharactersInRange:NSMakeRange(fields.length - 1, 1)];
     }
 
     NSString *fieldsHeader = [NSString stringWithFormat:@"headers=\"%@\"", fields];
-    
+    // putting it all together
     NSString *authorizationHeader = [NSString stringWithFormat:@"Signature %@,%@,%@,%@",
                                      secretIdHeader,
                                      signatureHeader,
@@ -610,6 +639,73 @@ authorizationHeader:(NSString *)authorizationHeader
         return nil;
     }
     return jsonDict;
+}
+
+- (void)signWithSigV2Plugin:(ADTActivityPackage *)activityPackage {
+    Class signerClass = NSClassFromString(@"ADTSigner");
+    if (signerClass == nil) {
+        return;
+    }
+    SEL signSEL = NSSelectorFromString(@"sign:withActivityKind:withSdkVersion:");
+    if (![signerClass respondsToSelector:signSEL]) {
+        return;
+    }
+
+    [activityPackage.parameters removeObjectForKey:@"app_secret"];
+    [activityPackage.parameters removeObjectForKey:@"secret_id"];
+    NSMutableDictionary *parameters = activityPackage.parameters;
+    const char *activityKindChar = [[ADTActivityKindUtil activityKindToString:activityPackage.activityKind] UTF8String];
+    const char *sdkVersionChar = [activityPackage.clientSdk UTF8String];
+
+    // Stack allocated strings to ensure their lifetime stays until the next iteration
+    static char activityKind[64], sdkVersion[64];
+    strncpy(activityKind, activityKindChar, strlen(activityKindChar) + 1);
+    strncpy(sdkVersion, sdkVersionChar, strlen(sdkVersionChar) + 1);
+
+    // NSInvocation setArgument requires lvalue references with exact matching types to the executed function signature.
+    // With this usage we ensure that the lifetime of the object remains until the next iteration, as it points to the
+    // stack allocated string where we copied the buffer.
+    const char *lvalActivityKind = activityKind;
+    const char *lvalSdkVersion = sdkVersion;
+
+    /*
+     [ADTSigner sign:parameters
+    withActivityKind:activityKindChar
+      withSdkVersion:sdkVersionChar];
+     */
+
+    NSMethodSignature *signMethodSignature = [signerClass methodSignatureForSelector:signSEL];
+    NSInvocation *signInvocation = [NSInvocation invocationWithMethodSignature:signMethodSignature];
+    [signInvocation setSelector:signSEL];
+    [signInvocation setTarget:signerClass];
+
+    [signInvocation setArgument:&parameters atIndex:2];
+    [signInvocation setArgument:&lvalActivityKind atIndex:3];
+    [signInvocation setArgument:&lvalSdkVersion atIndex:4];
+
+    [signInvocation invoke];
+
+    SEL getVersionSEL = NSSelectorFromString(@"getVersion");
+    if (![signerClass respondsToSelector:getVersionSEL]) {
+        return;
+    }
+    /*
+     NSString *signerVersion = [ADTSigner getVersion];
+     */
+    IMP getVersionIMP = [signerClass methodForSelector:getVersionSEL];
+    if (!getVersionIMP) {
+        return;
+    }
+    id (*getVersionFunc)(id, SEL) = (void *)getVersionIMP;
+    id signerVersion = getVersionFunc(signerClass, getVersionSEL);
+    if (![signerVersion isKindOfClass:[NSString class]]) {
+        return;
+    }
+
+    NSString *signerVersionString = (NSString *)signerVersion;
+    [ADTPackageBuilder parameters:parameters
+                           setString:signerVersionString
+                           forKey:@"native_version"];
 }
 
 @end

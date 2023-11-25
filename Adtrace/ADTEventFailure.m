@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTEventFailure.h"
 
 @implementation ADTEventFailure

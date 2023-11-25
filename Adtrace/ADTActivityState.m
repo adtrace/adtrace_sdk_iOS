@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTAdtraceFactory.h"
 #import "ADTActivityState.h"
 #import "NSString+ADTAdditions.h"
@@ -28,7 +21,7 @@ static NSString *appToken = nil;
 
     self.eventCount = 0;
     self.sessionCount = 0;
-    self.subsessionCount = -1;   
+    self.subsessionCount = -1;   // -1 means unknown
     self.sessionLength = -1;
     self.timeSpent = -1;
     self.lastActivity = -1;
@@ -37,9 +30,11 @@ static NSString *appToken = nil;
     self.isGdprForgotten = NO;
     self.askingAttribution = NO;
     self.isThirdPartySharingDisabled = NO;
+    self.isThirdPartySharingDisabledForCoppa = NO;
     self.deviceToken = nil;
     self.transactionIds = [NSMutableArray arrayWithCapacity:kTransactionIdCount];
     self.updatePackages = NO;
+    self.updatePackagesAttData = NO;
     self.trackingManagerAuthorizationStatus = -1;
 
     return self;
@@ -62,17 +57,17 @@ static NSString *appToken = nil;
 }
 
 - (void)addTransactionId:(NSString *)transactionId {
-    
+    // Create array.
     if (self.transactionIds == nil) {
         self.transactionIds = [NSMutableArray arrayWithCapacity:kTransactionIdCount];
     }
 
-    
+    // Make space.
     if (self.transactionIds.count == kTransactionIdCount) {
         [self.transactionIds removeObjectAtIndex:0];
     }
 
-    
+    // Add the new ID.
     [self.transactionIds addObject:transactionId];
 }
 
@@ -98,11 +93,11 @@ static NSString *appToken = nil;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"ec:%d sc:%d ssc:%d ask:%d sl:%.1f ts:%.1f la:%.1f dt:%@ gdprf:%d dtps:%d att:%d",
+    return [NSString stringWithFormat:@"ec:%d sc:%d ssc:%d ask:%d sl:%.1f ts:%.1f la:%.1f dt:%@ gdprf:%d dtps:%d dtpsc:%d att:%d",
             self.eventCount, self.sessionCount,
             self.subsessionCount, self.askingAttribution, self.sessionLength,
             self.timeSpent, self.lastActivity, self.deviceToken,
-            self.isGdprForgotten, self.isThirdPartySharingDisabled, self.trackingManagerAuthorizationStatus];
+            self.isGdprForgotten, self.isThirdPartySharingDisabled, self.isThirdPartySharingDisabledForCoppa, self.trackingManagerAuthorizationStatus];
 }
 
 #pragma mark - NSCoding protocol methods
@@ -120,7 +115,7 @@ static NSString *appToken = nil;
     self.timeSpent = [decoder decodeDoubleForKey:@"timeSpent"];
     self.lastActivity = [decoder decodeDoubleForKey:@"lastActivity"];
     
-    
+    // Default values for migrating devices.
     if ([decoder containsValueForKey:@"uuid"]) {
         [self assignRandomToken:[decoder decodeObjectForKey:@"uuid"]];
     }
@@ -159,6 +154,12 @@ static NSString *appToken = nil;
         self.isThirdPartySharingDisabled = NO;
     }
 
+    if ([decoder containsValueForKey:@"isThirdPartySharingDisabledForCoppa"]) {
+        self.isThirdPartySharingDisabledForCoppa = [decoder decodeBoolForKey:@"isThirdPartySharingDisabledForCoppa"];
+    } else {
+        self.isThirdPartySharingDisabledForCoppa = NO;
+    }
+
     if ([decoder containsValueForKey:@"deviceToken"]) {
         self.deviceToken = [decoder decodeObjectForKey:@"deviceToken"];
     }
@@ -167,6 +168,12 @@ static NSString *appToken = nil;
         self.updatePackages = [decoder decodeBoolForKey:@"updatePackages"];
     } else {
         self.updatePackages = NO;
+    }
+
+    if ([decoder containsValueForKey:@"updatePackagesAttData"]) {
+        self.updatePackagesAttData = [decoder decodeBoolForKey:@"updatePackagesAttData"];
+    } else {
+        self.updatePackagesAttData = NO;
     }
 
     if ([decoder containsValueForKey:@"adid"]) {
@@ -202,8 +209,10 @@ static NSString *appToken = nil;
     [encoder encodeBool:self.isGdprForgotten forKey:@"isGdprForgotten"];
     [encoder encodeBool:self.askingAttribution forKey:@"askingAttribution"];
     [encoder encodeBool:self.isThirdPartySharingDisabled forKey:@"isThirdPartySharingDisabled"];
+    [encoder encodeBool:self.isThirdPartySharingDisabledForCoppa forKey:@"isThirdPartySharingDisabledForCoppa"];
     [encoder encodeObject:self.deviceToken forKey:@"deviceToken"];
     [encoder encodeBool:self.updatePackages forKey:@"updatePackages"];
+    [encoder encodeBool:self.updatePackagesAttData forKey:@"updatePackagesAttData"];
     [encoder encodeObject:self.adid forKey:@"adid"];
     [encoder encodeObject:self.attributionDetails forKey:@"attributionDetails"];
     [encoder encodeInt:self.trackingManagerAuthorizationStatus
@@ -215,7 +224,7 @@ static NSString *appToken = nil;
 - (id)copyWithZone:(NSZone *)zone {
     ADTActivityState *copy = [[[self class] allocWithZone:zone] init];
 
-    
+    // Copy only values used by package builder.
     if (copy) {
         copy.sessionCount = self.sessionCount;
         copy.subsessionCount = self.subsessionCount;
@@ -229,8 +238,10 @@ static NSString *appToken = nil;
         copy.lastActivity = self.lastActivity;
         copy.askingAttribution = self.askingAttribution;
         copy.isThirdPartySharingDisabled = self.isThirdPartySharingDisabled;
+        copy.isThirdPartySharingDisabledForCoppa = self.isThirdPartySharingDisabledForCoppa;
         copy.deviceToken = [self.deviceToken copyWithZone:zone];
         copy.updatePackages = self.updatePackages;
+        copy.updatePackagesAttData = self.updatePackagesAttData;
         copy.trackingManagerAuthorizationStatus = self.trackingManagerAuthorizationStatus;
     }
     

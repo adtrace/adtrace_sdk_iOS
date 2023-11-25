@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import "ADTResponseData.h"
 #import "ADTActivityKind.h"
 
@@ -56,6 +49,10 @@
             break;
         case ADTActivityKindAttribution:
             responseData = [[ADTAttributionResponseData alloc] init];
+            break;
+        case ADTActivityKindPurchaseVerification:
+            responseData = [[ADTPurchaseVerificationResponseData alloc] init];
+            responseData.purchaseVerificationPackage = activityPackage;
             break;
         default:
             responseData = [[ADTResponseData alloc] init];
@@ -126,6 +123,10 @@
 @end
 
 @implementation ADTSdkClickResponseData
+
+@end
+
+@implementation ADTPurchaseVerificationResponseData
 
 @end
 

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 #import <Foundation/Foundation.h>
 
 #import "ADTLogger.h"
@@ -77,11 +70,24 @@
 - (BOOL)adtraceDeeplinkResponse:(nullable NSURL *)deeplink;
 
 /**
- * @brief Optional delegate method that gets called when Adtrace SDK sets conversion value for the user.
+ * @brief Optional SKAdNetwork pre 4.0 style delegate method that gets called when Adtrace SDK sets conversion value for the user.
  *
  * @param conversionValue Conversion value used by Adtrace SDK to invoke updateConversionValue: API.
  */
 - (void)adtraceConversionValueUpdated:(nullable NSNumber *)conversionValue;
+
+/**
+ * @brief Optional SKAdNetwork 4.0 style delegate method that gets called when Adtrace SDK sets conversion value for the user.
+ *        You can use this callback even with using pre 4.0 SKAdNetwork.
+ *        In that case you can expect coarseValue and lockWindow values to be nil.
+ *
+ * @param fineValue Conversion value set by Adtrace SDK.
+ * @param coarseValue Coarse value set by Adtrace SDK.
+ * @param lockWindow Lock window set by Adtrace SDK.
+ */
+- (void)adtraceConversionValueUpdated:(nullable NSNumber *)fineValue
+                         coarseValue:(nullable NSString *)coarseValue
+                          lockWindow:(nullable NSNumber *)lockWindow;
 
 @end
 
@@ -171,6 +177,11 @@
 @property (nonatomic, assign) double delayStart;
 
 /**
+ * @brief Define how many seconds to wait for ATT status before sending the first data.
+ */
+@property (nonatomic, assign) NSUInteger attConsentWaitingInterval;
+
+/**
  * @brief User agent for the requests.
  */
 @property (nonatomic, copy, nullable) NSString *userAgent;
@@ -215,10 +226,15 @@
 @property (nonatomic, copy, readwrite, nullable) NSString *urlStrategy;
 
 /**
+ * @brief Enables/disables linkMe
+ */
+@property (nonatomic, assign) BOOL linkMeEnabled;
+
+/**
  * @brief Get configuration object for the initialization of the Adtrace SDK.
  *
  * @param appToken The App Token of your app. This unique identifier can
- *                 be found it in your dashboard at http:
+ *                 be found it in your dashboard and should always
  *                 be 12 characters long.
  * @param environment The current environment your app. We use this environment to
  *                    distinguish between real traffic and artificial traffic from test devices.
@@ -237,7 +253,7 @@
  * @brief Configuration object for the initialization of the Adtrace SDK.
  *
  * @param appToken The App Token of your app. This unique identifier can
- *                 be found it in your dashboard at http:
+ *                 be found it in your dashboard and should always
  *                 be 12 characters long.
  * @param environment The current environment your app. We use this environment to
  *                    distinguish between real traffic and artificial traffic from test devices.
@@ -262,5 +278,10 @@
  * @return Boolean indicating whether adtrace config object is valid or not.
  */
 - (BOOL)isValid;
+
+/**
+ * @brief Enable COPPA (Children's Online Privacy Protection Act) compliant for the application.
+ */
+@property (nonatomic, assign) BOOL coppaCompliantEnabled;
 
 @end

@@ -29,7 +29,7 @@ NSString * const ADTAdRevenueSourceADX = @"adx_sdk";
 NSString * const ADTUrlStrategyIndia = @"UrlStrategyIndia";
 NSString * const ADTUrlStrategyChina = @"UrlStrategyChina";
 NSString * const ADTUrlStrategyCn = @"UrlStrategyCn";
-NSString * const ADJUrlStrategyCnOnly = @"UrlStrategyCnOnly";
+NSString * const ADTUrlStrategyCnOnly = @"UrlStrategyCnOnly";
 
 NSString * const ADTDataResidencyEU = @"DataResidencyEU";
 NSString * const ADTDataResidencyTR = @"DataResidencyTR";

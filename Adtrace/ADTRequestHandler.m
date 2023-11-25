@@ -431,13 +431,13 @@ authorizationHeader:(NSString *)authorizationHeader
     NSString *headersId = [parameters objectForKey:@"headers_id"];
     NSString *nativeVersion = [parameters objectForKey:@"native_version"];
     NSString *algorithm = [parameters objectForKey:@"algorithm"];
-    NSString *authorizationHeaderWithAdjSigningId = [self buildAuthorizationHeaderV2:signature
+    NSString *authorizationHeaderWithAdtSigningId = [self buildAuthorizationHeaderV2:signature
                                                                         adtSigningId:adtSigningId
                                                                            headersId:headersId
                                                                        nativeVersion:nativeVersion
                                                                            algorithm:algorithm];
-    if (authorizationHeaderWithAdjSigningId != nil) {
-        return authorizationHeaderWithAdjSigningId;
+    if (authorizationHeaderWithAdtSigningId != nil) {
+        return authorizationHeaderWithAdtSigningId;
     }
 
     NSString *secretId = [parameters objectForKey:@"secret_id"];

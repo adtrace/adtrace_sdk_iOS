@@ -1,3 +1,4 @@
+
 #import <Foundation/Foundation.h>
 #import "WebViewJavascriptBridgeBase.h"
 #import "WebViewJavascriptBridge_JS.h"
@@ -89,7 +90,7 @@ static int logMaxLength = 500;
                 };
             } else {
                 responseCallback = ^(id ignoreResponseData) {
-                    
+                    // Do nothing
                 };
             }
             
@@ -108,8 +109,8 @@ static int logMaxLength = 500;
 - (void)injectJavascriptFile {
     NSString *js = WebViewJavascriptBridge_js();
     [self _evaluateJavascript:js];
-    
-    
+    // Added to inject adtrace js code
+    //NSString *adtrace_js = AdtraceBridge_js();
     NSString *adtrace_js = [AdtraceBridgeRegister AdtraceBridge_js];
     [self _evaluateJavascript:adtrace_js];
     if (self.startupMessageQueue) {
@@ -159,8 +160,8 @@ static int logMaxLength = 500;
     [self sendData:nil responseCallback:nil handlerName:@"_disableJavascriptAlertBoxSafetyTimeout"];
 }
 
-
-
+// Private
+// -------------------------------------------
 
 - (void) _evaluateJavascript:(NSString *)javascriptCommand {
     [self.delegate _evaluateJavascript:javascriptCommand];

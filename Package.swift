@@ -6,7 +6,6 @@ let package = Package(
     name: "Adtrace",
     products: [
         .library(name: "Adtrace", targets: ["Adtrace"]),
-
         .library(name: "WebBridge", targets: ["WebBridge", "Adtrace"])
     ],
     targets: [

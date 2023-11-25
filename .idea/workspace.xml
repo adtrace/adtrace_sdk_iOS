@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="222b8a88-9ad3-4e42-b9fd-c3c2b0ff57a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Adtrace-sdk.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace-sdk.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/xcshareddata/Adjust.xcscmblueprint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/Adtrace.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceBridge.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceExampleTests.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceSdk.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceSdk.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceSdkTv.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcshareddata/xcschemes/AdtraceStatic.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdk/AdtraceSdk.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdk/AdtraceSdk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkIm/AdtraceSdkIm.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkIm/AdtraceSdkIm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkTv/AdtraceSdkTv.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkTv/AdtraceSdkTv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkWebBridge/AdtraceSdkWebBridge.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkWebBridge/AdtraceSdkWebBridge.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/AdtraceSdk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Headers" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Modules/module.modulemap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/AdtraceSdk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTAdRevenue.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTAttribution.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTConfig.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTEvent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTEventFailure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTEventSuccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTLinkResolution.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTLogger.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTSessionFailure.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTSessionSuccess.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTSubscription.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/ADTThirdPartySharing.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/A/Headers/Adtrace.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frameworks/static/AdtraceSdk.framework/Versions/Current" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Package.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Package.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj/xcshareddata/xcschemes/AdtraceExample-ObjC.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj/xcshareddata/xcschemes/AdtraceExample-ObjC.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AdtraceExample-ObjC.entitlements" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AdtraceExample-ObjC.entitlements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AppDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_120-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_40-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_40-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_58-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_80-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/AppIcon.appiconset/adjust_blue_87.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/BrandAsset.launchimage/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Constants.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Constants.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Constants.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/ViewControllerObjC.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/ViewControllerObjC.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/ViewControllerObjC.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/ViewControllerObjC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/main.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/xcshareddata/xcschemes/AdtraceExample-Swift.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/xcshareddata/xcschemes/AdtraceExample-Swift.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/AdjustExample-Swift-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/AdtraceExample-Swift.entitlements" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/AdtraceExample-Swift.entitlements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/AppDelegate.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/LoadProductController.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/ViewControllerSwift.swift" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-Swift/AdtraceExample-Swift/ViewControllerSwift.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/xcshareddata/xcschemes/AdtraceExample-WebView.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/xcshareddata/xcschemes/AdtraceExample-WebView.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/AdjustExample-WebView.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/AppDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/WKWebViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/WKWebViewController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/WKWebViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/WKWebViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-WebView/AdtraceExample-WebView/main.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/MessagesViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/MessagesViewController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/MessagesViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/MessagesViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/xcshareddata/xcschemes/AdtraceExample-iMessage MessagesExtension.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/xcshareddata/xcschemes/AdtraceExample-iMessage MessagesExtension.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage/Assets.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage/Assets.xcassets/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit App/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit App/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit App/Base.lproj/Interface.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit App/Base.lproj/Interface.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit App/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit App/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/EventTrackedController.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/EventTrackedController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/EventTrackedController.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/EventTrackedController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/ExtensionDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/ExtensionDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/ExtensionDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/ExtensionDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/InterfaceController.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/InterfaceController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/InterfaceController.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/InterfaceController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/TableRowController.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/TableRowController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/TableRowController.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch WatchKit Extension/TableRowController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/xcshareddata/xcschemes/AdtraceExample-iWatch WatchKit App.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/xcshareddata/xcschemes/AdtraceExample-iWatch.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceLoggingHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceLoggingHelper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceLoggingHelper.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceLoggingHelper.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceTrackingHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceTrackingHelper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceTrackingHelper.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AdtraceTrackingHelper.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AppDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/Base.lproj/LaunchScreen.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/Base.lproj/LaunchScreen.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/ViewControllerWatch.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/ViewControllerWatch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/ViewControllerWatch.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/ViewControllerWatch.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iWatch/AdtraceExample-iWatch/main.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS.xcodeproj/project.xcworkspace/xcuserdata/nassernas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS.xcodeproj/xcshareddata/xcschemes/AdtraceExample-tvOS.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS.xcodeproj/xcuserdata/nassernas.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/AppDelegate.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/AppDelegate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Large.imagestack/Back.imagestacklayer/Content.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Large.imagestack/Back.imagestacklayer/Content.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Large.imagestack/Front.imagestacklayer/Content.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Large.imagestack/Front.imagestacklayer/Content.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Large.imagestack/Middle.imagestacklayer/Content.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Large.imagestack/Middle.imagestacklayer/Content.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Small.imagestack/Back.imagestacklayer/Content.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Small.imagestack/Back.imagestacklayer/Content.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Small.imagestack/Front.imagestacklayer/Content.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Small.imagestack/Front.imagestacklayer/Content.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Small.imagestack/Middle.imagestacklayer/Content.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/App Icon - Small.imagestack/Middle.imagestacklayer/Content.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/Top Shelf Image Wide.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/Top Shelf Image Wide.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/Top Shelf Image.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/App Icon &amp; Top Shelf Image.brandassets/Top Shelf Image.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/LaunchImage.launchimage/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Assets.xcassets/LaunchImage.launchimage/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Base.lproj/Main.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Constants.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Constants.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Constants.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/Constants.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/ViewControllertvOS.h" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/ViewControllertvOS.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/ViewControllertvOS.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/ViewControllertvOS.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-tvOS/AdtraceExample-tvOS/main.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/build-framework.sh" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Yezsrs7FZiPdfi2dLewqFC1lGb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/Users/smartech/SOFTWARE/ios/update/ios_adtrace_live",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="222b8a88-9ad3-4e42-b9fd-c3c2b0ff57a6" name="Changes" comment="" />
+      <created>1700901748498</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700901748498</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

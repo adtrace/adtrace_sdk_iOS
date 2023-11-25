@@ -1,14 +1,6 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for AdtraceSdkIm.
-FOUNDATION_EXPORT double AdtraceSdkImVersionNumber;
-
-//! Project version string for AdtraceSdkIm.
-FOUNDATION_EXPORT const unsigned char AdtraceSdkImVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <AdtraceSdkIm/PublicHeader.h>
-
 #import <AdtraceSdkIm/Adtrace.h>
 #import <AdtraceSdkIm/ADTEvent.h>
 #import <AdtraceSdkIm/ADTThirdPartySharing.h>

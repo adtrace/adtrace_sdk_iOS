@@ -25,7 +25,7 @@
     }
 
     setupWebViewJavascriptBridge(function(bridge) {
-        let adtraceConfig = new AdtraceConfig('2fm9gkqubvpc', AdtraceConfig.EnvironmentSandbox);
+        let adtraceConfig = new AdtraceConfig('cn2dajeoy3uu', AdtraceConfig.EnvironmentSandbox);
         adtraceConfig.setLogLevel(AdtraceConfig.LogLevelVerbose);
 
         adtraceConfig.setOpenDeferredDeeplink(true)     // Just for test, is true by default.
@@ -74,22 +74,22 @@
         var btnTrackSimpleEvent = document.getElementById('btnTrackSimpleEvent')
         btnTrackSimpleEvent.onclick = function(e) {
             e.preventDefault()
-            var adtraceEvent = new AdtraceEvent('g3mfiw')
+            var adtraceEvent = new AdtraceEvent('i53rc7')
             Adtrace.trackEvent(adtraceEvent)
         }
 
         var btnTrackRevenueEvent = document.getElementById('btnTrackRevenueEvent')
         btnTrackRevenueEvent.onclick = function(e) {
             e.preventDefault()
-            var adtraceEvent = new AdtraceEvent('a4fd35')
-            adtraceEvent.setRevenue(0.01, 'EUR')
+            var adtraceEvent = new AdtraceEvent('drv45k')
+            adtraceEvent.setRevenue(12000.0, 'Rials')
             Adtrace.trackEvent(adtraceEvent)
         }
 
         var btnTrackCallbackEvent = document.getElementById('btnTrackCallbackEvent')
         btnTrackCallbackEvent.onclick = function(e) {
             e.preventDefault()
-            var adtraceEvent = new AdtraceEvent('34vgg9')
+            var adtraceEvent = new AdtraceEvent('3vgls9')
             adtraceEvent.addCallbackParameter('key', 'value')
             adtraceEvent.addCallbackParameter('x', 'y')
             adtraceEvent.addCallbackParameter('key', 'lock')
@@ -99,7 +99,7 @@
         var btnTrackEventValue = document.getElementById('btnTrackEventValue')
         btnTrackEventValue.onclick = function(e) {
             e.preventDefault()
-            var adtraceEvent = new AdtraceEvent('w788qs')
+            var adtraceEvent = new AdtraceEvent('8ihwpl')
             adtraceEvent.addEventValueParameter('foo', 'bar')
             adtraceEvent.addEventValueParameter('x', 'y')
             adtraceEvent.addEventValueParameter('foo', 'foot')

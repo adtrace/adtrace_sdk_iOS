@@ -23,7 +23,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Configure adtrace SDK.
-        NSString *yourAppToken = @"2fm9gkqubvpc";
+        NSString *yourAppToken = @"cn2dajeoy3uu";
         NSString *environment = ADTEnvironmentSandbox;
         ADTConfig *adtraceConfig = [ADTConfig configWithAppToken:yourAppToken environment:environment];
         
@@ -106,7 +106,7 @@
 }
 
 - (IBAction)clickTrackSimpleEvent:(id)sender {
-    ADTEvent *event = [ADTEvent eventWithEventToken:@"g3mfiw"];
+    ADTEvent *event = [ADTEvent eventWithEventToken:@"i53rc7"];
     [Adtrace trackEvent:event];
 }
 

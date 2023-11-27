@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import Adtrace
+import Adtrace_sdk
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AdtraceDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appToken = "2fm9gkqubvpc"
+        let appToken = "cn2dajeoy3uu"
         let environment = ADTEnvironmentSandbox
         let adtraceConfig = ADTConfig(appToken: appToken, environment: environment)
         

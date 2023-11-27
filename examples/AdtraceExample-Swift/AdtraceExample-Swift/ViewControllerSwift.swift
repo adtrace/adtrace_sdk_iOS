@@ -8,7 +8,7 @@
 
 import AppTrackingTransparency
 import AdSupport
-import Adtrace
+import Adtrace_sdk
 import UIKit
 
 class ViewControllerSwift: UIViewController {
@@ -33,21 +33,21 @@ class ViewControllerSwift: UIViewController {
     
     // MARK: - Actions
     @IBAction func btnTrackEventSimpleTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "g3mfiw");
+        let event = ADTEvent(eventToken: "i53rc7");
         Adtrace.trackEvent(event);
     }
     
     @IBAction func btnTrackEventRevenueTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "a4fd35")
+        let event = ADTEvent(eventToken: "drv45k")
 
         // Add revenue 1 cent of an EURO.
-        event?.setRevenue(0.01, currency: "EUR");
+        event?.setRevenue(12000.0, currency: "Rial");
 
         Adtrace.trackEvent(event);
     }
     
     @IBAction func btnTrackEventCallbackTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "34vgg9");
+        let event = ADTEvent(eventToken: "3vgls9");
         
         // Add callback parameters to this event.
         event?.addCallbackParameter("foo", value: "bar");
@@ -57,7 +57,7 @@ class ViewControllerSwift: UIViewController {
     }
     
     @IBAction func btnTrackEventPartnerTapped(_sender: UIButton) {
-        let event = ADTEvent(eventToken: "w788qs");
+        let event = ADTEvent(eventToken: "8ihwpl");
         
         // Add partner parameteres to this event.
         event?.addPartnerParameter("foo", value: "bar");

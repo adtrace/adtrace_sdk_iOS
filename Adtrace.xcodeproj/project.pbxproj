@@ -582,41 +582,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9D01680320FF88DE0029CFFF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9D01676520FF81280029CFFF;
-			remoteInfo = "AdtraceExample-iMessage";
-		};
-		9D01680520FF88DE0029CFFF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9D01676F20FF812B0029CFFF;
-			remoteInfo = "AdtraceExample-iMessage MessagesExtension";
-		};
-		9D449DB91E6ED23400E7E80B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D449DB31E6ED23400E7E80B /* AdtraceExample-iWatch.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9DF7AC141CB4FEDB00D3591F;
-			remoteInfo = "AdtraceExample-iWatch";
-		};
-		9D449DBB1E6ED23400E7E80B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D449DB31E6ED23400E7E80B /* AdtraceExample-iWatch.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9DF7AC2B1CB4FEDB00D3591F;
-			remoteInfo = "AdtraceExample-iWatch WatchKit App";
-		};
-		9D449DBD1E6ED23400E7E80B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D449DB31E6ED23400E7E80B /* AdtraceExample-iWatch.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9DF7AC3A1CB4FEDB00D3591F;
-			remoteInfo = "AdtraceExample-iWatch WatchKit Extension";
-		};
 		9D449DC31E6ED23900E7E80B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D449DBF1E6ED23900E7E80B /* AdtraceExample-Swift.xcodeproj */;
@@ -637,13 +602,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 9D1082A41CFDAF8E0050568B;
 			remoteInfo = "AdtraceExample-WebView";
-		};
-		9D9D1551212EB3D00081445E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D9D154D212EB3D00081445E /* AdtraceExample-FbPixel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9D9D152E212EB3920081445E;
-			remoteInfo = "AdtraceExample-FbPixel";
 		};
 		9DBE560B23054FCC0065E19C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -927,7 +885,6 @@
 		96E5E38018BBB48A008E7B30 /* ADTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTUtil.m; sourceTree = "<group>"; };
 		96FCC5361C186426007BBFE1 /* ADTResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTResponseData.h; sourceTree = "<group>"; };
 		96FCC5371C186426007BBFE1 /* ADTResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTResponseData.m; sourceTree = "<group>"; };
-		9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-iMessage.xcodeproj"; path = "examples/AdtraceExample-iMessage/AdtraceExample-iMessage.xcodeproj"; sourceTree = "<group>"; };
 		9D0E2E02210B570600133B4F /* AdtraceSdkWebBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdtraceSdkWebBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0E2E04210B570600133B4F /* AdtraceSdkWebBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdtraceSdkWebBridge.h; sourceTree = "<group>"; };
 		9D0E2E05210B570600133B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1017,7 +974,6 @@
 		9D3A2ACC2626508F00BD6E44 /* ADTAdRevenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTAdRevenue.m; sourceTree = "<group>"; };
 		9D3A2ACF262650C300BD6E44 /* ADTAdRevenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTAdRevenue.h; sourceTree = "<group>"; };
 		9D3A2AD0262650C300BD6E44 /* ADTAdRevenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTAdRevenue.m; sourceTree = "<group>"; };
-		9D449DB31E6ED23400E7E80B /* AdtraceExample-iWatch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-iWatch.xcodeproj"; path = "examples/AdtraceExample-iWatch/AdtraceExample-iWatch.xcodeproj"; sourceTree = "<group>"; };
 		9D449DBF1E6ED23900E7E80B /* AdtraceExample-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-Swift.xcodeproj"; path = "examples/AdtraceExample-Swift/AdtraceExample-Swift.xcodeproj"; sourceTree = "<group>"; };
 		9D449DC51E6ED24000E7E80B /* AdtraceExample-tvOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-tvOS.xcodeproj"; path = "examples/AdtraceExample-tvOS/AdtraceExample-tvOS.xcodeproj"; sourceTree = "<group>"; };
 		9D449DCB1E6ED24400E7E80B /* AdtraceExample-WebView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-WebView.xcodeproj"; path = "examples/AdtraceExample-WebView/AdtraceExample-WebView.xcodeproj"; sourceTree = "<group>"; };
@@ -1041,7 +997,6 @@
 		9D775B582A1F7C7A009D0BE8 /* ADTPurchaseVerificationResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADTPurchaseVerificationResult.m; sourceTree = "<group>"; };
 		9D775B5F2A1F9CC5009D0BE8 /* ADTPurchaseVerificationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADTPurchaseVerificationHandler.h; sourceTree = "<group>"; };
 		9D775B602A1F9CC5009D0BE8 /* ADTPurchaseVerificationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ADTPurchaseVerificationHandler.m; sourceTree = "<group>"; };
-		9D9D154D212EB3D00081445E /* AdtraceExample-FbPixel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-FbPixel.xcodeproj"; path = "examples/AdtraceExample-FbPixel/AdtraceExample-FbPixel.xcodeproj"; sourceTree = "<group>"; };
 		9DBE560723054FCC0065E19C /* AdtraceExample-ObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "AdtraceExample-ObjC.xcodeproj"; path = "examples/AdtraceExample-ObjC/AdtraceExample-ObjC.xcodeproj"; sourceTree = "<group>"; };
 		9DD0E9AC1F44690B00B2A759 /* ADTUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTUserDefaults.h; sourceTree = "<group>"; };
 		9DD0E9AD1F44690B00B2A759 /* ADTUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTUserDefaults.m; sourceTree = "<group>"; };
@@ -1522,15 +1477,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D0167FF20FF88DE0029CFFF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9D01680420FF88DE0029CFFF /* AdtraceExample-iMessage.app */,
-				9D01680620FF88DE0029CFFF /* AdtraceExample-iMessage MessagesExtension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		9D0E2E03210B570600133B4F /* AdtraceSdkWebBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -1667,21 +1613,8 @@
 				9D449DBF1E6ED23900E7E80B /* AdtraceExample-Swift.xcodeproj */,
 				9D449DCB1E6ED24400E7E80B /* AdtraceExample-WebView.xcodeproj */,
 				9D449DC51E6ED24000E7E80B /* AdtraceExample-tvOS.xcodeproj */,
-				9D449DB31E6ED23400E7E80B /* AdtraceExample-iWatch.xcodeproj */,
-				9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */,
-				9D9D154D212EB3D00081445E /* AdtraceExample-FbPixel.xcodeproj */,
 			);
 			name = "Example Apps";
-			sourceTree = "<group>";
-		};
-		9D449DB41E6ED23400E7E80B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9D449DBA1E6ED23400E7E80B /* AdtraceExample-iWatch.app */,
-				9D449DBC1E6ED23400E7E80B /* AdtraceExample-iWatch WatchKit App.app */,
-				9D449DBE1E6ED23400E7E80B /* AdtraceExample-iWatch WatchKit Extension.appex */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9D449DC01E6ED23900E7E80B /* Products */ = {
@@ -1704,14 +1637,6 @@
 			isa = PBXGroup;
 			children = (
 				9D449DD01E6ED24400E7E80B /* AdtraceExample-WebView.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		9D9D154E212EB3D00081445E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9D9D1552212EB3D00081445E /* AdtraceExample-FbPixel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2436,18 +2361,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9D9D154E212EB3D00081445E /* Products */;
-					ProjectRef = 9D9D154D212EB3D00081445E /* AdtraceExample-FbPixel.xcodeproj */;
-				},
-				{
-					ProductGroup = 9D0167FF20FF88DE0029CFFF /* Products */;
-					ProjectRef = 9D0167FE20FF88DE0029CFFF /* AdtraceExample-iMessage.xcodeproj */;
-				},
-				{
-					ProductGroup = 9D449DB41E6ED23400E7E80B /* Products */;
-					ProjectRef = 9D449DB31E6ED23400E7E80B /* AdtraceExample-iWatch.xcodeproj */;
-				},
-				{
 					ProductGroup = 9DBE560823054FCC0065E19C /* Products */;
 					ProjectRef = 9DBE560723054FCC0065E19C /* AdtraceExample-ObjC.xcodeproj */;
 				},
@@ -2485,41 +2398,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9D01680420FF88DE0029CFFF /* AdtraceExample-iMessage.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "AdtraceExample-iMessage.app";
-			remoteRef = 9D01680320FF88DE0029CFFF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9D01680620FF88DE0029CFFF /* AdtraceExample-iMessage MessagesExtension.appex */ = {
-			isa = PBXReferenceProxy;
-			fileType = "wrapper.app-extension";
-			path = "AdtraceExample-iMessage MessagesExtension.appex";
-			remoteRef = 9D01680520FF88DE0029CFFF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9D449DBA1E6ED23400E7E80B /* AdtraceExample-iWatch.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "AdtraceExample-iWatch.app";
-			remoteRef = 9D449DB91E6ED23400E7E80B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9D449DBC1E6ED23400E7E80B /* AdtraceExample-iWatch WatchKit App.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "AdtraceExample-iWatch WatchKit App.app";
-			remoteRef = 9D449DBB1E6ED23400E7E80B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9D449DBE1E6ED23400E7E80B /* AdtraceExample-iWatch WatchKit Extension.appex */ = {
-			isa = PBXReferenceProxy;
-			fileType = "wrapper.app-extension";
-			path = "AdtraceExample-iWatch WatchKit Extension.appex";
-			remoteRef = 9D449DBD1E6ED23400E7E80B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9D449DC41E6ED23900E7E80B /* AdtraceExample-Swift.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -2539,13 +2417,6 @@
 			fileType = wrapper.application;
 			path = "AdtraceExample-WebView.app";
 			remoteRef = 9D449DCF1E6ED24400E7E80B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		9D9D1552212EB3D00081445E /* AdtraceExample-FbPixel.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "AdtraceExample-FbPixel.app";
-			remoteRef = 9D9D1551212EB3D00081445E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9DBE560C23054FCC0065E19C /* AdtraceExample-ObjC.app */ = {

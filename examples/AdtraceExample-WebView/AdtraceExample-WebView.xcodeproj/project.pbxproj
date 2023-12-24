@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-        07A8933A2B0B95D50011DAB8 /* ADTPurchaseVerificationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893362B0B95D50011DAB8 /* ADTPurchaseVerificationResult.m */; };
-		07A8933B2B0B95D50011DAB8 /* ADTPurchaseVerificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893372B0B95D50011DAB8 /* ADTPurchaseVerificationHandler.m */; };
-		07A8933C2B0B95D50011DAB8 /* ADTPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A893382B0B95D50011DAB8 /* ADTPurchase.m */; };
 		6F84513D25B1B1B40004C7C0 /* ADTThirdPartySharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F84513B25B1B1B40004C7C0 /* ADTThirdPartySharing.m */; };
 		6FAB78AF2636DD6B00773869 /* ADTLinkResolution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FAB78AE2636DD6B00773869 /* ADTLinkResolution.m */; };
 		6FBEE91124E4213900FEF3F1 /* ADTUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FBEE91024E4213800FEF3F1 /* ADTUrlStrategy.m */; };
@@ -66,12 +63,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		07A893342B0B95D50011DAB8 /* ADTPurchaseVerificationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchaseVerificationResult.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationResult.h"; sourceTree = "<group>"; };
-		07A893352B0B95D50011DAB8 /* ADTPurchaseVerificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchaseVerificationHandler.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationHandler.h"; sourceTree = "<group>"; };
-		07A893362B0B95D50011DAB8 /* ADTPurchaseVerificationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchaseVerificationResult.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationResult.m"; sourceTree = "<group>"; };
-		07A893372B0B95D50011DAB8 /* ADTPurchaseVerificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchaseVerificationHandler.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchaseVerificationHandler.m"; sourceTree = "<group>"; };
-		07A893382B0B95D50011DAB8 /* ADTPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADTPurchase.m; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchase.m"; sourceTree = "<group>"; };
-		07A893392B0B95D50011DAB8 /* ADTPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADTPurchase.h; path = "../../../Downloads/ios_sdk_dev-tracking_domain/Adtrace/ADTPurchase.h"; sourceTree = "<group>"; };
 		6F84513B25B1B1B40004C7C0 /* ADTThirdPartySharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTThirdPartySharing.m; sourceTree = "<group>"; };
 		6F84513C25B1B1B40004C7C0 /* ADTThirdPartySharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTThirdPartySharing.h; sourceTree = "<group>"; };
 		6FAB78AD2636DD6B00773869 /* ADTLinkResolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTLinkResolution.h; sourceTree = "<group>"; };
@@ -462,7 +453,6 @@
 				6F84513D25B1B1B40004C7C0 /* ADTThirdPartySharing.m in Sources */,
 				9DD0E9C41F4587C600B2A759 /* ADTUserDefaults.m in Sources */,
 				9D75F1991D07463800E5D222 /* WKWebViewJavascriptBridge.m in Sources */,
-				07A8933C2B0B95D50011DAB8 /* ADTPurchase.m in Sources */,
 				9D10833D1CFDD8F00050568B /* WKWebViewController.m in Sources */,
 				9D449EE51E6EDD4100E7E80B /* ADTConfig.m in Sources */,
 				9DF38239260E9DDE0033F5A1 /* NSNumber+ADTAdditions.m in Sources */,

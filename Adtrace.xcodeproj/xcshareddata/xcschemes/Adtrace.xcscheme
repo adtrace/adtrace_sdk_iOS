@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1420"
+   LastUpgradeVersion = "1500"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9DFB060F1D747070006D48FC"
-               BuildableName = "AdtraceSdkTv.framework"
-               BlueprintName = "AdtraceSdkTv"
+               BlueprintIdentifier = "9679920C18BBAE2800394606"
+               BuildableName = "libAdtrace.a"
+               BlueprintName = "Adtrace"
                ReferencedContainer = "container:Adtrace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -39,15 +39,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9DFB060F1D747070006D48FC"
-            BuildableName = "AdtraceSdkTv.framework"
-            BlueprintName = "AdtraceSdkTv"
-            ReferencedContainer = "container:Adtrace.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -58,9 +49,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9DFB060F1D747070006D48FC"
-            BuildableName = "AdtraceSdkTv.framework"
-            BlueprintName = "AdtraceSdkTv"
+            BlueprintIdentifier = "9679920C18BBAE2800394606"
+            BuildableName = "libAdtrace.a"
+            BlueprintName = "Adtrace"
             ReferencedContainer = "container:Adtrace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -18,10 +18,4 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |co|
     co.source_files   = 'Adtrace/*.{h,m}', 'Adtrace/ADTAdditions/*.{h,m}'
   end
-
-  s.subspec 'WebBridge' do |wb|
-    wb.source_files = 'AdtraceBridge/*.{h,m}', 'AdtraceBridge/WebViewJavascriptBridge/*.{h,m}'
-    wb.dependency 'Adtrace/Core'
-    wb.ios.deployment_target = '9.0'
-  end
 end

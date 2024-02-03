@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="caa67b26-3546-45a1-a947-25214a7356fa" name="Changes" comment="feat: update version number">
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTActivityHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTAttributionHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTAttributionHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTConfig.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTConfig.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTEvent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTEvent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTEvent.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTEvent.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTLinkResolution.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTLinkResolution.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageBuilder.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPackageParams.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPackageParams.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTPurchaseVerificationHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTPurchaseVerificationHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTResponseData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTResponseData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTSdkClickHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTSdkClickHandler.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTTimerCycle.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTTimerCycle.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUrlStrategy.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUrlStrategy.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/ADTUtil.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/ADTUtil.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/Adtrace.h" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/Adtrace.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Adtrace/Adtrace.m" beforeDir="false" afterPath="$PROJECT_DIR$/Adtrace/Adtrace.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceBridge/AdtraceBridge.m" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceBridge/AdtraceBridge.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceBridge/WebViewJavascriptBridge/WebViewJavascriptBridge_JS.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceBridge/WebViewJavascriptBridge/WebViewJavascriptBridge_JS.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkIm/AdtraceSdkIm.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkIm/AdtraceSdkIm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkImStatic/AdtraceSdkIm.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkImStatic/AdtraceSdkIm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkStatic/AdtraceSdk.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkStatic/AdtraceSdk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkTv/AdtraceSdkTv.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkTv/AdtraceSdkTv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkTvStatic/AdtraceSdkTv.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkTvStatic/AdtraceSdkTv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkWebBridge/AdtraceSdkWebBridge.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkWebBridge/AdtraceSdkWebBridge.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdtraceSdkWebBridgeStatic/AdtraceSdkWebBridge.h" beforeDir="false" afterPath="$PROJECT_DIR$/AdtraceSdkWebBridgeStatic/AdtraceSdkWebBridge.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/button_background.imageset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-ObjC/AdtraceExample-ObjC/Assets.xcassets/button_background.imageset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/Assets.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/Assets.xcassets/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/Assets.xcassets/iMessage App Icon.stickersiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/AdtraceExample-iMessage/AdtraceExample-iMessage MessagesExtension/Assets.xcassets/iMessage App Icon.stickersiconset/Contents.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2a4mnZFWGH0VN33vLBgoe2qa1c5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/Users/smartech/SOFTWARE/ios/update/ios_adtrace_gsmartech",
+    "show.migrate.to.gradle.popup": "false",
+    "two.files.diff.last.used.file": "/Users/smartech/SOFTWARE/ios/update/ios_adtrace_gsmartech/ModuleMap/module.modulemap",
+    "two.files.diff.last.used.folder": "/Users/smartech/SOFTWARE/ios/update/sdk/scripts"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ios_adtrace_gsmartech" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ios_adtrace_gsmartech" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="caa67b26-3546-45a1-a947-25214a7356fa" name="Changes" comment="" />
+      <created>1703586393144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703586393144</updated>
+    </task>
+    <task id="LOCAL-00001" summary="V2.2.0">
+      <option name="closed" value="true" />
+      <created>1703586535465</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1703586535466</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: add lastActivityHardReset to be encode and decode">
+      <option name="closed" value="true" />
+      <created>1705238392804</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705238392804</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: add lastIntervalHardReset to sdkclick and event packages">
+      <option name="closed" value="true" />
+      <created>1705238427081</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705238427081</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: update version number">
+      <option name="closed" value="true" />
+      <created>1705326638422</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705326638423</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="V2.2.0" />
+    <MESSAGE value="feat: add lastActivityHardReset to be encode and decode" />
+    <MESSAGE value="feat: add lastIntervalHardReset to sdkclick and event packages" />
+    <MESSAGE value="feat: update version number" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update version number" />
+  </component>
+</project>

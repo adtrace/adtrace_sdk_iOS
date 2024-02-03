@@ -35,7 +35,7 @@
 - (ADTActivityPackage * _Nullable)buildSessionPackage:(BOOL)isInDelay;
 
 - (ADTActivityPackage * _Nullable)buildEventPackage:(ADTEvent * _Nullable)event
-                                isInDelay:(BOOL)isInDelay;
+                                          isInDelay:(BOOL)isInDelay;
 
 - (ADTActivityPackage * _Nullable)buildInfoPackage:(NSString * _Nullable)infoSource;
 
@@ -89,7 +89,8 @@
 
 + (void)addIdfaToParameters:(NSMutableDictionary * _Nullable)parameters
                  withConfig:(ADTConfig * _Nullable)adtConfig
-                     logger:(id<ADTLogger> _Nullable)logger;
+                     logger:(id<ADTLogger> _Nullable)logger
+              packageParams:(ADTPackageParams * _Nullable)packageParams;
 @end
 
 extern NSString * _Nullable const ADTAttributionTokenParameter;

@@ -9,6 +9,8 @@
 #import "ADTPurchase.h"
 #import "ADTPurchaseVerificationResult.h"
 
+typedef void(^AdtraceResolvedDeeplinkBlock)(NSString * _Nonnull resolvedLink);
+
 @interface AdtraceTestOptions : NSObject
 
 @property (nonatomic, copy, nullable) NSString *baseUrl;
@@ -46,6 +48,8 @@ extern NSString * __nonnull const ADTAdRevenueSourceAdMost;
 extern NSString * __nonnull const ADTAdRevenueSourceUnity;
 extern NSString * __nonnull const ADTAdRevenueSourceHeliumChartboost;
 extern NSString * __nonnull const ADTAdRevenueSourcePublisher;
+extern NSString * __nonnull const ADTAdRevenueSourceTopOn;
+extern NSString * __nonnull const ADTAdRevenueSourceADX;
 
 /**
  * Constants for country app's URL strategies.
@@ -53,6 +57,7 @@ extern NSString * __nonnull const ADTAdRevenueSourcePublisher;
 extern NSString * __nonnull const ADTUrlStrategyIndia;
 extern NSString * __nonnull const ADTUrlStrategyChina;
 extern NSString * __nonnull const ADTUrlStrategyCn;
+extern NSString * __nonnull const ADTUrlStrategyCnOnly;
 extern NSString * __nonnull const ADTDataResidencyEU;
 extern NSString * __nonnull const ADTDataResidencyTR;
 extern NSString * __nonnull const ADTDataResidencyUS;
@@ -74,7 +79,7 @@ extern NSString * __nonnull const ADTDataResidencyUS;
  *
  * @param adtraceConfig The configuration object that includes the environment
  *                     and the App Token of your app. This unique identifier can
- *                     be found it in your dashboard and should always
+ *                     be found it in your dashboard at http://adtrace.io and should always
  *                     be 12 characters long.
  */
 + (void)appDidLaunch:(nullable ADTConfig *)adtraceConfig;
@@ -85,13 +90,13 @@ extern NSString * __nonnull const ADTDataResidencyUS;
  * @note See ADTEvent.h for more event options.
  *
  * @param event The Event object for this kind of event. It needs a event token
- *              that is created in the dashboard and should be six
+ *              that is created in the dashboard at http://adtrace.io and should be six
  *              characters long.
  */
 + (void)trackEvent:(nullable ADTEvent *)event;
 
 /**
- * @brief Tell Adtrace that the application resumed.
+ * @brief Tell adtrace that the application resumed.
  *
  * @note Only necessary if the native notifications can't be used
  *       or if they will happen before call to appDidLaunch: is made.
@@ -99,16 +104,16 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 + (void)trackSubsessionStart;
 
 /**
- * @brief Tell Adtrace that the application paused.
+ * @brief Tell adtrace that the application paused.
  *
  * @note Only necessary if the native notifications can't be used.
  */
 + (void)trackSubsessionEnd;
 
 /**
- * @brief Enable or disable the Adtrace SDK. This setting is saved for future sessions.
+ * @brief Enable or disable the adtrace SDK. This setting is saved for future sessions.
  *
- * @param enabled The flag to enable or disable the Adtrace SDK.
+ * @param enabled The flag to enable or disable the adtrace SDK.
  */
 + (void)setEnabled:(BOOL)enabled;
 
@@ -120,11 +125,20 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 + (BOOL)isEnabled;
 
 /**
- * @brief Read the URL that opened the application to search for an Adtrace deep link.
+ * @brief Read the URL that opened the application to search for an adtrace deep link.
  *
- * @param url URL object which contains info about Adtrace deep link.
+ * @param url URL object which contains info about adtrace deep link.
  */
 + (void)appWillOpenUrl:(nonnull NSURL *)url;
+
+/**
+ * @brief Process the deep link that has opened an app and potentially get a resolved link.
+ *
+ * @param deeplink URL object which contains info about adtrace deep link.
+ * @param completionHandler Completion handler where either resolved or echoed deep link will be sent.
+ */
++ (void)processDeeplink:(nonnull NSURL *)deeplink
+      completionHandler:(void (^_Nonnull)(NSString * _Nonnull resolvedLink))completionHandler;
 
 /**
  * @brief Set the device token used by push notifications.
@@ -157,7 +171,7 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 + (nullable NSString *)idfa;
 
 /**
- * @brief Get current Adtrace identifier for the user.
+ * @brief Retrieve iOS device IDFV value.
  *
  * @return Device IDFV value.
  */
@@ -194,7 +208,7 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 /**
  * @brief Convert a universal link style URL to a deeplink style URL with the corresponding scheme.
  *
- * @param url URL object which contains info about Adtrace deep link.
+ * @param url URL object which contains info about adtrace deep link.
  * @param scheme Desired scheme to which you want your resulting URL object to be prefixed with.
  *
  * @return URL object in custom URL scheme style prefixed with given scheme name.
@@ -202,14 +216,14 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 + (nullable NSURL *)convertUniversalLink:(nonnull NSURL *)url scheme:(nonnull NSString *)scheme;
 
 /**
- * @brief Tell the Adtrace SDK to stop waiting for delayed initialisation timer to complete but rather to start
+ * @brief Tell the adtrace SDK to stop waiting for delayed initialisation timer to complete but rather to start
  *        upon this call. This should be called if you have obtained needed callback/partner parameters which you
  *        wanted to put as default ones before the delayedStart value you have set on ADTConfig has expired.
  */
 + (void)sendFirstPackages;
 
 /**
- * @brief Tell Adtrace to send the request to Google and check if the installation
+ * @brief Tell adtrace to send the request to Google and check if the installation
  *        belongs to Google AdWords campaign.
  *
  * @note Deprecated method, should not be used.
@@ -396,6 +410,9 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 - (void)teardown;
 
 - (void)appWillOpenUrl:(nonnull NSURL *)url;
+
+- (void)processDeeplink:(nonnull NSURL *)deeplink
+      completionHandler:(void (^_Nonnull)(NSString * _Nonnull resolvedLink))completionHandler;
 
 - (void)setOfflineMode:(BOOL)enabled;
 

@@ -53,6 +53,9 @@ typedef NS_ENUM(int, ADTTrackingState) {
 @end
 
 @interface ADTSdkClickResponseData : ADTResponseData
+
+@property (nonatomic, copy) NSString *resolvedDeeplink;
+
 @end
 
 @interface ADTPurchaseVerificationResponseData : ADTResponseData

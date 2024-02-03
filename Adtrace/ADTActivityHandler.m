@@ -99,6 +99,7 @@ const NSUInteger kWaitingForAttStatusLimitSeconds = 120;
 @property (nonatomic, copy) NSString* gdprPath;
 @property (nonatomic, copy) NSString* subscriptionPath;
 @property (nonatomic, copy) NSString* purchaseVerificationPath;
+@property (nonatomic, copy) AdtraceResolvedDeeplinkBlock cachedDeeplinkResolutionCallback;
 
 - (void)prepareDeeplinkI:(ADTActivityHandler *_Nullable)selfI
             responseData:(ADTAttributionResponseData *_Nullable)attributionResponseData NS_EXTENSION_UNAVAILABLE_IOS("");
@@ -111,9 +112,9 @@ const NSUInteger kWaitingForAttStatusLimitSeconds = 120;
 @synthesize attribution = _attribution;
 @synthesize trackingStatusManager = _trackingStatusManager;
 
-- (id)initWithConfig:(ADTConfig *)adtraceConfig
-      savedPreLaunch:(ADTSavedPreLaunch *)savedPreLaunch
-{
+- (id)initWithConfig:(ADTConfig *_Nullable)adtraceConfig
+      savedPreLaunch:(ADTSavedPreLaunch * _Nullable)savedPreLaunch
+      deeplinkResolutionCallback:(AdtraceResolvedDeeplinkBlock _Nullable)deepLinkResolutionCallback {
     self = [super init];
     if (self == nil) return nil;
 
@@ -131,8 +132,8 @@ const NSUInteger kWaitingForAttStatusLimitSeconds = 120;
     if (adtraceConfig.allowIdfaReading == NO) {
         [ADTAdtraceFactory.logger warn:@"IDFA reading has been switched off"];
     }
-    if (adtraceConfig.allowiAdInfoReading == NO) {
-        [ADTAdtraceFactory.logger warn:@"iAd info reading has been switched off"];
+    if (adtraceConfig.allowAdServicesInfoReading == NO) {
+        [ADTAdtraceFactory.logger warn:@"AdServices info reading has been switched off"];
     }
 
     // check if ATT consent delay has been configured
@@ -144,6 +145,7 @@ const NSUInteger kWaitingForAttStatusLimitSeconds = 120;
     self.adtraceConfig = adtraceConfig;
     self.savedPreLaunch = savedPreLaunch;
     self.adtraceDelegate = adtraceConfig.delegate;
+    self.cachedDeeplinkResolutionCallback = deepLinkResolutionCallback;
 
     // init logger to be available everywhere
     self.logger = ADTAdtraceFactory.logger;
@@ -373,6 +375,17 @@ const NSUInteger kWaitingForAttStatusLimitSeconds = 120;
                      block:^(ADTActivityHandler * selfI) {
                          [selfI appWillOpenUrlI:selfI url:url clickTime:clickTime];
                      }];
+}
+
+- (void)processDeeplink:(NSURL * _Nullable)deeplink
+              clickTime:(NSDate * _Nullable)clickTime
+      completionHandler:(AdtraceResolvedDeeplinkBlock _Nullable)completionHandler {
+    [ADTUtil launchInQueue:self.internalQueue
+                selfInject:self
+                     block:^(ADTActivityHandler * selfI) {
+        selfI.cachedDeeplinkResolutionCallback = completionHandler;
+        [selfI appWillOpenUrlI:selfI url:deeplink clickTime:clickTime];
+    }];
 }
 
 - (void)setDeviceToken:(NSData *)deviceToken {
@@ -1549,6 +1562,16 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
                            selector:@selector(adtraceAttributionChanged:)
                          withObject:sdkClickResponseData.attribution];
     }
+
+    // check if we got resolved deep link in the response
+    if (sdkClickResponseData.resolvedDeeplink != nil) {
+        if (selfI.cachedDeeplinkResolutionCallback != nil) {
+            [ADTUtil launchInMainThread:^{
+                selfI.cachedDeeplinkResolutionCallback(sdkClickResponseData.resolvedDeeplink);
+                selfI.cachedDeeplinkResolutionCallback = nil;
+            }];
+        }
+    }
 }
 
 - (void)launchAttributionResponseTasksI:(ADTActivityHandler *)selfI
@@ -1687,7 +1710,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
                 for (ADTThirdPartySharing *thirdPartySharing
                      in selfI.savedPreLaunch.preLaunchAdtraceThirdPartySharingArray)
                 {
-                    [selfI trackThirdPartySharing:thirdPartySharing];
+                    [selfI trackThirdPartySharingI:selfI thirdPartySharing:thirdPartySharing];
                 }
 
                 selfI.savedPreLaunch.preLaunchAdtraceThirdPartySharingArray = nil;
@@ -2854,6 +2877,7 @@ sdkClickHandlerOnly:(BOOL)sdkClickHandlerOnly
 - (void)updateAttStatusFromUserCallback:(int)newAttStatusFromUser {
     [self.trackingStatusManager updateAttStatusFromUserCallback:newAttStatusFromUser];
 }
+
 
 - (void)processCoppaComplianceI:(ADTActivityHandler *)selfI {
     if (!selfI.adtraceConfig.coppaCompliantEnabled) {

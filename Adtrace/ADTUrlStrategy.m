@@ -6,21 +6,21 @@
 static NSString * const baseUrl = @"https://app.adtrace.io";
 static NSString * const gdprUrl = @"https://gdpr.adtrace.io";
 static NSString * const subscriptionUrl = @"https://subscription.adtrace.io";
-static NSString * const purchaseVerificationUrl = @"https://ssrv.adtrace.cio";
+static NSString * const purchaseVerificationUrl = @"https://ssrv.adtrace.io";
 
-static NSString * const baseUrlIndia = @"https://app.adtrace.io.in";
-static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.io.in";
-static NSString * const subscriptionUrlIndia = @"https://subscrition.adtrace.io.in";
-static NSString * const purchaseVerificationUrlIndia = @"https://ssrv.adtrace.io.in";
+static NSString * const baseUrlIndia = @"https://app.adtrace.net.in";
+static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.net.in";
+static NSString * const subscriptionUrlIndia = @"https://subscription.adtrace.net.in";
+static NSString * const purchaseVerificationUrlIndia = @"https://ssrv.adtrace.net.in";
 
 static NSString * const baseUrlChina = @"https://app.adtrace.world";
 static NSString * const gdprUrlChina = @"https://gdpr.adtrace.world";
-static NSString * const subscriptionUrlChina = @"https://subscrition.adtrace.world";
+static NSString * const subscriptionUrlChina = @"https://subscription.adtrace.world";
 static NSString * const purchaseVerificationUrlChina = @"https://ssrv.adtrace.world";
 
 static NSString * const baseUrlCn = @"https://app.adtrace.cn";
-static NSString * const gdprUrlCn = @"https://gdpr.adtrace.io"; // TODO: switch to .cn
-static NSString * const subscriptionUrlCn = @"https://subscription.adtrace.io"; // TODO: switch to .cn
+static NSString * const gdprUrlCn = @"https://gdpr.adtrace.cn";
+static NSString * const subscriptionUrlCn = @"https://subscription.adtrace.cn";
 static NSString * const purchaseVerificationUrlCn = @"https://ssrv.adtrace.cn";
 
 static NSString * const baseUrlEU = @"https://app.eu.adtrace.io";
@@ -91,6 +91,8 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
         return @[baseUrlChina, baseUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
         return @[baseUrlCn, baseUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
+        return @[baseUrlCn];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
         return @[baseUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
@@ -109,6 +111,8 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
         return @[gdprUrlChina, gdprUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
         return @[gdprUrlCn, gdprUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
+        return @[gdprUrlCn];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
         return @[gdprUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
@@ -127,6 +131,8 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
         return @[subscriptionUrlChina, subscriptionUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
         return @[subscriptionUrlCn, subscriptionUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
+        return @[subscriptionUrlCn];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
         return @[subscriptionUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
@@ -145,6 +151,8 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
         return @[purchaseVerificationUrlChina, purchaseVerificationUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
         return @[purchaseVerificationUrlCn, purchaseVerificationUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
+        return @[purchaseVerificationUrlCn];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
         return @[purchaseVerificationUrlEU];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {

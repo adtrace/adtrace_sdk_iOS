@@ -120,7 +120,7 @@
 
     if ([delegate respondsToSelector:@selector(adtraceDeeplinkResponse:)]) {
         [self.logger debug:@"Delegate implements adtraceDeeplinkResponse:"];
-        
+        // does not enable hasDelegate flag
         implementsDeeplinkCallback = YES;
     }
     
@@ -207,6 +207,7 @@
         copy->_isSKAdNetworkHandlingActive = self.isSKAdNetworkHandlingActive;
         copy->_urlStrategy = [self.urlStrategy copyWithZone:zone];
         copy.linkMeEnabled = self.linkMeEnabled;
+        copy.readDeviceInfoOnceEnabled = self.readDeviceInfoOnceEnabled;
         // adtrace delegate not copied
     }
 

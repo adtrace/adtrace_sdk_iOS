@@ -10,7 +10,6 @@
 @property (nonatomic, strong) NSMutableDictionary *eventMutableParameters;
 @property (nonatomic, strong) NSMutableDictionary *partnerMutableParameters;
 
-
 @end
 
 @implementation ADTEvent

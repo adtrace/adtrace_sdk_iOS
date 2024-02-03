@@ -7,7 +7,7 @@
 #import "ADTUserDefaults.h"
 #import "ADTPackageBuilder.h"
 
-static const char * const kInternalQueueName = "com.adtrace.SdkClickQueue";
+static const char * const kInternalQueueName = "io.adtrace.SdkClickQueue";
 
 @interface ADTSdkClickHandler()
 
@@ -196,7 +196,8 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
                                forKey:@"att_status"];
         [ADTPackageBuilder addIdfaToParameters:activityPackage.parameters
                                     withConfig:self.activityHandler.adtraceConfig
-                                        logger:[ADTAdtraceFactory logger]];
+                                        logger:[ADTAdtraceFactory logger]
+                                 packageParams:self.activityHandler.packageParams];
     }
 }
 
@@ -229,6 +230,9 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
         [ADTUserDefaults setAdServicesTracked];
         [self.logger info:@"Received Apple Ads click response"];
     }
+
+    // in case there's resolved_click_url in the response
+    ((ADTSdkClickResponseData *)responseData).resolvedDeeplink = [responseData.jsonResponse objectForKey:@"resolved_click_url"];
 
     [self.activityHandler finishedTracking:responseData];
 }

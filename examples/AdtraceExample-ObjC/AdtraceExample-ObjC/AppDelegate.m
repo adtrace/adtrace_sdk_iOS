@@ -16,7 +16,7 @@
     
     // Change the log level.
     [adtraceConfig setLogLevel:ADTLogLevelVerbose];
-    
+
     // Enable event buffering.
     // [adtraceConfig setEventBufferingEnabled:YES];
     

@@ -22,3 +22,5 @@ FOUNDATION_EXPORT const unsigned char AdtraceSdkImVersionString[];
 #import <AdtraceSdkIm/ADTSessionFailure.h>
 #import <AdtraceSdkIm/ADTAdRevenue.h>
 #import <AdtraceSdkIm/ADTLinkResolution.h>
+#import <AdtraceSdkIm/ADTPurchase.h>
+#import <AdtraceSdkIm/ADTPurchaseVerificationResult.h>

@@ -14,3 +14,5 @@
 #import <AdtraceSdkTv/ADTSessionFailure.h>
 #import <AdtraceSdkTv/ADTAdRevenue.h>
 #import <AdtraceSdkTv/ADTLinkResolution.h>
+#import <AdtraceSdkTv/ADTPurchase.h>
+#import <AdtraceSdkTv/ADTPurchaseVerificationResult.h>

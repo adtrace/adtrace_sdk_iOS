@@ -16,6 +16,8 @@
 #import <AdtraceSdkWebBridge/ADTSessionFailure.h>
 #import <AdtraceSdkWebBridge/ADTAdRevenue.h>
 #import <AdtraceSdkWebBridge/ADTLinkResolution.h>
+#import <AdtraceSdkWebBridge/ADTPurchase.h>
+#import <AdtraceSdkWebBridge/ADTPurchaseVerificationResult.h>
 
 // Exposing entire WebViewJavascriptBridge framework
 #import <AdtraceSdkWebBridge/WebViewJavascriptBridge_JS.h>

@@ -1,8 +1,7 @@
 
-//#import "Adtrace.h"
-
+#import "Adtrace.h"
 // In case of erroneous import statement try with:
- #import <Adtrace/Adtrace.h>
+// #import <AdtraceSdk/Adtrace.h>
 // (depends how you import the Adtrace SDK to your app)
 
 #import "AdtraceBridge.h"
@@ -206,6 +205,7 @@
         NSString *sessionFailureCallback = [data objectForKey:@"sessionFailureCallback"];
         NSString *deferredDeeplinkCallback = [data objectForKey:@"deferredDeeplinkCallback"];
         NSString *urlStrategy = [data objectForKey:@"urlStrategy"];
+        NSNumber *readDeviceInfoOnceEnabled = [data objectForKey:@"readDeviceInfoOnceEnabled"];
 
         ADTConfig *adtraceConfig;
         if ([self isFieldValid:allowSuppressLogLevel]) {
@@ -324,6 +324,9 @@
         if ([self isFieldValid:urlStrategy]) {
             [adtraceConfig setUrlStrategy:urlStrategy];
         }
+        if ([self isFieldValid:readDeviceInfoOnceEnabled]) {
+            [adtraceConfig setReadDeviceInfoOnceEnabled:[readDeviceInfoOnceEnabled boolValue]];
+        }
 
         [Adtrace appDidLaunch:adtraceConfig];
         [Adtrace trackSubsessionStart];
@@ -435,9 +438,9 @@
         if (responseCallback == nil) {
             return;
         }
-        responseCallback([Adtrace idfa]);
+        responseCallback([Adtrace idfv]);
     }];
-    
+
     [self.bridgeRegister registerHandler:@"adtrace_requestTrackingAuthorizationWithCompletionHandler" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (responseCallback == nil) {
             return;

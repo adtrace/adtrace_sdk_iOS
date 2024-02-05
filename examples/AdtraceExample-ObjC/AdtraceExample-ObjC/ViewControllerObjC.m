@@ -36,7 +36,7 @@
     ADTEvent *event = [ADTEvent eventWithEventToken:kEventToken2];
 
     // Add revenue 1 cent of an EURO.
-    [event setRevenue:0.01 currency:@"EUR"];
+    [event setRevenue:12000.0 currency:@"Rials"];
 
     [Adtrace trackEvent:event];
 }

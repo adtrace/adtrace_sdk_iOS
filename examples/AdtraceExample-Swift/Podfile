@@ -6,6 +6,6 @@ target 'AdtraceExample-Swift' do
   use_frameworks!
   
   # Pods for AdtraceExample-Swift
-  pod 'Adtrace', path: "../../"
+  pod 'Adtrace-sdk', path: "../../"
   
 end

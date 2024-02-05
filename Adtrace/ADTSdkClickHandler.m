@@ -230,6 +230,9 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
         [self.logger info:@"Received Apple Ads click response"];
     }
 
+    // in case there's resolved_click_url in the response
+    ((ADTSdkClickResponseData *)responseData).resolvedDeeplink = [responseData.jsonResponse objectForKey:@"resolved_click_url"];
+
     [self.activityHandler finishedTracking:responseData];
 }
 

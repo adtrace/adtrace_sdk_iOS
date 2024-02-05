@@ -120,7 +120,7 @@
 
     if ([delegate respondsToSelector:@selector(adtraceDeeplinkResponse:)]) {
         [self.logger debug:@"Delegate implements adtraceDeeplinkResponse:"];
-        
+        // does not enable hasDelegate flag
         implementsDeeplinkCallback = YES;
     }
     

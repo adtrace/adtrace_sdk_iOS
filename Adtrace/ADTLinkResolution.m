@@ -170,7 +170,7 @@ static NSUInteger kMaxRecursions = 10;
     }
 
     NSArray<NSString *> *_Nonnull terminalUrlHostSuffixArray =
-        @[@"adtrace.io"];
+        @[@"adtrace.io", @"adt.st", @"go.link"];
 
     return [ADTLinkResolution urlMatchesSuffixWithHost:urlHost
                                            suffixArray:terminalUrlHostSuffixArray];

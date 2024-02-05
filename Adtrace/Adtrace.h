@@ -9,6 +9,8 @@
 #import "ADTPurchase.h"
 #import "ADTPurchaseVerificationResult.h"
 
+typedef void(^AdtraceResolvedDeeplinkBlock)(NSString * _Nonnull resolvedLink);
+
 @interface AdtraceTestOptions : NSObject
 
 @property (nonatomic, copy, nullable) NSString *baseUrl;
@@ -125,6 +127,15 @@ extern NSString * __nonnull const ADTDataResidencyUS;
  * @param url URL object which contains info about Adtrace deep link.
  */
 + (void)appWillOpenUrl:(nonnull NSURL *)url;
+
+/**
+ * @brief Process the deep link that has opened an app and potentially get a resolved link.
+ *
+ * @param deeplink URL object which contains info about adtrace deep link.
+ * @param completionHandler Completion handler where either resolved or echoed deep link will be sent.
+ */
++ (void)processDeeplink:(nonnull NSURL *)deeplink
+      completionHandler:(void (^_Nonnull)(NSString * _Nonnull resolvedLink))completionHandler;
 
 /**
  * @brief Set the device token used by push notifications.
@@ -396,6 +407,9 @@ extern NSString * __nonnull const ADTDataResidencyUS;
 - (void)teardown;
 
 - (void)appWillOpenUrl:(nonnull NSURL *)url;
+
+- (void)processDeeplink:(nonnull NSURL *)deeplink
+      completionHandler:(void (^_Nonnull)(NSString * _Nonnull resolvedLink))completionHandler;
 
 - (void)setOfflineMode:(BOOL)enabled;
 

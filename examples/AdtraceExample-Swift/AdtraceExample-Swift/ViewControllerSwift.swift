@@ -66,6 +66,16 @@ class ViewControllerSwift: UIViewController {
         Adtrace.trackEvent(event);
     }
     
+    @IBAction func btnTrackEventValueTapped(_sender: UIButton) {
+        let event = ADTEvent(eventToken: "8ihwpl");
+        
+        // Add partner parameteres to this event.
+        event?.addValueParameter("foo", value: "bar");
+        event?.addValueParameter("key", value: "value");
+        
+        Adtrace.trackEvent(event);
+    }
+    
     @IBAction func btnEnableOfflineModeTapped(_sender: UIButton) {
         Adtrace.setOfflineMode(true);
     }

@@ -1,7 +1,7 @@
 PODS:
-  - Adtrace-sdk (2.2.0):
-    - Adtrace-sdk/Core (= 2.2.0)
-  - Adtrace-sdk/Core (2.2.0)
+  - Adtrace-sdk (2.2.1):
+    - Adtrace-sdk/Core (= 2.2.1)
+  - Adtrace-sdk/Core (2.2.1)
 
 DEPENDENCIES:
   - Adtrace-sdk (from `../../`)

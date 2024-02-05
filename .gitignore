@@ -35,3 +35,6 @@ uncrustify.cfg
 
 #SPM
 .swiftpm/
+
+# Other
+.idea/

@@ -1235,8 +1235,9 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
 
 - (void)addIdfaIfPossibleToParameters:(NSMutableDictionary *)parameters {
     [ADTPackageBuilder addIdfaToParameters:parameters
-                                withConfig:self.adtraceConfig
-                                    logger:[ADTAdtraceFactory logger]];
+                                    withConfig:self.adtraceConfig
+                                        logger:[ADTAdtraceFactory logger]
+                                 packageParams:self.packageParams];
 }
 
 - (void)addIdfvIfPossibleToParameters:(NSMutableDictionary *)parameters {
@@ -1372,9 +1373,10 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
 
 + (void)addIdfaToParameters:(NSMutableDictionary * _Nullable)parameters
                  withConfig:(ADTConfig * _Nullable)adtConfig
-                     logger:(id<ADTLogger> _Nullable)logger {
-
-    if (! adtConfig.allowIdfaReading) {
+                     logger:(id<ADTLogger> _Nullable)logger
+              packageParams:(ADTPackageParams *)packageParams {
+    if (!adtConfig.allowIdfaReading) {
+        [logger info:@"Cannot read IDFA because it's forbidden by ADTConfig setting"];
         return;
     }
 
@@ -1383,14 +1385,22 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
         return;
     }
 
-    NSString *idfa = [ADTUtil idfa];
-    if (idfa == nil
-        || idfa.length == 0
-        || [idfa isEqualToString:@"00000000-0000-0000-0000-000000000000"])
-    {
+    // read once && IDFA not cached
+    if (adtConfig.readDeviceInfoOnceEnabled && packageParams.idfaCached != nil) {
+        [ADTPackageBuilder parameters:parameters setString:packageParams.idfaCached forKey:@"idfa"];
         return;
     }
 
+    // read IDFA
+    NSString *idfa = [ADTUtil idfa];
+    if (idfa == nil ||
+        idfa.length == 0 ||
+        [idfa isEqualToString:@"00000000-0000-0000-0000-000000000000"]) {
+        return;
+    }
+    // cache IDFA
+    packageParams.idfaCached = idfa;
+    // add IDFA to payload
     [ADTPackageBuilder parameters:parameters setString:idfa forKey:@"idfa"];
 }
 

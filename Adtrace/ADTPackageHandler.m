@@ -302,7 +302,8 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
         [ADTPackageBuilder parameters:activityPackage.parameters setInt:attStatus forKey:@"att_status"];
         [ADTPackageBuilder addIdfaToParameters:activityPackage.parameters
                                     withConfig:self.activityHandler.adtraceConfig
-                                        logger:[ADTAdtraceFactory logger]];
+                                        logger:[ADTAdtraceFactory logger]
+                                 packageParams:self.activityHandler.packageParams];
         // add to copy queue
         [packageQueueCopy addObject:activityPackage];
     }

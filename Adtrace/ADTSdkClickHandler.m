@@ -196,7 +196,8 @@ activityHandler:(id<ADTActivityHandler>)activityHandler
                                forKey:@"att_status"];
         [ADTPackageBuilder addIdfaToParameters:activityPackage.parameters
                                     withConfig:self.activityHandler.adtraceConfig
-                                        logger:[ADTAdtraceFactory logger]];
+                                        logger:[ADTAdtraceFactory logger]
+                                 packageParams:self.activityHandler.packageParams];
     }
 }
 

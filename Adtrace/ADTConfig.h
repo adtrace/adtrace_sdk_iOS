@@ -159,7 +159,7 @@
 /**
  * @brief Enables/disables reading of iAd framework data needed for ASA tracking.
  */
-@property (nonatomic, assign) BOOL allowiAdInfoReading;
+@property (nonatomic, assign) BOOL allowiAdInfoReading DEPRECATED_MSG_ATTRIBUTE("Apple Search Ads attribution with usage of iAd.framework has been sunset by Apple as of February 7th 2023");
 
 /**
  * @brief Enables/disables reading of AdServices framework data needed for attribution.
@@ -234,7 +234,7 @@
  * @brief Get configuration object for the initialization of the Adtrace SDK.
  *
  * @param appToken The App Token of your app. This unique identifier can
- *                 be found it in your dashboard and should always
+ *                 be found it in your dashboard at http://adtrace.io and should always
  *                 be 12 characters long.
  * @param environment The current environment your app. We use this environment to
  *                    distinguish between real traffic and artificial traffic from test devices.
@@ -253,7 +253,7 @@
  * @brief Configuration object for the initialization of the Adtrace SDK.
  *
  * @param appToken The App Token of your app. This unique identifier can
- *                 be found it in your dashboard and should always
+ *                 be found it in your dashboard at http://adtrace.io and should always
  *                 be 12 characters long.
  * @param environment The current environment your app. We use this environment to
  *                    distinguish between real traffic and artificial traffic from test devices.
@@ -274,7 +274,7 @@
 
 /**
  * @brief Check if adtrace configuration object is valid.
- * 
+ *
  * @return Boolean indicating whether adtrace config object is valid or not.
  */
 - (BOOL)isValid;

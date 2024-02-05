@@ -36,8 +36,7 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
                      config:(ADTConfig * _Nullable)adtraceConfig
           sessionParameters:(ADTSessionParameters * _Nullable)sessionParameters
       trackingStatusManager:(ADTTrackingStatusManager * _Nullable)trackingStatusManager
-                  createdAt:(double)createdAt
-{
+                  createdAt:(double)createdAt {
     self = [super init];
     if (self == nil) {
         return nil;
@@ -1379,7 +1378,6 @@ NSString * const ADTAttributionTokenParameter = @"attribution_token";
         [logger info:@"Cannot read IDFA because it's forbidden by ADTConfig setting"];
         return;
     }
-
     if (adtConfig.coppaCompliantEnabled) {
         [logger info:@"Cannot read IDFA with COPPA enabled"];
         return;

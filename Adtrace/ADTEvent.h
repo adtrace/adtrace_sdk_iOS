@@ -66,7 +66,7 @@
  * @brief Create Event object with event token.
  *
  * @param eventToken Event token that is created in the dashboard
- *                   and should be six characters long.
+ *                   at http://adtrace.io and should be six characters long.
  */
 + (nullable ADTEvent *)eventWithEventToken:(nonnull NSString *)eventToken;
 
@@ -78,7 +78,7 @@
  * @param key String key in the callback URL.
  * @param value String value of the key in the Callback URL.
  *
- * @note In your dashboard at http:
+ * @note In your dashboard at http://adtrace.io you can assign a callback URL to each
  *       event type. That URL will get called every time the event is triggered. On
  *       top of that you can add callback parameters to the following method that
  *       will be forwarded to these callbacks.

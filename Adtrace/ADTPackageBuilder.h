@@ -35,7 +35,7 @@
 - (ADTActivityPackage * _Nullable)buildSessionPackage:(BOOL)isInDelay;
 
 - (ADTActivityPackage * _Nullable)buildEventPackage:(ADTEvent * _Nullable)event
-                                isInDelay:(BOOL)isInDelay;
+                                          isInDelay:(BOOL)isInDelay;
 
 - (ADTActivityPackage * _Nullable)buildInfoPackage:(NSString * _Nullable)infoSource;
 

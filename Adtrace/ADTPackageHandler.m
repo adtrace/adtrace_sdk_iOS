@@ -47,12 +47,12 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
     [ADTUtil launchInQueue:self.internalQueue
                 selfInject:self
                      block:^(ADTPackageHandler * selfI) {
-                         [selfI initI:selfI
-                     activityHandler:activityHandler
-                       startsSending:startsSending
-                          userAgent:userAgent
-                          urlStrategy:urlStrategy];
-                     }];
+        [selfI initI:selfI
+     activityHandler:activityHandler
+       startsSending:startsSending
+           userAgent:userAgent
+         urlStrategy:urlStrategy];
+    }];
 
     return self;
 }
@@ -61,16 +61,16 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
     [ADTUtil launchInQueue:self.internalQueue
                 selfInject:self
                      block:^(ADTPackageHandler* selfI) {
-                         [selfI addI:selfI package:package];
-                     }];
+        [selfI addI:selfI package:package];
+    }];
 }
 
 - (void)sendFirstPackage {
     [ADTUtil launchInQueue:self.internalQueue
                 selfInject:self
                      block:^(ADTPackageHandler* selfI) {
-                         [selfI sendFirstI:selfI];
-                     }];
+        [selfI sendFirstI:selfI];
+    }];
 }
 
 - (void)responseCallback:(ADTResponseData *)responseData {
@@ -98,8 +98,8 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
     [ADTUtil launchInQueue:self.internalQueue
                 selfInject:self
                      block:^(ADTPackageHandler* selfI) {
-                         [selfI sendNextI:selfI];
-                     }];
+        [selfI sendNextI:selfI];
+    }];
 
     [self.activityHandler finishedTracking:responseData];
 }
@@ -142,8 +142,8 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
     [ADTUtil launchInQueue:self.internalQueue
                 selfInject:self
                      block:^(ADTPackageHandler* selfI) {
-                         [selfI updatePackagesI:selfI sessionParameters:sessionParametersCopy];
-                     }];
+        [selfI updatePackagesI:selfI sessionParameters:sessionParametersCopy];
+    }];
 }
 
 - (void)updatePackagesWithIdfaAndAttStatus {
@@ -184,18 +184,18 @@ static const char * const kInternalQueueName    = "io.adtrace.PackageQueue";
 
 #pragma mark - internal
 - (void)initI:(ADTPackageHandler *)selfI
-        activityHandler:(id<ADTActivityHandler>)activityHandler
-        startsSending:(BOOL)startsSending
-        userAgent:(NSString *)userAgent
-        urlStrategy:(ADTUrlStrategy *)urlStrategy
-{
+activityHandler:(id<ADTActivityHandler>)activityHandler
+startsSending:(BOOL)startsSending
+    userAgent:(NSString *)userAgent
+  urlStrategy:(ADTUrlStrategy *)urlStrategy {
+
     selfI.activityHandler = activityHandler;
     selfI.paused = !startsSending;
     selfI.requestHandler = [[ADTRequestHandler alloc]
-                                initWithResponseCallback:self
-                                urlStrategy:urlStrategy
-                                userAgent:userAgent
-                                requestTimeout:[ADTAdtraceFactory requestTimeout]];
+                            initWithResponseCallback:self
+                            urlStrategy:urlStrategy
+                            userAgent:userAgent
+                            requestTimeout:[ADTAdtraceFactory requestTimeout]];
     selfI.logger = ADTAdtraceFactory.logger;
     selfI.sendingSemaphore = dispatch_semaphore_create(1);
     [selfI readPackageQueueI:selfI];

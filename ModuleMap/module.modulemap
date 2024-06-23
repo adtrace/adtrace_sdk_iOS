@@ -1,0 +1,6 @@
+framework module AdtraceSdk {
+  umbrella header "Adtrace.h"
+
+  export *
+  module * { export * }
+}

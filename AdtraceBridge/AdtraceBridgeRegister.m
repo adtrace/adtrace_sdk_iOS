@@ -398,12 +398,8 @@ static NSString * fbAppIdStatic = nil;
         AdtraceConfig.LogLevelAssert = 'ASSERT';
         AdtraceConfig.LogLevelSuppress = 'SUPPRESS';
 
-        AdtraceConfig.UrlStrategyIndia = 'UrlStrategyIndia';
-        AdtraceConfig.UrlStrategyChina = 'UrlStrategyChina';
-        AdtraceConfig.UrlStrategyCn = 'UrlStrategyCn';
-        AdtraceConfig.DataResidencyEU = 'DataResidencyEU';
-        AdtraceConfig.DataResidencyTR = 'DataResidencyTR';
-        AdtraceConfig.DataResidencyUS = 'DataResidencyUS';
+        AdtraceConfig.UrlStrategyIR = 'UrlStrategyIR';
+        AdtraceConfig.UrlStrategyMOBI = 'UrlStrategyMOBI';
 
         AdtraceConfig.prototype.registerCallbackHandlers = function() {
             var registerCallbackHandler = function(callbackName) {

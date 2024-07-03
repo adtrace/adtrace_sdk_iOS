@@ -55,7 +55,7 @@ extern NSString * __nonnull const ADTAdRevenueSourceADX;
  * Constants for country app's URL strategies.
  */
 extern NSString * __nonnull const ADTUrlStrategyIR;
-extern NSString * __nonnull const ADTUrlStrategyMOBI;
+extern NSString * __nonnull const ADTUrlStrategyMobi;
 extern NSString * __nonnull const ADTDataResidencyIR;
 
 /**

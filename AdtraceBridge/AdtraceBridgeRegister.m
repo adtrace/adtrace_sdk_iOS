@@ -399,7 +399,7 @@ static NSString * fbAppIdStatic = nil;
         AdtraceConfig.LogLevelSuppress = 'SUPPRESS';
 
         AdtraceConfig.UrlStrategyIR = 'UrlStrategyIR';
-        AdtraceConfig.UrlStrategyMOBI = 'UrlStrategyMOBI';
+        AdtraceConfig.UrlStrategyMobi = 'UrlStrategyMobi';
 
         AdtraceConfig.prototype.registerCallbackHandlers = function() {
             var registerCallbackHandler = function(callbackName) {

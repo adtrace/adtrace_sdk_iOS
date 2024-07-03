@@ -27,7 +27,7 @@ NSString * const ADTAdRevenueSourceTopOn = @"topon_sdk";
 NSString * const ADTAdRevenueSourceADX = @"adx_sdk";
 
 NSString * const ADTUrlStrategyIR = @"UrlStrategyIR";
-NSString * const ADTUrlStrategyMOBI = @"UrlStrategyMOBI";
+NSString * const ADTUrlStrategyMobi = @"UrlStrategyMobi";
 
 NSString * const ADTDataResidencyIR = @"DataResidencyIR";
 

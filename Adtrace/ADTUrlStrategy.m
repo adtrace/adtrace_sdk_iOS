@@ -13,10 +13,10 @@ static NSString * const gdprUrlIR = @"https://gdpr.adtrace.ir";
 static NSString * const subscriptionUrlIR = @"https://subscription.adtrace.ir";
 static NSString * const purchaseVerificationUrlIR = @"https://ssrv.adtrace.ir";
 
-static NSString * const baseUrlMOBI = @"https://app.adtrace.mobi";
-static NSString * const gdprUrlMOBI = @"https://gdpr.adtrace.mobi";
-static NSString * const subscriptionUrlMOBI = @"https://subscription.adtrace.mobi";
-static NSString * const purchaseVerificationUrlMOBI = @"https://ssrv.adtrace.mobi";
+static NSString * const baseUrlMobi = @"https://app.adtrace.mobi";
+static NSString * const gdprUrlMobi = @"https://gdpr.adtrace.mobi";
+static NSString * const subscriptionUrlMobi = @"https://subscription.adtrace.mobi";
+static NSString * const purchaseVerificationUrlMobi = @"https://ssrv.adtrace.mobi";
 
 @interface ADTUrlStrategy ()
 
@@ -67,48 +67,48 @@ static NSString * const purchaseVerificationUrlMOBI = @"https://ssrv.adtrace.mob
 + (NSArray<NSString *> *)baseUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
         return @[baseUrlIR, baseUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMOBI]) {
-        return @[baseUrlMOBI, baseUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[baseUrlMobi, baseUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
         return @[baseUrl];
     } else {
-        return @[baseUrl, baseUrlIR, baseUrlMOBI];
+        return @[baseUrl, baseUrlIR, baseUrlMobi];
     }
 }
 
 + (NSArray<NSString *> *)gdprUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
         return @[gdprUrlIR, gdprUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMOBI]) {
-        return @[gdprUrlMOBI, gdprUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[gdprUrlMobi, gdprUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
         return @[gdprUrl];
     } else {
-        return @[gdprUrl, gdprUrlIR, gdprUrlMOBI];
+        return @[gdprUrl, gdprUrlIR, gdprUrlMobi];
     }
 }
 
 + (NSArray<NSString *> *)subscriptionUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
         return @[subscriptionUrlIR, subscriptionUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMOBI]) {
-        return @[subscriptionUrlMOBI, subscriptionUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[subscriptionUrlMobi, subscriptionUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
         return @[subscriptionUrl];
     } else {
-        return @[subscriptionUrl, subscriptionUrlIR, subscriptionUrlMOBI];
+        return @[subscriptionUrl, subscriptionUrlIR, subscriptionUrlMobi];
     }
 }
 
 + (NSArray<NSString *> *)purchaseVerificationUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
     if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
         return @[purchaseVerificationUrlIR, purchaseVerificationUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMOBI]) {
-        return @[purchaseVerificationUrlMOBI, purchaseVerificationUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[purchaseVerificationUrlMobi, purchaseVerificationUrl];
     } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
         return @[purchaseVerificationUrl];
     } else {
-        return @[purchaseVerificationUrl, purchaseVerificationUrlIR, purchaseVerificationUrlMOBI];
+        return @[purchaseVerificationUrl, purchaseVerificationUrlIR, purchaseVerificationUrlMobi];
     }
 }
 

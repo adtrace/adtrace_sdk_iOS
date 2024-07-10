@@ -8,35 +8,15 @@ static NSString * const gdprUrl = @"https://gdpr.adtrace.io";
 static NSString * const subscriptionUrl = @"https://subscription.adtrace.io";
 static NSString * const purchaseVerificationUrl = @"https://ssrv.adtrace.io";
 
-static NSString * const baseUrlIndia = @"https://app.adtrace.net.in";
-static NSString * const gdprUrlIndia = @"https://gdpr.adtrace.net.in";
-static NSString * const subscriptionUrlIndia = @"https://subscription.adtrace.net.in";
-static NSString * const purchaseVerificationUrlIndia = @"https://ssrv.adtrace.net.in";
+static NSString * const baseUrlIR = @"https://app.adtrace.ir";
+static NSString * const gdprUrlIR = @"https://gdpr.adtrace.ir";
+static NSString * const subscriptionUrlIR = @"https://subscription.adtrace.ir";
+static NSString * const purchaseVerificationUrlIR = @"https://ssrv.adtrace.ir";
 
-static NSString * const baseUrlChina = @"https://app.adtrace.world";
-static NSString * const gdprUrlChina = @"https://gdpr.adtrace.world";
-static NSString * const subscriptionUrlChina = @"https://subscription.adtrace.world";
-static NSString * const purchaseVerificationUrlChina = @"https://ssrv.adtrace.world";
-
-static NSString * const baseUrlCn = @"https://app.adtrace.cn";
-static NSString * const gdprUrlCn = @"https://gdpr.adtrace.cn";
-static NSString * const subscriptionUrlCn = @"https://subscription.adtrace.cn";
-static NSString * const purchaseVerificationUrlCn = @"https://ssrv.adtrace.cn";
-
-static NSString * const baseUrlEU = @"https://app.eu.adtrace.io";
-static NSString * const gdprUrlEU = @"https://gdpr.eu.adtrace.io";
-static NSString * const subscriptionUrlEU = @"https://subscription.eu.adtrace.io";
-static NSString * const purchaseVerificationUrlEU = @"https://ssrv.eu.adtrace.io";
-
-static NSString * const baseUrlTR = @"https://app.tr.adtrace.io";
-static NSString * const gdprUrlTR = @"https://gdpr.tr.adtrace.io";
-static NSString * const subscriptionUrlTR = @"https://subscription.tr.adtrace.io";
-static NSString * const purchaseVerificationUrlTR = @"https://ssrv.tr.adtrace.io";
-
-static NSString * const baseUrlUS = @"https://app.us.adtrace.io";
-static NSString * const gdprUrlUS = @"https://gdpr.us.adtrace.io";
-static NSString * const subscriptionUrlUS = @"https://subscription.us.adtrace.io";
-static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io";
+static NSString * const baseUrlMobi = @"https://app.adtrace.mobi";
+static NSString * const gdprUrlMobi = @"https://gdpr.adtrace.mobi";
+static NSString * const subscriptionUrlMobi = @"https://subscription.adtrace.mobi";
+static NSString * const purchaseVerificationUrlMobi = @"https://ssrv.adtrace.mobi";
 
 @interface ADTUrlStrategy ()
 
@@ -85,82 +65,50 @@ static NSString * const purchaseVerificationUrlUS = @"https://ssrv.us.adtrace.io
 }
 
 + (NSArray<NSString *> *)baseUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
-    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
-        return @[baseUrlIndia, baseUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[baseUrlChina, baseUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
-        return @[baseUrlCn, baseUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
-        return @[baseUrlCn];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[baseUrlEU];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
-        return @[baseUrlTR];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[baseUrlUS];
+    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
+        return @[baseUrlIR, baseUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[baseUrlMobi, baseUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
+        return @[baseUrl];
     } else {
-        return @[baseUrl, baseUrlIndia, baseUrlChina];
+        return @[baseUrl, baseUrlIR, baseUrlMobi];
     }
 }
 
 + (NSArray<NSString *> *)gdprUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
-    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
-        return @[gdprUrlIndia, gdprUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[gdprUrlChina, gdprUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
-        return @[gdprUrlCn, gdprUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
-        return @[gdprUrlCn];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[gdprUrlEU];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
-        return @[gdprUrlTR];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[gdprUrlUS];
+    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
+        return @[gdprUrlIR, gdprUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[gdprUrlMobi, gdprUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
+        return @[gdprUrl];
     } else {
-        return @[gdprUrl, gdprUrlIndia, gdprUrlChina];
+        return @[gdprUrl, gdprUrlIR, gdprUrlMobi];
     }
 }
 
 + (NSArray<NSString *> *)subscriptionUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
-    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
-        return @[subscriptionUrlIndia, subscriptionUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[subscriptionUrlChina, subscriptionUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
-        return @[subscriptionUrlCn, subscriptionUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
-        return @[subscriptionUrlCn];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[subscriptionUrlEU];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
-        return @[subscriptionUrlTR];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[subscriptionUrlUS];
+    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
+        return @[subscriptionUrlIR, subscriptionUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[subscriptionUrlMobi, subscriptionUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
+        return @[subscriptionUrl];
     } else {
-        return @[subscriptionUrl, subscriptionUrlIndia, subscriptionUrlChina];
+        return @[subscriptionUrl, subscriptionUrlIR, subscriptionUrlMobi];
     }
 }
 
 + (NSArray<NSString *> *)purchaseVerificationUrlChoicesWithUrlStrategyInfo:(NSString *)urlStrategyInfo {
-    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIndia]) {
-        return @[purchaseVerificationUrlIndia, purchaseVerificationUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyChina]) {
-        return @[purchaseVerificationUrlChina, purchaseVerificationUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCn]) {
-        return @[purchaseVerificationUrlCn, purchaseVerificationUrl];
-    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyCnOnly]) {
-        return @[purchaseVerificationUrlCn];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyEU]) {
-        return @[purchaseVerificationUrlEU];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyTR]) {
-        return @[purchaseVerificationUrlTR];
-    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyUS]) {
-        return @[purchaseVerificationUrlUS];
+    if ([urlStrategyInfo isEqualToString:ADTUrlStrategyIR]) {
+        return @[purchaseVerificationUrlIR, purchaseVerificationUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTUrlStrategyMobi]) {
+        return @[purchaseVerificationUrlMobi, purchaseVerificationUrl];
+    } else if ([urlStrategyInfo isEqualToString:ADTDataResidencyIR]) {
+        return @[purchaseVerificationUrl];
     } else {
-        return @[purchaseVerificationUrl, purchaseVerificationUrlIndia, purchaseVerificationUrlChina];
+        return @[purchaseVerificationUrl, purchaseVerificationUrlIR, purchaseVerificationUrlMobi];
     }
 }
 

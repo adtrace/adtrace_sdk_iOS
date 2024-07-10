@@ -26,14 +26,10 @@ NSString * const ADTAdRevenueSourcePublisher = @"publisher_sdk";
 NSString * const ADTAdRevenueSourceTopOn = @"topon_sdk";
 NSString * const ADTAdRevenueSourceADX = @"adx_sdk";
 
-NSString * const ADTUrlStrategyIndia = @"UrlStrategyIndia";
-NSString * const ADTUrlStrategyChina = @"UrlStrategyChina";
-NSString * const ADTUrlStrategyCn = @"UrlStrategyCn";
-NSString * const ADTUrlStrategyCnOnly = @"UrlStrategyCnOnly";
+NSString * const ADTUrlStrategyIR = @"UrlStrategyIR";
+NSString * const ADTUrlStrategyMobi = @"UrlStrategyMobi";
 
-NSString * const ADTDataResidencyEU = @"DataResidencyEU";
-NSString * const ADTDataResidencyTR = @"DataResidencyTR";
-NSString * const ADTDataResidencyUS = @"DataResidencyUS";
+NSString * const ADTDataResidencyIR = @"DataResidencyIR";
 
 @implementation AdtraceTestOptions
 @end

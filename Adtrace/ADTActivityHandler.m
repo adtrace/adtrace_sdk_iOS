@@ -1435,9 +1435,7 @@ preLaunchActions:(ADTSavedPreLaunch*)preLaunchActions
 - (void)verifyPurchaseI:(ADTActivityHandler *)selfI
                purchase:(nonnull ADTPurchase *)purchase
       completionHandler:(void (^_Nonnull)(ADTPurchaseVerificationResult * _Nonnull verificationResult))completionHandler {
-    if ([selfI.adtraceConfig.urlStrategy isEqualToString:ADTDataResidencyEU] ||
-        [selfI.adtraceConfig.urlStrategy isEqualToString:ADTDataResidencyUS] ||
-        [selfI.adtraceConfig.urlStrategy isEqualToString:ADTDataResidencyTR]) {
+    if ([selfI.adtraceConfig.urlStrategy isEqualToString:ADTDataResidencyIR]) {
         [selfI.logger warn:@"Purchase verification not available for data residency users right now"];
         return;
     }

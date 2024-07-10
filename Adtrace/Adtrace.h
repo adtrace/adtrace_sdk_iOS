@@ -54,13 +54,9 @@ extern NSString * __nonnull const ADTAdRevenueSourceADX;
 /**
  * Constants for country app's URL strategies.
  */
-extern NSString * __nonnull const ADTUrlStrategyIndia;
-extern NSString * __nonnull const ADTUrlStrategyChina;
-extern NSString * __nonnull const ADTUrlStrategyCn;
-extern NSString * __nonnull const ADTUrlStrategyCnOnly;
-extern NSString * __nonnull const ADTDataResidencyEU;
-extern NSString * __nonnull const ADTDataResidencyTR;
-extern NSString * __nonnull const ADTDataResidencyUS;
+extern NSString * __nonnull const ADTUrlStrategyIR;
+extern NSString * __nonnull const ADTUrlStrategyMobi;
+extern NSString * __nonnull const ADTDataResidencyIR;
 
 /**
  * @brief The main interface to Adtrace.

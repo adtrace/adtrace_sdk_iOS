@@ -1,7 +1,7 @@
 PODS:
-  - Adtrace-sdk (2.2.1):
-    - Adtrace-sdk/Core (= 2.2.1)
-  - Adtrace-sdk/Core (2.2.1)
+  - Adtrace-sdk (2.3.0):
+    - Adtrace-sdk/Core (= 2.3.0)
+  - Adtrace-sdk/Core (2.3.0)
 
 DEPENDENCIES:
   - Adtrace-sdk (from `../../`)
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Adtrace-sdk: f92333429cec8ec80c39ebbe13e861ca14db88a8
+  Adtrace-sdk: d8f6a4d8daff0d118676563cdd32fd0e51f3a66d
 
 PODFILE CHECKSUM: bf296360b5d6ded387517b05042d45e90a3b5383
 

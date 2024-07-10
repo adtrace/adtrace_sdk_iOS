@@ -1,6 +1,0 @@
-framework module AdtraceSdkIm {
-  umbrella header "AdtraceSdkIm.h"
-
-  export *
-  module * { export * }
-}

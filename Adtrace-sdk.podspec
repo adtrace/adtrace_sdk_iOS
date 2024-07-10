@@ -7,10 +7,8 @@ Pod::Spec.new do |s|
   s.author         = { "Nasser Amini" => "namini40@gmail.com" }
   s.source         = { :git => "https://github.com/adtrace/adtrace_sdk_iOS.git", :tag => "v2.3.0" }
   s.ios.deployment_target = '9.0'
-  s.tvos.deployment_target = '9.0'
   s.framework      = 'SystemConfiguration'
   s.ios.weak_framework = 'AdSupport'
-  s.tvos.weak_framework = 'AdSupport'
   s.requires_arc   = true
   s.default_subspec = 'Core'
   s.pod_target_xcconfig = { 'BITCODE_GENERATION_MODE' => 'bitcode' }

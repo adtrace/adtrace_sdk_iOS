@@ -64,7 +64,7 @@ If your app is an app which uses web views you would like to use adtrace trackin
 
 ## <a id="example-apps"></a>Example apps
 
-There are example apps inside the [`examples` directory][examples] for [`iOS (Objective-C)`][example-ios-objc], [`iOS (Swift)`][example-ios-swift], [`tvOS`][example-tvos], [`iMessage`][example-imessage] and [`Apple Watch`][example-iwatch]. You can open any of these Xcode projects to see an example of how the Adtrace SDK can be integrated.
+There are example apps inside the [`examples` directory][examples] for [`iOS (Objective-C)`][example-ios-objc], [`iOS (Swift)`][example-ios-swift]. You can open any of these Xcode projects to see an example of how the Adtrace SDK can be integrated.
 
 ## <a id="basic-integration">Basic integration
 
@@ -119,14 +119,6 @@ If you added the Adtrace SDK as a static/dynamic framework or via Carthage, you 
 
 ---
 
-If you are are using the Adtrace SDK with your tvOS app, you should use the following import statement:
-
-```objc
-#import <AdtraceSdkTv/Adtrace.h>
-```
-
----
-
 If you are are using the Adtrace SDK with your iMessage app, you should use the following import statement:
 
 ```objc
@@ -143,8 +135,6 @@ In the Project Navigator, open the source file of your application delegate. Add
 #import "Adtrace.h"
 // or #import <Adtrace/Adtrace.h>
 // or #import <AdtraceSdk/Adtrace.h>
-// or #import <AdtraceSdkTv/Adtrace.h>
-// or #import <AdtraceSdkIm/Adtrace.h>
 
 // ...
 
@@ -233,8 +223,6 @@ If you don't want your app in production to display any logs coming from the Adt
 #import "Adtrace.h"
 // or #import <Adtrace/Adtrace.h>
 // or #import <AdtraceSdk/Adtrace.h>
-// or #import <AdtraceSdkTv/Adtrace.h>
-// or #import <AdtraceSdkIm/Adtrace.h>
 
 // ...
 
@@ -988,9 +976,6 @@ If you are seing any value in the dashboard other than what you expected to be t
 [cocoapods]:   http://cocoapods.org
 [transition]:  http://developer.apple.com/library/mac/#releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html
 
-[example-tvos]:       examples/AdtraceExample-tvOS
-[example-iwatch]:     examples/AdtraceExample-iWatch
-[example-imessage]:   examples/AdtraceExample-iMessage
 [example-ios-objc]:   examples/AdtraceExample-ObjC
 [example-ios-swift]:  examples/AdtraceExample-Swift
 
